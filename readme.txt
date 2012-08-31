@@ -1,8 +1,8 @@
 
 Theme Name: Custom Community 
-Theme URI: http://themekraft.com/custom-community/
-Description: Create your individual website within minutes. Custom Community is a WordPress and BuddyPress theme framework that enables you to build your site with all the features you love. Easy to use jQuery slideshow. List posts under your pages in magazine layouts. Use powerful theme settings to customize every part of the theme. 20 widget areas, 5 special widgets and 2 custom WP 3.0 header menus. 3 predefined colour schemes (white, grey, black) with clean and simple browsersafe css design to start from. Support forum at http://themekraft.com/forums. 
-Version: 1.9
+Theme URI: http://themekraft.com/shop/custom-community-pro/
+Description: Create your individual website within minutes. Custom Community is a WordPress and BuddyPress theme framework that enables you to build your site with all the features you love. Easy to use jQuery slideshow. List posts under your pages in magazine layouts. Use powerful theme settings to customize every part of the theme. 35 widget areas, 5 special widgets and 2 custom WP 3.0 header menus. 14+ languages available. 3 predefined colour schemes (white, grey, black) with clean and simple browsersafe CSS design to start from. Support at http://themekraft.com. 
+Version: 1.9.1
 Author: Themekraft
 Author URI: http://themekraft.com/
 Tags: buddypress, translation-ready, dark, light, white, left-sidebar, right-sidebar, two-columns, three-columns, fixed-width, flexible-width, custom-header, custom-menu, custom-colors, custom-background, theme-options

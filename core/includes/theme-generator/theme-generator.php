@@ -419,15 +419,9 @@ class CC_Theme_Generator{
   	
   		<div class="clear"></div>
 	  	<br />
-		<?php if($cap->disable_credits_footer != false ){ ?>
-			<br />
-			<div class="credits"><?php printf( __( '%s is proudly powered by <a class="credits" href="http://wordpress.org">WordPress</a> and <a class="credits" href="http://buddypress.org">BuddyPress</a>. ', 'cc' ), bloginfo('name') ); ?>
-			Just another <a class="credits" href="http://themekraft.com/all-themes/" target="_blank" title="Wordpress Theme" alt="WordPress Theme">WordPress Theme</a> developed by Themekraft.</div>
-		<?php } ?>
-		<?php if($cap->my_credits_footer != '' ){ ?>
-			<br />
-			<div class="credits"><?php echo $cap->my_credits_footer; ?></div>
-		<?php } ?>
+		<br />
+		<div class="credits"><?php printf( __( '%s is proudly powered by <a class="credits" href="http://wordpress.org">WordPress</a> and <a class="credits" href="http://buddypress.org">BuddyPress</a>. ', 'cc' ), bloginfo('name') ); ?>
+		Just another <a class="credits" href="http://themekraft.com/all-themes/" target="_blank" title="Wordpress Theme" alt="WordPress Theme">WordPress Theme</a> developed by Themekraft.</div>
 	<?php 
 	}
 	

@@ -1,0 +1,2326 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Erling Böttcher <erling@ishojvolley.dk>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#@ cc
+#: 404.php:7
+msgid "Page not found"
+msgstr "Siden blev ikke fundet"
+
+#@ cc
+#: 404.php:9
+msgid "We're sorry, but we can't find the page that you're looking for. Perhaps searching will help."
+msgstr "Desværre kunne vi ikke finde den ønskede side. Måske kan du bruge søgefunktionen."
+
+#@ cc
+#: _inc/ajax.php:147
+msgid "Please enter some content to post."
+msgstr "Tilføj noget indhold til dit indlæg."
+
+#@ cc
+#: _inc/ajax.php:164
+msgid "There was a problem posting your update, please try again."
+msgstr "Der var et problem med at sende din opdatering, prøv venligst igen."
+
+#@ cc
+#: _inc/ajax.php:189
+msgid "Please do not leave the comment area blank."
+msgstr "Lad venligst ikke kommentarboksen stå tomt."
+
+#@ cc
+#: _inc/ajax.php:194
+#: _inc/ajax.php:205
+msgid "There was an error posting that reply, please try again."
+msgstr "Der var et problem med at sende dit svar, vær venlig at prøve igen."
+
+#@ cc
+#: _inc/ajax.php:262
+#: _inc/ajax.php:297
+msgid "There was a problem when deleting. Please try again."
+msgstr "Der var et problem med at slette. Vær venlig at prøve igen."
+
+#@ cc
+#: _inc/ajax.php:312
+#: activity/entry.php:72
+msgid "Remove Favorite"
+msgstr "Fjern favorit"
+
+#@ cc
+#: _inc/ajax.php:321
+#: activity/entry.php:68
+msgid "Favorite"
+msgstr "Favorit"
+
+#@ cc
+#: _inc/ajax.php:380
+#: groups/create.php:234
+#: groups/single/send-invites.php:42
+msgid "Remove Invite"
+msgstr "Fjern invitation"
+
+#@ cc
+#: _inc/ajax.php:406
+msgid "Friendship could not be canceled."
+msgstr "Venskabet kunne ikke aflyses"
+
+#@ cc
+#: _inc/ajax.php:408
+msgid "Add Friend"
+msgstr "Tilføj ven"
+
+#@ cc
+#: _inc/ajax.php:416
+msgid "Friendship could not be requested."
+msgstr "Der kunne ikke anmodes om at blive ven."
+
+#@ cc
+#: _inc/ajax.php:418
+msgid "Friendship Requested"
+msgstr "Venneanmodning afsendt"
+
+#@ cc
+#: _inc/ajax.php:421
+msgid "Request Pending"
+msgstr "Anmodning overvejes"
+
+#@ cc
+#: _inc/ajax.php:433
+msgid "There was a problem accepting that request. Please try again."
+msgstr "Der var et problem med at modtage din venneanmodning. Vær venlig at prøve igen."
+
+#@ cc
+#: _inc/ajax.php:444
+msgid "There was a problem rejecting that request. Please try again."
+msgstr "Der var et problem med at afvise denne anmodning. Vær venlig at prøve igen."
+
+#@ cc
+#: _inc/ajax.php:467
+msgid "Error joining group"
+msgstr "Fejl ved indmeldelse i gruppe"
+
+#@ cc
+#: _inc/ajax.php:469
+msgid "Leave Group"
+msgstr "Forlad gruppen"
+
+#@ cc
+#: _inc/ajax.php:477
+msgid "Error requesting membership"
+msgstr "Fejl ved anmodning om medlemskab"
+
+#@ cc
+#: _inc/ajax.php:479
+msgid "Membership Requested"
+msgstr "Anmodning om medlemskab afsendt"
+
+#@ cc
+#: _inc/ajax.php:488
+msgid "Error leaving group"
+msgstr "Fejl ved at udmeldelse af gruppe"
+
+#@ cc
+#: _inc/ajax.php:491
+msgid "Join Group"
+msgstr "Meld dig ind i gruppe"
+
+#@ cc
+#: _inc/ajax.php:493
+msgid "Request Membership"
+msgstr "Anmod om medlemskab"
+
+#@ cc
+#: _inc/ajax.php:505
+msgid "There was a problem closing the notice."
+msgstr "Der var et problem med at lukke noten."
+
+#@ cc
+#: _inc/ajax.php:530
+#, php-format
+msgid "Sent %s"
+msgstr "Sendt %s"
+
+#@ cc
+#: _inc/ajax.php:547
+msgid "There was a problem sending that reply. Please try again."
+msgstr "Der var et problem med at sende det svar. Vær venlig at prøve igen."
+
+#@ cc
+#: _inc/ajax.php:557
+msgid "There was a problem marking messages as unread."
+msgstr "Der var et problem med at markere beskeder som ulæste."
+
+#@ cc
+#: _inc/ajax.php:573
+msgid "There was a problem marking messages as read."
+msgstr "Der var et problem med at markere beskeder som læste."
+
+#@ cc
+#: _inc/ajax.php:589
+msgid "There was a problem deleting messages."
+msgstr "Der var et problem med at slette beskeder."
+
+#@ cc
+#: _inc/ajax.php:596
+msgid "Messages deleted."
+msgstr "Beskeder slettet."
+
+#@ cc
+#: activity/activity-loop.php:41
+msgid "Load More"
+msgstr "Indlæs mere"
+
+#@ cc
+#: activity/activity-loop.php:55
+msgid "Sorry, there was no activity found. Please try a different filter."
+msgstr "Beklager, men der blev ikke fundet nogen aktivitet. Prøv med andre søgefiltre."
+
+#@ cc
+#. translators: 1: user profile link, 2: user name, 3: activity permalink, 3: activity timestamp
+#: activity/comment.php:28
+#, php-format
+msgid "<a href=\"%1$s\">%2$s</a> replied <a href=\"%3$s\" class=\"activity-time-since\"><span class=\"time-since\">%4$s</span></a>"
+msgstr "<a href=\"%1$s\">%2$s</a> blev besvaret <a href=\"%3$s\" class=\"activity-time-since\"><span class=\"time-since\">%4$s</span></a>"
+
+#@ cc
+#: activity/comment.php:33
+#: forums/single/edit.php:10
+#: groups/single/forum/edit.php:10
+msgid "Reply"
+msgstr "Svar"
+
+#@ cc
+#: activity/comment.php:39
+#: members/single/messages/messages-loop.php:50
+#: members/single/messages/single.php:24
+msgid "Delete"
+msgstr "Slet"
+
+#@ cc
+#: activity/entry.php:37
+msgid "In reply to: "
+msgstr "I svar til:"
+
+#@ cc
+#: activity/entry.php:37
+msgid "View Thread / Permalink"
+msgstr "Vis diskussion / link"
+
+#@ cc
+#: activity/entry.php:37
+#: core/includes/bp/templatetags.php:89
+msgid "View"
+msgstr "Se"
+
+#@ cc
+#: activity/entry.php:60
+#, php-format
+msgid "Comment <span>%s</span>"
+msgstr "Kommentér <span>%s</span>"
+
+#@ cc
+#: activity/entry.php:68
+msgid "Mark as Favorite"
+msgstr "Markér som favorit"
+
+#@ cc
+#: activity/entry.php:104
+msgid "Post"
+msgstr "Indlæg"
+
+#@ cc
+#: activity/entry.php:104
+msgid "or press esc to cancel."
+msgstr "eller tryk esc for at slette"
+
+#@ cc
+#: activity/index.php:23
+msgid "Site Activity"
+msgstr "Aktivitet på siden"
+
+#@ cc
+#: activity/index.php:41
+msgid "The public activity for everyone on this site."
+msgstr "Aktivitet for alle brugere på siden"
+
+#@ cc
+#: activity/index.php:41
+#: members/index.php:35
+#, php-format
+msgid "All Members <span>%s</span>"
+msgstr "Alle medlemmer <span>%s</span>"
+
+#@ cc
+#: activity/index.php:51
+msgid "The activity of my friends only."
+msgstr "Kun mine venners aktiviteter."
+
+#@ cc
+#: activity/index.php:51
+#: members/index.php:39
+#, php-format
+msgid "My Friends <span>%s</span>"
+msgstr "Mine kontakter <span>%s</span>"
+
+#@ cc
+#: activity/index.php:63
+msgid "The activity of groups I am a member of."
+msgstr "Aktiviteter i de grupper jeg er medlem af."
+
+#@ cc
+#: activity/index.php:63
+#: groups/index.php:41
+#, php-format
+msgid "My Groups <span>%s</span>"
+msgstr "Mine grupper <span>%s</span>"
+
+#@ cc
+#: activity/index.php:73
+msgid "The activity I've marked as a favorite."
+msgstr "Aktiviteter jeg har markeret som mine favoritter."
+
+#@ cc
+#: activity/index.php:73
+#, php-format
+msgid "My Favorites <span>%s</span>"
+msgstr "Mine favoritter <span>%s</span>"
+
+#@ cc
+#: activity/index.php:79
+msgid "Activity that I have been mentioned in."
+msgstr "Aktiviteter hvor jeg er blevet nævnt."
+
+#@ cc
+#: activity/index.php:79
+msgid "Public Mentions"
+msgstr "Offentlige omtaler"
+
+#@ cc
+#: activity/index.php:79
+#, php-format
+msgid "<span>%s new</span>"
+msgstr "<span>%s ny</span>"
+
+#@ cc
+#: activity/index.php:89
+#: groups/single/activity.php:3
+msgid "RSS Feed"
+msgstr "RSS Feed"
+
+#@ cc
+#: activity/index.php:89
+#: groups/single/activity.php:3
+msgid "RSS"
+msgstr "RSS"
+
+#@ cc
+#: activity/index.php:94
+#: groups/single/activity.php:8
+#: members/single/activity.php:18
+msgid "Show:"
+msgstr "Vis:"
+
+#@ cc
+#: activity/index.php:96
+#: groups/single/activity.php:10
+#: members/single/activity.php:20
+msgid "Everything"
+msgstr "Alt"
+
+#@ cc
+#: activity/index.php:97
+#: groups/single/activity.php:11
+#: members/single/activity.php:21
+msgid "Updates"
+msgstr "Opdateringer"
+
+#@ cc
+#: activity/index.php:101
+#: forums/forums-loop.php:31
+#: members/single/activity.php:27
+msgid "Posts"
+msgstr "Indlæg"
+
+#@ cc
+#: activity/index.php:102
+#: members/single/activity.php:28
+msgid "Comments"
+msgstr "Kommentarer"
+
+#@ cc
+#: activity/index.php:108
+#: groups/single/activity.php:14
+#: members/single/activity.php:43
+msgid "Forum Topics"
+msgstr "Emner i forum"
+
+#@ cc
+#: activity/index.php:109
+#: groups/single/activity.php:15
+#: members/single/activity.php:44
+msgid "Forum Replies"
+msgstr "Svar i forum"
+
+#@ cc
+#: activity/index.php:115
+#: members/single/activity.php:50
+msgid "New Groups"
+msgstr "Nye grupper"
+
+#@ cc
+#: activity/index.php:116
+#: groups/single/activity.php:18
+#: members/single/activity.php:51
+msgid "Group Memberships"
+msgstr "Medlemskab af grupper"
+
+#@ cc
+#: activity/index.php:122
+#: members/single/activity.php:35
+msgid "Friendships"
+msgstr "Venner"
+
+#@ cc
+#: activity/index.php:126
+msgid "New Members"
+msgstr "Nyt medlem"
+
+#@ cc
+#: activity/post-form.php:23
+#, php-format
+msgid "What's new in %s, %s?"
+msgstr "Hvad er nyt i %s, %s?"
+
+#@ cc
+#: activity/post-form.php:25
+#, php-format
+msgid "What's new, %s?"
+msgstr "Hvad er nyt, %s?"
+
+#@ cc
+#: activity/post-form.php:35
+msgid "Post Update"
+msgstr "Indlæg opdateret"
+
+#@ cc
+#: activity/post-form.php:42
+msgid "Post in"
+msgstr "Indlæg i"
+
+#@ cc
+#: activity/post-form.php:45
+#: members/single/profile/profile-wp.php:8
+msgid "My Profile"
+msgstr "Min profil"
+
+#@ cc
+#: admin/library.php:536
+msgid "Save Options"
+msgstr "Gem indstillinger"
+
+#@ buddypress
+#: admin/page-meta-box.php:65
+#: admin/post-meta-box.php:46
+msgid "klick"
+msgstr "Klik"
+
+#@ default
+#: admin/page-meta-box.php:68
+#: admin/post-meta-box.php:49
+msgid "Custom Community settings"
+msgstr "Custom Community indstillinger"
+
+#@ cc
+#@ default
+#: admin/page-meta-box.php:99
+#: admin/post-meta-box.php:53
+msgid "Post template on"
+msgstr "Send skabelon til"
+
+#@ default
+#: admin/post-meta-box.php:63
+msgid "Hide avatar"
+msgstr "Skjul brugerfoto"
+
+#@ default
+#: admin/post-meta-box.php:65
+msgid "Hide date/category"
+msgstr "Skjul dato/kategori"
+
+#@ default
+#: admin/post-meta-box.php:67
+msgid "Hide tags"
+msgstr "Skjul markeringer (tags)"
+
+#@ default
+#: admin/post-meta-box.php:70
+msgid "Hide comment-info"
+msgstr "Skjul kommentar-information"
+
+#@ default
+#: admin/page-meta-box.php:72
+msgid "Slideshow on"
+msgstr "Slideshow slået til"
+
+#@ cc
+#: archive.php:26
+#: archive.php:67
+#: core/includes/bp/templatetags.php:349
+#: index.php:50
+#: search-loop.php:43
+#: search.php:17
+#: search.php:53
+msgid "&larr; Previous Entries"
+msgstr "&larr; tidligere bidrag"
+
+#@ cc
+#: archive.php:27
+#: archive.php:68
+#: core/includes/bp/templatetags.php:350
+#: index.php:51
+#: search-loop.php:44
+#: search.php:18
+#: search.php:54
+msgid "Next Entries &rarr;"
+msgstr "Næste bidrag &rarr;"
+
+#@ cc
+#: archive.php:40
+#: archive.php:46
+#: index.php:20
+#: search.php:30
+#: search.php:37
+#: single.php:44
+#, php-format
+msgid "by %s"
+msgstr "af %s"
+
+#@ cc
+#: archive.php:44
+#: index.php:28
+#: search.php:35
+#: single.php:54
+msgid "Permanent Link to"
+msgstr "Link til"
+
+#@ cc
+#: archive.php:46
+#: index.php:30
+#: search.php:37
+#: single.php:56
+msgid "in"
+msgstr "i"
+
+#@ cc
+#: archive.php:53
+#: index.php:36
+#: search.php:43
+#: single.php:75
+msgid "Tags: "
+msgstr "Markeringer (tags)"
+
+#@ cc
+#: archive.php:53
+#: archive.php:55
+#: index.php:36
+#: index.php:38
+#: search-loop.php:33
+#: search.php:43
+#: single.php:80
+msgid "No Comments &#187;"
+msgstr "Ingen kommentarer &#187;"
+
+#@ cc
+#: archive.php:53
+#: archive.php:55
+#: index.php:36
+#: index.php:38
+#: search-loop.php:33
+#: search.php:43
+#: single.php:80
+msgid "1 Comment &#187;"
+msgstr "1 kommentar &#187;"
+
+#@ cc
+#: archive.php:53
+#: archive.php:55
+#: index.php:36
+#: index.php:38
+#: search-loop.php:33
+#: search.php:43
+#: single.php:80
+msgid "% Comments &#187;"
+msgstr "% kommentarer &#187;"
+
+#@ cc
+#: archive.php:74
+#: index.php:57
+msgid "Not Found"
+msgstr "Ikke fundet"
+
+#@ cc
+#: attachment.php:9
+#: search.php:10
+msgid "Blog"
+msgstr "Blog"
+
+#@ cc
+#: attachment.php:25
+msgid "<p class=\"serif\">Read the rest of this entry &rarr;</p>"
+msgstr "<p class=\"serif\">Læs resten af dette indlæg &rarr;</p>"
+
+#@ cc
+#: attachment.php:27
+#: full-width.php:25
+msgid "<p><strong>Pages:</strong> "
+msgstr "<p><strong>Sider:</strong> "
+
+#@ cc
+#: attachment.php:38
+msgid "Sorry, no attachments matched your criteria."
+msgstr "Desværre, der er ingen vedhæftninger som svarer til dine indstillinger"
+
+#@ cc
+#: blogs/blogs-loop.php:90
+msgid "Sorry, there were no sites found."
+msgstr "Desværre, der blev ikke fundet nogle sider."
+
+#@ cc
+#: blogs/create.php:21
+#: blogs/index.php:23
+msgid "Create a Site"
+msgstr "Opret en side"
+
+#@ cc
+#: blogs/create.php:21
+#: blogs/index.php:23
+msgid "Site Directory"
+msgstr "Side oversigt"
+
+#@ cc
+#: blogs/create.php:32
+msgid "Site registration is currently disabled"
+msgstr "Side registrering er i øjeblikket deaktiveret"
+
+#@ cc
+#: blogs/index.php:35
+#, php-format
+msgid "All Sites <span>%s</span>"
+msgstr "Alle sider <span>%s</span>"
+
+#@ cc
+#: blogs/index.php:39
+#, php-format
+msgid "My Sites <span>%s</span>"
+msgstr "Mine sider <span>%s</span>"
+
+#@ cc
+#: blogs/index.php:55
+#: forums/index.php:60
+#: forums/single/forum.php:34
+#: groups/index.php:57
+#: groups/single/forum.php:32
+#: groups/single/members.php:12
+#: members/index.php:55
+#: members/single/blogs.php:19
+#: members/single/forums.php:18
+#: members/single/friends.php:20
+#: members/single/groups.php:20
+msgid "Order By:"
+msgstr "Sortér efter:"
+
+#@ cc
+#: blogs/index.php:57
+#: forums/index.php:62
+#: forums/single/forum.php:36
+#: groups/index.php:59
+#: groups/single/forum.php:34
+#: groups/single/members.php:14
+#: members/index.php:57
+#: members/single/blogs.php:21
+#: members/single/forums.php:20
+#: members/single/friends.php:22
+#: members/single/groups.php:22
+msgid "Last Active"
+msgstr "Sidst aktiv"
+
+#@ cc
+#: blogs/index.php:58
+#: members/single/blogs.php:22
+msgid "Newest"
+msgstr "Nyeste"
+
+#@ cc
+#: blogs/index.php:59
+#: groups/index.php:62
+#: groups/single/members.php:19
+#: members/index.php:62
+#: members/single/blogs.php:23
+#: members/single/friends.php:24
+#: members/single/groups.php:25
+msgid "Alphabetical"
+msgstr "Alfabetisk"
+
+#@ cc
+#: comments.php:52
+msgid "Comments are closed."
+msgstr "Kommentar-muligheden er lukket nu."
+
+#@ cc
+#: core/includes/bp/templatetags.php:300
+#: members/single/profile/profile-wp.php:15
+msgid "Name"
+msgstr "Navn"
+
+#@ cc
+#: core/includes/bp/templatetags.php:302
+msgid "Email"
+msgstr "Email"
+
+#@ cc
+#: core/includes/bp/templatetags.php:304
+#: members/single/profile/profile-wp.php:33
+msgid "Website"
+msgstr "Hjemmeside"
+
+#@ cc
+#: core/includes/bp/buddydev-search.php:52
+msgid "Search Page"
+msgstr "Søgeside"
+
+#@ cc
+#: core/includes/bp/templatetags.php:82
+msgid "My Favorites"
+msgstr "Mine favoritter"
+
+#@ cc
+#: core/includes/bp/templatetags.php:83
+msgid "Accepted"
+msgstr "Godkendt"
+
+#@ cc
+#: core/includes/bp/templatetags.php:84
+msgid "Rejected"
+msgstr "Ikke godkendt"
+
+#@ cc
+#: core/includes/bp/templatetags.php:85
+msgid "Show all comments for this thread"
+msgstr "Vis alle kommentarer i denne tråd"
+
+#@ cc
+#: core/includes/bp/templatetags.php:86
+msgid "Show all"
+msgstr "Vis alle"
+
+#@ cc
+#: core/includes/bp/templatetags.php:87
+msgid "comments"
+msgstr "kommentarer"
+
+#@ cc
+#: core/includes/bp/templatetags.php:88
+msgid "Close"
+msgstr "luk"
+
+#@ cc
+#. translators: 1: comment author url, 2: comment author name, 3: comment permalink, 4: comment date/timestamp
+#: core/includes/bp/templatetags.php:142
+#, php-format
+msgid "<a href=\"%1$s\" rel=\"nofollow\">%2$s</a> said on <a href=\"%3$s\"><span class=\"time-since\">%4$s</span></a>"
+msgstr "<a href=\"%1$s\" rel=\"nofollow\">%2$s</a> sagde på <a href=\"%3$s\"><span class=\"time-since\">%4$s</span></a>"
+
+#@ cc
+#: core/includes/bp/templatetags.php:149
+msgid "Your comment is awaiting moderation."
+msgstr "Din kommentar afventer godkendelse."
+
+#@ cc
+#: core/includes/bp/templatetags.php:161
+msgid "Edit comment"
+msgstr "Redigér kommentar"
+
+#@ cc
+#: core/includes/bp/templatetags.php:161
+msgid "Edit"
+msgstr "Redigér"
+
+#@ cc
+#: core/includes/bp/templatetags.php:231
+#, php-format
+msgid "Theme activated! This theme contains <a href=\"%s\">custom header image</a> support and <a href=\"%s\">sidebar widgets</a>."
+msgstr "Tema er aktiveret! Dette tema indeholder <a href=\"%s\">brugerdefineret sidehoved illustration</a> understøttelse, og <a href=\"%s\">sidebar widgets</a>."
+
+#@ cc
+#: core/includes/bp/templatetags.php:312
+#, php-format
+msgid "You must be <a href=\"%1$s\">logged in</a> to post a comment."
+msgstr "Du skal <a href=\"%1$s\">logge ind</a> for at sende en kommentar."
+
+#@ cc
+#: core/includes/bp/templatetags.php:313
+msgid "Leave a reply"
+msgstr "Send et svar"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:169
+#: searchform.php:5
+msgid "Search"
+msgstr "Søg"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:196
+#: core/includes/theme-generator/theme-generator.php:200
+#: core/includes/theme-generator/theme-generator.php:205
+#: core/includes/theme-generator/theme-generator.php:208
+#: core/includes/theme-generator/theme-generator.php:229
+#: core/includes/theme-generator/theme-generator.php:237
+msgid "Home"
+msgstr "Tilbage til startside"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:242
+#: core/includes/wp/widgets.php:34
+msgid "Community"
+msgstr "Fællesskab"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:246
+#: core/includes/wp/widgets.php:38
+msgid "Activity"
+msgstr "Aktivitet"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:251
+#: core/includes/wp/widgets.php:43
+#: groups/single/admin.php:229
+msgid "Members"
+msgstr "Medlemmer"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:256
+#: core/includes/wp/widgets.php:48
+msgid "Groups"
+msgstr "Grupper"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:260
+#: core/includes/wp/widgets.php:53
+msgid "Forums"
+msgstr "Fora"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:267
+#: core/includes/wp/widgets.php:59
+msgid "Blogs"
+msgstr "Blogs"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:369
+msgid "20 widget areas all over the site"
+msgstr "20 widgetområder på hele hjemmesiden"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:382
+#: links.php:16
+#: sidebar.php:45
+msgid "Links"
+msgstr "Links"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:395
+#: sidebar.php:39
+msgid "Archives"
+msgstr "Arkiver"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:408
+#: sidebar.php:51
+msgid "Meta"
+msgstr "Meta"
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:423
+#, php-format
+msgid "%s is proudly powered by <a class=\"credits\" href=\"http://wordpress.org\">WordPress</a> and <a class=\"credits\" href=\"http://buddypress.org\">BuddyPress</a>. "
+msgstr "%s er stolt af at køre på platformene <a class=\"credits\" href=\"http://wordpress.org\">WordPress</a> og <a class=\"credits\" href=\"http://buddypress.org\">BuddyPress</a>. "
+
+#@ cc
+#: core/includes/theme-generator/theme-generator.php:576
+#: core/includes/theme-generator/theme-generator.php:578
+#: single.php:63
+msgid "Read the rest of this entry &rarr;"
+msgstr "Læs resten af dette bidrag &rarr;"
+
+#@ cc
+#: core/includes/wp/shortcodes.php:639
+msgid "read more"
+msgstr "læs mere"
+
+#@ cc
+#: core/includes/wp/shortcodes.php:868
+msgid "Empty Slideshow"
+msgstr "Slet indhold i slideshow"
+
+#@ cc
+#: core/includes/wp/shortcodes.php:869
+msgid "You have no posts selected for your slideshow! <br>Check your theme settings for the global slideshow or the page settings for page slideshows... <br>and write a post! Check the <a href=\"http://themekraft.com/faq/slideshow/\" target=\"_blank\">FAQ</a> for more."
+msgstr "Du har ingen indlæg til dit slideshow! <br>Tjek dit temas overordnede indstillinger for slideshow eller sidens indstillinger for sidens slideshow... <br>og skriv et indlæg! Tjek <a href=\"http://themekraft.com/faq/slideshow/\" target=\"_blank\">FAQ</a> for flere oplysninger."
+
+#@ cc
+#: core/includes/wp/widgets.php:68
+msgid "@ Group"
+msgstr "@ gruppe"
+
+#@ cc
+#: core/includes/wp/widgets.php:79
+msgid "@ Member"
+msgstr "@ medlem"
+
+#@ cc
+#: core/includes/wp/widgets.php:111
+msgid "Log Out"
+msgstr "Log ud"
+
+#@ cc
+#: core/includes/wp/widgets.php:128
+msgid "To start connecting please log in first."
+msgstr "Du skal logge ind før du kan tage kontakt."
+
+#@ cc
+#: core/includes/wp/widgets.php:133
+#, php-format
+msgid " You can also <a href=\"%s\" title=\"Create an account\">create an account</a>."
+msgstr "Du kan også <a href=\"%s\" title=\"Konto erstellen\">oprette en konton</a>."
+
+#@ cc
+#: core/includes/wp/widgets.php:138
+#: registration/register.php:37
+msgid "Username"
+msgstr "Brugernavn"
+
+#@ cc
+#: core/includes/wp/widgets.php:141
+msgid "Password"
+msgstr "Kodeord"
+
+#@ cc
+#: core/includes/wp/widgets.php:144
+msgid "Remember Me"
+msgstr "Husk mig"
+
+#@ cc
+#: core/includes/wp/widgets.php:147
+msgid "Log In"
+msgstr "Log ind"
+
+#@ cc
+#: core/includes/wp/widgets.php:166
+msgid "Forum Topic Tags"
+msgstr "Markeringer af emner i fora (tags)"
+
+#@ cc
+#: forums/forums-loop.php:32
+msgid "Freshness"
+msgstr "Hvor nyt"
+
+#@ cc
+#: forums/forums-loop.php:45
+msgid "Permalink"
+msgstr "Permanent link"
+
+#@ cc
+#: forums/forums-loop.php:95
+msgid "Sorry, there were no forum topics found."
+msgstr "Der blev ikke fundet nogle emner i fora."
+
+#@ cc
+#: forums/index.php:23
+msgid "Forums Directory"
+msgstr "Oversigt over fora."
+
+#@ cc
+#: forums/index.php:23
+#: forums/single/forum.php:19
+#: groups/single/forum.php:17
+msgid "New Topic"
+msgstr "Nyt tema"
+
+#@ cc
+#: forums/index.php:40
+#, php-format
+msgid "All Topics <span>%s</span>"
+msgstr "Alle temaer <span>%s</span>"
+
+#@ cc
+#: forums/index.php:44
+#, php-format
+msgid "My Topics <span>%s</span>"
+msgstr "Mine temaer <span>%s</span>"
+
+#@ cc
+#: forums/index.php:63
+#: forums/single/forum.php:37
+#: groups/single/forum.php:35
+#: members/single/forums.php:21
+msgid "Most Posts"
+msgstr "Flest indlæg"
+
+#@ cc
+#: forums/index.php:64
+#: forums/single/forum.php:38
+#: groups/single/forum.php:36
+#: members/single/forums.php:22
+msgid "Unreplied"
+msgstr "Ubesvaret"
+
+#@ cc
+#: forums/index.php:100
+msgid "Create New Topic:"
+msgstr "Opret et nyt emne:"
+
+#@ cc
+#: forums/index.php:104
+#: forums/single/edit.php:49
+#: groups/single/forum/edit.php:49
+#: groups/single/forum.php:71
+msgid "Title:"
+msgstr "Titel:"
+
+#@ cc
+#: forums/index.php:107
+#: forums/single/edit.php:52
+#: groups/single/forum/edit.php:52
+#: groups/single/forum.php:74
+msgid "Content:"
+msgstr "Indhold:"
+
+#@ cc
+#: forums/index.php:110
+#: groups/single/forum/edit.php:55
+#: groups/single/forum.php:77
+msgid "Tags (comma separated):"
+msgstr "Markeringer (tags), kommasepareret"
+
+#@ cc
+#: forums/index.php:113
+msgid "Post In Group Forum:"
+msgstr "Indlæg i gruppe forum:"
+
+#@ cc
+#. translators: no option picked in select box
+#: forums/index.php:116
+msgid "----"
+msgstr "----"
+
+#@ cc
+#: forums/index.php:133
+#: groups/single/forum.php:83
+msgid "Post Topic"
+msgstr "Send emne"
+
+#@ cc
+#: forums/index.php:134
+msgid "Cancel"
+msgstr "Afbryd"
+
+#@ cc
+#: forums/index.php:145
+#, php-format
+msgid "You are not a member of any groups so you don't have any group forums you can post in. To start posting, first find a group that matches the topic subject you'd like to start. If this group does not exist, why not <a href='%s'>create a new group</a>? Once you have joined or created the group you can post your topic in that group's forum."
+msgstr "Du er ikke medlem af nogle grupper så du har ingen gruppe fora som du kan sende et indlæg til. For at starte med at sende indlæg skal du først finde en gruppe som matcher det emne du vil tage fat på. Hvis denne gruppe ikke findes kan du <a href='%s'>starte en ny gruppe</a>? Når du har meldt dig ind i eller startet en ny gruppe kan du skrive dit emne i den gruppes forum."
+
+#@ cc
+#: forums/single/edit.php:16
+#: forums/single/forum.php:25
+#: forums/single/topic.php:43
+#: groups/single/forum/edit.php:16
+#: groups/single/forum/topic.php:16
+#: groups/single/forum.php:23
+msgid "Forum Directory"
+msgstr "Oversigt over fora"
+
+#@ cc
+#: forums/single/edit.php:25
+#: groups/single/forum/edit.php:25
+msgid "Edit:"
+msgstr "Redigér"
+
+#@ cc
+#: forums/single/edit.php:57
+#: forums/single/edit.php:73
+#: groups/single/admin.php:32
+#: groups/single/admin.php:117
+#: groups/single/forum/edit.php:60
+#: groups/single/forum/edit.php:76
+#: members/single/profile/edit.php:126
+#: members/single/settings/general.php:69
+#: members/single/settings/notifications.php:62
+msgid "Save Changes"
+msgstr "Gem ændringer"
+
+#@ cc
+#: forums/single/edit.php:88
+#: groups/single/forum/edit.php:91
+msgid "This topic does not exist."
+msgstr "Dette emne findes ikke."
+
+#@ cc
+#: forums/single/forum-header.php:13
+#: groups/groups-loop.php:47
+#, php-format
+msgid "active %s"
+msgstr "aktiv %s"
+
+#@ cc
+#: forums/single/topic.php:37
+#: groups/single/forum/topic.php:10
+msgid "New Reply"
+msgstr "Nyt svar"
+
+#@ cc
+#: forums/single/topic.php:97
+#, php-format
+msgid "%s said %s ago:"
+msgstr "%s sagde %s tidligere:"
+
+#@ cc
+#: forums/single/topic.php:117
+#: groups/single/forum/topic.php:81
+msgid "Permanent link to this post"
+msgstr "Permanent link til dette indlæg"
+
+#@ cc
+#: forums/single/topic.php:153
+#: groups/single/forum/topic.php:117
+msgid "Add a reply:"
+msgstr "Tilføj et svar:"
+
+#@ cc
+#: forums/single/topic.php:158
+#: groups/single/forum/topic.php:122
+msgid "Post Reply"
+msgstr "Send svar"
+
+#@ cc
+#: forums/single/topic.php:169
+#: groups/single/forum/topic.php:133
+msgid "This topic is closed, replies are no longer accepted."
+msgstr "Dette emne er lukket, nye svar bliver ikke godkendt."
+
+#@ cc
+#: forums/single/topic.php:184
+#: groups/single/forum/topic.php:147
+msgid "There are no posts for this topic."
+msgstr "Der er ingen indlæg med dette emne."
+
+#@ cc
+#: full-width.php:23
+#: left-and-right-sidebar.php:22
+#: left-sidebar.php:22
+#: page.php:17
+#: right-sidebar.php:22
+msgid "<p class=\"serif\">Read the rest of this page &rarr;</p>"
+msgstr "<p class=\"serif\">Læs resten af denne side &rarr;</p>"
+
+#@ cc
+#: full-width.php:38
+#: single.php:92
+msgid "Edit this entry."
+msgstr "Redigér bidrag"
+
+#@ cc
+#: functions.php:60
+msgid "Header top menu"
+msgstr "Sidehovedets topmenu"
+
+#@ cc
+#: functions.php:61
+msgid "Header bottom menu"
+msgstr "Sidehovedets bundmenu"
+
+#@ cc
+#: functions.php:474
+msgid "Members Results"
+msgstr "Medlemsresultater"
+
+#@ cc
+#: functions.php:489
+msgid "Group Search"
+msgstr "Søg i gruppen"
+
+#@ cc
+#: functions.php:492
+msgid "View All matched Groups"
+msgstr "Vis alle fundne grupper"
+
+#@ cc
+#: functions.php:510
+msgid "Blog Search"
+msgstr "Søg på hjemmesiden"
+
+#@ cc
+#: functions.php:513
+msgid "View All matched Posts"
+msgstr "Vis alle fundne indlæg"
+
+#@ cc
+#: functions.php:525
+msgid "Forums Search"
+msgstr "Søg efter fora"
+
+#@ cc
+#: functions.php:527
+msgid "View All matched forum posts"
+msgstr "Vis alle fundne indlæg i fora"
+
+#@ cc
+#: functions.php:546
+msgid "Blogs Search"
+msgstr "Søg på siden"
+
+#@ cc
+#: functions.php:548
+msgid "View All matched Blogs"
+msgstr "Vis alle fundne hjemmesider"
+
+#@ cc
+#: groups/create.php:18
+#: groups/index.php:23
+msgid "Create a Group"
+msgstr "Opret en gruppe"
+
+#@ cc
+#: groups/create.php:18
+#: groups/index.php:23
+msgid "Groups Directory"
+msgstr "Oversigt over grupper"
+
+#@ cc
+#: groups/create.php:39
+#: groups/single/admin.php:16
+msgid "Group Name (required)"
+msgstr "Navnet på gruppen (obligatorisk)"
+
+#@ cc
+#: groups/create.php:42
+#: groups/single/admin.php:19
+msgid "Group Description (required)"
+msgstr "Beskrivelse af gruppen (obligatorisk)"
+
+#@ cc
+#: groups/create.php:62
+#: groups/single/admin.php:47
+msgid "Enable discussion forum"
+msgstr "Tillad diskussionsfora"
+
+#@ cc
+#: groups/create.php:69
+#, php-format
+msgid "<strong>Attention Site Admin:</strong> Group forums require the <a href=\"%s\">correct setup and configuration</a> of a bbPress installation."
+msgstr "<strong>Bemærk, administrator:</strong> Gruppefora kræver <a href=\"%s\">en korrekt installering og indstillning</a> af bbPress."
+
+#@ cc
+#: groups/create.php:78
+#: groups/single/admin.php:56
+msgid "Privacy Options"
+msgstr "Indstilling af privatsfære"
+
+#@ cc
+#: groups/create.php:82
+#: groups/single/admin.php:61
+msgid "This is a public group"
+msgstr "Dette er en offentlige gruppe"
+
+#@ cc
+#: groups/create.php:84
+#: groups/single/admin.php:63
+msgid "Any site member can join this group."
+msgstr "Hvert medlem kan melde sig ind i denne gruppe"
+
+#@ cc
+#: groups/create.php:85
+#: groups/create.php:94
+#: groups/single/admin.php:64
+#: groups/single/admin.php:74
+msgid "This group will be listed in the groups directory and in search results."
+msgstr "Denne gruppe vil blive vist i gruppeoversigten og i søgeresultater."
+
+#@ cc
+#: groups/create.php:86
+#: groups/single/admin.php:65
+msgid "Group content and activity will be visible to any site member."
+msgstr "Gruppens indhold og aktivtet vil være synlig for alle medlemmer."
+
+#@ cc
+#: groups/create.php:91
+#: groups/single/admin.php:71
+msgid "This is a private group"
+msgstr "Dette er en privat gruppe"
+
+#@ cc
+#: groups/create.php:93
+#: groups/single/admin.php:73
+msgid "Only users who request membership and are accepted can join the group."
+msgstr "Kun brugere som beder om det og bliver godkendt kan blive medlem af denne gruppe."
+
+#@ cc
+#: groups/create.php:95
+#: groups/create.php:104
+#: groups/single/admin.php:75
+#: groups/single/admin.php:85
+msgid "Group content and activity will only be visible to members of the group."
+msgstr "Indhold og aktivitet i gruppen vil kun være synlig for gruppens medlemmer."
+
+#@ cc
+#: groups/create.php:100
+#: groups/single/admin.php:81
+msgid "This is a hidden group"
+msgstr "Dette er en ikke-offentlig gruppe"
+
+#@ cc
+#: groups/create.php:102
+#: groups/single/admin.php:83
+msgid "Only users who are invited can join the group."
+msgstr "Kun brugere som er blevet inviteret kan blive medlem af gruppen."
+
+#@ cc
+#: groups/create.php:103
+#: groups/single/admin.php:84
+msgid "This group will not be listed in the groups directory or search results."
+msgstr "Denne gruppe vil ikke blive medtaget i gruppeoversigten og i søgeresultater."
+
+#@ cc
+#: groups/create.php:111
+#: groups/single/admin.php:92
+msgid "Group Invitations"
+msgstr "Invitationer i gruppen"
+
+#@ cc
+#: groups/create.php:113
+#: groups/single/admin.php:94
+msgid "Which members of this group are allowed to invite others?"
+msgstr "Hvilke medlemmer af gruppen må invitere andre til gruppen?"
+
+#@ cc
+#: groups/create.php:118
+#: groups/single/admin.php:99
+msgid "All group members"
+msgstr "Alle gruppens medlemmer"
+
+#@ cc
+#: groups/create.php:123
+#: groups/single/admin.php:104
+msgid "Group admins and mods only"
+msgstr "Kun administratorer og redaktører for gruppen"
+
+#@ cc
+#: groups/create.php:128
+#: groups/single/admin.php:109
+msgid "Group admins only"
+msgstr "Kun gruppens administratorer"
+
+#@ cc
+#: groups/create.php:154
+#: groups/single/admin.php:127
+msgid "Upload an image to use as an avatar for this group. The image will be shown on the main group page, and in search results."
+msgstr "Indsæt et billede som illustration for denne gruppe. Billedet vil blive vist på hovedsiden for grupperne og i søgeresultater."
+
+#@ cc
+#: groups/create.php:158
+#: groups/single/admin.php:131
+#: members/single/profile/change-avatar.php:18
+msgid "Upload Image"
+msgstr "Indsæt billede"
+
+#@ cc
+#: groups/create.php:162
+msgid "To skip the avatar upload process, hit the \"Next Step\" button."
+msgstr "Klik på \"Next Step\" knappen for at afbryde processen med at indsætte bruger-illustration (avatar)"
+
+#@ cc
+#: groups/create.php:169
+msgid "Crop Group Avatar"
+msgstr "Beskær gruppebilledet"
+
+#@ cc
+#: groups/create.php:171
+#: groups/single/admin.php:151
+#: members/single/profile/change-avatar.php:33
+msgid "Avatar to crop"
+msgstr "Foto til beskæring"
+
+#@ cc
+#: groups/create.php:174
+#: groups/single/admin.php:154
+#: members/single/profile/change-avatar.php:36
+msgid "Avatar preview"
+msgstr "Forhåndsvisning foto"
+
+#@ cc
+#: groups/create.php:177
+#: groups/single/admin.php:157
+#: members/single/profile/change-avatar.php:39
+msgid "Crop Image"
+msgstr "Beskær profilfoto"
+
+#@ cc
+#: groups/create.php:216
+#: groups/single/send-invites.php:22
+msgid "Select people to invite from your friends list."
+msgstr "Vælg mennesker at invitiere fra listen over dine venner."
+
+#@ cc
+#: groups/create.php:251
+#: groups/single/send-invites.php:73
+msgid "Once you have built up friend connections you will be able to invite others to your group. You can send invites any time in the future by selecting the \"Send Invites\" option when viewing your new group."
+msgstr "Når du har skab venneforbindelser vil du være i stant til at invitere andre til din gruppe. Du kan til hver en tid sende invitationer ved at vælge \"Send invitationer\" muligheden når du ser i din nye gruppe."
+
+#@ cc
+#: groups/create.php:273
+msgid "Back to Previous Step"
+msgstr "Tilbage til tidligere trin"
+
+#@ cc
+#: groups/create.php:280
+msgid "Next Step"
+msgstr "Næste trin"
+
+#@ cc
+#: groups/create.php:287
+msgid "Create Group and Continue"
+msgstr "Opret gruppe og fortsæt"
+
+#@ cc
+#: groups/create.php:294
+msgid "Finish"
+msgstr "Afslut"
+
+#@ cc
+#: groups/groups-loop.php:95
+msgid "There were no groups found."
+msgstr "Der blev ikke fundet nogle grupper."
+
+#@ cc
+#: groups/index.php:37
+#, php-format
+msgid "All Groups <span>%s</span>"
+msgstr "Alle grupper <span>%s</span>"
+
+#@ cc
+#: groups/index.php:60
+#: members/single/groups.php:23
+msgid "Most Members"
+msgstr "Flest medlemmer"
+
+#@ cc
+#: groups/index.php:61
+#: members/single/groups.php:24
+msgid "Newly Created"
+msgstr "For nylig oprettet"
+
+#@ cc
+#: groups/single/admin.php:25
+msgid "Notify group members of changes via email"
+msgstr "Informér gruppens medlemmer om ændringer via email"
+
+#@ cc
+#: groups/single/admin.php:26
+#: registration/register.php:205
+msgid "Yes"
+msgstr "Ja"
+
+#@ cc
+#: groups/single/admin.php:27
+#: registration/register.php:206
+msgid "No"
+msgstr "Nej"
+
+#@ cc
+#: groups/single/admin.php:137
+msgid "If you'd like to remove the existing avatar but not upload a new one, please use the delete avatar button."
+msgstr "Hvis du vil fjerne den nuværende avatar/bruger-illustration, men ikke øsnker at indsætte en ny, brug venligst knappen slet avatar/bruger-illustration"
+
+#@ cc
+#: groups/single/admin.php:139
+#: members/single/profile/change-avatar.php:24
+msgid "Delete Avatar"
+msgstr "Slet avatar"
+
+#@ cc
+#: groups/single/admin.php:149
+msgid "Crop Avatar"
+msgstr "Beskær avatar"
+
+#@ cc
+#: groups/single/admin.php:177
+msgid "Administrators"
+msgstr "Administratorer"
+
+#@ cc
+#: groups/single/admin.php:185
+#: groups/single/admin.php:210
+#, php-format
+msgid "Profile picture of %s"
+msgstr "Brugerfoto af %s"
+
+#@ cc
+#: groups/single/admin.php:189
+#: groups/single/admin.php:215
+msgid "Demote to Member"
+msgstr "Degradér til medlem"
+
+#@ cc
+#: groups/single/admin.php:203
+msgid "Moderators"
+msgstr "Redaktører"
+
+#@ cc
+#: groups/single/admin.php:214
+#: groups/single/admin.php:270
+msgid "Promote to Admin"
+msgstr "Gør til administrator"
+
+#@ cc
+#: groups/single/admin.php:258
+msgid "(banned)"
+msgstr "(udelukket)"
+
+#@ cc
+#: groups/single/admin.php:264
+msgid "Unban this member"
+msgstr "Ophæv medlemmets udelukkelse"
+
+#@ cc
+#: groups/single/admin.php:264
+msgid "Remove Ban"
+msgstr "Ophæv udelukkelse"
+
+#@ cc
+#: groups/single/admin.php:268
+msgid "Kick and ban this member"
+msgstr "Udeluk og slet dette medlem"
+
+#@ cc
+#: groups/single/admin.php:268
+msgid "Kick &amp; Ban"
+msgstr "Slet &amp; Bannen"
+
+#@ cc
+#: groups/single/admin.php:269
+msgid "Promote to Mod"
+msgstr "Gør til redaktør"
+
+#@ cc
+#: groups/single/admin.php:274
+msgid "Remove this member"
+msgstr "Fjern dette medlem"
+
+#@ cc
+#: groups/single/admin.php:274
+msgid "Remove from group"
+msgstr "Fjern fra gruppen"
+
+#@ cc
+#: groups/single/admin.php:288
+#: groups/single/members.php:104
+msgid "This group has no members."
+msgstr "Denne gruppe har ingen medlemmer"
+
+#@ cc
+#: groups/single/admin.php:318
+#: members/single/friends/requests.php:37
+#: members/single/groups/invites.php:23
+msgid "Accept"
+msgstr "Acceptér"
+
+#@ cc
+#: groups/single/admin.php:320
+#: members/single/friends/requests.php:38
+#: members/single/groups/invites.php:24
+msgid "Reject"
+msgstr "Afslå"
+
+#@ cc
+#: groups/single/admin.php:333
+msgid "There are no pending membership requests."
+msgstr "Der er ingen ubesvarede anmodninger om medlemskab"
+
+#@ cc
+#: groups/single/admin.php:350
+msgid "WARNING: Deleting this group will completely remove ALL content associated with it. There is no way back, please be careful with this option."
+msgstr "Advarsel: Ved at slette denne gruppe vil du også seltte ALT indhold relateret til gruppen. Der er ingen vej tilbage, så vær forsigtig med denne mulighed."
+
+#@ cc
+#: groups/single/admin.php:353
+msgid "I understand the consequences of deleting this group."
+msgstr "Jeg forstår konsekvenserne af at slette denne gruppe."
+
+#@ cc
+#: groups/single/admin.php:358
+msgid "Delete Group"
+msgstr "Slet gruppe"
+
+#@ cc
+#: groups/single/forum/topic.php:67
+#, php-format
+msgid "%1$s said %2$s:"
+msgstr "%1$s sagde %2$s:"
+
+#@ cc
+#: groups/single/forum/topic.php:112
+msgid "You will auto join this group when you reply to this topic."
+msgstr "Du vil automatisk blive medlem af denne gruppe hvis du besvarer dette emne."
+
+#@ cc
+#: groups/single/forum.php:65
+msgid "You will auto join this group when you start a new topic."
+msgstr "Du bliver automatisk medlem af denne gruppe hvis du starter et ny emne."
+
+#@ cc
+#: groups/single/forum.php:69
+msgid "Post a New Topic:"
+msgstr "Åbn et nyt emne:"
+
+#@ cc
+#: groups/single/group-header-sidebar.php:16
+#: groups/single/group-header.php:35
+#, php-format
+msgid "active %s ago"
+msgstr "aktiv %s"
+
+#@ cc
+#: groups/single/group-header-sidebar.php:34
+#: groups/single/group-header.php:6
+msgid "Group Admins"
+msgstr "Gruppens administratorer"
+
+#@ cc
+#: groups/single/group-header.php:14
+msgid "Group Mods"
+msgstr "Gruppens redaktører"
+
+#@ cc
+#: groups/single/members.php:15
+#: members/index.php:58
+#: members/single/friends.php:23
+msgid "Newest Registered"
+msgstr "Seneste indmeldelser"
+
+#@ cc
+#: groups/single/request-membership.php:4
+#, php-format
+msgid "You are requesting to become a member of the group '%s'."
+msgstr "Du anmoder om medlemskab af gruppen '%s' ."
+
+#@ cc
+#: groups/single/request-membership.php:7
+msgid "Comments (optional)"
+msgstr "Kommentarer (valgfrit)"
+
+#@ cc
+#: groups/single/request-membership.php:12
+msgid "Send Request"
+msgstr "Send forespørgsel"
+
+#@ cc
+#: groups/single/send-invites.php:60
+msgid "Send Invites"
+msgstr "Send invitationer"
+
+#@ cc
+#: index.php:30
+#: single.php:56
+#, php-format
+msgid " by %s"
+msgstr " af %s"
+
+#@ cc
+#: index.php:58
+msgid "Sorry, but you are looking for something that isn't here."
+msgstr "Beklager, men du leder efter et indhold som ikke findes her."
+
+#@ cc
+#: members/index.php:23
+msgid "Members Directory"
+msgstr "Medlemsfortegnelse"
+
+#@ cc
+#: members/members-loop.php:108
+msgid "Sorry, no members were found."
+msgstr "Beklager, men der blev ikke fundet nogle medlemmer."
+
+#@ cc
+#: members/single/friends/requests.php:68
+msgid "You have no pending friendship requests."
+msgstr "Du har ingen ubehandlede venneanmodninger."
+
+#@ cc
+#: members/single/groups/invites.php:14
+#, php-format
+msgid "%s members"
+msgstr "%s medlemmer"
+
+#@ cc
+#: members/single/groups/invites.php:37
+msgid "You have no outstanding group invites."
+msgstr "Du har ingen ubehandlede gruppe invitationer."
+
+#@ cc
+#: members/single/member-header-sidebar.php:37
+#: members/single/member-header.php:34
+msgid "Mention this user in a new public message, this will send the user a notification to get their attention."
+msgstr "Omtale af denne bruger i en ny offentlig meddelelse vil sende den pågældende bruger en besked om det."
+
+#@ cc
+#: members/single/member-header-sidebar.php:37
+#: members/single/member-header.php:34
+msgid "Mention this User"
+msgstr "Omtal denne bruger"
+
+#@ cc
+#: members/single/member-header-sidebar.php:43
+#: members/single/member-header.php:40
+msgid "Send a private message to this user."
+msgstr "Send en privat besked til denne bruger."
+
+#@ cc
+#: members/single/member-header-sidebar.php:43
+#: members/single/member-header.php:40
+msgid "Send Private Message"
+msgstr "Send en privat besked"
+
+#@ cc
+#: members/single/messages/compose.php:5
+msgid "Send To (Username or Friend's Name)"
+msgstr "Send til (brugernavn eller vennens navn)"
+
+#@ cc
+#: members/single/messages/compose.php:14
+msgid "This is a notice to all users."
+msgstr "Dette er en besked til alle brugere."
+
+#@ cc
+#: members/single/messages/compose.php:17
+msgid "Subject"
+msgstr "Vedrørende"
+
+#@ cc
+#: members/single/messages/compose.php:20
+msgid "Message"
+msgstr "Besked"
+
+#@ cc
+#: members/single/messages/compose.php:28
+msgid "Send Message"
+msgstr "Send besked"
+
+#@ cc
+#: members/single/messages/messages-loop.php:31
+msgid "From:"
+msgstr "Fra:"
+
+#@ cc
+#: members/single/messages/messages-loop.php:36
+msgid "To:"
+msgstr "Til:"
+
+#@ cc
+#: members/single/messages/messages-loop.php:42
+msgid "View Message"
+msgstr "Se besked"
+
+#@ cc
+#: members/single/messages/messages-loop.php:50
+#: members/single/messages/notices-loop.php:38
+#: members/single/messages/single.php:24
+msgid "Delete Message"
+msgstr "Slet besked"
+
+#@ cc
+#: members/single/messages/messages-loop.php:68
+msgid "Sorry, no messages were found."
+msgstr "Beklager, der blev ikke fundet nogle beskeder."
+
+#@ cc
+#: members/single/messages/notices-loop.php:31
+msgid "Sent:"
+msgstr "Sendt:"
+
+#@ cc
+#: members/single/messages/notices-loop.php:49
+msgid "Sorry, no notices were found."
+msgstr "Beklager, men ingen beskeder blev fundet."
+
+#@ cc
+#: members/single/messages/single.php:14
+msgid "You are alone in this conversation."
+msgstr "Du er alene i denne samtale."
+
+#@ cc
+#: members/single/messages/single.php:18
+#, php-format
+msgid "Conversation between %s and you."
+msgstr "Samtale mellem %s og dig."
+
+#@ cc
+#: members/single/messages/single.php:75
+msgid "Send a Reply"
+msgstr "Send et svar"
+
+#@ cc
+#: members/single/messages/single.php:91
+msgid "Send Reply"
+msgstr "Send svar"
+
+#@ cc
+#: members/single/profile/change-avatar.php:1
+msgid "Change Avatar"
+msgstr "Ændr profilfoto"
+
+#@ cc
+#: members/single/profile/change-avatar.php:7
+msgid "Your avatar will be used on your profile and throughout the site. If there is a <a href=\"http://gravatar.com\">Gravatar</a> associated with your account email we will use that, or you can upload an image from your computer."
+msgstr "Dit brugerfoto bliver vist både på din profil og på hele hjemmesiden. Hvis der er en <a href=\"http://gravatar.com\">Gravatar</a> knyttet til din email, vil denne blive benyttet, eller du kan indslætte et foto fra din PC."
+
+#@ cc
+#: members/single/profile/change-avatar.php:14
+msgid "Click below to select a JPG, GIF or PNG format photo from your computer and then click 'Upload Image' to proceed."
+msgstr "Klik her for at vælge et JPG, GIF eller PNG-foto fra din PC og klik derefter på \"indsæt foto\" for at fortsætte."
+
+#@ cc
+#: members/single/profile/change-avatar.php:23
+msgid "If you'd like to delete your current avatar but not upload a new one, please use the delete avatar button."
+msgstr "Hvis du sletter dit nuværende profilfoto, uden at ville indsætte et nyt, skal du bruge knappen \"slet profilfoto\"."
+
+#@ cc
+#: members/single/profile/change-avatar.php:24
+msgid "Delete My Avatar"
+msgstr "Slet mit profilfoto"
+
+#@ cc
+#: members/single/profile/change-avatar.php:31
+msgid "Crop Your New Avatar"
+msgstr "Beskær venligst dit nye profilfoto"
+
+#@ cc
+#: members/single/profile/change-avatar.php:55
+msgid "Your avatar will be used on your profile and throughout the site. To change your avatar, please create an account with <a href=\"http://gravatar.com\">Gravatar</a> using the same email address as you used to register with this site."
+msgstr "Dit profilfoto vil blive benyttet både på din profil og på hele hjemmesiden. Hvis du vil ændre dit profilfoto kan du knyttet en email-adresse til en<a href=\"http://gravatar.com\">Gravatar</a>."
+
+#@ cc
+#: members/single/profile/edit.php:10
+#, php-format
+msgid "Editing '%s' Profile Group"
+msgstr "'%s' redigér profilgruppe."
+
+#@ cc
+#: members/single/profile/edit.php:26
+#: members/single/profile/edit.php:33
+#: members/single/profile/edit.php:40
+#: members/single/profile/edit.php:49
+#: members/single/profile/edit.php:67
+#: members/single/profile/edit.php:83
+#: members/single/profile/edit.php:93
+#: registration/register.php:37
+#: registration/register.php:41
+#: registration/register.php:45
+#: registration/register.php:49
+#: registration/register.php:76
+#: registration/register.php:84
+#: registration/register.php:92
+#: registration/register.php:102
+#: registration/register.php:113
+#: registration/register.php:128
+#: registration/register.php:139
+#: registration/register.php:189
+#: registration/register.php:198
+msgid "(required)"
+msgstr "(obligatorisk)"
+
+#@ cc
+#: members/single/profile/edit.php:58
+#: members/single/profile/edit.php:73
+#: registration/register.php:119
+msgid "Clear"
+msgstr "Slet"
+
+#@ cc
+#: members/single/profile/profile-wp.php:8
+#, php-format
+msgid "%s's Profile"
+msgstr "%s's profil"
+
+#@ cc
+#: members/single/profile/profile-wp.php:24
+msgid "About Me"
+msgstr "Om mig"
+
+#@ cc
+#: members/single/profile/profile-wp.php:42
+msgid "Jabber"
+msgstr "Jabber"
+
+#@ cc
+#: members/single/profile/profile-wp.php:51
+msgid "AOL Messenger"
+msgstr "AOL Messenger"
+
+#@ cc
+#: members/single/profile/profile-wp.php:60
+msgid "Yahoo Messenger"
+msgstr "Yahoo Messenger"
+
+#@ cc
+#: members/single/settings/delete-account.php:50
+msgid "Delete Account"
+msgstr "Slet oprettelse"
+
+#@ cc
+#: members/single/settings/delete-account.php:55
+msgid "WARNING: Deleting your account will completely remove ALL content associated with it. There is no way back, please be careful with this option."
+msgstr "BEMÆRK: Hvis du sletter din brugeroprettelse vil ALT indhold som er knyttet til dig også blive slettet. Der er ingen vej tilbage, så vær forsigtig med at bruge denne funktion."
+
+#@ cc
+#: members/single/settings/delete-account.php:58
+msgid "I understand the consequences of deleting my account."
+msgstr "Jeg forstår konsekvenserne af at slette min konto."
+
+#@ cc
+#: members/single/settings/delete-account.php:63
+msgid "Delete My Account"
+msgstr "Slet min konto"
+
+#@ cc
+#: members/single/settings/general.php:50
+msgid "General Settings"
+msgstr "Almene indstillinger"
+
+#@ cc
+#: members/single/settings/general.php:56
+msgid "Current Password <span>(required to update email or change current password)</span>"
+msgstr "Aktuelt kodeod <span>(krævet for at aktivere email-adressen eller for selv senere at kunne ændre sit kodeord)</span>"
+
+#@ cc
+#: members/single/settings/general.php:57
+msgid "Password Lost and Found"
+msgstr "Kodeord bortkommet og fundet igen"
+
+#@ cc
+#: members/single/settings/general.php:57
+msgid "Lost your password?"
+msgstr "Glemt kodeord?"
+
+#@ cc
+#: members/single/settings/general.php:59
+msgid "Account Email"
+msgstr "Brugerens email"
+
+#@ cc
+#: members/single/settings/general.php:62
+msgid "Change Password <span>(leave blank for no change)</span>"
+msgstr "Ændr kodeord <span>(lad stå tom for IKKE at ændre kodeord!)</span>"
+
+#@ cc
+#: members/single/settings/general.php:63
+msgid "New Password"
+msgstr "Nyt kodeord"
+
+#@ cc
+#: members/single/settings/general.php:64
+msgid "Repeat New Password"
+msgstr "Gentag nyt kodeord"
+
+#@ cc
+#: members/single/settings/notifications.php:50
+msgid "Email Notification"
+msgstr "Besked til din email"
+
+#@ cc
+#: members/single/settings/notifications.php:55
+msgid "Send a notification by email when:"
+msgstr "Send en besked til email når:"
+
+#@ cc
+#: registration/activate.php:12
+msgid "Account Activated"
+msgstr "Bruger er aktiveret"
+
+#@ cc
+#: registration/activate.php:17
+msgid "Your account was activated successfully! Your account details have been sent to you in a separate email."
+msgstr "Din brugeroprettelse blev aktivreret! Dine bruger-detaljer er blevet sendt til dig i en separat email."
+
+#@ cc
+#: registration/activate.php:19
+msgid "Your account was activated successfully! You can now log in with the username and password you provided when you signed up."
+msgstr "Din brugeroprettelse blev aktiveret! Du kan nu logge ind med det brugernavn og kodeord du angav da du meldte dig ind."
+
+#@ cc
+#: registration/activate.php:24
+msgid "Activate your Account"
+msgstr "Aktivér din konto"
+
+#@ cc
+#: registration/activate.php:28
+msgid "Please provide a valid activation key."
+msgstr "Vær venlig at angive en gyldig aktviteringsnøgle"
+
+#@ cc
+#: registration/activate.php:32
+msgid "Activation Key:"
+msgstr "Aktiveringsnøgle:"
+
+#@ cc
+#: registration/activate.php:36
+msgid "Activate"
+msgstr "Aktivér"
+
+#@ cc
+#: registration/register.php:16
+msgid "User registration is currently not allowed."
+msgstr "Brugeroprettelse er ikke tilladt i øjeblikket."
+
+#@ cc
+#: registration/register.php:23
+msgid "Create an Account"
+msgstr "Opret bruger"
+
+#@ cc
+#: registration/register.php:27
+msgid "Registering for this site is easy, just fill in the fields below and we'll get a new account set up for you in no time."
+msgstr "Oprettelse af medlem på hjemmesiden er let, bare udflyd felterne forneden, og du vil blive oprettet i løbet af ingen tid."
+
+#@ cc
+#: registration/register.php:35
+msgid "Account Details"
+msgstr "Bruger detaljer"
+
+#@ cc
+#: registration/register.php:41
+msgid "Email Address"
+msgstr "E-Mail-Adresse"
+
+#@ cc
+#: registration/register.php:45
+msgid "Choose a Password"
+msgstr "Vælg et kodeord"
+
+#@ cc
+#: registration/register.php:49
+msgid "Confirm Password"
+msgstr "Gentag det valgte kodeord"
+
+#@ cc
+#: registration/register.php:65
+msgid "Profile Details"
+msgstr "Profildetaljer"
+
+#@ cc
+#: registration/register.php:183
+msgid "Blog Details"
+msgstr "Hjemmeside detailjer"
+
+#@ cc
+#: registration/register.php:185
+msgid "Yes, I'd like to create a new site"
+msgstr "Ja, jeg vil gerne oprette en ny side"
+
+#@ cc
+#: registration/register.php:189
+msgid "Blog URL"
+msgstr "Blog-URL"
+
+#@ cc
+#: registration/register.php:198
+msgid "Site Title"
+msgstr "Sidens titel"
+
+#@ cc
+#: registration/register.php:202
+msgid "I would like my site to appear in search engines, and in public listings around this network."
+msgstr "Jeg ønsker at min hjemmeside vises i søgemaskiner og i offentlige fortegnelser."
+
+#@ cc
+#: registration/register.php:219
+msgid "Complete Sign Up"
+msgstr "Afslut oprettelse"
+
+#@ cc
+#: registration/register.php:230
+msgid "Sign Up Complete!"
+msgstr "Oprettelsen er afsluttet!"
+
+#@ cc
+#: registration/register.php:236
+msgid "You have successfully created your account! To begin using this site you will need to activate your account via the email we have just sent to your address."
+msgstr "Du har nu oprettet dig! For at fortsætte skal du aktivere din oprettelse ved at klikke på linket i bekræftelsesmailen."
+
+#@ cc
+#: registration/register.php:238
+msgid "You have successfully created your account! Please log in using the username and password you have just created."
+msgstr "Du har oprettet dig! Vær venlig at logge ind med det brugernavn og kodeord du netop har oprettet."
+
+#@ cc
+#: search-loop.php:34
+msgid "Read more..."
+msgstr "Læs mere..."
+
+#@ cc
+#: search-loop.php:51
+#, php-format
+msgid "We are sorry, but we could not find anything for the search term '%s'"
+msgstr "Beklager, men vi kunne ikke findet noget på søgningen '%s' "
+
+#@ cc
+#: search.php:14
+msgid "Search Results"
+msgstr "Søgeresultater"
+
+#@ cc
+#: search.php:59
+msgid "No posts found. Try a different search?"
+msgstr "Der blev ikke fundet nogen indlæg. Vil du prøve at søge på en anden måde?"
+
+#@ cc
+#: sidebar.php:11
+msgid "Recent Posts"
+msgstr "Seneste indlæg"
+
+#@ cc
+#: sidebar.php:23
+msgid "Random Posts"
+msgstr "Indlæg i tilfældig orden"
+
+#@ cc
+#: sidebar.php:35
+msgid "Search by Tags!"
+msgstr "Søg efter markerede (tags)"
+
+#@ cc
+#: single.php:97
+msgid "Sorry, no posts matched your criteria."
+msgstr "Beklager, men ingen indlæg svarede til dine søgekriterier."
+
+#@ cc
+#: comments.php:3
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr "Dette indlæg er beskyttet af kodeord. Skriv kodeordet for at se kommentarer."
+
+#@ cc
+#: comments.php:19
+#, php-format
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "En kommentar i &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s kommentarer i &ldquo;%2$s&rdquo;"
+
+#@ cc
+#: comments.php:26
+#: comments.php:40
+msgid "Comment navigation"
+msgstr "Kommentarnavigation"
+
+#@ cc
+#: comments.php:27
+#: comments.php:41
+msgid "&larr; Older Comments"
+msgstr "&larr; ældre kommentarer"
+
+#@ cc
+#: comments.php:28
+#: comments.php:42
+msgid "Newer Comments &rarr;"
+msgstr "Nyere kommentarer &rarr;"
+
+#@ cc
+#: forums/forums-loop.php:24
+msgid "Topic Title"
+msgstr "Titel på emnet"
+
+#@ cc
+#: forums/forums-loop.php:25
+msgid "Latest Poster"
+msgstr "Seneste bidragyder"
+
+#@ cc
+#: forums/forums-loop.php:28
+msgid "Posted In Group"
+msgstr "Offentliggjort i gruppe"
+
+#@ cc
+#: left-and-right-sidebar.php:39
+#: left-sidebar.php:39
+#: page.php:34
+#: right-sidebar.php:39
+msgid "Edit this page."
+msgstr "Redigér denne side."
+
+#@ cc
+#: single.php:87
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr "&larr;"
+
+#@ cc
+#: single.php:88
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr "&rarr;"
+
+#@ cc
+#: admin/get-pro.php:6
+msgid "FAQ, Forum and Community at <a href=\"http://themekraft.com\" title=\"Themekraft - Beautiful Themes and Plugins for WordPress and BuddyPress.\" target=\"_blank\">themekraft.com</a>"
+msgstr "FAQ, Forum and Community hos <a href=\"http://themekraft.com\" title=\"Themekraft - Beautiful Themes and Plugins for WordPress and BuddyPress.\" target=\"_blank\">themekraft.com</a>"
+
+#@ cc
+#: admin/get-pro.php:9
+msgid "For more information and help, please visit the <a href=\"http://themekraft.com/forums/\" target=\"_blank\">FORUM</a> and <a href=\"http://themekraft.com/faq/\" target=\"_blank\">FAQ</a>"
+msgstr "For mere information og hjælp, venligst gå til <a href=\"http://themekraft.com/forums/\" target=\"_blank\">FORUM</a> og <a href=\"http://themekraft.com/faq/\" target=\"_blank\">FAQ</a>"
+
+#@ cc
+#: admin/get-pro.php:11
+msgid "See the <a href=\"http://custom-community-pro.themekraft.com/\" target=\"_blank\">demo</a> page with many examples."
+msgstr "Se <a href=\"http://custom-community-pro.themekraft.com/\" target=\"_blank\">demo-siden</a> med mange eksempler."
+
+#@ cc
+#: admin/get-pro.php:14
+msgid "Your Themekraft Team."
+msgstr "Dit Themekraft team"
+
+#@ cc
+#: admin/page-meta-box.php:74
+msgid "Select a category to display in slideshow:"
+msgstr "Vælg en kategori at vise i slideshow:"
+
+#@ default
+#: admin/page-meta-box.php:79
+msgid "Use Post Type: for Pages write \"page\""
+msgstr "Anvend indlægs type: for sider skriv  \"page\""
+
+#@ default
+#: admin/page-meta-box.php:81
+msgid "post/page ids comma separated"
+msgstr "indlæg/side id'er komma separeret"
+
+#@ cc
+#: admin/page-meta-box.php:83
+msgid "Select a slideshow style:"
+msgstr "Vælg et slideshow layout"
+
+#@ default
+#: admin/page-meta-box.php:88
+msgid "Caption off"
+msgstr "Billedtekst fravalgt"
+
+#@ default
+#: admin/page-meta-box.php:90
+msgid "Define the sliding time in ms"
+msgstr "Indstil tiden for hver slide i ms (milisekunder)"
+
+#@ default
+#: admin/page-meta-box.php:92
+msgid "Order By"
+msgstr "Sortér efter"
+
+#@ default
+#: admin/page-meta-box.php:94
+msgid "Amount"
+msgstr "Antal"
+
+#@ cc
+#: admin/page-meta-box.php:97
+msgid "Lists Posts under this Page"
+msgstr "Indsæt indlæg under denne side"
+
+#@ cc
+#: admin/page-meta-box.php:98
+msgid "You can show your posts in a predefined template"
+msgstr "Du kan vise dine indlæg i en foruddefineret skabelon"
+
+#@ cc
+#: admin/page-meta-box.php:101
+msgid "Select a template to use:"
+msgstr "Vælg en skabelon:"
+
+#@ cc
+#: admin/page-meta-box.php:106
+msgid "Select a category to display"
+msgstr "Vælg en kategori at vise"
+
+#@ cc
+#: admin/page-meta-box.php:111
+msgid "How many posts to display?"
+msgstr "Hvor mange indlæg skal vises?"
+
+#@ cc
+#: admin/post-meta-box.php:51
+msgid "Use a post template for this post"
+msgstr "Brug en skabelon for dette indlæg"
+
+#@ cc
+#: admin/post-meta-box.php:52
+msgid "You can select a predefined post template"
+msgstr "Du kan vælge en foruddefineret indlægs skabelon"
+
+#@ cc
+#: admin/post-meta-box.php:55
+msgid "Select a template to use"
+msgstr "Vælg en skabelon"
+
+#@ cc
+#: admin/post-meta-box.php:61
+msgid "Show/hide meta info"
+msgstr "Vis/skjul meta information"
+
+#@ cc
+#: archive.php:13
+#, php-format
+msgid "Daily Archives: %s"
+msgstr "Daglige arkiver: %s"
+
+#@ cc
+#: archive.php:15
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr "Månedlige arkiver: %s"
+
+#@ cc
+#: archive.php:17
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr "Årlige arkiver: %s"
+
+#@ cc
+#: archive.php:19
+#, php-format
+msgid "You are browsing the Blog for %1$s."
+msgstr "Du søger på siden efter %1$s."
+
+#@ cc
+#: groups/single/group-header-sidebar.php:27
+msgid "Description"
+msgstr "Beskrivelse"
+
+#@ cc
+#: left-and-right-sidebar.php:24
+#: left-sidebar.php:24
+#: page.php:19
+#: right-sidebar.php:24
+#: single.php:68
+msgid "<p class=\"cc_pagecount\"><strong>Pages:</strong> "
+msgstr "<p class=\"cc_pagecount\"><strong>Sider:</strong> "
+
+

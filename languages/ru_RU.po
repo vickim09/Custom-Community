@@ -1,0 +1,2232 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Zoya Spitsyna <zoi81@mail.ru>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"Language: pl_PL\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# @ cc
+#: 404.php:7
+msgid "Page not found"
+msgstr "Страница не найдена"
+
+# @ cc
+#: 404.php:9
+msgid ""
+"We're sorry, but we can't find the page that you're looking for. Perhaps "
+"searching will help."
+msgstr ""
+"Очень жаль, но страницы, которую вы искали, нет. Для поиска нужной "
+"информации, пожалуйста, воспользуйтесь формой приведенной ниже."
+
+# @ cc
+#: _inc/ajax.php:147
+msgid "Please enter some content to post."
+msgstr "Введите текст, который хотите опубликовать."
+
+# @ cc
+#: _inc/ajax.php:164
+msgid "There was a problem posting your update, please try again."
+msgstr ""
+"Возникла проблема с публикацией обновления, пожалуйста, попробуйте еще раз."
+
+# @ cc
+#: _inc/ajax.php:189
+msgid "Please do not leave the comment area blank."
+msgstr "Пожалуйста, не оставляйте поле для комментариев пустым."
+
+# @ cc
+#: _inc/ajax.php:194 _inc/ajax.php:205
+msgid "There was an error posting that reply, please try again."
+msgstr ""
+"Возникла проблема с публикацией этого ответа, пожалуйста, попробуйте еще раз."
+
+# @ cc
+#: _inc/ajax.php:262 _inc/ajax.php:297
+msgid "There was a problem when deleting. Please try again."
+msgstr "Проблема с удалением. Попробуйте еще раз."
+
+# @ cc
+#: _inc/ajax.php:312 activity/entry.php:72
+msgid "Remove Favorite"
+msgstr "Удалить Избранное"
+
+# @ cc
+#: _inc/ajax.php:321 activity/entry.php:68
+msgid "Favorite"
+msgstr "Избранное"
+
+# @ cc
+#: _inc/ajax.php:380 groups/create.php:234 groups/single/send-invites.php:42
+msgid "Remove Invite"
+msgstr "Удалить приглашение"
+
+# @ cc
+#: _inc/ajax.php:406
+msgid "Friendship could not be canceled."
+msgstr "Дружба не может быть отменена"
+
+# @ cc
+#: _inc/ajax.php:408
+msgid "Add Friend"
+msgstr "Добавить друга"
+
+# @ cc
+#: _inc/ajax.php:416
+msgid "Friendship could not be requested."
+msgstr "Добавление в друзья не может быть запрошено. "
+
+# @ cc
+#: _inc/ajax.php:418
+msgid "Friendship Requested"
+msgstr "Запрос дружбы"
+
+# @ cc
+#: _inc/ajax.php:421
+msgid "Request Pending"
+msgstr "Ожидание запроса"
+
+# @ cc
+#: _inc/ajax.php:433
+msgid "There was a problem accepting that request. Please try again."
+msgstr ""
+"Возникла проблема с принятием этого запроса. Пожалуйста, попробуйте еще раз."
+
+# @ cc
+#: _inc/ajax.php:444
+msgid "There was a problem rejecting that request. Please try again."
+msgstr ""
+"Возникла проблема с отклонением этого запроса. Пожалуйста, попробуйте еще "
+"раз."
+
+# @ cc
+#: _inc/ajax.php:467
+msgid "Error joining group"
+msgstr "Ошибка присоединения к группе."
+
+# @ cc
+#: _inc/ajax.php:469
+msgid "Leave Group"
+msgstr "Покинуть группу"
+
+# @ cc
+#: _inc/ajax.php:477
+msgid "Error requesting membership"
+msgstr "Ошибка запроса о членстве"
+
+# @ cc
+#: _inc/ajax.php:479
+msgid "Membership Requested"
+msgstr "Запрос членства"
+
+# @ cc
+#: _inc/ajax.php:488
+msgid "Error leaving group"
+msgstr "Ошибка выхода из группы"
+
+# @ cc
+#: _inc/ajax.php:491
+msgid "Join Group"
+msgstr "Присоединиться к группе"
+
+# @ cc
+#: _inc/ajax.php:493
+msgid "Request Membership"
+msgstr "Запрос членства"
+
+# @ cc
+#: _inc/ajax.php:505
+msgid "There was a problem closing the notice."
+msgstr "Возникла проблема с закрытием заметки."
+
+# @ cc
+#: _inc/ajax.php:530
+#, php-format
+msgid "Sent %s"
+msgstr "Отправлено %s"
+
+# @ cc
+#: _inc/ajax.php:547
+msgid "There was a problem sending that reply. Please try again."
+msgstr "Возникла проблема с отправкой этого ответа. Попробуйте еще раз."
+
+# @ cc
+#: _inc/ajax.php:557
+msgid "There was a problem marking messages as unread."
+msgstr "Возникла проблема с пометкой сообщения как непрочитанного."
+
+# @ cc
+#: _inc/ajax.php:573
+msgid "There was a problem marking messages as read."
+msgstr "Возникла проблема с пометкой сообщения как прочитанного."
+
+# @ cc
+#: _inc/ajax.php:589
+msgid "There was a problem deleting messages."
+msgstr "Возникла проблема с удалением сообщений."
+
+# @ cc
+#: _inc/ajax.php:596
+msgid "Messages deleted."
+msgstr "Сообщения удалены."
+
+# @ cc
+#: activity/activity-loop.php:41
+msgid "Load More"
+msgstr "Загрузите еще"
+
+# @ cc
+#: activity/activity-loop.php:55
+msgid "Sorry, there was no activity found. Please try a different filter."
+msgstr ""
+"Извините, но активность не обнаружена. Пожалуйста, попробуйте другой фильтр."
+
+# @ cc
+#. translators: 1: user profile link, 2: user name, 3: activity permalink, 3: activity timestamp
+#: activity/comment.php:28
+#, php-format
+msgid ""
+"<a href=\"%1$s\">%2$s</a> replied <a href=\"%3$s\" class=\"activity-time-"
+"since\"><span class=\"time-since\">%4$s</span></a>"
+msgstr ""
+"<a href=\"%1$s\">%2$s</a> odpowiedzi:<a href=\"%3$s\" class=\"activity-time-"
+"since\"><span class=\"time-since\">%4$s</span></a>"
+
+# @ cc
+#: activity/comment.php:33 forums/single/edit.php:10
+#: groups/single/forum/edit.php:10
+msgid "Reply"
+msgstr "Ответить"
+
+# @ cc
+#: activity/comment.php:39 members/single/messages/messages-loop.php:50
+#: members/single/messages/single.php:24
+msgid "Delete"
+msgstr "Удалить"
+
+# @ cc
+#: activity/entry.php:37
+msgid "In reply to: "
+msgstr "В ответ на:"
+
+# @ cc
+#: activity/entry.php:37
+msgid "View Thread / Permalink"
+msgstr "Посмотреть Связи"
+
+# @ cc
+#: activity/entry.php:37 core/includes/bp/templatetags.php:89
+msgid "View"
+msgstr "Посмотреть"
+
+# @ cc
+#: activity/entry.php:60
+#, php-format
+msgid "Comment <span>%s</span>"
+msgstr "Комментировать <span>%s</span>"
+
+# @ cc
+#: activity/entry.php:68
+msgid "Mark as Favorite"
+msgstr "Отметить как Избранное"
+
+# @ cc
+#: activity/entry.php:104
+msgid "Post"
+msgstr "Опубликовать"
+
+# @ cc
+#: activity/entry.php:104
+msgid "or press esc to cancel."
+msgstr "или нажмите ESC для отмены."
+
+# @ cc
+#: activity/index.php:23
+msgid "Site Activity"
+msgstr "Активность на странице"
+
+# @ cc
+#: activity/index.php:41
+msgid "The public activity for everyone on this site."
+msgstr "Акстивность, видимая всем на этой странице."
+
+# @ cc
+#: activity/index.php:41 members/index.php:35
+#, php-format
+msgid "All Members <span>%s</span>"
+msgstr "Все члены <span>%s</span>"
+
+# @ cc
+#: activity/index.php:51
+msgid "The activity of my friends only."
+msgstr "Активность только моих друзей."
+
+# @ cc
+#: activity/index.php:51 members/index.php:39
+#, php-format
+msgid "My Friends <span>%s</span>"
+msgstr "Мои друзья <span>%s</span>"
+
+# @ cc
+#: activity/index.php:63
+msgid "The activity of groups I am a member of."
+msgstr "Активность групп, членом которых я являюсь."
+
+# @ cc
+#: activity/index.php:63 groups/index.php:41
+#, php-format
+msgid "My Groups <span>%s</span>"
+msgstr "Мои группы <span>%s</span>"
+
+# @ cc
+#: activity/index.php:73
+msgid "The activity I've marked as a favorite."
+msgstr "Активность, помеченная мной как Избранное."
+
+# @ cc
+#: activity/index.php:73
+#, php-format
+msgid "My Favorites <span>%s</span>"
+msgstr "Мое Избранное <span>%s</span>"
+
+# @ cc
+#: activity/index.php:79
+msgid "Activity that I have been mentioned in."
+msgstr "Активности, в которых я упоминаюсь."
+
+# @ cc
+#: activity/index.php:79
+msgid "Public Mentions"
+msgstr "Публичные упоминания"
+
+# @ cc
+#: activity/index.php:79
+#, php-format
+msgid "<span>%s new</span>"
+msgstr "<span>%s новое</span>"
+
+# @ cc
+#: activity/index.php:89 groups/single/activity.php:3
+msgid "RSS Feed"
+msgstr "RSS Раздача"
+
+# @ cc
+#: activity/index.php:89 groups/single/activity.php:3
+msgid "RSS"
+msgstr "RSS"
+
+# @ cc
+#: activity/index.php:94 groups/single/activity.php:8
+#: members/single/activity.php:18
+msgid "Show:"
+msgstr "Показать:"
+
+# @ cc
+#: activity/index.php:96 groups/single/activity.php:10
+#: members/single/activity.php:20
+msgid "Everything"
+msgstr "Все"
+
+# @ cc
+#: activity/index.php:97 groups/single/activity.php:11
+#: members/single/activity.php:21
+msgid "Updates"
+msgstr "Обновления"
+
+# @ cc
+#: activity/index.php:101 forums/forums-loop.php:40
+#: members/single/activity.php:27
+msgid "Posts"
+msgstr "Публикации"
+
+# @ cc
+#: activity/index.php:102 members/single/activity.php:28
+msgid "Comments"
+msgstr "Комментарии"
+
+# @ cc
+#: activity/index.php:108 groups/single/activity.php:14
+#: members/single/activity.php:43
+msgid "Forum Topics"
+msgstr "Темы форума"
+
+# @ cc
+#: activity/index.php:109 groups/single/activity.php:15
+#: members/single/activity.php:44
+msgid "Forum Replies"
+msgstr "Ответы форума"
+
+# @ cc
+#: activity/index.php:115 members/single/activity.php:50
+msgid "New Groups"
+msgstr "Членства в группах"
+
+# @ cc
+#: activity/index.php:116 groups/single/activity.php:18
+#: members/single/activity.php:51
+msgid "Group Memberships"
+msgstr "Członkostwo w Grupach"
+
+# @ cc
+#: activity/index.php:122 members/single/activity.php:35
+msgid "Friendships"
+msgstr "Дружбы"
+
+# @ cc
+#: activity/index.php:126
+msgid "New Members"
+msgstr "Новые члены"
+
+# @ cc
+#: activity/post-form.php:23
+#, php-format
+msgid "What's new in %s, %s?"
+msgstr "Что нового в %s, %s?"
+
+# @ cc
+#: activity/post-form.php:25
+#, php-format
+msgid "What's new, %s?"
+msgstr "Что нового, %s?"
+
+# @ cc
+#: activity/post-form.php:35
+msgid "Post Update"
+msgstr "Опубликовать обновления."
+
+# @ cc
+#: activity/post-form.php:42
+msgid "Post in"
+msgstr "Опубликовать в"
+
+# @ cc
+#: activity/post-form.php:45 members/single/profile/profile-wp.php:8
+msgid "My Profile"
+msgstr "Мой профиль"
+
+# @ cc
+#: admin/library.php:536
+msgid "Save Options"
+msgstr "Сохранить опции"
+
+# @ cc
+#: admin/post-metabox.php:25 admin/post-metabox.php:139
+msgid "klick"
+msgstr "Кликнуть"
+
+# @ cc
+#: admin/post-metabox.php:28 admin/post-metabox.php:142
+msgid "Custom Community settings"
+msgstr "Пользовательские установки сообщества"
+
+# @ cc
+#: admin/post-metabox.php:35 admin/post-metabox.php:168
+msgid "Post template on"
+msgstr "Опубликовать шаблон"
+
+# @ cc
+#: admin/post-metabox.php:45
+msgid "Hide avatar"
+msgstr "Скрыть аватар"
+
+# @ cc
+#: admin/post-metabox.php:47
+msgid "Hide date/category"
+msgstr "Скрыть дату/категорию"
+
+# @ cc
+#: admin/post-metabox.php:49
+msgid "Hide tags"
+msgstr "Скрыть теги"
+
+# @ cc
+#: admin/post-metabox.php:52
+msgid "Hide comment-info"
+msgstr "Скрыть информацию о комментариях"
+
+# @ cc
+#: admin/post-metabox.php:150
+msgid "Slideshow on"
+msgstr "Включить слайдшоу"
+
+# @ cc
+#: admin/post-metabox.php:162
+msgid "Get The PRO Version for more options:"
+msgstr "Получить PRO-версию для большего числа опций:"
+
+# @ cc
+#: admin/post-metabox.php:164
+msgid ""
+"Use custom post types and pages in the slideshow, show/hide caption, define "
+"the sliding time in ms, order and amount"
+msgstr ""
+"Использовать в слайдшоу пользовательские типы публикаций и страницы, "
+"показать/спрятать подписи, определить время показа в мс, порядок и количество"
+
+# @ cc
+#: archive.php:8
+#, php-format
+msgid "You are browsing the archive for %1$s."
+msgstr "Вы ищете в архиве  %1$s."
+
+# @ cc
+#: archive.php:14 archive.php:55 core/includes/bp/templatetags.php:349
+#: index.php:50 search-loop.php:43 search.php:17 search.php:53 single.php:13
+msgid "&larr; Previous Entries"
+msgstr "&larr; Предыдущие записи"
+
+# @ cc
+#: archive.php:15 archive.php:56 core/includes/bp/templatetags.php:350
+#: index.php:51 search-loop.php:44 search.php:18 search.php:54 single.php:14
+msgid "Next Entries &rarr;"
+msgstr "Следующие записи &rarr;"
+
+# @ cc
+#: archive.php:28 archive.php:34 index.php:20 search.php:30 search.php:37
+#: single.php:48
+#, php-format
+msgid "by %s"
+msgstr "по %s"
+
+# @ cc
+#: archive.php:32 index.php:28 search.php:35 single.php:58
+msgid "Permanent Link to"
+msgstr "Постоянная ссылка на"
+
+# @ cc
+#: archive.php:34 index.php:30 search.php:37 single.php:60
+msgid "in"
+msgstr "в"
+
+# @ cc
+#: archive.php:41 index.php:36 search.php:43 single.php:78
+msgid "Tags: "
+msgstr "Теги: "
+
+# @ cc
+#: archive.php:41 archive.php:43 index.php:36 index.php:38 search-loop.php:33
+#: search.php:43 single.php:83
+msgid "No Comments &#187;"
+msgstr "Без комментариев &#187;"
+
+# @ cc
+#: archive.php:41 archive.php:43 index.php:36 index.php:38 search-loop.php:33
+#: search.php:43 single.php:83
+msgid "1 Comment &#187;"
+msgstr "1 комментарий &#187;"
+
+# @ cc
+#: archive.php:41 archive.php:43 index.php:36 index.php:38 search-loop.php:33
+#: search.php:43 single.php:83
+msgid "% Comments &#187;"
+msgstr "% комментариев &#187;"
+
+# @ cc
+#: archive.php:62 index.php:57
+msgid "Not Found"
+msgstr "Не найдено"
+
+# @ cc
+#: attachment.php:9 search.php:10
+msgid "Blog"
+msgstr "Блог"
+
+# @ cc
+#: attachment.php:25
+msgid "<p class=\"serif\">Read the rest of this entry &rarr;</p>"
+msgstr "<p class=\"serif\">Прочитать оставшуюся часть записи &rarr;</p>"
+
+# @ cc
+#: attachment.php:27 full-width.php:29 page.php:18 single.php:71
+msgid "<p><strong>Pages:</strong> "
+msgstr "<p><strong>Страницы:</strong> "
+
+# @ cc
+#: attachment.php:38
+msgid "Sorry, no attachments matched your criteria."
+msgstr "Извините, но приложений, удовлетворяющих вашим требованиям, ненайдено."
+
+# @ cc
+#: blogs/blogs-loop.php:90
+msgid "Sorry, there were no sites found."
+msgstr "Извините, страницы не найдены."
+
+# @ cc
+#: blogs/create.php:21 blogs/index.php:23
+msgid "Create a Site"
+msgstr "Создать страницу"
+
+# @ cc
+#: blogs/create.php:21 blogs/index.php:23
+msgid "Site Directory"
+msgstr "Создать каталог"
+
+# @ cc
+#: blogs/create.php:32
+msgid "Site registration is currently disabled"
+msgstr "Регистрация страницы в настояший момент отключена"
+
+# @ cc
+#: blogs/index.php:35
+#, php-format
+msgid "All Sites <span>%s</span>"
+msgstr "Все страницы <span>%s</span>"
+
+# @ cc
+#: blogs/index.php:39
+#, php-format
+msgid "My Sites <span>%s</span>"
+msgstr "Мои страницы <span>%s</span>"
+
+# @ cc
+#: blogs/index.php:55 forums/index.php:60 forums/single/forum.php:34
+#: groups/index.php:57 groups/single/forum.php:32 groups/single/members.php:12
+#: members/index.php:55 members/single/blogs.php:19
+#: members/single/forums.php:18 members/single/friends.php:20
+#: members/single/groups.php:20
+msgid "Order By:"
+msgstr "Сортировать по:"
+
+# @ cc
+#: blogs/index.php:57 forums/index.php:62 forums/single/forum.php:36
+#: groups/index.php:59 groups/single/forum.php:34 groups/single/members.php:14
+#: members/index.php:57 members/single/blogs.php:21
+#: members/single/forums.php:20 members/single/friends.php:22
+#: members/single/groups.php:22
+msgid "Last Active"
+msgstr "Последние активные"
+
+# @ cc
+#: blogs/index.php:58 members/single/blogs.php:22
+msgid "Newest"
+msgstr "Самые новые"
+
+# @ cc
+#: blogs/index.php:59 groups/index.php:62 groups/single/members.php:19
+#: members/index.php:62 members/single/blogs.php:23
+#: members/single/friends.php:24 members/single/groups.php:25
+msgid "Alphabetical"
+msgstr "В алфавитном порядке"
+
+# @ cc
+#: comments.php:3
+msgid "Password Protected"
+msgstr "Пароль защищен"
+
+# @ cc
+#: comments.php:4
+msgid "Enter the password to view comments."
+msgstr "Введите пароль, чтобы видеть комментарии."
+
+# @ cc
+#: comments.php:80
+#, php-format
+msgid ""
+"Comments are closed, but <a href=\"%1$s\" title=\"Trackback URL for this post"
+"\">trackbacks</a> and pingbacks are open."
+msgstr ""
+"Комментарии закрыты, но <a href=\"%1$s\" title=\"Trackback URL do tego wpisu"
+"\">trackbacki</a> oraz pingbacki działają."
+
+# @ cc
+#: comments.php:86
+msgid "Comments are closed."
+msgstr "Комментарии закрыты."
+
+# @ cc
+#: comments.php:115
+msgid "Leave a Reply"
+msgstr "Оставить ответ"
+
+# @ cc
+#: comments.php:115
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "Оставить ответ на %s"
+
+# @ cc
+#: comments.php:119
+msgid "Click here to cancel reply."
+msgstr "Нажмите здесь, чтобы отменить ответ."
+
+# @ cc
+#: comments.php:125
+#, php-format
+msgid ""
+"You must be <a href=\"%1$s\" title=\"Log in\">logged in</a> to post a "
+"comment."
+msgstr ""
+"Вы должны быть <a href=\"%1$s\" title=\"Zaloguj się\">залогинены в</a> чтобы "
+"оставить комментарий."
+
+# @ cc
+#: comments.php:138
+#, php-format
+msgid "Logged in as <a href=\"%1$s\" title=\"%2$s\">%2$s</a>."
+msgstr "Войти с логином как <a href=\"%1$s\" title=\"%2$s\">%2$s</a>."
+
+# @ cc
+#: comments.php:138
+msgid "Log out of this account"
+msgstr "Выйти из этого аккаунта"
+
+# @ cc
+#: comments.php:138
+msgid "Log out &rarr;"
+msgstr "Выйти &rarr;"
+
+# @ cc
+#: comments.php:147 core/includes/bp/templatetags.php:300
+#: members/single/profile/profile-wp.php:15
+msgid "Name"
+msgstr "Имя"
+
+# @ cc
+#: comments.php:147 comments.php:152
+msgid "*"
+msgstr "*"
+
+# @ cc
+#: comments.php:152 core/includes/bp/templatetags.php:302
+msgid "Email"
+msgstr "E-mail"
+
+# @ cc
+#: comments.php:157 core/includes/bp/templatetags.php:304
+#: members/single/profile/profile-wp.php:33
+msgid "Website"
+msgstr "Сайт"
+
+# @ cc
+#: comments.php:164
+msgid "Comment"
+msgstr "Комментарии"
+
+# @ cc
+#: comments.php:171
+msgid "Submit"
+msgstr "Представить"
+
+# @ cc
+#: comments.php:196
+#, php-format
+msgid "%d Trackback"
+msgstr "%d уведомление"
+
+# @ cc
+#: comments.php:198
+#, php-format
+msgid "%d Trackbacks"
+msgstr "%d уведомления"
+
+# @ cc
+#: core/includes/bp/buddydev-search.php:52
+msgid "Search Page"
+msgstr "Страница поиска"
+
+# @ cc
+#: core/includes/bp/templatetags.php:82
+msgid "My Favorites"
+msgstr "Мое избранное"
+
+# @ cc
+#: core/includes/bp/templatetags.php:83
+msgid "Accepted"
+msgstr "Принято"
+
+# @ cc
+#: core/includes/bp/templatetags.php:84
+msgid "Rejected"
+msgstr "Отклонено"
+
+# @ cc
+#: core/includes/bp/templatetags.php:85
+msgid "Show all comments for this thread"
+msgstr "Показать все комментарии для этой ветки"
+
+# @ cc
+#: core/includes/bp/templatetags.php:86
+msgid "Show all"
+msgstr "Показать все"
+
+# @ cc
+#: core/includes/bp/templatetags.php:87
+msgid "comments"
+msgstr "Комментарии"
+
+# @ cc
+#: core/includes/bp/templatetags.php:88
+msgid "Close"
+msgstr "Закрыть"
+
+# @ cc
+#. translators: 1: comment author url, 2: comment author name, 3: comment permalink, 4: comment date/timestamp
+#: core/includes/bp/templatetags.php:142
+#, php-format
+msgid ""
+"<a href=\"%1$s\" rel=\"nofollow\">%2$s</a> said on <a href=\"%3$s\"><span "
+"class=\"time-since\">%4$s</span></a>"
+msgstr ""
+"<a href=\"%1$s\" rel=\"nofollow\">%2$s</a> написал в <a href=\"%3$s\"><span "
+"class=\"time-since\">%4$s</span></a>"
+
+# @ cc
+#: core/includes/bp/templatetags.php:149
+msgid "Your comment is awaiting moderation."
+msgstr "Ваш комментарий ожидает модерации."
+
+# @ cc
+#: core/includes/bp/templatetags.php:161
+msgid "Edit comment"
+msgstr "Редактировать комментарий"
+
+# @ cc
+#: core/includes/bp/templatetags.php:161
+msgid "Edit"
+msgstr "Редактировать"
+
+# @ cc
+#: core/includes/bp/templatetags.php:231
+#, php-format
+msgid ""
+"Theme activated! This theme contains <a href=\"%s\">custom header image</a> "
+"support and <a href=\"%s\">sidebar widgets</a>."
+msgstr ""
+"Тема активирована! Эта тема содержит <a href=\"%s\">изображение с "
+"пользовательским заколовком </a> <a href=\"%s\">видгеты на боковой панели</"
+"a>."
+
+# @ cc
+#: core/includes/bp/templatetags.php:312
+#, php-format
+msgid "You must be <a href=\"%1$s\">logged in</a> to post a comment."
+msgstr "Вы должны <a href=\"%1$s\">зайти с логином</a>чтобы комментировать."
+
+# @ cc
+#: core/includes/bp/templatetags.php:313
+msgid "Leave a reply"
+msgstr "Оставить ответ"
+
+# @ cc
+#: core/includes/theme-generator/theme-generator.php:156 searchform.php:5
+msgid "Search"
+msgstr "Поиск"
+
+# @ cc
+#: core/includes/theme-generator/theme-generator.php:183
+#: core/includes/theme-generator/theme-generator.php:187
+#: core/includes/theme-generator/theme-generator.php:192
+#: core/includes/theme-generator/theme-generator.php:195
+#: core/includes/theme-generator/theme-generator.php:216
+#: core/includes/theme-generator/theme-generator.php:224
+msgid "Home"
+msgstr "Главная"
+
+# @ cc
+#: core/includes/theme-generator/theme-generator.php:229
+#: core/includes/wp/widgets.php:34
+msgid "Community"
+msgstr "Сообщество"
+
+# @ cc
+#: core/includes/theme-generator/theme-generator.php:233
+#: core/includes/wp/widgets.php:38
+msgid "Activity"
+msgstr "Активность"
+
+# @ cc
+#: core/includes/theme-generator/theme-generator.php:238
+#: core/includes/wp/widgets.php:43 groups/single/admin.php:229
+msgid "Members"
+msgstr "Участники"
+
+# @ cc
+#: core/includes/theme-generator/theme-generator.php:243
+#: core/includes/wp/widgets.php:48
+msgid "Groups"
+msgstr "Группы"
+
+# @ cc
+#: core/includes/theme-generator/theme-generator.php:247
+#: core/includes/wp/widgets.php:53
+msgid "Forums"
+msgstr "Форум"
+
+# @ cc
+#: core/includes/theme-generator/theme-generator.php:254
+#: core/includes/wp/widgets.php:59
+msgid "Blogs"
+msgstr "Блог"
+
+# @ cc
+#: core/includes/theme-generator/theme-generator.php:350
+msgid "20 widget areas all over the site"
+msgstr "20 полей виджетов на всей странице"
+
+# @ cc
+#: core/includes/theme-generator/theme-generator.php:363 links.php:16
+#: sidebar.php:45
+msgid "Links"
+msgstr "Ссылки"
+
+# @ cc
+#: core/includes/theme-generator/theme-generator.php:376 sidebar.php:39
+msgid "Archives"
+msgstr "Архивы"
+
+# @ cc
+#: core/includes/theme-generator/theme-generator.php:389 sidebar.php:51
+msgid "Meta"
+msgstr "Мета"
+
+# @ cc
+#: core/includes/theme-generator/theme-generator.php:403
+#, php-format
+msgid ""
+"%s is proudly powered by <a class=\"credits\" href=\"http://wordpress.org"
+"\">WordPress</a> and <a class=\"credits\" href=\"http://buddypress.org"
+"\">BuddyPress</a>. "
+msgstr ""
+"%s гордится тем, что поддерживается <a class=\"credits\" href=\"http://"
+"wordpress.org\">WordPress</a> и <a class=\"credits\" href=\"http://"
+"buddypress.org\">BuddyPress</a>. "
+
+# @ cc
+#: core/includes/theme-generator/theme-generator.php:529
+#: core/includes/theme-generator/theme-generator.php:531 single.php:67
+msgid "Read the rest of this entry &rarr;"
+msgstr "Прочитать оставшуюся часть сообщения &rarr;"
+
+# @ cc
+#: core/includes/wp/shortcodes.php:355
+msgid "read more"
+msgstr "Читать больше"
+
+# @ cc
+#: core/includes/wp/shortcodes.php:580
+msgid "Empty Slideshow"
+msgstr "Отсутствуют слайды"
+
+# @ cc
+#: core/includes/wp/shortcodes.php:581
+msgid ""
+"You have no posts selected for your slideshow! <br>Check your theme settings "
+"for the global slideshow or the page settings for page slideshows... <br>and "
+"write a post! Check the <a href=\"http://themekraft.com/faq/slideshow/\" "
+"target=\"_blank\">FAQ</a> for more."
+msgstr ""
+"У вас нет выбранных публикаций для слайдшоу!  <br>Проверьте установки вашей "
+"темы для общего слайдшоу или настройки страницы для слайдшоу страницы... "
+"<br>и напишите пост! Обратитеесь к <a href=\"http://themekraft.com/faq/"
+"slideshow/\" target=\"_blank\">для получения дополнительной информации</a>."
+
+# @ cc
+#: core/includes/wp/widgets.php:68
+msgid "@ Group"
+msgstr "@ Группа"
+
+# @ cc
+#: core/includes/wp/widgets.php:79
+msgid "@ Member"
+msgstr "@ Член"
+
+# @ cc
+#: core/includes/wp/widgets.php:111
+msgid "Log Out"
+msgstr "Выйти"
+
+# @ cc
+#: core/includes/wp/widgets.php:128
+msgid "To start connecting please log in first."
+msgstr "Для начала соединения войдите с логином."
+
+# @ cc
+#: core/includes/wp/widgets.php:133
+#, php-format
+msgid ""
+" You can also <a href=\"%s\" title=\"Create an account\">create an account</"
+"a>."
+msgstr ""
+"Вы также можете <a href=\"%s\" title=\"Create an account\">создать аккаунт</"
+"a>."
+
+# @ cc
+#: core/includes/wp/widgets.php:138 registration/register.php:37
+msgid "Username"
+msgstr "Имя пользователя"
+
+# @ cc
+#: core/includes/wp/widgets.php:141
+msgid "Password"
+msgstr "Пароль"
+
+# @ cc
+#: core/includes/wp/widgets.php:144
+msgid "Remember Me"
+msgstr "Запомнить меня"
+
+# @ cc
+#: core/includes/wp/widgets.php:147
+msgid "Log In"
+msgstr "Войти с логином"
+
+# @ cc
+#: core/includes/wp/widgets.php:166
+msgid "Forum Topic Tags"
+msgstr "Тэги тем форума"
+
+# @ cc
+#: forums/forums-loop.php:39
+msgid "Topic"
+msgstr "Темы"
+
+# @ cc
+#: forums/forums-loop.php:41
+msgid "Freshness"
+msgstr "Свежее"
+
+# @ cc
+#: forums/forums-loop.php:54
+msgid "Permalink"
+msgstr "Ссылка"
+
+# @ cc
+#. translators: "started by [poster] in [forum]
+#: forums/forums-loop.php:61
+#, php-format
+msgid "Started by %1$s"
+msgstr "Начато через %1$s"
+
+# @ cc
+#. translators: "started by [poster] in [forum]
+#: forums/forums-loop.php:72
+#, php-format
+msgid "in %1$s"
+msgstr "в %1$s"
+
+# @ cc
+#: forums/forums-loop.php:122
+msgid "Sorry, there were no forum topics found."
+msgstr "Извините, не найдены темы форума. "
+
+# @ cc
+#: forums/index.php:23
+msgid "Forums Directory"
+msgstr "Каталог форума"
+
+# @ cc
+#: forums/index.php:23 forums/single/forum.php:19 groups/single/forum.php:17
+msgid "New Topic"
+msgstr "Новая тема"
+
+# @ cc
+#: forums/index.php:40
+#, php-format
+msgid "All Topics <span>%s</span>"
+msgstr "Все темы <span>%s</span>"
+
+# @ cc
+#: forums/index.php:44
+#, php-format
+msgid "My Topics <span>%s</span>"
+msgstr "Мои темы <span>%s</span>"
+
+# @ cc
+#: forums/index.php:63 forums/single/forum.php:37 groups/single/forum.php:35
+#: members/single/forums.php:21
+msgid "Most Posts"
+msgstr "Еще публикации"
+
+# @ cc
+#: forums/index.php:64 forums/single/forum.php:38 groups/single/forum.php:36
+#: members/single/forums.php:22
+msgid "Unreplied"
+msgstr "Без ответа"
+
+# @ cc
+#: forums/index.php:100
+msgid "Create New Topic:"
+msgstr "Создать новую тему:"
+
+# @ cc
+#: forums/index.php:104 forums/single/edit.php:49
+#: groups/single/forum/edit.php:49 groups/single/forum.php:71
+msgid "Title:"
+msgstr "Заголовок:"
+
+# @ cc
+#: forums/index.php:107 forums/single/edit.php:52
+#: groups/single/forum/edit.php:52 groups/single/forum.php:74
+msgid "Content:"
+msgstr "Содержание:"
+
+# @ cc
+#: forums/index.php:110 groups/single/forum/edit.php:55
+#: groups/single/forum.php:77
+msgid "Tags (comma separated):"
+msgstr "Тэги (разделенные запятой):"
+
+# @ cc
+#: forums/index.php:113
+msgid "Post In Group Forum:"
+msgstr "Публикации на форуме группы:"
+
+# @ cc
+#. translators: no option picked in select box
+#: forums/index.php:116
+msgid "----"
+msgstr "----"
+
+# @ cc
+#: forums/index.php:133 groups/single/forum.php:83
+msgid "Post Topic"
+msgstr "Опубликовать тему"
+
+# @ cc
+#: forums/index.php:134
+msgid "Cancel"
+msgstr "Отменить"
+
+# @ cc
+#: forums/index.php:145
+#, php-format
+msgid ""
+"You are not a member of any groups so you don't have any group forums you "
+"can post in. To start posting, first find a group that matches the topic "
+"subject you'd like to start. If this group does not exist, why not <a "
+"href='%s'>create a new group</a>? Once you have joined or created the group "
+"you can post your topic in that group's forum."
+msgstr ""
+"Вы не состоите ни в какой группе, поэтому не можете публиковать сообщения ни "
+"в каких форумах групп. Чтобы начать публикации, вначале найдите группу, "
+"которая соответствует теме, которую Вы хотите начать. Если такой группы не "
+"существует, почему не <a href='%s'> не создать новую группу</a>? После того "
+"как Вы присоединились к группе или создали группу, Вы можете опубликовать "
+"тему га форуме."
+
+# @ cc
+#: forums/single/edit.php:16 forums/single/forum.php:25
+#: forums/single/topic.php:43 groups/single/forum/edit.php:16
+#: groups/single/forum/topic.php:16 groups/single/forum.php:23
+msgid "Forum Directory"
+msgstr "Каталог форума"
+
+# @ cc
+#: forums/single/edit.php:25 groups/single/forum/edit.php:25
+msgid "Edit:"
+msgstr "Редактировать:"
+
+# @ cc
+#: forums/single/edit.php:57 forums/single/edit.php:73
+#: groups/single/admin.php:32 groups/single/admin.php:117
+#: groups/single/forum/edit.php:60 groups/single/forum/edit.php:76
+#: members/single/profile/edit.php:126 members/single/settings/general.php:69
+#: members/single/settings/notifications.php:62
+msgid "Save Changes"
+msgstr "Сохранить изменнения"
+
+# @ cc
+#: forums/single/edit.php:88 groups/single/forum/edit.php:91
+msgid "This topic does not exist."
+msgstr "Эта тема не существует."
+
+# @ cc
+#: forums/single/forum-header.php:13 groups/groups-loop.php:47
+#, php-format
+msgid "active %s"
+msgstr "активно %s"
+
+# @ cc
+#: forums/single/topic.php:37 groups/single/forum/topic.php:10
+msgid "New Reply"
+msgstr "Новый ответ"
+
+# @ cc
+#: forums/single/topic.php:97
+#, php-format
+msgid "%s said %s ago:"
+msgstr "%s написал %s назад:"
+
+# @ cc
+#: forums/single/topic.php:117 groups/single/forum/topic.php:91
+msgid "Permanent link to this post"
+msgstr "Постоянная ссылка на эту публикацию"
+
+# @ cc
+#: forums/single/topic.php:153 groups/single/forum/topic.php:127
+msgid "Add a reply:"
+msgstr "Добавить ответ:"
+
+# @ cc
+#: forums/single/topic.php:158 groups/single/forum/topic.php:132
+msgid "Post Reply"
+msgstr "Опубликовать ответ"
+
+# @ cc
+#: forums/single/topic.php:169 groups/single/forum/topic.php:143
+msgid "This topic is closed, replies are no longer accepted."
+msgstr "Тема закрытаб ответы больше не принимаются."
+
+# @ cc
+#: forums/single/topic.php:184 groups/single/forum/topic.php:157
+msgid "There are no posts for this topic."
+msgstr "Нет публикаций для этой темы."
+
+# @ cc
+#: full-width.php:27 page.php:17
+msgid "<p class=\"serif\">Read the rest of this page &rarr;</p>"
+msgstr "<p class=\"serif\">Читать оставшуюся часть этой страницы &rarr;</p>"
+
+# @ cc
+#: full-width.php:42 page.php:33 single.php:92
+msgid "Edit this entry."
+msgstr "Редактировать содержимое."
+
+# @ cc
+#: functions.php:59
+msgid "Header top menu"
+msgstr "Верхнее меню заголовка"
+
+# @ cc
+#: functions.php:60
+msgid "Header bottom menu"
+msgstr "Нижнее меню заголовка"
+
+# @ cc
+#: functions.php:473
+msgid "Members Results"
+msgstr "Результаты членов"
+
+# @ cc
+#: functions.php:488
+msgid "Group Search"
+msgstr "Поиск в группах"
+
+# @ cc
+#: functions.php:491
+msgid "View All matched Groups"
+msgstr "Посмотреть все соответствующие группы"
+
+# @ cc
+#: functions.php:509
+msgid "Blog Search"
+msgstr "Поиск по сайту"
+
+# @ cc
+#: functions.php:512
+msgid "View All matched Posts"
+msgstr "Посмотреть все соответствующие публикации"
+
+# @ cc
+#: functions.php:524
+msgid "Forums Search"
+msgstr "Поиск по форуму"
+
+# @ cc
+#: functions.php:526
+msgid "View All matched forum posts"
+msgstr "Посмотреть все соответствующие публикации форума"
+
+# @ cc
+#: functions.php:545
+msgid "Blogs Search"
+msgstr "Поиск в блогах"
+
+# @ cc
+#: functions.php:547
+msgid "View All matched Blogs"
+msgstr "Посмотреть все соответствующие блоги"
+
+# @ cc
+#: groups/create.php:18 groups/index.php:23
+msgid "Create a Group"
+msgstr "Создать группу"
+
+# @ cc
+#: groups/create.php:18 groups/index.php:23
+msgid "Groups Directory"
+msgstr "Каталог групп"
+
+# @ cc
+#: groups/create.php:39 groups/single/admin.php:16
+msgid "Group Name (required)"
+msgstr "Имя группы (обязательно)"
+
+# @ cc
+#: groups/create.php:42 groups/single/admin.php:19
+msgid "Group Description (required)"
+msgstr "Описание группы (обязательно)"
+
+# @ cc
+#: groups/create.php:62 groups/single/admin.php:47
+msgid "Enable discussion forum"
+msgstr "Открыть новое обсуждение на форуме"
+
+# @ cc
+#: groups/create.php:69
+#, php-format
+msgid ""
+"<strong>Attention Site Admin:</strong> Group forums require the <a href=\"%s"
+"\">correct setup and configuration</a> of a bbPress installation."
+msgstr ""
+"<strong>Вниманию администратора сайта:</strong> Форумы группы требуют <a "
+"href=\"%s\">корректной установки и конфигурации</a> установки bbPress."
+
+# @ cc
+#: groups/create.php:78 groups/single/admin.php:56
+msgid "Privacy Options"
+msgstr "Личные настройки"
+
+# @ cc
+#: groups/create.php:82 groups/single/admin.php:61
+msgid "This is a public group"
+msgstr "Это открытая группа"
+
+# @ cc
+#: groups/create.php:84 groups/single/admin.php:63
+msgid "Any site member can join this group."
+msgstr "Каждый член сайта может присоединиться к этой группе."
+
+# @ cc
+#: groups/create.php:85 groups/create.php:94 groups/single/admin.php:64
+#: groups/single/admin.php:74
+msgid ""
+"This group will be listed in the groups directory and in search results."
+msgstr "Эта группа будет в списке каталога групп и в результатах поиска."
+
+# @ cc
+#: groups/create.php:86 groups/single/admin.php:65
+msgid "Group content and activity will be visible to any site member."
+msgstr "Содержание группы и активность будут видимы для всех членов сайта."
+
+# @ cc
+#: groups/create.php:91 groups/single/admin.php:71
+msgid "This is a private group"
+msgstr "Это закрытая группа"
+
+# @ cc
+#: groups/create.php:93 groups/single/admin.php:73
+msgid "Only users who request membership and are accepted can join the group."
+msgstr ""
+"Только пользователи, запросившие членство и принятые в группу, могут "
+"присоединиться."
+
+# @ cc
+#: groups/create.php:95 groups/create.php:104 groups/single/admin.php:75
+#: groups/single/admin.php:85
+msgid ""
+"Group content and activity will only be visible to members of the group."
+msgstr "Содержание группы и активность будут видимы только для членов группы."
+
+# @ cc
+#: groups/create.php:100 groups/single/admin.php:81
+msgid "This is a hidden group"
+msgstr "Это скрытая группа."
+
+# @ cc
+#: groups/create.php:102 groups/single/admin.php:83
+msgid "Only users who are invited can join the group."
+msgstr "Только приглашенные пользователи могут присоединиться к группе."
+
+# @ cc
+#: groups/create.php:103 groups/single/admin.php:84
+msgid ""
+"This group will not be listed in the groups directory or search results."
+msgstr "Эта группа не будет в списке каталога групп и в результатах поиска."
+
+# @ cc
+#: groups/create.php:111 groups/single/admin.php:92
+msgid "Group Invitations"
+msgstr "Приглашения в группу"
+
+# @ cc
+#: groups/create.php:113 groups/single/admin.php:94
+msgid "Which members of this group are allowed to invite others?"
+msgstr "Какие члены группы могут приглашать других?"
+
+# @ cc
+#: groups/create.php:118 groups/single/admin.php:99
+msgid "All group members"
+msgstr "Все члены группы"
+
+# @ cc
+#: groups/create.php:123 groups/single/admin.php:104
+msgid "Group admins and mods only"
+msgstr "Только администраторы и модераторы группы"
+
+# @ cc
+#: groups/create.php:128 groups/single/admin.php:109
+msgid "Group admins only"
+msgstr "Только администраторы группы"
+
+# @ cc
+#: groups/create.php:154 groups/single/admin.php:127
+msgid ""
+"Upload an image to use as an avatar for this group. The image will be shown "
+"on the main group page, and in search results."
+msgstr ""
+"Загрузить изображение для использования в качестве аватара группы. "
+"Изображение будет показано на главной странице группы и в результатах поиска."
+
+# @ cc
+#: groups/create.php:158 groups/single/admin.php:131
+#: members/single/profile/change-avatar.php:18
+msgid "Upload Image"
+msgstr "Загрузить изображение"
+
+# @ cc
+#: groups/create.php:162
+msgid "To skip the avatar upload process, hit the \"Next Step\" button."
+msgstr ""
+"Чтобы пропустить процесс загрузки аватара, нажмите кнопку \"Следующий шаг\"."
+
+# @ cc
+#: groups/create.php:169
+msgid "Crop Group Avatar"
+msgstr "Обрезать аватар группы"
+
+# @ cc
+#: groups/create.php:171 groups/single/admin.php:151
+#: members/single/profile/change-avatar.php:33
+msgid "Avatar to crop"
+msgstr "Кадрировать аватар"
+
+# @ cc
+#: groups/create.php:174 groups/single/admin.php:154
+#: members/single/profile/change-avatar.php:36
+msgid "Avatar preview"
+msgstr "Предпросмотр аватара"
+
+# @ cc
+#: groups/create.php:177 groups/single/admin.php:157
+#: members/single/profile/change-avatar.php:39
+msgid "Crop Image"
+msgstr "Обрезать картинку"
+
+# @ cc
+#: groups/create.php:216 groups/single/send-invites.php:22
+msgid "Select people to invite from your friends list."
+msgstr "Выбрать людей, чтобы пригласить из вашего списка друзей."
+
+# @ cc
+#: groups/create.php:251 groups/single/send-invites.php:73
+msgid ""
+"Once you have built up friend connections you will be able to invite others "
+"to your group. You can send invites any time in the future by selecting the "
+"\"Send Invites\" option when viewing your new group."
+msgstr ""
+"Как только Вы установите связи с друзьями, Вы сможете приглашать других в "
+"группу. Вы можете посылать приглашения в любое время в будущем, выбирая "
+"опцию \"Послать приглашения\", просматривая Вашу новую группу."
+
+# @ cc
+#: groups/create.php:273
+msgid "Back to Previous Step"
+msgstr "Назад к предыдущему шагу"
+
+# @ cc
+#: groups/create.php:280
+msgid "Next Step"
+msgstr "Следующий шаг"
+
+# @ cc
+#: groups/create.php:287
+msgid "Create Group and Continue"
+msgstr "Создать группу и продолжить"
+
+# @ cc
+#: groups/create.php:294
+msgid "Finish"
+msgstr "Завершить"
+
+# @ cc
+#: groups/groups-loop.php:95
+msgid "There were no groups found."
+msgstr "Группы не найдены"
+
+# @ cc
+#: groups/index.php:37
+#, php-format
+msgid "All Groups <span>%s</span>"
+msgstr "Все группы <span>%s</span>"
+
+# @ cc
+#: groups/index.php:60 members/single/groups.php:23
+msgid "Most Members"
+msgstr "Большинство членов"
+
+# @ cc
+#: groups/index.php:61 members/single/groups.php:24
+msgid "Newly Created"
+msgstr "Вновь созданные"
+
+# @ cc
+#: groups/single/admin.php:25
+msgid "Notify group members of changes via email"
+msgstr "Уведомить членов группы по e-mail"
+
+# @ cc
+#: groups/single/admin.php:26 registration/register.php:205
+msgid "Yes"
+msgstr "Да"
+
+# @ cc
+#: groups/single/admin.php:27 registration/register.php:206
+msgid "No"
+msgstr "Нет"
+
+# @ cc
+#: groups/single/admin.php:137
+msgid ""
+"If you'd like to remove the existing avatar but not upload a new one, please "
+"use the delete avatar button."
+msgstr ""
+"Если вы хотите удалить существующий аватар, не загружая новый, пожалуйста, "
+"используйте кнопку \"Удалить аватар\"."
+
+# @ cc
+#: groups/single/admin.php:139 members/single/profile/change-avatar.php:24
+msgid "Delete Avatar"
+msgstr "Удалить аватар"
+
+# @ cc
+#: groups/single/admin.php:149
+msgid "Crop Avatar"
+msgstr "Кадрировать аватар"
+
+# @ cc
+#: groups/single/admin.php:177
+msgid "Administrators"
+msgstr "Администраторы"
+
+# @ cc
+#: groups/single/admin.php:185 groups/single/admin.php:210
+#, php-format
+msgid "Profile picture of %s"
+msgstr "Изображение профиля: %s"
+
+# @ cc
+#: groups/single/admin.php:189 groups/single/admin.php:215
+msgid "Demote to Member"
+msgstr "Понизить статус до члена"
+
+# @ cc
+#: groups/single/admin.php:203
+msgid "Moderators"
+msgstr "Модераторы"
+
+# @ cc
+#: groups/single/admin.php:214 groups/single/admin.php:270
+msgid "Promote to Admin"
+msgstr "Повысить статус до Администратора"
+
+# @ cc
+#: groups/single/admin.php:258
+msgid "(banned)"
+msgstr "(забанено)"
+
+# @ cc
+#: groups/single/admin.php:264
+msgid "Unban this member"
+msgstr "Снять бан для этого члена"
+
+# @ cc
+#: groups/single/admin.php:264
+msgid "Remove Ban"
+msgstr "Удалить бан"
+
+# @ cc
+#: groups/single/admin.php:268
+msgid "Kick and ban this member"
+msgstr "Забанить этого члена"
+
+# @ cc
+#: groups/single/admin.php:268
+msgid "Kick &amp; Ban"
+msgstr "Забанить &amp; "
+
+# @ cc
+#: groups/single/admin.php:269
+msgid "Promote to Mod"
+msgstr "Повысить статус до Модератора"
+
+# @ cc
+#: groups/single/admin.php:274
+msgid "Remove this member"
+msgstr "Удалить этого члена"
+
+# @ cc
+#: groups/single/admin.php:274
+msgid "Remove from group"
+msgstr "Удалить из группы"
+
+# @ cc
+#: groups/single/admin.php:288 groups/single/members.php:104
+msgid "This group has no members."
+msgstr "В этой группе нет членов."
+
+# @ cc
+#: groups/single/admin.php:318 members/single/friends/requests.php:37
+#: members/single/groups/invites.php:23
+msgid "Accept"
+msgstr "Принять"
+
+# @ cc
+#: groups/single/admin.php:320 members/single/friends/requests.php:38
+#: members/single/groups/invites.php:24
+msgid "Reject"
+msgstr "Отклонить"
+
+# @ cc
+#: groups/single/admin.php:333
+msgid "There are no pending membership requests."
+msgstr "Нет ожидающих запросов о членстве."
+
+# @ cc
+#: groups/single/admin.php:350
+msgid ""
+"WARNING: Deleting this group will completely remove ALL content associated "
+"with it. There is no way back, please be careful with this option."
+msgstr ""
+"ВНИМАНИЕ: Удаление этой группы полностью удалит ВСЕ содержимое, связанное с "
+"ней. Изменения необратимы, пожалуйста, будьте осторожны с этой опцией."
+
+# @ cc
+#: groups/single/admin.php:353
+msgid "I understand the consequences of deleting this group."
+msgstr "Я понимаю последствия удаления этйо группы."
+
+# @ cc
+#: groups/single/admin.php:358
+msgid "Delete Group"
+msgstr "Удалить группу"
+
+# @ cc
+#: groups/single/forum/topic.php:31
+msgid "Topic tags:"
+msgstr "Тэги темы:"
+
+# @ cc
+#: groups/single/forum/topic.php:77
+#, php-format
+msgid "%1$s said %2$s:"
+msgstr "%1$s написал %2$s:"
+
+# @ cc
+#: groups/single/forum/topic.php:122
+msgid "You will auto join this group when you reply to this topic."
+msgstr "Вы автоматически присоединитесь к группе, когда ответите на тему."
+
+# @ cc
+#: groups/single/forum.php:65
+msgid "You will auto join this group when you start a new topic."
+msgstr "Вы автоматически присоединитесь к группе, когда начнете новую тему."
+
+# @ cc
+#: groups/single/forum.php:69
+msgid "Post a New Topic:"
+msgstr "Опубликовать новую тему:"
+
+# @ cc
+#: groups/single/group-header-sidebar.php:16 groups/single/group-header.php:35
+#, php-format
+msgid "active %s ago"
+msgstr "последняя активность %s назад"
+
+# @ cc
+#: groups/single/group-header.php:6
+msgid "Group Admins"
+msgstr "Администраторы группы"
+
+# @ cc
+#: groups/single/group-header.php:14
+msgid "Group Mods"
+msgstr "Модераторы группы"
+
+# @ cc
+#: groups/single/members.php:15 members/index.php:58
+#: members/single/friends.php:23
+msgid "Newest Registered"
+msgstr "Самые новые зарегестрированные"
+
+# @ cc
+#: groups/single/request-membership.php:4
+#, php-format
+msgid "You are requesting to become a member of the group '%s'."
+msgstr "Вы оставили запрос, чтобы стать членом группы '%s'."
+
+# @ cc
+#: groups/single/request-membership.php:7
+msgid "Comments (optional)"
+msgstr "Комментарии (не обязательно)"
+
+# @ cc
+#: groups/single/request-membership.php:12
+msgid "Send Request"
+msgstr "Отправить запрос"
+
+# @ cc
+#: groups/single/send-invites.php:60
+msgid "Send Invites"
+msgstr "Отправить приглашение"
+
+# @ cc
+#: header.php:17
+msgid "Site Wide Activity RSS Feed"
+msgstr "RSS для всей активности на сайте"
+
+# @ cc
+#: header.php:21
+msgid "Activity RSS Feed"
+msgstr "RSS активность"
+
+# @ cc
+#: header.php:25
+msgid "Group Activity RSS Feed"
+msgstr "RSS активность группы"
+
+# @ cc
+#: header.php:28
+msgid "Blog Posts RSS Feed"
+msgstr "RSS публикаций в блоге"
+
+# @ cc
+#: header.php:29
+msgid "Blog Posts Atom Feed"
+msgstr "Atom Feed публикаций в блоге"
+
+# @ cc
+#: index.php:30 single.php:60
+#, php-format
+msgid " by %s"
+msgstr "автор %s"
+
+# @ cc
+#: index.php:58
+msgid "Sorry, but you are looking for something that isn't here."
+msgstr "Извините, но вы ищете то, чего здесь нет."
+
+# @ cc
+#: members/index.php:23
+msgid "Members Directory"
+msgstr "Каталоги членов"
+
+# @ cc
+#: members/members-loop.php:108
+msgid "Sorry, no members were found."
+msgstr "Извините, членов не найдено"
+
+# @ cc
+#: members/single/friends/requests.php:68
+msgid "You have no pending friendship requests."
+msgstr "У Вас нет запросов о дружбе в ожидании."
+
+# @ cc
+#: members/single/groups/invites.php:14
+#, php-format
+msgid "%s members"
+msgstr "%s членов"
+
+# @ cc
+#: members/single/groups/invites.php:37
+msgid "You have no outstanding group invites."
+msgstr "У Вас нет невыполненных приглашений в группы."
+
+# @ cc
+#: members/single/member-header-sidebar.php:37
+#: members/single/member-header.php:34
+msgid ""
+"Mention this user in a new public message, this will send the user a "
+"notification to get their attention."
+msgstr ""
+"Упоминание этого пользователя в открытом сообщении, пользователю будет "
+"послано уведомление."
+
+# @ cc
+#: members/single/member-header-sidebar.php:37
+#: members/single/member-header.php:34
+msgid "Mention this User"
+msgstr "Упоминание этого пользователя"
+
+# @ cc
+#: members/single/member-header-sidebar.php:43
+#: members/single/member-header.php:40
+msgid "Send a private message to this user."
+msgstr "Отправить приватное сообщение этому пользователю."
+
+# @ cc
+#: members/single/member-header-sidebar.php:43
+#: members/single/member-header.php:40
+msgid "Send Private Message"
+msgstr "Отправить приватное сообщение"
+
+# @ cc
+#: members/single/messages/compose.php:5
+msgid "Send To (Username or Friend's Name)"
+msgstr "Послать (имя пользователя или имя друга)"
+
+# @ cc
+#: members/single/messages/compose.php:14
+msgid "This is a notice to all users."
+msgstr "Это сообщение всем пользователям."
+
+# @ cc
+#: members/single/messages/compose.php:17
+msgid "Subject"
+msgstr "Тема"
+
+# @ cc
+#: members/single/messages/compose.php:20
+msgid "Message"
+msgstr "Сообщение"
+
+# @ cc
+#: members/single/messages/compose.php:28
+msgid "Send Message"
+msgstr "Отправить сообщение"
+
+# @ cc
+#: members/single/messages/messages-loop.php:31
+msgid "From:"
+msgstr "От кого:"
+
+# @ cc
+#: members/single/messages/messages-loop.php:36
+msgid "To:"
+msgstr "Кому:"
+
+# @ cc
+#: members/single/messages/messages-loop.php:42
+msgid "View Message"
+msgstr "Посмотреть сообщение"
+
+# @ cc
+#: members/single/messages/messages-loop.php:50
+#: members/single/messages/notices-loop.php:38
+#: members/single/messages/single.php:24
+msgid "Delete Message"
+msgstr "Удалить сообщение"
+
+# @ cc
+#: members/single/messages/messages-loop.php:68
+msgid "Sorry, no messages were found."
+msgstr "Извините, ни одного сообщения не найдено."
+
+# @ cc
+#: members/single/messages/notices-loop.php:31
+msgid "Sent:"
+msgstr "Отправить:"
+
+# @ cc
+#: members/single/messages/notices-loop.php:49
+msgid "Sorry, no notices were found."
+msgstr "Извините, ни одной записи не найдено."
+
+# @ cc
+#: members/single/messages/single.php:14
+msgid "You are alone in this conversation."
+msgstr "Вы единственный, кто принимает участие в разговоре."
+
+# @ cc
+#: members/single/messages/single.php:18
+#, php-format
+msgid "Conversation between %s and you."
+msgstr "Разговор между %s и Вами."
+
+# @ cc
+#: members/single/messages/single.php:75
+msgid "Send a Reply"
+msgstr "Отправить ответ"
+
+# @ cc
+#: members/single/messages/single.php:91
+msgid "Send Reply"
+msgstr "Отправить ответ"
+
+# @ cc
+#: members/single/profile/change-avatar.php:1
+msgid "Change Avatar"
+msgstr "Сменить аватар"
+
+# @ cc
+#: members/single/profile/change-avatar.php:7
+msgid ""
+"Your avatar will be used on your profile and throughout the site. If there "
+"is a <a href=\"http://gravatar.com\">Gravatar</a> associated with your "
+"account email we will use that, or you can upload an image from your "
+"computer."
+msgstr ""
+"Ваш аватар будет использоваться в Вашем профиле и везде на сайте. Если "
+"существует <a href=\"http://gravatar.com\">Gravatar</a> связанный с вашим e-"
+"mail аккаунта, мы будем использовать его, или Вы можете загрузить "
+"изображение с Вашего компьютера."
+
+# @ cc
+#: members/single/profile/change-avatar.php:14
+msgid ""
+"Click below to select a JPG, GIF or PNG format photo from your computer and "
+"then click 'Upload Image' to proceed."
+msgstr ""
+"Нажмите ниже, чтобы выбрать фото в формате JPG, GIF или PNG на Вашем "
+"компьютере и затем нажмите 'Загрузить изображение' для продолжения."
+
+# @ cc
+#: members/single/profile/change-avatar.php:23
+msgid ""
+"If you'd like to delete your current avatar but not upload a new one, please "
+"use the delete avatar button."
+msgstr ""
+"Если вы хотите удалить Ваш текущий аватар, не загружая новый, пожалуйста, "
+"используйте кнопку \"Удалить аватар\"."
+
+# @ cc
+#: members/single/profile/change-avatar.php:24
+msgid "Delete My Avatar"
+msgstr "Удалить мой аватар"
+
+# @ cc
+#: members/single/profile/change-avatar.php:31
+msgid "Crop Your New Avatar"
+msgstr "Обрезать ваш новый аватар"
+
+# @ cc
+#: members/single/profile/change-avatar.php:55
+msgid ""
+"Your avatar will be used on your profile and throughout the site. To change "
+"your avatar, please create an account with <a href=\"http://gravatar.com"
+"\">Gravatar</a> using the same email address as you used to register with "
+"this site."
+msgstr ""
+"Ваш аватар будет использоваться в Вашем профиле и везде на сайте. Для "
+"изменения аватара, пожалуйста, создайте аккаунт с <a href=\"http://gravatar."
+"com\">Gravatar</a>, используя тот же e-mail адрес, который Вы указывали при "
+"регистрации на сайте."
+
+# @ cc
+#: members/single/profile/edit.php:10
+#, php-format
+msgid "Editing '%s' Profile Group"
+msgstr "Редактировать профиль группы '%s'"
+
+# @ cc
+#: members/single/profile/edit.php:26 members/single/profile/edit.php:33
+#: members/single/profile/edit.php:40 members/single/profile/edit.php:49
+#: members/single/profile/edit.php:67 members/single/profile/edit.php:83
+#: members/single/profile/edit.php:93 registration/register.php:37
+#: registration/register.php:41 registration/register.php:45
+#: registration/register.php:49 registration/register.php:76
+#: registration/register.php:84 registration/register.php:92
+#: registration/register.php:102 registration/register.php:113
+#: registration/register.php:128 registration/register.php:139
+#: registration/register.php:189 registration/register.php:198
+msgid "(required)"
+msgstr "(обязательно)"
+
+# @ cc
+#: members/single/profile/edit.php:58 members/single/profile/edit.php:73
+#: registration/register.php:119
+msgid "Clear"
+msgstr "Очистить"
+
+# @ cc
+#: members/single/profile/profile-wp.php:8
+#, php-format
+msgid "%s's Profile"
+msgstr "%s's Профиль"
+
+# @ cc
+#: members/single/profile/profile-wp.php:24
+msgid "About Me"
+msgstr "Обо мне"
+
+# @ cc
+#: members/single/profile/profile-wp.php:42
+msgid "Jabber"
+msgstr "Чат"
+
+# @ cc
+#: members/single/profile/profile-wp.php:51
+msgid "AOL Messenger"
+msgstr "AOL Komunikator"
+
+# @ cc
+#: members/single/profile/profile-wp.php:60
+msgid "Yahoo Messenger"
+msgstr "Yahoo Messenger"
+
+# @ cc
+#: members/single/settings/delete-account.php:50
+msgid "Delete Account"
+msgstr "Удалить аккаунт"
+
+# @ cc
+#: members/single/settings/delete-account.php:55
+msgid ""
+"WARNING: Deleting your account will completely remove ALL content associated "
+"with it. There is no way back, please be careful with this option."
+msgstr ""
+"ВНИМАНИЕ: Удаление Вашего аккаунта  полностью удалит ВСЕ содержимое, "
+"связанное с ним. Изменения необратимы, пожалуйста, будьте осторожны с этой "
+"опцией."
+
+# @ cc
+#: members/single/settings/delete-account.php:58
+msgid "I understand the consequences of deleting my account."
+msgstr "Я понимаю последствия удаления моего аккаунта."
+
+# @ cc
+#: members/single/settings/delete-account.php:63
+msgid "Delete My Account"
+msgstr "Удалить мой аккаунт"
+
+# @ cc
+#: members/single/settings/general.php:50
+msgid "General Settings"
+msgstr "Общие установки"
+
+# @ cc
+#: members/single/settings/general.php:56
+msgid ""
+"Current Password <span>(required to update email or change current password)"
+"</span>"
+msgstr ""
+"Текущий пароль <span>(требуется обновить e-mail или изменить текущий пароль)"
+"</span>"
+
+# @ cc
+#: members/single/settings/general.php:57
+msgid "Password Lost and Found"
+msgstr "Восстановленные пароли"
+
+# @ cc
+#: members/single/settings/general.php:57
+msgid "Lost your password?"
+msgstr "Забыли пароль?"
+
+# @ cc
+#: members/single/settings/general.php:59
+msgid "Account Email"
+msgstr "E-mail аккаунта: "
+
+# @ cc
+#: members/single/settings/general.php:62
+msgid "Change Password <span>(leave blank for no change)</span>"
+msgstr "Изменить пароль <span>(оставьте пустым, чтобы не менять)</span>"
+
+# @ cc
+#: members/single/settings/general.php:63
+msgid "New Password"
+msgstr "Новый пароль"
+
+# @ cc
+#: members/single/settings/general.php:64
+msgid "Repeat New Password"
+msgstr "Повторить новый пароль"
+
+# @ cc
+#: members/single/settings/notifications.php:50
+msgid "Email Notification"
+msgstr "Уведомление по e-mail"
+
+# @ cc
+#: members/single/settings/notifications.php:55
+msgid "Send a notification by email when:"
+msgstr "Послать уведомление по e-mail, когда:"
+
+# @ cc
+#: registration/activate.php:12
+msgid "Account Activated"
+msgstr "Аккаунт активирован"
+
+# @ cc
+#: registration/activate.php:17
+msgid ""
+"Your account was activated successfully! Your account details have been sent "
+"to you in a separate email."
+msgstr ""
+"Ваш аккаунт успешно активирован! Детали Вашего аккаунта были высланы Вам "
+"отдельным сообщением по e-mail."
+
+# @ cc
+#: registration/activate.php:19
+msgid ""
+"Your account was activated successfully! You can now log in with the "
+"username and password you provided when you signed up."
+msgstr ""
+"Ваш аккаунт успешно активирован!  Теперь Вы можете войти с логином и "
+"паролем, которые Вы указали, когда регистрировались."
+
+# @ cc
+#: registration/activate.php:24
+msgid "Activate your Account"
+msgstr "Активировать Ваш аккаунт"
+
+# @ cc
+#: registration/activate.php:28
+msgid "Please provide a valid activation key."
+msgstr "Пожалуйста, используйте действующий ключ активации."
+
+# @ cc
+#: registration/activate.php:32
+msgid "Activation Key:"
+msgstr "Ключ активации:"
+
+# @ cc
+#: registration/activate.php:36
+msgid "Activate"
+msgstr "Активировать"
+
+# @ cc
+#: registration/register.php:16
+msgid "User registration is currently not allowed."
+msgstr "Регистрация пользователей в настоящий момент недоступна."
+
+# @ cc
+#: registration/register.php:23
+msgid "Create an Account"
+msgstr "Создать аккаунт"
+
+# @ cc
+#: registration/register.php:27
+msgid ""
+"Registering for this site is easy, just fill in the fields below and we'll "
+"get a new account set up for you in no time."
+msgstr ""
+"Зарегистрироваться  на этом сайте очень легко, просто заполните поля ниже и "
+"мы сразу предоставим Вам аккаунт. "
+
+# @ cc
+#: registration/register.php:35
+msgid "Account Details"
+msgstr "Данные аккаунта"
+
+# @ cc
+#: registration/register.php:41
+msgid "Email Address"
+msgstr "E-mail"
+
+# @ cc
+#: registration/register.php:45
+msgid "Choose a Password"
+msgstr "Создайте пароль"
+
+# @ cc
+#: registration/register.php:49
+msgid "Confirm Password"
+msgstr "Подтвердите пароль"
+
+# @ cc
+#: registration/register.php:65
+msgid "Profile Details"
+msgstr "Данные профиля"
+
+# @ cc
+#: registration/register.php:183
+msgid "Blog Details"
+msgstr "Данные блога"
+
+# @ cc
+#: registration/register.php:185
+msgid "Yes, I'd like to create a new site"
+msgstr "Да, я бы хотел сознать новую страницу"
+
+# @ cc
+#: registration/register.php:189
+msgid "Blog URL"
+msgstr "URL блога"
+
+# @ cc
+#: registration/register.php:198
+msgid "Site Title"
+msgstr "Название страницы"
+
+# @ cc
+#: registration/register.php:202
+msgid ""
+"I would like my site to appear in search engines, and in public listings "
+"around this network."
+msgstr ""
+"Я бы хотел, чтобы моя страница появлялась в поисковых системах и в открытых "
+"списках в этой сети."
+
+# @ cc
+#: registration/register.php:219
+msgid "Complete Sign Up"
+msgstr "Закончить регистрацию"
+
+# @ cc
+#: registration/register.php:230
+msgid "Sign Up Complete!"
+msgstr "Регистрация завершена!"
+
+# @ cc
+#: registration/register.php:236
+msgid ""
+"You have successfully created your account! To begin using this site you "
+"will need to activate your account via the email we have just sent to your "
+"address."
+msgstr ""
+"Вы успешно создали новый аккаунт! Чтобы начать пользоваться этим сайтом, Вам "
+"нужно активировать аккаунт с помощью e-mail, который был выслан на Ваш адрес."
+
+# @ cc
+#: registration/register.php:238
+msgid ""
+"You have successfully created your account! Please log in using the username "
+"and password you have just created."
+msgstr ""
+"Вы успешно создали новый аккаунт! Пожалуйста, войдите, используя имя "
+"пользователья и пароль, которые Вы создали."
+
+# @ cc
+#: search-loop.php:34
+msgid "Read more..."
+msgstr "Читать далее..."
+
+# @ cc
+#: search-loop.php:51
+#, php-format
+msgid "We are sorry, but we could not find anything for the search term '%s'"
+msgstr "Извините, но не найдено ничего для '%s'"
+
+# @ cc
+#: search.php:14
+msgid "Search Results"
+msgstr "Результаты поиска"
+
+# @ cc
+#: search.php:59
+msgid "No posts found. Try a different search?"
+msgstr "Записей не найдено. Попробовать другой поиск?"
+
+# @ cc
+#: sidebar.php:11
+msgid "Recent Posts"
+msgstr "Свежие записи"
+
+# @ cc
+#: sidebar.php:23
+msgid "Random Posts"
+msgstr "Случайные записи"
+
+# @ cc
+#: sidebar.php:35
+msgid "Search by Tags!"
+msgstr "Искать по тегам!"
+
+# @ cc
+#: single.php:98
+msgid "Sorry, no posts matched your criteria."
+msgstr "Извините, записей удовлетворяющих вашим требованиям не найдено."

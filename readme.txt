@@ -1,6 +1,6 @@
 Theme Name: Custom Community 
-Theme URI: http://themekraft.com/custom-community/
-Description: Create your individual website within minutes. Custom Community is a WordPress and BuddyPress theme framework that enables you to build your site with all the features you love. Easy to use jQuery slideshow. List posts under your pages in magazine layouts. Use powerful theme settings to customize every part of the theme. 20 widget areas, 5 special widgets and 2 custom WP 3.0 header menus. 3 predefined colour schemes (white, grey, black) with clean and simple browsersafe css design to start from. Support forum at http://themekraft.com/forums. 
+Theme URI: http://themekraft.com/shop/custom-community-pro/
+Description: Create your individual website within minutes. Custom Community is a WordPress and BuddyPress theme framework that enables you to build your site with all the features you love. Easy to use jQuery slideshow. List posts under your pages in magazine layouts. Use powerful theme settings to customize every part of the theme. 35 widget areas, 5 special widgets and 2 custom WP 3.0 header menus. 14+ languages available. 3 predefined colour schemes (white, grey, black) with clean and browsersafe CSS design to start from. Support at http://themekraft.com. 
 Version: 1.9.2
 Author: Themekraft
 Author URI: http://themekraft.com/
@@ -8,7 +8,7 @@ Tags: buddypress, translation-ready, dark, light, white, gray, left-sidebar, rig
 License: GNU General Public License v2.0 / License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
-Theme Homepage - http://themekraft.com/theme/custom-community/
+Theme Homepage - http://themekraft.com/custom-community/
 
 Licensed under GNU General Public License, Version 2.0 
 http://www.gnu.org/licenses/gpl-2.0.html
@@ -28,10 +28,11 @@ browsersafe css design to start from.
 
 ************************************************************* 
 
-Theme Support - join our forums for free.   
+Free Support - Documentation and free technical support to get you up and running!    
+http://themekraft.com/support/ 
 
-Visit our forums for support questions or just to participate with your ideas!  
-http://themekraft.com/forums/ 
+Premium Support - get personal assistance by our product experts to finish your project quick and hassle-free. 
+http://themekraft.com/shop/premium-support/  
 
 
 ************************************************************* 

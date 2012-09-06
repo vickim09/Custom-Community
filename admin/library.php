@@ -496,11 +496,11 @@ function top_level_settings() {
 
 	<div class="wrap">
 	
-		<h2><b><?php echo $themename; ?> Options</b></h2>
-		<p style="margin-bottom:20px; color:#000;">Custom Community is proudly brought to you by <a style="color:#abc214" href="http://themekraft.com/" target="_blank">Themekraft</a>.
-		<br>For support, check out the <a href="http://themekraft.com/forums/" target="_blank">FORUM</a> and <a href="http://themekraft.com/faq/" target="_blank">FAQ</a>. 
+		<h2><b>Theme Settings</b></h2>
+		<p style="margin-bottom:20px; color:#000;">Custom Community's free version is proudly brought to you by <a style="color:#abc214" href="http://themekraft.com/" target="_blank">Themekraft</a>.
+		<br><a href="http://support.themekraft.com/categories/20053996-custom-community" target="_blank">Documentation</a> and <a href="http://themekraft.com/shop/premium-support/" target="_blank" title="Personal help by product experts">Premium Support</a> at Themekraft.  
 		<?php if(!defined('is_pro')){ ?>
-			Looking for more? <a style="color:#ff9900" href="https://themekraft.com/theme/custom-community-pro/" target="_blank">Get the Full Version</a> </p>
+			Looking for more? <a style="color:#ff9900" href="http://themekraft.com/shop/custom-community-pro/" target="_blank">Get the full version</a>.</p>
 		<?php } ?>
 		
 		<form method="post" action="options.php">

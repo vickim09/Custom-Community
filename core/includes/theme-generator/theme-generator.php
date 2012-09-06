@@ -420,8 +420,7 @@ class CC_Theme_Generator{
   		<div class="clear"></div>
 	  	<br />
 		<br />
-		<div class="credits"><?php printf( __( '%s is proudly powered by <a class="credits" href="http://wordpress.org">WordPress</a> and <a class="credits" href="http://buddypress.org">BuddyPress</a>. ', 'cc' ), bloginfo('name') ); ?>
-		Just another <a class="credits" href="http://themekraft.com/all-themes/" target="_blank" title="Wordpress Theme" alt="WordPress Theme">WordPress Theme</a> developed by Themekraft.</div>
+		<div class="credits"><?php printf( __( '%s is proudly powered by <a class="credits" href="http://wordpress.org">WordPress</a>. Theme developed by <a class="credits" href="http://themekraft.com/shop/custom-community-pro/" title="Custom Community Theme by Themekraft">Themekraft</a>. ', 'cc' ), bloginfo('name') ); ?></div>
 	<?php 
 	}
 	

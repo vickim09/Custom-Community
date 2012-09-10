@@ -23,15 +23,14 @@ add_action( 'admin_init', 'cc_update_old_version' );
 function cc_update_old_version(){
 	if(get_option('cc_version') <= 1.8){
 		$options = wp_load_alloptions();
-		foreach((array) $options as $kay => $value) :
-			$kay = esc_attr($kay);
-	  		if(substr($kay, 0, 4)=='cap_') {
-		  		
+		foreach((array) $options as $key => $value) :
+			$key = esc_attr($key);
+	  		if(substr($key, 0, 4)=='cap_') {
 		  		$cap = get_option('custom_community_theme_options');
-		  		$cap[$kay] = $value;
+		  		$cap[$key] = $value;
 		  		update_option( 'custom_community_theme_options', $cap );
 		  		
-		    	delete_option($kay);     
+		    	delete_option($key);     
 	  		}
 	  	endforeach;
 	    update_option( 'cc_version', 1.9 );
@@ -110,13 +109,13 @@ function cap_defaults_init(){
 			switch(get_class($option)){
 				case 'BooleanOption':
 					$cap_options_default[$option->id] = $option->options[$option->std];
-				break;
+					break;
 				case 'DropdownOption':
 					$cap_options_default[$option->id] = $option->options[0];
-				break;
+					break;
 				default:
 					$cap_options_default[$option->id] = $option->std;
-				break;
+					break;
 			}
 		}
 	}

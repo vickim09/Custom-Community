@@ -130,6 +130,8 @@ function bp_dtheme_activity_template_loader() {
 }
 add_action( 'wp_ajax_activity_widget_filter', 'bp_dtheme_activity_template_loader' );
 add_action( 'wp_ajax_activity_get_older_updates', 'bp_dtheme_activity_template_loader' );
+add_action( 'wp_ajax_nopriv_activity_get_older_updates', 'bp_dtheme_activity_template_loader' );
+
 
 /* AJAX update posting */
 function bp_dtheme_post_update() {
@@ -349,6 +351,7 @@ function bp_dtheme_get_single_activity_content() {
 	exit();
 }
 add_action( 'wp_ajax_get_single_activity_content', 'bp_dtheme_get_single_activity_content' );
+add_action( 'wp_ajax_nopriv_get_single_activity_content', 'bp_dtheme_get_single_activity_content' );
 
 /* AJAX invite a friend to a group functionality */
 function bp_dtheme_ajax_invite_user() {

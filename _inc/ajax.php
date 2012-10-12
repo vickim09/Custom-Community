@@ -90,6 +90,10 @@ add_action( 'wp_ajax_members_filter', 'bp_dtheme_object_template_loader' );
 add_action( 'wp_ajax_groups_filter', 'bp_dtheme_object_template_loader' );
 add_action( 'wp_ajax_blogs_filter', 'bp_dtheme_object_template_loader' );
 add_action( 'wp_ajax_forums_filter', 'bp_dtheme_object_template_loader' );
+add_action( 'wp_ajax_nopriv_members_filter', 'bp_dtheme_object_template_loader' );
+add_action( 'wp_ajax_nopriv_groups_filter', 'bp_dtheme_object_template_loader' );
+add_action( 'wp_ajax_nopriv_blogs_filter', 'bp_dtheme_object_template_loader' );
+add_action( 'wp_ajax_nopriv_forums_filter', 'bp_dtheme_object_template_loader' );
 
 // This function will load the activity loop template when activity is requested via AJAX
 function bp_dtheme_activity_template_loader() {
@@ -130,6 +134,7 @@ function bp_dtheme_activity_template_loader() {
 }
 add_action( 'wp_ajax_activity_widget_filter', 'bp_dtheme_activity_template_loader' );
 add_action( 'wp_ajax_activity_get_older_updates', 'bp_dtheme_activity_template_loader' );
+add_action( 'wp_ajax_nopriv_activity_widget_filter', 'bp_dtheme_activity_template_loader' );
 add_action( 'wp_ajax_nopriv_activity_get_older_updates', 'bp_dtheme_activity_template_loader' );
 
 

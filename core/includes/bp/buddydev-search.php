@@ -63,7 +63,7 @@ class BPUnifiedsearch{
     //remove from nav
     function remove_from_nav($excluded){
         global $bp;
-        $excluded[]=$bp->pages->search->id;
+        if(isset($bp->pages->search->id)) $excluded[]=$bp->pages->search->id;
         return $excluded;
     }
  //search page title

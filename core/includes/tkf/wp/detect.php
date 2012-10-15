@@ -113,7 +113,7 @@ class TK_WP_Detect {
 			$slug = $bp->current_component;
 			$action = $bp->current_action;
 	
-			if($bp->displayed_user->id != 0 && $slug == 'activity' && $action == 'just-me'){
+			if(isset($bp->displayed_user->id) && $bp->displayed_user->id != 0 && $slug == 'activity' && $action == 'just-me'){
 				$slug = 'profile';	
 			}
 		

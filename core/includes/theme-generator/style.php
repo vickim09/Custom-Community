@@ -432,6 +432,7 @@ div#sidebar ul.item-list img.avatar, div.widgetarea  ul.item-list img.avatar{
     height: 25px;
     margin-right: 10px;
 }
+div#sidebar div.item-avatar{display:inline;}
 div#sidebar div.item-avatar img, div.widgetarea  div.item-avatar img{
     width: 40px;
     height: 40px;

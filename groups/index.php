@@ -33,18 +33,18 @@
 			<?php do_action( 'template_notices' ); ?>
 
 			<div class="item-list-tabs" role="navigation">
-				<ul>
-					<li class="selected" id="groups-all"><a href="<?php echo trailingslashit( bp_get_root_domain() . '/' . bp_get_groups_root_slug() ); ?>"><?php printf( __( 'All Groups <span>%s</span>', 'cc' ), bp_get_total_group_count() ); ?></a></li>
+                    <ul>
+                        <li class="selected" id="groups-all"><a href="<?php echo trailingslashit( bp_get_root_domain() . '/' . bp_get_groups_root_slug() ); ?>"><?php printf( __( 'All Groups <span>%s</span>', 'cc' ), bp_get_total_group_count() ); ?></a></li>
 
-					<?php if ( is_user_logged_in() && bp_get_total_group_count_for_user( bp_loggedin_user_id() ) ) : ?>
+                        <?php if ( is_user_logged_in() && bp_get_total_group_count_for_user( bp_loggedin_user_id() ) ) : ?>
 
-						<li id="groups-personal"><a href="<?php echo trailingslashit( bp_loggedin_user_domain() . bp_get_groups_slug() . '/my-groups' ); ?>"><?php printf( __( 'My Groups <span>%s</span>', 'cc' ), bp_get_total_group_count_for_user( bp_loggedin_user_id() ) ); ?></a></li>
+                            <li id="groups-personal"><a href="<?php echo trailingslashit( bp_loggedin_user_domain() . bp_get_groups_slug() . '/my-groups' ); ?>"><?php printf( __( 'My Groups <span>%s</span>', 'cc' ), bp_get_total_group_count_for_user( bp_loggedin_user_id() ) ); ?></a></li>
 
-					<?php endif; ?>
+                        <?php endif; ?>
 
-					<?php do_action( 'bp_groups_directory_group_filter' ); ?>
+                        <?php do_action( 'bp_groups_directory_group_filter' ); ?>
 
-				</ul>
+                    </ul>
 			</div><!-- .item-list-tabs -->
 
 			<div class="item-list-tabs" id="subnav" role="navigation">
@@ -62,6 +62,18 @@
 							<option value="alphabetical"><?php _e( 'Alphabetical', 'cc' ); ?></option>
 
 							<?php do_action( 'bp_groups_directory_order_options' ); ?>
+
+						</select>
+					</li>
+					
+					<li id="groups-displaymode-select" class="no-ajax displaymode">
+
+						<label for="groups-displaymode"><?php _e( 'Display mode:', 'cc' ); ?></label>
+						<select id="groups-displaymode">
+							<option value="list"><?php _e( 'List', 'cc' ); ?></option>
+							<option value="grid"><?php _e( 'Grid', 'cc' ); ?></option>
+
+							<?php do_action( 'bp_groups_directory_displaymode_options' ); ?>
 
 						</select>
 					</li>

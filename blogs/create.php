@@ -3,8 +3,6 @@
 /**
  * BuddyPress - Create Blog
  *
- * @package BuddyPress
- * @subpackage bp-default
  */
 
 ?>

@@ -229,9 +229,6 @@ function bp_dtheme_show_notice() {
 	<div id="message" class="updated fade">
 		<p><?php printf( __( 'Theme activated! This theme contains <a href="%s">custom header image</a> support and <a href="%s">sidebar widgets</a>.', 'cc' ), admin_url( 'themes.php?page=custom-header' ), admin_url( 'widgets.php' ) ) ?></p>
 	</div>
-
-	<style type="text/css">#message2,#message0{display:none}</style>
-
 	<?php
 }
 add_action( 'admin_notices', 'bp_dtheme_show_notice' );
@@ -351,5 +348,3 @@ function bp_dtheme_content_nav( $nav_id ) {
 	<?php endif;
 }
 endif;
-
-?>

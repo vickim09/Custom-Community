@@ -76,19 +76,19 @@ class CC_Theme_Generator{
 		$component = explode('-',$this->detect->tk_get_page_type());
 		
 		if($cap->sidebar_position == ''){
-			$cap->sidebar_position      = 'right';
+			$cap->sidebar_position      = __('right','cc') ;
 			$cap->menue_disable_home    = true;
-			$cap->enable_slideshow_home = 'home';
-			$cap->header_text           = 'off';
+			$cap->enable_slideshow_home = __('home','cc') ;
+			$cap->header_text           = __('off','cc') ;
 			$cap->preview               = true;
 		}	
 		
 		$sidebar_position = $cap->sidebar_position;
 		
 		if(!empty($component[2])){
-			if($component[2] == 'groups' && !empty($component[3]) && $cap->bp_groups_sidebars != 'default') {
+			if($component[2] == 'groups' && !empty($component[3]) && ($cap->bp_groups_sidebars != 'default' && $cap->bp_groups_sidebars != __('default','cc') )) {
 				$sidebar_position = $cap->bp_groups_sidebars;
-			} elseif($component[2] == 'profile' && !empty($component[3]) && $cap->bp_profile_sidebars != 'default') {
+			} elseif($component[2] == 'profile' && !empty($component[3]) && ($cap->bp_profile_sidebars != 'default' && $cap->bp_profile_sidebars != __('default','cc') )) {
 				$sidebar_position = $cap->bp_profile_sidebars;
 			}
 		}
@@ -97,21 +97,21 @@ class CC_Theme_Generator{
 		$rightsidebar_width = $cap->rightsidebar_width;
 		
 		switch ($sidebar_position) {
-			case 'left': $cap->rightsidebar_width = 0; break;
-			case 'right': $cap->leftsidebar_width = 0; break;
-			case 'none': $cap->leftsidebar_width = 0; $cap->rightsidebar_width = 0; break;
-			case 'full-width': $cap->leftsidebar_width = 0; $cap->rightsidebar_width = 0; break;
+			case __('left','cc') : $cap->rightsidebar_width = 0; break;
+			case __('right','cc') : $cap->leftsidebar_width = 0; break;
+			case __('none','cc') : $cap->leftsidebar_width = 0; $cap->rightsidebar_width = 0; break;
+			case __('full-width','cc') : $cap->leftsidebar_width = 0; $cap->rightsidebar_width = 0; break;
 		}
-		
-		$tmp = get_post_meta( $post->ID, '_wp_page_template', true );
-		
-		switch ($tmp) {
-			case 'left-sidebar.php': $cap->leftsidebar_width = $leftsidebar_width; $cap->rightsidebar_width = 0; break;
-			case 'right-sidebar.php': $cap->leftsidebar_width = 0; $cap->rightsidebar_width = $rightsidebar_width; break;
-			case 'left-and-right-sidebar.php': $cap->leftsidebar_width = $leftsidebar_width; $cap->rightsidebar_width = $rightsidebar_width; break;
-			case 'full-width.php': $cap->leftsidebar_width = 0; $cap->rightsidebar_width = 0; break;
-		}
+		if(isset($post)){
+            $tmp = get_post_meta( $post->ID, '_wp_page_template', true );
 
+            switch ($tmp) {
+                case 'left-sidebar.php': $cap->leftsidebar_width = $leftsidebar_width; $cap->rightsidebar_width = 0; break;
+                case 'right-sidebar.php': $cap->leftsidebar_width = 0; $cap->rightsidebar_width = $rightsidebar_width; break;
+                case 'left-and-right-sidebar.php': $cap->leftsidebar_width = $leftsidebar_width; $cap->rightsidebar_width = $rightsidebar_width; break;
+                case 'full-width.php': $cap->leftsidebar_width = 0; $cap->rightsidebar_width = 0; break;
+            }
+        }
 	}
 	
 	/**
@@ -125,7 +125,7 @@ class CC_Theme_Generator{
 	function innerrim_before_header(){
 		global $cap;
 		
-		if ($cap->header_width != "full-width") {
+		if ($cap->header_width != "full-width" && $cap->header_width != __("full-width",'cc') ) {
 			echo '<div id="innerrim">'; 
 		}
 	}
@@ -141,8 +141,8 @@ class CC_Theme_Generator{
 	function innerrim_after_header(){
 		global $cap;
 		
-		if ($cap->header_width == "full-width") {
-			echo '<div id="innerrim">';
+		if ($cap->header_width == "full-width" && $cap->header_width == __("full-width",'cc')) {
+			echo '<div id="innerrim">'; 
 		}
 	}
 	
@@ -297,10 +297,20 @@ class CC_Theme_Generator{
 		$cc_page_options=cc_get_page_meta();
 
 		if(defined('BP_VERSION')){ 
-			if($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == 'home' && is_home() || $cap->enable_slideshow_home  == 'home' && is_front_page() || $cap->enable_slideshow_home == 'home' && bp_is_component_front_page( 'activity' ) || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){
+			if($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == __('all','cc') 
+				|| ($cap->enable_slideshow_home == 'home' || $cap->enable_slideshow_home == __('home','cc') ) && is_home() 
+				|| ($cap->enable_slideshow_home  == 'home' || $cap->enable_slideshow_home  == __('home','cc') ) && is_front_page() 
+				|| ($cap->enable_slideshow_home == 'home' || $cap->enable_slideshow_home == __('home','cc') ) && bp_is_component_front_page( 'activity' ) 
+				|| is_page() && isset($cc_page_options) && isset($cc_page_options['cc_page_slider_on']) && $cc_page_options['cc_page_slider_on'] == 1){
 				echo cc_slidertop(); // located under wp/templatetags
 			}
-		} elseif($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == 'home' && is_home() || $cap->enable_slideshow_home == 'home' && is_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){
+		} elseif(($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == __('all','cc') ) 
+			|| ($cap->enable_slideshow_home == 'home' || $cap->enable_slideshow_home == __('home','cc') ) 
+			&& is_home() 
+			|| ($cap->enable_slideshow_home == 'home' || $cap->enable_slideshow_home == __('home','cc') ) 
+			&& is_front_page() 
+			|| is_page() 
+			&& isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){
 			echo cc_slidertop(); // located under wp/templatetags
 		}
 	}
@@ -333,7 +343,7 @@ class CC_Theme_Generator{
 	function innerrim_before_footer(){
 		global $cap;
 		
-		if ($cap->footer_width == "full-width") {
+		if ($cap->footer_width == "full-width" || $cap->footer_width == __("full-width",'cc') ) {
 			echo '</div><!-- #innerrim -->'; 
 		}
 	}
@@ -366,10 +376,10 @@ class CC_Theme_Generator{
 		global $cap;
 		if( ! dynamic_sidebar( 'footerfullwidth' )) :
 			if($cap->preview == true){ ?>
-				<div class="widget" style="margin-bottom: 0; padding: 12px; border: 1px solid #dddddd;">
+				<div class="widget gererator">
 						<h3 class="widgettitle" ><?php _e('20 widget areas all over the site', 'cc'); ?></h3>
-						<div><p style="font-size: 16px; line-height:170%;">4 header + 4 footer widget areas (2 full width and 6 columns). <br>
-						6 widget areas for members + 6 for groups. 
+                        <div><p class="widget_content"><?php _e('4 header + 4 footer widget areas (2 full width and 6 columns).','cc') ?> <br>
+						<?php _e('6 widget areas for members + 6 for groups.','cc') ?> 
 						</p></div>
 				
 				</div>
@@ -390,7 +400,7 @@ class CC_Theme_Generator{
 		<?php  } ?>
   	
   		<?php if (is_active_sidebar('footercenter') || $cap->preview == true){ ?>
-		<div <?php if(!is_active_sidebar('footerleft') && $cap->preview != true ) { echo 'style="margin-left: 34% !important;"'; } ?> class="widgetarea cc-widget">
+		<div class="<?php if(!is_active_sidebar('footerleft') && $cap->preview != true ) { echo 'footer-left-widget'; } ?> widgetarea cc-widget">
 			<?php if( ! dynamic_sidebar( 'footercenter' )){ ?>
 				<div class="widget">
 					<h3 class="widgettitle" ><?php _e('Archives', 'cc'); ?></h3>
@@ -419,8 +429,15 @@ class CC_Theme_Generator{
   	
   		<div class="clear"></div>
 	  	<br />
-		<br />
-		<div class="credits"><?php printf( __( '%s is proudly powered by <a class="credits" href="http://wordpress.org">WordPress</a>. Theme developed by <a class="credits" href="http://themekraft.com/shop/custom-community-pro/" title="Custom Community Theme by Themekraft">Themekraft</a>. ', 'cc' ), bloginfo('name') ); ?></div>
+		<?php if($cap->disable_credits_footer != false || !defined('is_pro')){ ?>
+			<br />
+			<div class="credits"><?php printf( __( '%s is proudly powered by <a class="credits" href="http://wordpress.org">WordPress</a> and <a class="credits" href="http://buddypress.org">BuddyPress</a>. ', 'cc' ), bloginfo('name') ); ?>
+			<?php _e('Just another <a class="credits" href="http://themekraft.com/all-themes/" target="_blank" title="Wordpress Theme" alt="WordPress Theme">WordPress Theme</a> developed by Themekraft.','cc') ?></div>
+		<?php } ?>
+		<?php if($cap->my_credits_footer != '' ){ ?>
+			<br />
+			<div class="credits"><?php echo $cap->my_credits_footer; ?></div>
+		<?php } ?>
 	<?php 
 	}
 	
@@ -434,38 +451,49 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function sidebar_left(){
-		global $cap, $bp, $post;
+		global $cap, $post;
 		
-		$tmp = get_post_meta( $post->ID, '_wp_page_template', true );
-		if( $tmp == 'full-width.php' || $tmp == 'right-sidebar.php')
-			return;
-		
-		if( $tmp == 'left-and-right-sidebar.php' || $tmp == 'left-sidebar.php'){
-			locate_template( array( 'sidebar-left.php' ), true );
-			return;		
-		}
+        if(isset($post)){
+            $tmp = get_post_meta( $post->ID, '_wp_page_template', true );
+            if( $tmp == 'full-width.php' || $tmp == 'right-sidebar.php')
+                return;
 
+            if( $tmp == 'left-and-right-sidebar.php' || $tmp == 'left-sidebar.php'){
+                locate_template( array( 'sidebar-left.php' ), true );
+                return;		
+            }
+        }
 		$component = explode('-',$this->detect->tk_get_page_type());
 		if(!empty($component[2])){	
 		
 			if($component[2] == 'groups' && !empty($component[3])) {
-				if($cap->bp_groups_sidebars == 'left' || $cap->bp_groups_sidebars == 'left and right' ){
+				if($cap->bp_groups_sidebars == 'left' || $cap->bp_groups_sidebars == __('left','cc')  
+					|| $cap->bp_groups_sidebars == 'left and right'  || $cap->bp_groups_sidebars == __('left and right','cc') ){
 					locate_template( array( 'groups/single/group-sidebar-left.php' ), true );
-				} elseif($cap->bp_groups_sidebars == "default" && $cap->sidebar_position == "left" || $cap->sidebar_position == "left and right" && $cap->bp_groups_sidebars == "default"){
+				} elseif(($cap->bp_groups_sidebars == "default" || $cap->bp_groups_sidebars == __("default",'cc') ) 
+					&& ($cap->sidebar_position == "left" || $cap->sidebar_position == __("left",'cc') ) 
+					|| ($cap->sidebar_position == "left and right" || $cap->sidebar_position == __("left and right",'cc') ) 
+					&& ($cap->bp_groups_sidebars == "default" || $cap->bp_groups_sidebars == __("default",'cc') )){
 					locate_template( array( 'sidebar-left.php' ), true );
 				}
 			} elseif($component[2] == 'profile' && !empty($component[3])) {
 			
-				if($cap->bp_profile_sidebars == 'left' || $cap->bp_profile_sidebars == 'left and right' ){
+				if($cap->bp_profile_sidebars == 'left' || $cap->bp_profile_sidebars == __('left','cc') 
+					|| $cap->bp_profile_sidebars == 'left and right' || $cap->bp_profile_sidebars == __('left and right','cc')  ){
 					locate_template( array( 'members/single/member-sidebar-left.php' ), true );
-				} elseif( $cap->bp_profile_sidebars == "default" && $cap->sidebar_position == "left" || $cap->sidebar_position == "left and right" && $cap->bp_profile_sidebars == "default"){
+				} elseif( ($cap->bp_profile_sidebars == "default" || $cap->bp_profile_sidebars == __("default",'cc') ) 
+					&& ($cap->sidebar_position == "left" || $cap->sidebar_position == __("left",'cc') ) 
+					|| ($cap->sidebar_position == "left and right" || $cap->sidebar_position == __("left and right",'cc') ) 
+					&& ($cap->bp_profile_sidebars == "default" || $cap->bp_profile_sidebars == __("default",'cc') )){
 					locate_template( array( 'sidebar-left.php' ), true );
 				}
-			} else if($cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){
+			} else if($cap->sidebar_position == "left" || $cap->sidebar_position == __("left",'cc')  
+				|| $cap->sidebar_position == "left and right" || $cap->sidebar_position == __("left and right",'cc') ){
 				locate_template( array( 'sidebar-left.php' ), true );
 			}  
 		} else {
-			if($cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){
+			if($cap->sidebar_position == "left" || $cap->sidebar_position == __("left",'cc')  
+				|| $cap->sidebar_position == "left and right" || $cap->sidebar_position == __("left and right",'cc') ){
 				locate_template( array( 'sidebar-left.php' ), true );
 			}    
 	  	}
@@ -480,37 +508,47 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function sidebar_right(){
-		global $cap, $bp, $post;
-	
-		$tmp = get_post_meta( $post->ID, '_wp_page_template', true );
-		
-		if( $tmp == 'full-width.php' || $tmp == 'left-sidebar.php')
-			return;
-		
-		if( $tmp == 'left-and-right-sidebar.php' || $tmp == 'right-sidebar.php'){
-			locate_template( array( 'sidebar.php' ), true );
-			return;		
-		}
-		
+		global $cap, $post;
+        
+        if(isset($post)){
+            $tmp = get_post_meta( $post->ID, '_wp_page_template', true );
+
+            if( $tmp == 'full-width.php' || $tmp == 'left-sidebar.php')
+                return;
+
+            if( $tmp == 'left-and-right-sidebar.php' || $tmp == 'right-sidebar.php'){
+                locate_template( array( 'sidebar.php' ), true );
+                return;		
+            }
+        }
+        
 		$component = explode('-',$this->detect->tk_get_page_type());
 		if(!empty($component[2])){	
 			if($component[2] == 'groups' && !empty($component[3])) {
-				if($cap->bp_groups_sidebars == 'right' || $cap->bp_groups_sidebars == 'left and right' ){
+				if($cap->bp_groups_sidebars == 'right' || $cap->bp_groups_sidebars == __('right','cc')  || $cap->bp_groups_sidebars == 'left and right' || $cap->bp_groups_sidebars == __('left and right','cc')  ){
 					locate_template( array( 'groups/single/group-sidebar-right.php' ), true );
-				} elseif($cap->bp_groups_sidebars == "default" && $cap->sidebar_position == "right" || $cap->sidebar_position == "left and right" && $cap->bp_groups_sidebars == "default"){
+				} elseif(($cap->bp_groups_sidebars == "default" || $cap->bp_groups_sidebars == __("default",'cc') ) 
+					&& ($cap->sidebar_position == "right" || $cap->sidebar_position == __("right",'cc') ) 
+					|| ($cap->sidebar_position == "left and right" || $cap->sidebar_position == __("left and right",'cc') ) 
+					&& ($cap->bp_groups_sidebars == "default" || $cap->bp_groups_sidebars == __("default",'cc') )){
 					locate_template( array( 'sidebar.php' ), true );
 				}
 			} elseif($component[2] == 'profile' && !empty($component[3])) {
-				if($cap->bp_profile_sidebars == 'right' || $cap->bp_profile_sidebars == 'left and right' ){
+				if($cap->bp_profile_sidebars == 'right' || $cap->bp_profile_sidebars == __('right','cc')  
+					|| $cap->bp_profile_sidebars == 'left and right' || $cap->bp_profile_sidebars == __('left and right','cc')  ){
 					locate_template( array( 'members/single/member-sidebar-right.php' ), true );
-				} elseif( $cap->bp_profile_sidebars == "default" && $cap->sidebar_position == "right" || $cap->sidebar_position == "left and right" && $cap->bp_profile_sidebars == "default"){
+				} elseif( ($cap->bp_profile_sidebars == "default" || $cap->bp_profile_sidebars == __("default",'cc') ) 
+					&& ($cap->sidebar_position == "right" || $cap->sidebar_position == __("right",'cc') ) 
+					|| ($cap->sidebar_position == "left and right" || $cap->sidebar_position == __("left and right",'cc') ) 
+					&& ($cap->bp_profile_sidebars == "default" || $cap->bp_profile_sidebars == __("default",'cc') )){
 					locate_template( array( 'sidebar.php' ), true );
 				}
-			} else if($cap->sidebar_position == "right" || $cap->sidebar_position == "left and right"){
+			} else if($cap->sidebar_position == "right" || $cap->sidebar_position == __("right",'cc')  
+				|| $cap->sidebar_position == "left and right" || $cap->sidebar_position == __("left and right",'cc') ){
 				locate_template( array( 'sidebar.php' ), true );
 			}     
 		} else {
-			if($cap->sidebar_position == "right" || $cap->sidebar_position == "left and right"){
+			if($cap->sidebar_position == "right" || $cap->sidebar_position == __("right",'cc')  || $cap->sidebar_position == "left and right" || $cap->sidebar_position == __("left and right",'cc') ){
 				locate_template( array( 'sidebar.php' ), true );
 			}    
   		}
@@ -528,7 +566,7 @@ class CC_Theme_Generator{
 	function login_sidebar_widget(){
 		global $cap;
 	
-		if(defined('BP_VERSION')) { if($cap->login_sidebar != 'off' || $cap->login_sidebar == false){ cc_login_widget();}}
+		if(defined('BP_VERSION')) { if(($cap->login_sidebar != 'off' && $cap->login_sidebar != __('off','cc') ) || $cap->login_sidebar == false){ cc_login_widget();}}
 	
 	}
 	
@@ -544,12 +582,14 @@ class CC_Theme_Generator{
 	function default_homepage_last_posts(){
 		global $cap;
 		
-		if( $cap->preview == true  || $cap->default_homepage_last_posts == 'show') {
+		if( $cap->preview == true  
+			|| $cap->default_homepage_last_posts == 'show' 
+			|| $cap->default_homepage_last_posts == __('show','cc') ) {
 			$args = array(
 				'amount' => '3',
 		 	);
 				
-			echo '<div style="margin-top:-44px;">'.cc_list_posts($args).'</div>'; 
+			echo '<div class="default-homepage-last-posts">'.cc_list_posts($args).'</div>'; 
 		}
 	}
 	
@@ -567,7 +607,7 @@ class CC_Theme_Generator{
 	
 		if($cap->excerpt_on != 'content'){
 			add_filter('excerpt_length', 'cc_excerpt_length');
-			the_excerpt( __( 'Read the rest of this entry &rarr;', 'cc' ) );
+			the_excerpt();
 		} else {
 			the_content( __( 'Read the rest of this entry &rarr;', 'cc' ) ); 
 		}
@@ -584,7 +624,9 @@ class CC_Theme_Generator{
 	 */	
 	function before_group_home_content(){
 		global $cap;
-		if( $cap->bp_groups_header == false || $cap->bp_groups_header == 'on'):?>
+		if( $cap->bp_groups_header == false 
+			|| $cap->bp_groups_header == 'on' 
+			|| $cap->bp_groups_header == __('on','cc') ):?>
 			<div id="item-header">
 				<?php if( ! dynamic_sidebar( 'groupheader' )) : ?>
 				 <?php locate_template( array( 'groups/single/group-header.php' ), true ) ?>
@@ -596,7 +638,7 @@ class CC_Theme_Generator{
 					</div>
 				<?php } ?>
 				<?php if (is_active_sidebar('groupheadercenter') ){ ?>
-					<div <?php if(!is_active_sidebar('groupheaderleft')) { echo 'style="margin-left:30% !important"'; } ?> class="widgetarea cc-widget">
+					<div class="<?php if(!is_active_sidebar('groupheaderleft')) { echo 'group-header-left'; } ?> widgetarea cc-widget">
 					<?php dynamic_sidebar( 'groupheadercenter' ) ?>
 					</div>
 				<?php } ?>
@@ -635,7 +677,7 @@ class CC_Theme_Generator{
 	function before_member_home_content(){
 		global $cap;
 
-		if($cap->bp_profile_header == false || $cap->bp_profile_header == 'on'): ?>
+		if($cap->bp_profile_header == false || $cap->bp_profile_header == 'on' || $cap->bp_profile_header == __('on','cc') ): ?>
 			<div id="item-header">
 				<?php if( ! dynamic_sidebar( 'memberheader' )) : ?>
 					<?php locate_template( array( 'members/single/member-header.php' ), true ) ?>
@@ -649,7 +691,7 @@ class CC_Theme_Generator{
 					</div>
 				<?php } ?>
 				<?php if (is_active_sidebar('memberheadercenter') ){ ?>
-					<div <?php if(!is_active_sidebar('memberheaderleft')) { echo 'style="margin-left:30% !important"'; } ?> class="widgetarea cc-widget">
+					<div class="<?php if(!is_active_sidebar('memberheaderleft')) { echo 'style="group-header-left'; } ?> widgetarea cc-widget">
 					<?php dynamic_sidebar( 'memberheadercenter' ) ?>
 					</div>
 				<?php } ?>
@@ -686,7 +728,7 @@ class CC_Theme_Generator{
 	 *
 	 * @package Custom Community
 	 * @since 1.8.3
-	 */	
+	 */
 	function custom_login() { 
 		global $cap; ?> 
 		<style type="text/css">
@@ -784,4 +826,4 @@ class CC_Theme_Generator{
 		
 		return $classes;
 	}
-}?>
+}

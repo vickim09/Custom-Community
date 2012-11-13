@@ -153,12 +153,11 @@ class Custom_Community{
 	
 	/** check if it's a child theme or parent theme and return the correct path */
 	function require_path($path){
-	if( TEMPLATEPATH != STYLESHEETPATH && is_file(STYLESHEETPATH . $path) ): 	
-        return STYLESHEETPATH . $path;
+	if( get_template_directory() != get_stylesheet_directory() && is_file(get_stylesheet_directory() . $path) ): 	
+        return get_stylesheet_directory() . $path;
     else:
-        return TEMPLATEPATH . $path;
+        return get_template_directory() . $path;
     endif;
 	}
 }
 
-?>

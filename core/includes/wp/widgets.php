@@ -4,22 +4,22 @@
 
 if(defined('BP_VERSION')){ 
 	if ( function_exists('cc_login_widget') )
-	    wp_register_sidebar_widget( 'cc_login_widget', 'BP Sidebar Login', 'cc_login_widget', '' );
+	    wp_register_sidebar_widget( 'cc_login_widget', __('BP Sidebar Login','cc'), 'cc_login_widget', '' );
 
 	if ( function_exists('widget_community_nav') )
-    	wp_register_sidebar_widget( 'widget_community_nav', 'Community Navigation', 'widget_community_nav', '' );
+    	wp_register_sidebar_widget( 'widget_community_nav', __('Community Navigation','cc'), 'widget_community_nav', '' );
 
     if ( function_exists('groups_header_widget') )
-        wp_register_sidebar_widget( 'groups_header_widget', 'Groups Header Widget', 'groups_header_widget');
-        wp_register_widget_control( 'groups_header_widget', 'Groups Header Control', 'groups_header_control', '' );
+        wp_register_sidebar_widget( 'groups_header_widget', __('Groups Header Widget','cc'), 'groups_header_widget');
+        wp_register_widget_control( 'groups_header_widget', __('Groups Header Control','cc'), 'groups_header_control', '' );
     
     if ( function_exists('profiles_header_widget') )
-        wp_register_sidebar_widget( 'profiles_header_widget','Profiles Header Widget', 'profiles_header_widget');
-        wp_register_widget_control( 'profiles_header_widget', 'Profiles Header Control', 'profiles_header_control', '' );
+        wp_register_sidebar_widget( 'profiles_header_widget',__('Profiles Header Widget','cc'), 'profiles_header_widget');
+        wp_register_widget_control( 'profiles_header_widget',__('Profiles Header Control','cc'), 'profiles_header_control', '' );
         
 
     if ( function_exists('forum_tags_widget') )
-	    wp_register_sidebar_widget( 'forum_tags_widget', 'Forum Tags', 'forum_tags_widget', '' );
+	    wp_register_sidebar_widget( 'forum_tags_widget', __('Forum Tags','cc'), 'forum_tags_widget', '' );
 }
 
 /**
@@ -136,7 +136,7 @@ function cc_login_widget(){?>
 	
 			<form name="login-form" id="sidebar-login-form" class="standard-form" action="<?php echo site_url( 'wp-login.php', 'login_post' ) ?>" method="post">
 				<label><?php _e( 'Username', 'cc' ) ?><br />
-				<input type="text" name="log" id="sidebar-user-login" class="input" value="<?php echo esc_attr(stripslashes($user_login)); ?>" /></label>
+				<input type="text" name="log" id="sidebar-user-login" class="input" value="" /></label>
 	
 				<label><?php _e( 'Password', 'cc' ) ?><br />
 				<input type="password" name="pwd" id="sidebar-user-pass" class="input" value="" /></label>
@@ -210,9 +210,9 @@ function groups_header_control() {
     update_option("groups_header_position", $options);
   }?>
   <p>
-    <label for="groups_header_position">Widget Position: </label><br />
-    Horizontal: <input type="radio" name="groups_header_position" value="horizontal" <?php if($options['groups_header_position'] == 'horizontal'){ ?> checked="checked" <?php } ?> /><br />
-    Vertical: <input type="radio" name="groups_header_position" value="vertical" <?php if($options['groups_header_position'] == 'vertical'){ ?> checked="checked" <?php } ?> /><br />
+    <label for="groups_header_position"><?php _e('Widget Position:','cc');?> </label><br />
+    <?php _e('Horizontal','cc');?>: <input type="radio" name="groups_header_position" value="horizontal" <?php if($options['groups_header_position'] == 'horizontal'){ ?> checked="checked" <?php } ?> /><br />
+    <?php _e('Vertical','cc') ?>: <input type="radio" name="groups_header_position" value="vertical" <?php if($options['groups_header_position'] == 'vertical'){ ?> checked="checked" <?php } ?> /><br />
     <input type="hidden" id="groups_header_submit" name="groups_header_submit" value="1" />
   </p>
 <?php
@@ -257,9 +257,9 @@ function profiles_header_control() {
     update_option("profiles_header_position", $options);
   }?>
   <p>
-    <label for="profiles_header_position">Widget Position: </label><br />
-    Horizontal: <input type="radio" name="profiles_header_position" value="horizontal" <?php if($options['profiles_header_position'] == 'horizontal'){ ?> checked="checked" <?php } ?> /><br />
-    Vertical: <input type="radio" name="profiles_header_position" value="vertical" <?php if($options['profiles_header_position'] == 'vertical'){ ?> checked="checked" <?php } ?> /><br />
+    <label for="profiles_header_position"><?php _e('Widget Position','cc') ?>: </label><br />
+    <?php _e('Horizontal','cc') ?>: <input type="radio" name="profiles_header_position" value="horizontal" <?php if($options['profiles_header_position'] == 'horizontal'){ ?> checked="checked" <?php } ?> /><br />
+    <?php _e('Vertical','cc') ?>: <input type="radio" name="profiles_header_position" value="vertical" <?php if($options['profiles_header_position'] == 'vertical'){ ?> checked="checked" <?php } ?> /><br />
     <input type="hidden" id="profiles_header_submit" name="profiles_header_submit" value="1" />
   </p>	
 <?php } ?>

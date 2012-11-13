@@ -1,4 +1,6 @@
 <?php
+
+    
 require_once( dirname(__FILE__) . '/admin/cheezcap.php');
 require_once( dirname(__FILE__) . '/core/loader.php');
 
@@ -46,10 +48,10 @@ function cc_setup() {
 
     // Make theme available for translation
     // Translations can be filed in the /languages/ directory
-    load_theme_textdomain( 'cc', TEMPLATEPATH . '/languages' );
+    load_theme_textdomain( 'cc', get_template_directory() . '/languages' );
 
     $locale = get_locale();
-    $locale_file = TEMPLATEPATH . "/languages/$locale.php";
+    $locale_file = get_template_directory() . "/languages/$locale.php";
     if ( is_readable( $locale_file ) )
         require_once( $locale_file );
 
@@ -61,7 +63,7 @@ function cc_setup() {
     
     // This theme allows users to set a custom background
     if($cap->add_custom_background == true){
-        add_custom_background();
+        add_theme_support('custom-background');
     }
     // Your changeable header business starts here
     define( 'HEADER_TEXTCOLOR', '888888' );
@@ -78,7 +80,22 @@ function cc_setup() {
     // Add a way for the custom header to be styled in the admin panel that controls
     // custom headers. See cc_admin_header_style(), below.
     if($cap->add_custom_image_header == true){
-        add_custom_image_header( 'cc_header_style', 'cc_admin_header_style', 'cc_admin_header_image' );
+        $defaults = array(
+            /*'default-image'          => '',
+            'random-default'         => false,
+            'width'                  => 0,
+            'height'                 => 0,
+            'flex-height'            => false,
+            'flex-width'             => false,
+            'default-text-color'     => '',
+            'header-text'            => true,
+            'uploads'                => true,*/
+//            'wp-head-callback'       => 'cc_admin_header_style',
+//            'admin-head-callback'    => 'cc_header_style',
+            'admin-preview-callback' => 'cc_admin_header_image',
+        );
+        add_theme_support('custom-header',$defaults);
+        //add_custom_image_header( 'cc_header_style', 'cc_admin_header_style', 'cc_admin_header_image' );
     }
     
     // Define Content with
@@ -88,92 +105,9 @@ function cc_setup() {
     }
     
     // Define disable the admin bar
-    if($cap->bp_login_bar_top == 'off') {
+    if($cap->bp_login_bar_top == 'off' || $cap->bp_login_bar_top == __('off','cc') ) {
         define( 'BP_DISABLE_ADMIN_BAR', true );
     } 
-}
-endif;
-
-if ( ! function_exists( 'cc_header_style' ) ) :
-/**
- * Styles the header image and text displayed on the blog
- *
- */
-function cc_header_style() {
-    // If no custom options for text are set, let's bail
-    // get_header_textcolor() options: HEADER_TEXTCOLOR is default, hide text (returns 'blank') or any hex value
-    if ( HEADER_TEXTCOLOR == get_header_textcolor() )
-        return;
-    // If we get this far, we have custom styles. Let's do this.
-    ?>
-    <style type="text/css">
-        <?php // Has the text been hidden?
-        if ( 'blank' == get_header_textcolor() ) : ?>
-            #blog-description, #header div#logo h1 a, #header div#logo h4 a {
-                position: absolute;
-                left: -9000px;
-            }
-        <?php // If the user has set a custom color for the text use that
-        else : ?>
-            #blog-description, #header div#logo h1 a, #header div#logo h4 a {
-                color: #555555;
-                color: #<?php echo get_header_textcolor(); ?> !important;
-            }
-        <?php endif; ?>
-    </style>
-    <?php
-}
-endif;
-
-
-if ( ! function_exists( 'cc_admin_header_style' ) ) :
-/**
- * Styles the header image displayed on the Appearance > Header admin panel.
- *
- * Referenced via add_custom_image_header() in cc_setup().
- *
- */
-function cc_admin_header_style() {
-?>
-    <style type="text/css">
-    .appearance_page_custom-header #headimg {
-        background: #<?php echo get_background_color(); ?>;
-        border: none;
-        text-align: center;
-    }
-    #headimg h1,
-    #desc {
-        font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
-    }
-    #headimg h1 {
-        margin: 0;
-    }
-    #headimg h1 a {
-        font-size: 36px;
-        letter-spacing: -0.03em;
-        line-height: 42px;
-        text-decoration: none;
-    }
-    #desc {
-        font-size: 18px;
-        line-height: 31px;
-        padding: 0 0 9px 0;
-    }
-    <?php
-        // If the user has set a custom color for the text use that
-        if ( get_header_textcolor() != HEADER_TEXTCOLOR ) :
-    ?>
-        #site-title a,
-        #site-description {
-            color: #<?php echo get_header_textcolor(); ?>;
-        }
-    <?php endif; ?>
-    #headimg img {
-        max-width: 990px;
-        width: 100%;
-    }
-    </style>
-<?php
 }
 endif;
 
@@ -467,7 +401,7 @@ if($cap->buddydev_search == true && defined('BP_VERSION') && function_exists('bp
             <?php locate_template( array( 'members/members-loop.php' ), true ) ;  ?>
             <?php global $members_template;
             if($members_template->total_member_count>1):?>
-                <a href="<?php echo bp_get_root_domain().'/'.BP_MEMBERS_SLUG.'/?s='.$_REQUEST['search-terms']?>" ><?php _e(sprintf("View all %d matched Members",$members_template->total_member_count),"cc");?></a>
+                <a href="<?php echo bp_get_root_domain().'/'.BP_MEMBERS_SLUG.'/?s='.$_REQUEST['search-terms']?>" ><?php echo sprintf(__("View all %d matched Members",'cc'),$members_template->total_member_count);?></a>
             <?php endif; ?>
         </div>
         <?php    
@@ -563,4 +497,52 @@ if($cap->buddydev_search == true && defined('BP_VERSION') && function_exists('bp
     remove_action( 'bp_init', 'bp_core_action_search_site', 7 );
         
 }
-?>
+//load current displaymode template - loop-list.php or loop-grid.php
+function cc_get_displaymode($object){
+    $_BP_COOKIE = &$_COOKIE;
+    if ( isset( $_BP_COOKIE['bp-' . $object . '-displaymode'])) {
+        get_template_part( "{$object}/{$object}-loop", $_BP_COOKIE['bp-' . $object . '-displaymode']);        
+    }
+    else{
+        get_template_part( "{$object}/{$object}-loop",'list');    
+    }
+    
+}
+//check if displaymode grid
+function cc_is_displaymode_grid($object){
+    $_BP_COOKIE = &$_COOKIE;
+    return ( isset( $_BP_COOKIE['bp-' . $object . '-displaymode']) && $_BP_COOKIE['bp-' . $object . '-displaymode'] == 'grid');
+}
+
+/**
+ * Get pro version
+ */
+function cc_get_pro_version(){
+   $pro_enabler = get_template_directory() . DIRECTORY_SEPARATOR . '_pro' . DIRECTORY_SEPARATOR . 'pro-enabler.php';
+   if(file_exists($pro_enabler)){
+       require_once $pro_enabler;
+   }
+}
+/**
+ * Get Admin styles
+ */
+function cc_add_admin_styles(){
+    wp_enqueue_style('cc_admin', get_template_directory_uri() . '/_inc/css/admin.css');
+}
+add_action('admin_init', 'cc_add_admin_styles');
+
+/**
+ * 
+ */
+function cc_replace_read_more($text){
+    return ' <a class="read-more-link" href="'. get_permalink() . '"><br />' .  __("read more...","cc") . '</a>';
+}
+add_filter('excerpt_more', 'cc_replace_read_more');
+//add_action('init', 'cc_get_pro_version');
+
+function cc_add_rate_us_notice(){
+    // echo '<div id="message" class="updated fade"><p>'.cc_get_add_rate_us_message().'</p></div>';
+}
+function cc_get_add_rate_us_message(){
+    // return 'Please rate for this theme on <a href="http://wordpress.org/extend/themes/custom-community">WordPress.org</a>';
+}

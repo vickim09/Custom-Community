@@ -14,7 +14,7 @@ $req_cap_to_edit = 'edit_theme_options'; // the user capability that is required
 function cap_get_options() {
 	$pages     = get_pages();
 	$option    = Array();
-	$option[0] = "All pages";
+	$option[0] = __("All pages",'cc');
 	$i         = 1;
 	foreach ($pages as $pagg) {
 		$option[$i] = $pagg->post_title;
@@ -26,7 +26,7 @@ function cap_get_options() {
 	$categories = get_categories($args);
 	$option     = Array();
 	$option[0]  = Array (
-		            'name' => 'All categories',
+		            'name' => __('All categories','cc'),
 		            'slug' => 'all-categories'
 		        );
 	$i = 1;
@@ -39,399 +39,421 @@ function cap_get_options() {
 	$option_categories = $option;
     
 	return array(
-	new Group ("General", "general",
+	new Group (__("General",'cc'), "general",
 		array(
 		new DropdownOption(
-			"Colour scheme", 
-			"Select the colour scheme of your website.", 
+			__("Colour scheme",'cc'), 
+			__("Select the colour scheme of your website.",'cc'), 
 			"style_css", 
-			array( 'white', 'grey', 'dark', 'more colour schemes in the pro version' )),
+			apply_filters('cc_get_color_scheme', array( __('white','cc'),  __('grey','cc'), __('dark','cc')))),
 		new TextOption(
-			"Website width", 
-			"Just type in the number, either in px or %. Default is 1000. <br>
-			Tip: If you use the full-width slider, don't make your site bigger than 1006px, or use the normal slider with preview.", 
+			__("Website width",'cc'), 
+			__("Just type in the number, either in px or %. Default is 1000. <br>
+			Tip: If you use the full-width slider, don't make your site bigger than 1006px, or use the normal slider with preview.",'cc'), 
 			"website_width", 
 			"",
 			"",
 			"start",
-			"Website width"), 
+			__("Website width",'cc')), 
 		new DropdownOption(
-			"Fluid or static width?", 
-			"Do you want your layout fluid(%) or static(px)? <br>
+			__("Fluid or static width?",'cc'), 
+			__("Do you want your layout fluid(%) or static(px)? <br>
 			Notes: when you use the slideshow, better don't use fluid width. <br>
-			And if you use the slideshow shadow, it only looks nice with a static width between 990 and about 1100px.", 
+			And if you use the slideshow shadow, it only looks nice with a static width between 990 and about 1100px.",'cc'), 
 			"website_width_unit", 
 			array('px', '%'),
 			"",
 			'end'),		
 		new BooleanOption(
-			"Use standard Wordpress background settings", 
-			"Enable this option, if you like to use the standard wordpress settings page.", 
+			__("Use standard Wordpress background settings",'cc'), 
+			__("Enable this option, if you like to use the standard wordpress settings page.",'cc'), 
 			"add_custom_background", 
 			false,
 			'start',
-			'Background'),
+			__('Background','cc')),
 			new ColorOption(
-				"Background colour", 
-				"Change your background colour", 
+				__("Background colour",'cc'), 
+				__("Change your background colour",'cc'), 
 				"bg_body_color", 
 				"",
 				'',
 				''),
 			new FileOption(
-				"Background image", 
-				"Insert your own background image. Upload or insert url.", 
+				__("Background image",'cc'), 
+				__("Insert your own background image. Upload or insert url.",'cc'), 
 				"bg_body_img",
 				'',
 				false,
 				''),
 			new BooleanOption(
-				"Fixed background image", 
-				"Fix the position of your body background image", 
+				__("Fixed background image",'cc'), 
+				__("Fix the position of your body background image",'cc'), 
 				"bg_body_img_fixed", 
 				false,
 				false,
 				''),
 			new DropdownOption(
-				"Background position", 
-				"Position of the background image: center, left, right", 
+				__("Background position",'cc'), 
+				__("Position of the background image: center, left, right",'cc'), 
 				"bg_body_img_pos", 
-				array('center', 'left', 'right'),
+				array(__('center','cc'), __('left','cc'), __('right','cc')),
 				'',
 				false,
 				''),	
 		new DropdownOption(
-			"Background repeat", 
-			"Repeat background image: x=horizontally, y=vertically", 
+			__("Background repeat",'cc'), 
+			__("Repeat background image: x=horizontally, y=vertically",'cc'), 
 			"bg_body_img_repeat", 
-			array('no repeat', 'x', 'y', 'x+y'),
+			array(__('no repeat','cc'), 'x', 'y', 'x+y'),
 			'',
 			'end',
 			''),
 		new ColorOption(
-			"Container colour", 
-			"Change the background colour of the content part,<br> 
-			write transparent for no color", 
+			__("Container colour",'cc'), 
+			__("Change the background colour of the content part,<br> 
+			write transparent for no color",'cc'), 
 			"bg_container_color", 
 			"",
 			"start",
-			"Container"),
+			__("Container",'cc')),
 			new DropdownOption(
-				"Show / hide the vertical lines", 
-				"The vertical lines that divide your container are default, <br>
-				you can disable them if you like.", 
+				__("Show / hide the vertical lines",'cc'), 
+				__("The vertical lines that divide your container are default, <br>
+				you can disable them if you like.",'cc'), 
 				"bg_container_nolines", 
-				array('show', 'hide'),
+				array(__('show','cc'), __('hide','cc')),
 				"",
 				false),
 			new ColorOption(
-				"Vertical lines colour", 
-				"Change the colour of the vertical lines. <br>
-				Tip: Best is to have them in the colour of the background and other lines. ", 
+				__("Vertical lines colour",'cc'), 
+				__("Change the colour of the vertical lines. <br>
+				Tip: Best is to have them in the colour of the background and other lines. ",'cc'), 
 				"v_line_color", 
 				"",
 				'',
 				''),
 			new FileOption(
-				"Container background image", 
-				"Change background image for the container (currently the vertical lines <br>
-				that separate the sidebars). Upload or insert url.", 
+				__("Container background image",'cc'), 
+				__("Change background image for the container (currently the vertical lines <br>
+				that separate the sidebars). Upload or insert url.",'cc'), 
 				"bg_container_img", 
 				"",
 				false),
 			new DropdownOption(
-				"Container background repeat", 
-				"Repeat background image: x=horizontally, y=vertically", 
+				__("Container background repeat",'cc'), 
+				__("Repeat background image: x=horizontally, y=vertically",'cc'), 
 				"bg_container_img_repeat", 
-				array('no repeat', 'x', 'y', 'x+y'),
+				array(__('no repeat','cc'), 'x', 'y', 'x+y'),
 				"",
 				false),
 		new DropdownOption(
-			"Container corner radius", 
-			"Do you want your container corners to be rounded?", 
+			__("Container corner radius",'cc'), 
+			__("Do you want your container corners to be rounded?",'cc'), 
 			"container_corner_radius", 
-			array('rounded', 'not rounded'),
-			"rounded",
+			array(__('rounded','cc'), __('not rounded','cc')),
+			__("rounded",'cc'),
 			'end'),
 		new DropdownOption(
-			"Sidebar default position", 
-			"Where do you like to have your sidebars? Define your default layout.", 
+			__("Sidebar default position",'cc'), 
+			__("Where do you like to have your sidebars? Define your default layout.",'cc'), 
 			"sidebar_position", 
-			array('right', 'left and right', 'left', 'full-width'),
-			'right'),
+			array(__('right','cc'), __('left and right','cc'), __('left','cc'), __('full-width','cc')),
+			__('right','cc')),
 		new DropdownOption(
-			"Title font style", 
-			"Change the title font style (h1 and h2)", 
+			__("Title font style",'cc'), 
+			__("Change the title font style (h1 and h2)",'cc'), 
 			"title_font_style", 
 			array('Arial, sans-serif', 'Helvetica, Arial, sans-serif', 'Century Gothic, Avant Garde, Arial, sans-serif', 'Arial Black, Arial, sans-serif', 'Impact, Arial, sans-serif', 'Times New Roman, Times', 'Garamond, Times New Roman, Times'),
 			"Arial, sans-serif",
 			"start",
-			"Titles"),
+			__("Titles",'cc')),
 			new TextOption(
-				"Title size", 
-				"Change the title font size (h1 and h2), default is 28px, just enter a number", 
+				__("Title size",'cc'), 
+				__("Change the title font size (h1 and h2), default is 28px, just enter a number",'cc'), 
 				"title_size", 
 				"",
 				"",
 				false),
 			new DropdownOption(
-				"Titles font weight", 
-				"Do you want your titles bold or normal?", 
+				__("Titles font weight",'cc'), 
+				__("Do you want your titles bold or normal?",'cc'), 
 				"title_weight", 
-				array('bold', 'normal'),
-				"bold",
+				array(__('bold','cc'), __('normal','cc')),
+				__("bold",'cc'),
 				false),
 		new ColorOption(
-			"Title colour", 
-			"Change title colour", 
+			__("Title colour",'cc'), 
+			__("Change title colour",'cc'), 
 			"title_color", 
 			"","end"),
 		new DropdownOption(
-			"Subtitle font style", 
-			"Change the subtitle font style (h3-h6)", 
+			__("Subtitle font style",'cc'), 
+			__("Change the subtitle font style (h3-h6)",'cc'), 
 			"subtitle_font_style", 
 			array('Arial, sans-serif', 'Helvetica, Arial, sans-serif', 'Century Gothic, Avant Garde, Arial, sans-serif', 'Arial Black, Arial, sans-serif', 'Impact, Arial, sans-serif', 'Times New Roman, Times', 'Garamond, Times New Roman, Times'),
 			"Arial, sans-serif",
 			"start",
-			"Subtitles"),
+			__("Subtitles",'cc')),
 			new DropdownOption(
-				"Subtitles font weight", 
-				"Do you want your subtitles bold or normal?", 
+				__("Subtitles font weight",'cc'), 
+				__("Do you want your subtitles bold or normal?",'cc'), 
 				"subtitle_weight", 
-				array('bold', 'normal'),
-				"bold",
+				array(__('bold','cc'), __('normal','cc')),
+				__("bold",'cc'),
 				false),
 		new ColorOption(
-			"Subtitle colour", 
-			"Change subtitle colour", 
+			__("Subtitle colour",'cc'), 
+			__("Change subtitle colour",'cc'), 
 			"subtitle_color", 
 			"","end"),
 		new DropdownOption(
-			"Show excerpts", 
-			"Just for category and archive views: use excerpts or show full content of your posts", 
+			__("Show excerpts",'cc'), 
+			__("Just for category and archive views: use excerpts or show full content of your posts",'cc'), 
 			"excerpt_on", 
-			array('content', 'excerpt'),
-			"content",
+			array(__('content','cc'), __('excerpt','cc')),
+			__("content",'cc'),
 			"start",
-			"Excerpts"),
+			__("Excerpts",'cc')),
 		new TextOption(
-			"Excerpt length", 
-			"Change the excerpt length, default is 30 words", 
+			__("Excerpt length",'cc'), 
+			__("Change the excerpt length, default is 30 words",'cc'), 
 			"excerpt_length", 
 			"","","end"),
 		new DropdownOption(
-			"Font style", 
-			"Change the font style", 
+			__("Font style",'cc'), 
+			__("Change the font style",'cc'), 
 			"font_style", 
 			array('Arial, sans-serif', 'Helvetica, Arial, sans-serif', 'Century Gothic, Avant Garde, Arial, sans-serif', 'Times New Roman, Times', 'Garamond, Times New Roman, Times'),
 			"Arial, sans-serif",
 			"start",
-			"Fonts"),
+			__("Fonts",'cc')),
 		new TextOption(
-			"Font size", 
-			"Change the standard font size, default is 13px, just enter a number", 
+			__("Font size",'cc'), 
+			__("Change the standard font size, default is 13px, just enter a number",'cc'), 
 			"font_size", 
 			"","",
 			false),
 		new ColorOption(
-			"Font colour", 
-			"Change font colour", 
+			__("Font colour",'cc'), 
+			__("Change font colour",'cc'), 
 			"font_color", 
 			"",
 			'end'),
 		new ColorOption(
-			"Link colour", 
-			"Change link colour. <br>
+			__("Link colour",'cc'), 
+			__("Change link colour. <br>
 			Notes: You just need to change the link colour to have a nice effect on all link and button colours. <br>
 			The hover colour will automatically be your font colour or the default font colour. <br>
-			Optional, you can also choose a hover colour, background colour, background hover colour or if and when to underline. ", 
+			Optional, you can also choose a hover colour, background colour, background hover colour or if and when to underline. ",'cc'), 
 			"link_color", 
 			"",
 			"start",
-			"Links"),
+			__("Links",'cc')),
 		new ColorOption(
-			"Link hover colour", 
-			"Change link colour for mouse moves over.", 
+			__("Link hover colour",'cc'), 
+			__("Change link colour for mouse moves over.",'cc'), 
 			"link_color_hover", 
 			"",
 			false),
 		new DropdownOption(
-			"BuddyPress subnavigation adapting", 
-			"Use link hover colour for the BuddyPress subnav also? <br> 
+			__("BuddyPress subnavigation adapting",'cc'), 
+			__("Use link hover colour for the BuddyPress subnav also? <br> 
 			By default the subnav links adapts the link colour and link hover colour. <br>
 			Sometimes the link hover colour can look ugly here and you don't want the subnav to adapt. <br>
-			Then you can change the colour adapting here easily. ", 
+			Then you can change the colour adapting here easily. ",'cc'), 
 			"link_color_subnav_adapt", 
-			array('just the link colour', 'link colour and hover colour'),
-			"link colour and hover colour", 
+			array(__('just the link colour','cc'), __('link colour and hover colour','cc')),
+			__("link colour and hover colour",'cc'), 
 			false),	
 		new DropdownOption(
-			"Link underline", 
-			"Choose if (and when) to underline links.", 
+			__("Link underline",'cc'), 
+			__("Choose if (and when) to underline links.",'cc'), 
 			"link_underline", 
-			array('never', 'always', 'just for mouse over', 'just when normal'),
-			"just for mouse over", 
+			array(__('never','cc'), __('always','cc'), __('just for mouse over','cc'), __('just when normal','cc')),
+			__("just for mouse over",'cc'), 
 			false),
 		new ColorOption(
-			"Link background colour", 
-			"Change link background colour.", 
+			__("Link background colour",'cc'), 
+			__("Change link background colour.",'cc'), 
 			"link_bg_color", 
 			"",
 			false),
 		new ColorOption(
-			"Link background hover colour", 
-			"Change link background colour for mouse moves over. <br>
-			Watch out you have enough contrast to the (hover) link colour and also the font colour!", 
+			__("Link background hover colour",'cc'), 
+			__("Change link background colour for mouse moves over. <br>
+			Watch out you have enough contrast to the (hover) link colour and also the font colour!",'cc'), 
 			"link_bg_color_hover", 
 			"", 
 			false),
 		new DropdownOption(
-			"Titles adapting", 
-			"Do you like to use the link background colours or underline effetcs for the titles (h1-h6) also? <br> 
-			By default they adapt just the link colour and link hover colour.", 
+			__("Titles adapting",'cc'), 
+			__("Do you like to use the link background colours or underline effetcs for the titles (h1-h6) also? <br> 
+			By default they adapt just the link colour and link hover colour.",'cc'), 
 			"link_styling_title_adapt", 
-			array('just the hover effect', 'link colour and hover colour', '...the underline effects too', 'the background colours too', 'adapt all link styles' ),
+			array(__('just the hover effect','cc'), __('link colour and hover colour','cc'), __('...the underline effects too','cc'), __('the background colours too','cc'), __('adapt all link styles','cc') ),
 			"", 
 			'end'),	
 		new FileOption(
-			"Favicon image", 
-			"Insert your own favicon image. Upload or insert url.", 
+			__("Favicon image",'cc'), 
+			__("Insert your own favicon image. Upload or insert url.",'cc'), 
 			"favicon"),
 		// Default homepage
 		new DropdownOption(
-			"Show / hide avatars", 
-			"Show or hide the avatars in the post listing. <br> 
+			__("Show / hide avatars",'cc'), 
+			__("Show or hide the avatars in the post listing. <br> 
 			This option is for the standard WordPress Homepage showing your latest articles. <br>
-			To select a page as your homepage, go to Settings -> Reading.", 
+			To select a page as your homepage, go to Settings -> Reading.",'cc'), 
 			"default_homepage_hide_avatar", 
-			array('show', 'hide'),
-			"show",
+			array(__('show','cc'), __('hide','cc')),
+			__("show",'cc'),
 			"start",
-			"Default homepage"),
+			__("Default homepage",'cc')),
 		new DropdownOption(
-			"Last 3 Posts on home", 
-			"Display last 3 posts. <br> ",
+			__("Last 3 Posts on home",'cc'), 
+			__("Display last 3 posts. <br> ",'cc'),
 			"default_homepage_last_posts", 
-			array('show', 'hide'),
-			"show", 
+			array(__('show','cc'), __('hide','cc')),
+			__("show",'cc'), 
 			false),	
 		new DropdownOption(
-			"Post listing style", 
-			"Select a style how to display the latest posts. <br> 
-			You can also list your posts in magazine style, showing the featured images, check out our our <a href='http://themekraft.com/faq/list-your-latest-posts/'>FAQ here</a>.", 
+			__("Post listing style",'cc'), 
+			__("Select a style how to display the latest posts. <br> 
+			You can also list your posts in magazine style, showing the featured images, check out our our <a href='http://themekraft.com/faq/list-your-latest-posts/'>FAQ here</a>.",'cc'), 
 			"default_homepage_style", 
-			array('bubbles', 'default'),
-			"bubbles", 
+			array(__('bubbles','cc'), __('default','cc')),
+			__("bubbles",'cc'), 
 			false),	
 		new DropdownOption(
-			"Show / hide date, category and author", 
-			"Show or hide the date, category and author in the post listing.", 
+			__("Show / hide date, category and author",'cc'), 
+			__("Show or hide the date, category and author in the post listing.",'cc'), 
 			"default_homepage_hide_date", 
-			array('show', 'hide'),
-			"show",
+			array(__('show','cc'), __('hide','cc')),
+			__("show",'cc'),
+			'end'),
+		// Posts lists (categories, tags, archives)
+		new DropdownOption(
+			__("Show / hide avatars",'cc'), 
+			__("Show or hide the avatars in the post listing. <br> 
+			This option is for categories, tags and archives pages, showing your articles.",'cc'), 
+			"posts_lists_hide_avatar", 
+			array(__('show','cc'), __('hide','cc')),
+			__("show",'cc'),
+			"start",
+			__("Posts archive pages (categories, tags, dates)",'cc')),	
+		new DropdownOption(
+			__("Post listing style",'cc'), 
+			__("Select a style how to display the latest posts. <br> 
+			You can also list your posts in magazine style, showing the featured images, check out our our <a href='http://themekraft.com/faq/list-your-latest-posts/'>FAQ here</a>.",'cc'), 
+			"posts_lists_style", 
+			array(__('bubbles','cc'), __('default','cc')),
+			__("bubbles",'cc'), 
+			false),	
+		new DropdownOption(
+			__("Show / hide date, category and author",'cc'), 
+			__("Show or hide the date, category and author in the post listing.",'cc'), 
+			"posts_lists_hide_date", 
+			array(__('show','cc'), __('hide','cc')),
+			__("show",'cc'),
 			'end'),
 		// Login
 		new FileOption(
-			"Login page logo", 
-			"Insert your own image for the login page. Upload or insert url.", 
+			__("Login page logo",'cc'), 
+			__("Insert your own image for the login page. Upload or insert url.",'cc'), 
 			"bg_loginpage_img", 
 			"",
 			"start",
-			"Login"),
+			__("Login",'cc')),
 		new TextOption(
-			"Login logo height", 
-			"Define the login logo height, the width should be 326px max", 
+			__("Login logo height",'cc'), 
+			__("Define the login logo height, the width should be 326px max",'cc'), 
 			"login_logo_height", 
 			"",
 			"",
 			false),
-		new FileOption(
-			"Login page background image", 
-			"Insert your own image for the login page background. Upload or insert url.", 
-			"bg_loginpage_body_img", 
-			"","",false),
 		new ColorOption(
-			"Login page background colour", 
-			"Change login page background colour", 
+			__("Login page background colour",'cc'), 
+			__("Change login page background colour",'cc'), 
 			"bg_loginpage_body_color", 
 			"",	
 			false),
 		new ColorOption(
-			"Login page backtoblog fade colour 1", 
-			"Change login page backtoblog colour fade 1", 
+			__("Login page backtoblog fade colour 1",'cc'), 
+			__("Change login page backtoblog colour fade 1",'cc'), 
 			"bg_loginpage_backtoblog_fade_1", 
 			"",
 			false),
+		
 		new ColorOption(
-			"Login page backtoblog fade colour 2", 
-			"Change login page backtoblog colour fade 2", 
+			__("Login page backtoblog fade colour 2",'cc'), 
+			__("Change login page backtoblog colour fade 2",'cc'), 
 			"bg_loginpage_backtoblog_fade_2", 
 			"",
 			"end"),
 		)
+		
 	),
-	new Group ("Header", "header",
+	new Group (__("Header",'cc'), "header",
 		array(
 		new BooleanOption(
-			"Use standard Wordpress custom image header settings", 
-			"Enable this option, if you like to use the standard wordpress settings Page.", 
+			__("Use standard Wordpress custom image header settings",'cc'), 
+			__("Enable this option, if you like to use the standard wordpress settings Page.",'cc'), 
 			"add_custom_image_header", 
 			false),		
 		new DropdownOption(
-			"Show header text", 
-			"Show header text or not?", 
+			__("Show header text",'cc'), 
+			__("Show header text or not?",'cc'), 
 			"header_text", 
-			array('off', 'on'),
-			'off'),
+			array(__('off','cc'), __('on','cc')),
+			__('off','cc')),
 		new ColorOption(
-			"Header text colour", 
-			"Change header font colour", 
+			__("Header text colour",'cc'), 
+			__("Change header font colour",'cc'), 
 			"header_text_color", 
 			""),
 		new FileOption(
-			"Logo", 
-			"Insert your own Logo. Upload or insert url.", 
+			__("Logo",'cc'), 
+			__("Insert your own Logo. Upload or insert url.",'cc'), 
 			"logo"),
 		new TextOption(
-			"Header height", 
-			"Your header height in px (and navigation position (y) at the same time), just enter a number. <br>
+			__("Header height",'cc'), 
+			__("Your header height in px (and navigation position (y) at the same time), just enter a number. <br>
 			This is not your header image height, you can specify your header image separately in the fields below. <br>
-			Try 25px or 63px less than your header-image-height to fit perfectly...", 
+			Try 25px or 63px less than your header-image-height to fit perfectly...",'cc'), 
 			"header_height", 
 			""),
 		new DropdownOption(
-			"Header width", 
-			"Do you like the header in full width or as wide as your site?", 
+			__("Header width",'cc'), 
+			__("Do you like the header in full width or as wide as your site?",'cc'), 
 			"header_width", 
-			array('default', 'full-width'),
-			'default'),
+			array(__('default','cc'), __('full-width','cc')),
+			__('default','cc')),
 		new FileOption(
-			"Header image", 
-			"Insert your own header image. Upload or insert url. <br>
+			__("Header image",'cc'), 
+			__("Insert your own header image. Upload or insert url. <br>
 			Default width is 1000px, the height (and full width option) can be adjusted above. <br>
-			For no image write 'none'.", 
+			For no image write 'none'.",'cc'), 
 			"header_img",
 			'',
 			'start',
-			'Header image'),
+			__('Header image','cc')),
 			new DropdownOption(
-				"Header image repeat", 
-				"Repeat header image: x=horizontally, y=vertically", 
+				__("Header image repeat",'cc'), 
+				__("Repeat header image: x=horizontally, y=vertically",'cc'), 
 				"header_img_repeat", 
-				array('no repeat', 'x', 'y', 'x+y'),
-					"no repeat",
+				array(__('no repeat','cc'), 'x', 'y', 'x+y'),
+					__("no repeat",'cc'),
 					false
 					),		
 			new DropdownOption(
-				"Header image x-position", 
-				"If header image is smaller, you can choose to align left, center or right", 
+				__("Header image x-position",'cc'), 
+				__("If header image is smaller, you can choose to align left, center or right",'cc'), 
 				"header_img_x", 
-				array('left', 'center', 'right'),
-				"left",
+				array(__('left','cc'), __('center','cc'), __('right','cc')),
+				__("left",'cc'),
 				false),
 		new TextOption(
-			"Header image y-position", 
-			"Distance from header image to top (in px), just enter a number", 
+			__("Header image y-position",'cc'), 
+			__("Distance from header image to top (in px), just enter a number",'cc'), 
 			"header_img_y", 
 			"",
 			"",
@@ -439,435 +461,449 @@ function cap_get_options() {
 		),
 		)
 		),
-	new Group ("Menu", "menu",
+	new Group (__("Menu",'cc'), "menu",
 		array(
 		new BooleanOption(
-			"Show the 'Home' menu item", 
-			"You can disable the 'Home' menu item in the main navigation", 
+			__("Show the 'Home' menu item",'cc'), 
+			__("You can disable the 'Home' menu item in the main navigation",'cc'), 
 			"menue_disable_home", 
 			true),
 		new BooleanOption(
-			"Show community navigation", 
-			"Enable Buddypress menu-items in the main navigation", 
+			__("Show community navigation",'cc'), 
+			__("Enable Buddypress menu-items in the main navigation",'cc'), 
 			"menue_enable_community", 
 			true),
 		new DropdownOption(
-			"Menu x-position", 
-			"Align the menu left or right", 
+			__("Menu x-position",'cc'), 
+			__("Align the menu left or right",'cc'), 
 			"menu_x", 
-			array('left', 'right'),
-			'left'),
+			array(__('left','cc'), __('right','cc')),
+			__('left','cc')),
 		new DropdownOption(
-			"Menu style", 
-			"Choose a menu style", 
+			__("Menu style",'cc'), 
+			__("Choose a menu style",'cc'), 
 			"bg_menu_style", 
-			array('tab style', 'closed style', 'simple', 'bordered' ),
-			'tab style'),
+			array(__('tab style','cc'), __('closed style','cc'), __('simple','cc'), __('bordered','cc') ),
+			__('tab style','cc')),
 		new ColorOption(
-			"Menu border bottom", 
-			"Would you like to underline your menu? Select a colour.", 
+			__("Menu border bottom",'cc'), 
+			__("Would you like to underline your menu? Select a colour.",'cc'), 
 			"menu_underline", 
 			""),
 		new ColorOption(
-			"Menu font colour", 
-			"Change menu font colour", 
+			__("Menu font colour",'cc'), 
+			__("Change menu font colour",'cc'), 
 			"menue_link_color", 
 			""),
 		new ColorOption(
-			"Menu font colour &raquo; current and mouse over", 
-			"Change menu font colour from currently displayed menu item <br>
-			or when mouse moves over", 
+			__("Menu font colour &raquo; current and mouse over",'cc'), 
+			__("Change menu font colour from currently displayed menu item <br>
+			or when mouse moves over",'cc'), 
 			"menue_link_color_current", 
 			""),
 		new ColorOption(
-			"Menu background colour", 
-			"Change the menu bar's general background colour", 
+			__("Menu background colour",'cc'),
+			__("Change the menu bar's general background colour",'cc'), 
 			"bg_menue_link_color", 
 			""),
 		new FileOption(
-			"Menu background image", 
-			"Insert your own background image for the menu bar. Upload or insert url.", 
+			__("Menu background image",'cc'), 
+			__("Insert your own background image for the menu bar. Upload or insert url.",'cc'), 
 			"bg_menu_img", 
 			""),
 		new DropdownOption(
-			"Menu background repeat", 
-			"Repeat background image: x=horizontally, y=vertically", 
+			__("Menu background repeat",'cc'), 
+			__("Repeat background image: x=horizontally, y=vertically",'cc'), 
 			"bg_menu_img_repeat", 
-			array('no repeat', 'x', 'y', 'x+y'),
-			'no repeat'),
+			array(__('no repeat','cc'), 'x', 'y', 'x+y'),
+			__('no repeat','cc')),
 		new ColorOption(
-			"Menu background colour &raquo; current", 
-			"Change background colour from currently displayed menu item", 
+			__("Menu background colour &raquo; current",'cc'), 
+			__("Change background colour from currently displayed menu item",'cc'), 
 			"bg_menue_link_color_current", 
 			""),
 		new FileOption(
-			"Menu background image &raquo; current", 
-			"Background image of the currently displayed menu item. Upload or insert url.", 
+			__("Menu background image &raquo; current",'cc'), 
+			__("Background image of the currently displayed menu item. Upload or insert url.",'cc'), 
 			"bg_menu_img_current", 
 			""),
 		new DropdownOption(
-			"Menu background image repeat &raquo current", 
-			"Repeat background image: x=horizontally, y=vertically", 
+			__("Menu background image repeat &raquo current",'cc'), 
+			__("Repeat background image: x=horizontally, y=vertically",'cc'), 
 			"bg_menu_img_current_repeat", 
-			array('no repeat', 'x', 'y', 'x+y'),
-			'no repeat'),
+			array(__('no repeat','cc'), 'x', 'y', 'x+y'),
+			__('no repeat','cc')),
 		new ColorOption(
-			"Menu background colour &raquo; mouse over and drop down list", 
-			"Change a menu item's background colour when mouse moves over it, <br>
-			and drop down background colour", 
-			"bg_menue_link_color_hover", 
+			__("Menu background colour &raquo; mouse over and drop down list",'cc'), 
+			__("Change a menu item's background colour when mouse moves over it, <br>
+			and drop down background colour",'cc'), 
+			__("bg_menue_link_color_hover",'cc'), 
 			""),
 		new ColorOption(
-			"Menu background colour &raquo; drop down list mouse over", 
-			"Change background colour of hovered drop down menu item <br>
-			(when the mouse moves over it)", 
+			__("Menu background colour &raquo; drop down list mouse over",'cc'), 
+			__("Change background colour of hovered drop down menu item <br>
+			(when the mouse moves over it)",'cc'), 
 			"bg_menue_link_color_dd_hover", 
 			""),
 		new DropdownOption(
-			"Menu corner radius", 
-			"Do you want your menu corners to be rounded?", 
+			__("Menu corner radius",'cc'), 
+			__("Do you want your menu corners to be rounded?",'cc'), 
 			"menu_corner_radius", 
-			array('all rounded', 'just the bottom ones', 'not rounded'),
-			'all rounded'),
+			array(__('all rounded','cc'), __('just the bottom ones','cc'), __('not rounded','cc')),
+			__('all rounded','cc')),
 		)
 		),
-	new Group ("Sidebars", "sidebars",
+	new Group (__("Sidebars",'cc'), "sidebars",
 		array(
 		new TextOption(
-			"Left sidebar width", 
-			"Change the left sidebar width - in pixel. Just enter a number. ", 
+			__("Left sidebar width",'cc'), 
+			__("Change the left sidebar width - in pixel. Just enter a number. ",'cc'), 
 			"leftsidebar_width", 
 			"225",
 			"",
 			"start",
-			"Left sidebar"),
+			__("Left sidebar",'cc')),
 			new ColorOption(
-				"Left sidebar background colour", 
-				"Change background colour of the left sidebar. ", 
+				__("Left sidebar background colour",'cc'), 
+				__("Change background colour of the left sidebar. ",'cc'), 
 				"bg_leftsidebar_color", 
 				"", 
 				false),
 			new FileOption(
-				"Left sidebar background image", 
-				"Your own background image for the left sidebar. Upload or insert url.", 
+				__("Left sidebar background image",'cc'), 
+				__("Your own background image for the left sidebar. Upload or insert url.",'cc'), 
 				"bg_leftsidebar_img", 
 				"", 
 				false),
 		new DropdownOption(
-			"Left sidebar background repeat", 
-			"Repeat background image: x=horizontally, y=vertically", 
+			__("Left sidebar background repeat",'cc'), 
+			__("Repeat background image: x=horizontally, y=vertically",'cc'), 
 			"bg_leftsidebar_img_repeat", 
-			array('no repeat', 'x', 'y', 'x+y'), 
-			"no repeat",
+			array(__('no repeat','cc'), 'x', 'y', 'x+y'), 
+			__("no repeat",'cc'),
 			'end'),
 		new TextOption(
-			"Right sidebar width", 
-			"Change the right sidebar width - in pixel. Just enter a number. ", 
+			__("Right sidebar width",'cc'), 
+			__("Change the right sidebar width - in pixel. Just enter a number. ",'cc'), 
 			"rightsidebar_width", 
 			"225",
 			"",
 			"start",
-			"Right sidebar"),
+			__("Right sidebar",'cc')),
 			new ColorOption(
-				"Right sidebar background colour", 
-				"Change background colour of the right sidebar. ", 
+				__("Right sidebar background colour",'cc'), 
+				__("Change background colour of the right sidebar. ",'cc'), 
 				"bg_rightsidebar_color", 
 				"", 
 				false),
 			new FileOption(
-				"Right sidebar background image", 
-				"Your own background image for the right sidebar. Upload or insert url.", 
+				__("Right sidebar background image",'cc'), 
+				__("Your own background image for the right sidebar. Upload or insert url.",'cc'), 
 				"bg_rightsidebar_img", 
 				"", 
 				false),
 		new DropdownOption(
-			"Right sidebar background repeat", 
-			"Repeat background image: x=horizontally, y=vertically", 
+			__("Right sidebar background repeat",'cc'), 
+			__("Repeat background image: x=horizontally, y=vertically",'cc'), 
 			"bg_rightsidebar_img_repeat", 
-			array('no repeat', 'x', 'y', 'x+y'), 
-			"no repeat",
+			array(__('no repeat','cc'), 'x', 'y', 'x+y'), 
+			__("no repeat",'cc'),
 			'end'),		
 		new DropdownOption(
-			"Sidebar widget title style", 
-			"Choose a style for the widget titles", 
+			__("Sidebar widget title style",'cc'), 
+			__("Choose a style for the widget titles",'cc'), 
 			"bg_widgettitle_style", 
-			array('angled', 'rounded', 'transparent'),
-			'angled'),
+			array(__('angled','cc'), __('rounded','cc'), __('transparent','cc')),
+			__('angled','cc')),
 		new DropdownOption(
-			"Sidebar widget title font style", 
-			"Change the widget title's font style", 
+			__("Sidebar widget title font style",'cc'), 
+			__("Change the widget title's font style",'cc'), 
 			"widgettitle_font_style", 
 			array('Arial, sans-serif', 'Impact, sans-serif', 'Helvetica, Arial, sans-serif', 'Century Gothic, Avant Garde, Arial, sans-serif', 'Times New Roman, Times', 'Garamond, Times New Roman, Times'),
 			"Arial, sans-serif",
 			"start",
-			"Sidebar widget title fonts"),
+			__("Sidebar widget title fonts",'cc')),
 			new TextOption(
-				"Widget title font size", 
-				"Font size of your widget titles in px, just enter a number, default=13", 
+				__("Widget title font size",'cc'), 
+				__("Font size of your widget titles in px, just enter a number, default=13",'cc'), 
 				"widgettitle_font_size", 
 				"",
 				"", 
 				false),
 		new ColorOption(
-			"Sidebar widget title font colour", 
-			"Change font colour of the widget titles", 
-			"widgettitle_font_color", 
+			__("Sidebar widget title font colour",'cc'), 
+			__("Change font colour of the widget titles",'cc'), 
+			__("widgettitle_font_color",'cc'), 
 			"", 
 			'end'),
 		new ColorOption(
-			"Sidebar widget title background colour", 
-			"Change background colour of the widget titles", 
+			__("Sidebar widget title background colour",'cc'), 
+			__("Change background colour of the widget titles",'cc'), 
 			"bg_widgettitle_color", 
 			"", 
 			"start", 
-			"Sidebar widget titles background",
+			__("Sidebar widget titles background",'cc'),
 			false),
 		new FileOption(
-			"Sidebar widget title background image", 
-			"Your own background image for the widget title. Upload or insert url.", 
+			__("Sidebar widget title background image",'cc'), 
+			__("Your own background image for the widget title. Upload or insert url.",'cc'), 
 			"bg_widgettitle_img", 
 			"", 
 			false),
 		new DropdownOption(
-			"Sidebar widget title background repeat", 
-			"Repeat background image: x=horizontally, y=vertically", 
+			__("Sidebar widget title background repeat",'cc'), 
+			__("Repeat background image: x=horizontally, y=vertically",'cc'), 
 			"bg_widgettitle_img_repeat", 
-			array('no repeat', 'x', 'y', 'x+y'), 
-			"no repeat",
+			array(__('no repeat','cc'), 'x', 'y', 'x+y'), 
+			__("no repeat",'cc'),
 			'end'),
 		new DropdownOption(
-			"Capitalizing in widgets", 
-			"Capitalize the fonts in lists in your widgets?", 
+			__("Capitalizing in widgets",'cc'), 
+			__("Capitalize the fonts in lists in your widgets?",'cc'), 
 			"capitalize_widgets_li", 
-			array('no', 'yes'), 
-			"no",
+			array(__('no','cc'), __('yes','cc')), 
+			__("no",'cc'),
 			"start",
-			"Capitalizing"),
+			__("Capitalizing",'cc')),
 		new DropdownOption(
-			"Capitalizing the widget titles", 
-			"Capitalize the titles in your widgets?", 
+			__("Capitalizing the widget titles",'cc'), 
+			__("Capitalize the titles in your widgets?",'cc'), 
 			"capitalize_widgettitles", 
-			array('no', 'yes'),
-			"no",
+			array(__('no','cc'), __('yes','cc')),
+			__("no",'cc'),
 			'end'),					
 		)
 		),
-	new Group ("Footer", "footer",
+	new Group (__("Footer",'cc'), "footer",
 		array(
 		new DropdownOption(
-			"Footer width", 
-			"Do you like the footer in full width or as wide as your site?", 
+			__("Footer width",'cc'), 
+			__("Do you like the footer in full width or as wide as your site?",'cc'), 
 			"footer_width", 
-			array('default', 'full-width')),
+			array(__('default','cc'), __('full-width','cc'))),
 		new TextOption(
-			"Footer height", 
-			"Change the footer height, in px, just enter a number <br>
-			This option is not the footer widget height, you can define that one below.", 
+			__("Footer height",'cc'), 
+			__("Change the footer height, in px, just enter a number <br>
+			This option is not the footer widget height, you can define that one below.",'cc'), 
 			"footerall_height", 
 			""),
 		new ColorOption(
-			"Footer background", 
-			"Change background colour of the footer", 
+			__("Footer background",'cc'), 
+			__("Change background colour of the footer",'cc'), 
 			"bg_footerall_color", 
 			""),
 		new FileOption(
-			"Footer background image", 
-			"Background image for the footer background. Upload or insert url.", 
+			__("Footer background image",'cc'), 
+			__("Background image for the footer background. Upload or insert url.",'cc'), 
 			"bg_footerall_img", 
 			""),
 		new DropdownOption(
-			"Footer background image repeat", 
-			"Repeat background image: x=horizontally, y=vertically", 
+			__("Footer background image repeat",'cc'), 
+			__("Repeat background image: x=horizontally, y=vertically",'cc'), 
 			"bg_footerall_img_repeat", 
-			array('no repeat', 'x', 'y', 'x+y'),
-			'no repeat'),	
+			array(__('no repeat','cc'), 'x', 'y', 'x+y'),
+			__('no repeat','cc')),	
 		new TextOption(
-			"Footer widget height", 
-			"Change the footer widgets height, in px, just enter a number <br>
-			This option is nice to have your footer widget areas all the same height.", 
+			__("Footer widget height",'cc'), 
+			__("Change the footer widgets height, in px, just enter a number <br>
+			This option is nice to have your footer widget areas all the same height.",'cc'), 
 			"footer_height", 
 			""),	
 		new ColorOption(
-			"Footer widget background", 
-			"Change background colour of the footer widgets", 
+			__("Footer widget background",'cc'), 
+			__("Change background colour of the footer widgets",'cc'), 
 			"bg_footer_color", 
 			""),
 		new FileOption(
-			"Footer widget background image", 
-			"Background image for the footer widgets background. Upload or insert url.", 
+			__("Footer widget background image",'cc'), 
+			__("Background image for the footer widgets background. Upload or insert url.",'cc'), 
 			"bg_footer_img", 
 			""),
 		new DropdownOption(
-			"Footer widget background image repeat", 
-			"Repeat background image: x=horizontally, y=vertically", 
+			__("Footer widget background image repeat",'cc'), 
+			__("Repeat background image: x=horizontally, y=vertically",'cc'), 
 			"bg_footer_img_repeat", 
-			array('no repeat', 'x', 'y', 'x+y'),
-			'no repeat'),
+			array(__('no repeat','cc'), 'x', 'y', 'x+y'),
+			__('no repeat','cc')),
 		)
 		),
-	new Group ("BuddyPress", "buddypress",
+	new Group (__("BuddyPress",'cc'), "buddypress",
 		array(
 		new DropdownOption(
-			"Login bar header", 
-			"Select a login bar at the top of the header", 
+			__("Login bar header",'cc'), 
+			__("Select a login bar at the top of the header",'cc'), 
 			"bp_login_bar_top", 
-			array('on', 'off' )),
+			array(__('on','cc'), __('off','cc') ),
+			__('on','cc')),
 		new BooleanOption(
-			"Use BuddyPress default sub-navigation", 
-			"This sub-navigation is the secondary level navigation, <br>
+			__("Use BuddyPress default sub-navigation",'cc'), 
+			__("This sub-navigation is the secondary level navigation, <br>
 			e.g. for profile it contains: [Public, Edit Profile, Change Avatar]<br>
 			If you use the community navigation widget, you don't need this navigation. <br>
-			If you want to use a horizontally sub-navigation - choose this one.", 
+			If you want to use a horizontally sub-navigation - choose this one.",'cc'), 
 			"bp_default_navigation", 
 			true),
 		new ColorOption(
-			"BuddyPress sub navigation background colour", 
-			"Change the background colour of the Buddypress component sub navigation", 
+			__("BuddyPress sub navigation background colour",'cc'), 
+			__("Change the background colour of the Buddypress component sub navigation",'cc'), 
 			"bg_content_nav_color", 
 			""),
 		new BooleanOption(
-			"Show search bar", 
-			"Enable BuddyPress search bar in header", 
+			__("Show search bar",'cc'), 
+			__("Enable BuddyPress search bar in header",'cc'), 
 			"menue_enable_search", 
 			true),
 		new BooleanOption(
-			"Use global Buddydev search instead of bp-search", 
-			"Replace the BuddyPress search (which comes with dropdown menu) with the Buddydev search. <br>
-			The Buddydev search is an easy one-field global search with nice result-listing.", 
+			__("Use global Buddydev search instead of bp-search",'cc'), 
+			__("Replace the BuddyPress search (which comes with dropdown menu) with the Buddydev search. <br>
+			The Buddydev search is an easy one-field global search with nice result-listing.",'cc'), 
 			"buddydev_search", 
 			true),
 		new DropdownOption(
-			"Search bar horizontal position", 
-			"If selected, you want the search bar left or right?", 
+			__("Search bar horizontal position",'cc'), 
+			__("If selected, you want the search bar left or right?",'cc'), 
 			"searchbar_x", 
-			array('right', 'left'),
-			'right'),
+			array(__('right','cc'), __('left','cc')),
+			__('right','cc')),
 		new TextOption(
-			"Search bar vertical position", 
-			"Distance from search bar to top (in px), just enter a number", 
+			__("Search bar vertical position",'cc'), 
+			__("Distance from search bar to top (in px), just enter a number",'cc'), 
 			"searchbar_y", 
 			""),
 		new DropdownOption(
-			"Login sidebar", 
-			"Turn auto BuddyPress login in the right sidebar on/off. <br>
-			You can add this feature as a widget into every widgetarea you like.", 
+			__("Login sidebar",'cc'), 
+			__("Turn auto BuddyPress login in the right sidebar on/off. <br>
+			You can add this feature as a widget into every widgetarea you like.",'cc'), 
 			"login_sidebar", 
-			array('on', 'off'),
-			'on'),
+			array(__('on','cc'), __('off','cc')),
+			__('on','cc')),
 		new TextOption(
-			"Login sidebar text", 
-			"Define the text displayed in the login sidebar when you're logged out.", 
+			__("Login sidebar text",'cc'), 
+			__("Define the text displayed in the login sidebar when you're logged out.",'cc'), 
 			"bp_login_sidebar_text", 
 			"")
 		)
 		),
-	new Group ("Profile", "profile",
+	new Group (__("Profile",'cc'), "profile",
 		array(
 		new DropdownOption(
-			"Show Profile header", 
-			"Display profile header, can be used as widget area", 
+			__("Show Profile header",'cc'), 
+			__("Display profile header, can be used as widget area",'cc'), 
 			"bp_profile_header", 
-			array('on', 'off'),
-			'on'),
+			array(__('on','cc'), __('off','cc')),
+			__('on','cc')),
 		new DropdownOption(
-			"Profile Sidebars", 
-			"Where do you like to have your sidebars in profiles? <br>
+			__("Profile Sidebars",'cc'), 
+			__("Where do you like to have your sidebars in profiles? <br>
 			default = the global settings and sidebars will be used<br>
 			none = no sidebars, full width<br>
 			left = left profile sidebar, this will overwrite the global settings and display the left profile sidebar<br>
 			right = right profile sidebar, this will overwrite the global settings and display the right profile sidebar<br>
 			left and right = This option will display the left and right profile sidebars and overwrite the global settings<br>
-			Note: all sidebars can be filled with widgets. Without widgets there will be the user avatar and information like in the member header", 
+			Note: all sidebars can be filled with widgets. Without widgets there will be the user avatar and information like in the member header",'cc'), 
 			"bp_profile_sidebars", 
-			array('default', 'none', 'left', 'right', 'left and right'),
-			'default'),
+			array(__('default','cc'), __('none','cc'), __('left','cc'), __('right','cc'), __('left and right','cc')),
+			__('default','cc')),
 		new TextOption(
-			"Profile avatar size", 
-			"Define the size of the profile avatar. Width and height is the same", 
+			__("Profile avatar size",'cc'), 
+			__("Define the size of the profile avatar. Width and height is the same",'cc'), 
 			"bp_profiles_avatar_size", 
 			""),
 		new TextOption(
-			"Profile menu order", 
-			"Change the menu order in the profiles. Write the order in by slug, comma-separated. <br>
+			__("Profile menu order",'cc'), 
+			__("Change the menu order in the profiles. Write the order in by slug, comma-separated. <br>
 			Note: a slug is the name as it is written in the url, <br>
-			means all letters in small, no symbols, ...", 
+			means all letters in small, no symbols, ...",'cc'), 
 			"bp_profiles_nav_order", 
 			"")
 		)
 		),
-	new Group ("Groups", "groups",
+	new Group (__("Groups",'cc'), "groups",
 		array(
 		new DropdownOption(
-			"Show Groups header", 
-			"Display group header, can be used as widget area", 
+			__("Show Groups header",'cc'), 
+			__("Display group header, can be used as widget area",'cc'), 
 			"bp_groups_header", 
-			array('on', 'off'),
-			'on'),
+			array(__('on','cc'), __('off','cc')),
+			__('on','cc')),
 		new DropdownOption(
-			"Groups Sidebars",
-			"Where do you like to have your sidebars in groups? <br>
+			__("Groups Sidebars",'cc'),
+			__("Where do you like to have your sidebars in groups? <br>
 			default = the global settings and sidebars will be used<br>
 			none = no sidebars, full width<br>
 			left = left group sidebar, this will overwrite the global settings and display the left group sidebar<br>
 			right = right group sidebar, this will overwrite the global settings and display the right group sidebar<br>
 			left and right = this option will display the left and right group sidebars and overwrite the global settings<br>
-			Note: all sidebars can be filled with widgets. Without widgets there will be the group avatar and information like in the group header",
+			Note: all sidebars can be filled with widgets. Without widgets there will be the group avatar and information like in the group header",'cc'),
 			"bp_groups_sidebars",
-			 array('default', 'none', 'left', 'right', 'left and right'),
-			 'default'),
+			 array(__('default','cc'), __('none','cc'), __('left','cc'), __('right','cc'), __('left and right','cc')),
+			 __('default','cc')),
 		new TextOption(
-			"Groups avatar size", 
-			"Define the size of the group avatar. Width and height is the same <br>
-			Just write a number, without px, default is 200.", 
+			__("Groups avatar size",'cc'), 
+			__("Define the size of the group avatar. Width and height is the same <br>
+			Just write a number, without px, default is 200.",'cc'), 
 			"bp_groups_avatar_size", 
 			""),
 		new TextOption(
-			"Groups menu order", 
-			"Change the menu order in the groups. Write the order in by slug, comma-separated. <br>
+			__("Groups menu order",'cc'), 
+			__("Change the menu order in the groups. Write the order in by slug, comma-separated. <br>
 			Note: a slug is the name as it is written in the url, <br>
-			means all letters in small, no symbols, ...", 
+			means all letters in small, no symbols, ...",'cc'), 
 			"bp_groups_nav_order", 
 			"")
 		)
 		),
-	new Group ("Slideshow", "slideshow",
+	new Group (__("Slideshow",'cc'), "slideshow",
 		array(
 		new DropdownOption(
-			"Enable slideshow", 
-			"Enable slideshow", 
+			__("Enable slideshow",'cc'), 
+			__("Enable slideshow",'cc'), 
 			"enable_slideshow_home", 
-			array('home', 'off', 'all'),
-			'home'),
+			array(__('home','cc'), __('off','cc'), __('all','cc')),
+			__('home','cc')),
+		new FileOption(
+			__("Set your own default slideshow image",'cc'), 
+			__("Insert your own default slideshow image. Upload or insert URL (with http://).",'cc'), 
+			"slideshow_img", 
+			"",
+			"start", 
+			__('Default slideshow images','cc')),
+		new FileOption(
+			__("Set your own default slideshow small image",'cc'), 
+			__("Insert your own default small slideshow image. Upload or insert url (with http://).",'cc'), 
+			"slideshow_small_img", 
+			"",
+			"end", FALSE),
 		new DropdownCatOption(
-			"Slideshow post categories", 
-			"The slideshow takes images, titles and text-excerpts of the last 4 posts.<br>
+			__("Slideshow post categories",'cc'), 
+			__("The slideshow takes images, titles and text-excerpts of the last 4 posts.<br>
 			You can select the category the posts should be taken from. <br>
-			For more info check out the <a href='http://themekraft.com/faq/' target='_blank'>FAQ</a>, especially <a href='http://themekraft.com/faq/slideshow/' target='_blank'>slideshow</a> and <a href='http://themekraft.com/faq/featured-image/' target='_blank'>featured image</a>.", 
+			For more info check out the <a href='http://themekraft.com/faq/' target='_blank'>FAQ</a>, especially <a href='http://themekraft.com/faq/slideshow/' target='_blank'>slideshow</a> and <a href='http://themekraft.com/faq/featured-image/' target='_blank'>featured image</a>.",'cc'), 
 			"slideshow_cat", 
 			$option_categories),
 		new TextOption(
-			"Amount", 
-			"Define the amount of posts. This option works just with the full width image slider.", 
+			__("Amount",'cc'), 
+			__("Define the amount of posts. This option works just with the full width image slider.",'cc'), 
 			"slideshow_amount", 
 			""),
 		new TextOption(
-			"Post type", 
-			"Define the post type to display instead of posts. For pages write 'page', <br>
-			for a custom post type the name of the cutsom post type, e.g. 'radio'", 
-			"slideshow_post_type", 
+			__("Post type",'cc'), 
+			__("Define the post type to display instead of posts. For pages write 'page', <br>
+			for a custom post type the name of the cutsom post type, e.g. 'radio'", 'cc'), 
+			"slideshow_post_type",
 			""),
 		new TextOption(
-			"Page IDs", 
-			"Page IDs, comma separated. Just working if you use post types instead of categories", 
+			__("Page IDs",'cc'), 
+			__("Page IDs, comma separated. Just working if you use post types instead of categories", 'cc'),
 			"slideshow_show_page", 
 			""),
 		new TextOption(
-			"Sliding time", 
-			"Define the sliding time in ms", 
+			__("Sliding time",'cc'), 
+			__("Define the sliding time in ms",'cc'), 
 			"slideshow_time", ""),
 		new TextOption(
-			"Order posts by", 
-			"* orderby=author<br>
+			__("Order posts by",'cc'), 
+			__("* orderby=author<br>
 			* orderby=date<br>
 			* orderby=title<br>
 			* orderby=modified<br>
@@ -878,33 +914,33 @@ function cap_get_options() {
 			* orderby=meta_value Note: A meta_key=keyname must also be present in the query. Note also that the sorting will be alphabetical which is fine for strings (i.e. words), but can be unexpected for numbers (e.g. 1, 3, 34, 4, 56, 6, etc, rather than 1, 3, 4, 6, 34, 56 as you might naturally expect).<br>
 			* orderby=meta_value_num - Order by numeric meta value (available with Version 2.8)<br>
 			* orderby=none - No order (available with Version 2.8)<br>
-			* orderby=comment_count - (available with Version 2.9) <br>", 
+			* orderby=comment_count - (available with Version 2.9) <br>",'cc'), 
 			"slideshow_orderby", 
 			""),
 		new DropdownOption(
-			"Slideshow style", 
-			"Select a type of slideshow.", 
+			__("Slideshow style",'cc'), 
+			__("Select a type of slideshow.",'cc'), 
 			"slideshow_style", 
-			array('default','full width')),
+			array(__('default','cc'),__('full width','cc'))),
 		new DropdownOption(
-			"Caption", 
-			"Show just the images or also titles and excerpts?", 
+			__("Caption",'cc'), 
+			__("Show just the images or also titles and excerpts?",'cc'), 
 			"slideshow_caption", 
-			array('on', 'off')),
+			array(__('on','cc'), __('off','cc'))),
 		new DropdownOption(
-			"Shadow", 
-			"Select if you'd like to have a shadow under the top slideshow.<br>
-			Note: just for bright background and static width between 990 and about 1100 pixels.", 
+			__("Shadow",'cc'), 
+			__("Select if you'd like to have a shadow under the top slideshow.<br>
+			Note: just for bright background and static width between 990 and about 1100 pixels.",'cc'), 
 			"slideshow_shadow", 
-			array('sharper shadow', 'shadow', 'no shadow'),
-			'sharper shadow'),
+			array(__('sharper shadow','cc'), __('shadow','cc'), __('no shadow','cc')),
+			__('sharper shadow','cc')),
 		)
 		),
-	new Group ("CSS", "overwrite",
+	new Group (__("CSS",'cc'), "overwrite",
 		array(
 		new TextOption(
-			"Overwrite CSS", 
-			"This is your place to overwrite existing CSS.<br>
+			__("Overwrite CSS",'cc'), 
+			__("This is your place to overwrite existing CSS.<br>
 			This way you are able to customize even the smallest CSS details. <br>
 			If you know how to write, you can play around a bit!<br>
 			<br>
@@ -913,7 +949,7 @@ function cap_get_options() {
 			body {<br>
 			background-image:url(url-to-your-picture);<br>
 			}<br>
-			<br>", 
+			<br>",'cc'), 
 			"overwrite_css", 
 			"", 
 			true,

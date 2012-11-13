@@ -1,6 +1,7 @@
 <?php
 function dynamic_css(){
     global $cap;
+    global $pagenow;
     if($cap->menu_x == ""){
         $cap->menu_x = 'left';
     }
@@ -29,13 +30,13 @@ body {
     width:100%;
     <?php 
     switch ($cap->bg_body_img_pos){
-    	case 'left':
+    	case __('left','cc'):
     		echo 'background-position: left top;';
        		break;
-        case 'right': 
+        case __('right','cc'): 
         	echo 'background-position: right top;';
        		break;
-        case 'center': 
+        case __('center','cc'): 
         	echo 'background-position: center top;';
         	break;
     	default: 
@@ -291,7 +292,7 @@ ul#nav a:focus {outline: none}
 #nav-home {
     float:left;
 }
-<?php if($cap->menu_x =="right"){?>
+<?php if($cap->menu_x ==__("right",'cc')){?>
 	#nav-home {
 	    float: right;
 	}
@@ -432,7 +433,7 @@ div#sidebar ul.item-list img.avatar, div.widgetarea  ul.item-list img.avatar{
     height: 25px;
     margin-right: 10px;
 }
-div#sidebar div.item-avatar{display:inline;}
+div#sidebar div.item-avatar{display: inline;}
 div#sidebar div.item-avatar img, div.widgetarea  div.item-avatar img{
     width: 40px;
     height: 40px;
@@ -467,6 +468,7 @@ div#sidebar div.tags div#tag-text, div.widgetarea div.tags div#tag-text{
 
 div#sidebar ul , div.widgetarea ul {
     text-align:left;
+    margin-left: 0;
 }
 
 .widget li.cat-item {
@@ -475,7 +477,28 @@ div#sidebar ul , div.widgetarea ul {
 .widget li.current-cat a, div.widget ul li.current_page_item a {
     color:#<?php echo $link_color;?>;
 }
-
+.cc-widget{
+    width:30% !important;
+    float:left;
+    text-align:left !important;
+    margin:20px 2% 20px 0 !important;
+    -moz-border-radius: 6px !important;
+    -webkit-border-radius: 6px !important;
+    border-radius: 6px !important;
+    background-color: #<?php echo $container_bg_color;?> !important;
+    padding:1% !important;
+    overflow: hidden;
+}
+.cc-widget-right{
+	margin-right: 0 !important;
+	float:right;
+}
+#footer .cc-widget a.button, #header .cc-widget a.button{
+    color: #<?php echo $container_bg_color;?>;
+}
+#header .cc-widget{
+    margin-top: 0px !important;
+}
 .widget li.current-cat, div.widget ul li.current_page_item{
     background:transparent;
     margin-left:-8px;
@@ -703,6 +726,7 @@ ul.item-list li div.item-desc {
     font-size: 11px;
     color: #<?php echo $font_color;?>;
     width: 50%;
+    clear:left;
 }
 
 ul.item-list li div.action {
@@ -730,6 +754,60 @@ ul.item-list li h5 span.small {
 }
 
 
+ul.item-list.displaymode-grid li,ul#groups-list.displaymode-grid li{
+    display: inline-block;
+    width: 150px;
+    margin: 3%;
+    overflow: hidden;
+    vertical-align: top;
+    background: none repeat scroll 0 0 #EDEDED;
+    border-radius: 11px 11px 11px 11px;
+    padding: 15px 15px 5px 15px;
+}
+ul.item-list li .hoverblock{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #EDEDED;
+    overflow: hidden;
+    width: 180px;
+    height: 170px;
+}
+ul.item-list li .hoverblock .hoverblockcontainer{
+    padding: 15px;
+}
+ul.item-list.displaymode-grid li:hover .hoverblock{
+    display: block;    
+}
+ul.item-list.displaymode-grid li .item-avatar{display: block;}
+
+ul.item-list.displaymode-grid li div.item-title, ul.item-list.displaymode-grid li h4{
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow:hidden;white-space: nowrap;
+}
+ul.item-list.displaymode-grid li img.avatar{
+    float: none;
+    text-align: center;
+    height: 150px;
+    display: block;
+    width: 150px
+}
+ul.item-list.displaymode-grid li div.item-desc{
+    width: 100%;margin: 0;
+}
+ul.item-list.displaymode-grid li div.action{width: auto;position: static;}
+ul.item-list.displaymode-grid li div.action a{
+    font-size: 11px
+}
+ul.item-list.displaymode-grid li .item-meta,ul.item-list.displaymode-grid li .item-meta span.activity{width: auto;float: none}
+
+#whats-new-content #whats-new-options{
+    height: 0;
+    overflow: hidden;
+}
+
 
 /* > Item Tabs
 -------------------------------------------------------------- */
@@ -747,7 +825,7 @@ div.item-list-tabs ul {
 }
 div.item-list-tabs ul li {
     float: left;
-    margin: 0px;
+    margin: 0px 5px;
     list-style-type: none;
 }
 div.item-list-tabs ul li.selected {
@@ -864,6 +942,48 @@ div.item-list-tabs ul li.feed a {
     background: url(<?php echo get_template_directory_uri() ?>/_inc/images/rss.png ) center left no-repeat;
     padding-left: 20px;
 }
+div#subnav.item-list-tabs ul li.displaymode{margin-top: -4px;float: right;margin-right: 10px;}
+div#subnav.item-list-tabs ul li.displaymode.last{margin-right: 20px}
+
+
+/*--A lot of sub menu items in BuddyPress menu--*/
+.item-list-tabs .next, .item-list-tabs .prev{
+	display:none;
+	margin:0 4px;
+	padding:2px 6px 4px 6px;
+	float:left;
+	border:0;
+	font:normal 18px Helvetica;
+    color: #<?php echo $link_color;?>;
+	background: none repeat scroll 0 0 #<?php echo $container_bg_color;?>;
+	-moz-border-radius-topleft: 6px;
+	-moz-border-radius-topright: 6px;
+	-webkit-border-top-left-radius: 6px;
+	-webkit-border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+.item-list-tabs .next{
+	float:right;
+}
+.item-list-tabs .next:hover, .item-list-tabs .prev:hover{
+    color: #<?php echo $font_color;?>;
+    background-color:#<?php echo $container_alt_bg_color;?>;
+    cursor: pointer;
+}
+.item-list-tabs div{
+	overflow:hidden;
+	text-align:left;
+	margin:0;
+	padding:0;
+}
+.item-list-tabs div ul{
+    width:3000px;
+    overflow:hidden;
+    margin:0;
+    padding:0;
+    margin-left:0;
+}
 
 /* > Item Body
 -------------------------------------------------------------- */
@@ -931,7 +1051,9 @@ div.dir-search input[type=text] {
 .readmore{
     float:right;
 }
-
+.read-more-link br{
+    display: none;
+}
 #forums-order-select{
     margin-top: -8px !important;
 }
@@ -1026,7 +1148,11 @@ form.standard-form#signup_form div div.error {
     width: 90%;
     margin: 0 0 10px 0;
 }
-
+<?php if(isset( $_GET['activated'] ) || ( 'themes.php' == $pagenow ) || is_admin()){?>
+#message2, #message0 { 
+    display: none; 
+}
+<?php } ?>
 /* > Buttons
 -------------------------------------------------------------- */
 
@@ -2285,8 +2411,8 @@ div.page ol.commentlist {
 
 div.post ol.commentlist ul, 
 div.page ol.commentlist ul {
-	list-style: none outside none;
-	margin-left: 20px;
+	list-style: disc inside none;
+	margin-left: 0px;
 	padding-bottom: 12px;
 }
 
@@ -2407,29 +2533,16 @@ margin: 0;
     margin-bottom: 8px;
     padding: 8px;
 }
-#footer div.credits, #footer a.credits, #footer a.credits:hover, #footer a.credits:focus {text-align: center;text-decoration: none;background-color: transparent;color: #<?php echo $font_alt_color;?>}
-#footer .cc-widget a.button, #header .cc-widget a.button{
-    color: #<?php echo $container_bg_color;?>;
+#footer div.credits, #footer a.credits, #footer a.credits:hover, #footer a.credits:focus {
+    text-align: center;
+    text-decoration: none;
+    background-color: transparent;
+    color: #<?php echo $font_alt_color;?>
 }
 #footer span.credits {
     text-align: center;
 }
-.cc-widget{
-    width:30% !important;
-    float:left;
-    text-align:left !important;
-    margin:20px 2% 20px 0 !important;
-    -moz-border-radius: 6px !important;
-    -webkit-border-radius: 6px !important;
-    border-radius: 6px !important;
-    background-color: #<?php echo $container_bg_color;?> !important;
-    padding:1% !important;
-    overflow: hidden;
-}
-.cc-widget-right{
-    margin:20px 0 20px !important;
-    float:right !important;
-}
+
 #footer div.widgetarea h3.widgettitle, #header div.widgetarea h3.widgettitle,
 #footer div.widgetarea h3.widgettitle a, #header div.widgetarea h3.widgettitle {
     width:100%;
@@ -2824,7 +2937,7 @@ div.cc_slider ul.ui-tabs-nav li img {
 }
 div.cc_slider ul.ui-tabs-nav li span{
     font-size:13px;
-    line-height:18px;
+    line-height:19px;
 }
 div.cc_slider li.ui-tabs-nav-item a{
     display:block;
@@ -2835,6 +2948,7 @@ div.cc_slider li.ui-tabs-nav-item a{
     line-height:20px;
     padding: 0 2px;
     width:100%;
+    overflow: hidden;
 }
 div.cc_slider a, div.cc_slider a:hover, div.cc_slider a:focus {
     text-decoration: none;
@@ -2915,11 +3029,17 @@ div.cc_slider .ui-widget-header {
     font-weight: normal;
 }
 
-<?php if($cap->slideshow_style == 'full width' || $cap->slideshow_style == 'full-width-image' ){?>
+<?php if($cap->slideshow_style == 'full width' || $cap->slideshow_style == __('full width','cc') || $cap->slideshow_style == 'full-width-image' ){?>
 div#cc_slider-top div.cc_slider .featured .ui-tabs-panel{
     width: 100%;
 }
-<?php } ?>
+<?php } 
+
+ ?>
+div.post img {
+    margin: 0 0 1px 0;
+}
+
 
 /* =list posts templates
 -------------------------------------------------------------- */
@@ -3249,67 +3369,17 @@ div.single-img-under-content a{
     padding:0;
     width:48%;
 }
-
 .third_col {
     float:left;
     margin:0 3.3% 20px 0;
     padding:0;
     width:31%;
 }
-
 .third_col_right {
     float:right;
     margin:0 0.4% 20px 0;
     padding:0;
     width:31%;
-}
-
-.two_third_col {
-    float:left;
-    margin:0 2.6% 20px 0;
-    padding:0;
-    width:64.6%;
-    overflow: hidden;
-}
-
-.two_third_col_right {
-    float:right;
-    margin:0 0.4% 20px 0;
-    padding:0;
-    width:64.6%;
-}
-
-.fourth_col {
-    float:left;
-    margin:0 3.2% 20px 0;
-    padding:0;
-    width:22.5%;
-    overflow: hidden;
-}
-
-.fourth_col_right {
-    float:right;
-    margin:0 0.4% 20px 0;
-    padding:0;
-    width:22.5%;
-}
-
-.three_fourth_col {
-    float:left;
-    margin:0 3.2% 20px 0;
-    padding:0;
-    width:69.8% !important;
-}
-
-.three_fourth_col_right {
-    float:right;
-    margin:0 0.4% 20px 0;
-    padding:0;
-    width:69.8% !important;
-}
-
-div.post img.attachment-slider-full {
-    margin:0;
 }
 
 
@@ -3486,26 +3556,25 @@ colour of the vertical lines  **/
 body background colour, image and repeat  **/
 
 body {
-<?php if($cap->bg_body_color){?>
-	background-color: <?php if($cap->bg_body_color != 'transparent') {?>#<?php } ?><?php echo $cap->bg_body_color?>;
-<?php } ?>
-<?php if($cap->bg_body_img){?>
-	background-image:url(<?php echo $cap->bg_body_img?>);
-<?php } ?>
-<?php 
-		switch ($cap->bg_body_img_repeat)
-        {
-        case 'no repeat':
-			?>background-repeat: no-repeat;<?php	
+    <?php if($cap->bg_body_color){?>
+    	background-color: <?php if($cap->bg_body_color != 'transparent') {?>#<?php } ?><?php echo $cap->bg_body_color; ?>;
+    <?php } ?>
+    <?php if($cap->bg_body_img){?>
+    	background-image:url(<?php echo $cap->bg_body_img?>);
+    <?php } ?>
+    <?php 
+    switch ($cap->bg_body_img_repeat){
+        case __('no repeat','cc'):
+			echo 'background-repeat: no-repeat;';
         	break;
         case 'x':
-			?>background-repeat: repeat-x;<?php	
+			echo 'background-repeat: repeat-x;';	
         	break;
         case 'y':
-			?>background-repeat: repeat-y;<?php	
+			echo 'background-repeat: repeat-y;';	
         	break;
         case 'x+y':
-			?>background-repeat: repeat;<?php	
+			echo 'background-repeat: repeat;';	
         	break;
         }
 ?>
@@ -3513,27 +3582,26 @@ body {
 <?php endif;?>
 
 
-<?php if($cap->bg_body_color != "" && $cap->bg_body_color != "transparent"):?>
-/** ***   
-Adapting to body background colour  **/
+<?php if($cap->bg_body_color != "" && $cap->bg_body_color != __("transparent",'cc')){?>
+    /** ***   
+    Adapting to body background colour  **/
 
-div.item-list-tabs ul li.selected a, div.item-list-tabs ul li.current a, 
-div.pagination, div#subnav.item-list-tabs, 
-div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.widgettitle,
-div#leftsidebar h3.widgettitle a, div#sidebar h3.widgettitle a, div.widgetarea h3.widgettitle a,
-div#footer .cc-widget h3.widgettitle, #header .cc-widget h3.widgettitle, div#footer .cc-widget h3.widgettitle a, #header .cc-widget h3.widgettitle a   {
-	background-color: #<?php echo $cap->bg_body_color?>;
-}
+    div.item-list-tabs ul li.selected a, div.item-list-tabs ul li.current a, 
+    div.pagination, div#subnav.item-list-tabs, 
+    div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.widgettitle,
+    div#leftsidebar h3.widgettitle a, div#sidebar h3.widgettitle a, div.widgetarea h3.widgettitle a,
+    div#footer .cc-widget h3.widgettitle, #header .cc-widget h3.widgettitle, div#footer .cc-widget h3.widgettitle a, #header .cc-widget h3.widgettitle a   {
+    	background-color: #<?php echo $cap->bg_body_color?>;
+    }
 
-.boxgrid {
-	border-color: #<?php echo $cap->bg_body_color?>;
-}
-<?php endif;?>
+    .boxgrid {
+    	border-color: #<?php echo $cap->bg_body_color?>;
+    }
+<?php } ?>
 
-<?php if($cap->bg_container_nolines == 'hide' ) {?>
-/** ***   
-hide the vertical lines in the container  **/
-
+<?php if($cap->bg_container_nolines == __('hide','cc') ) {?>
+    /** ***   
+    hide the vertical lines in the container  **/
 	.v_line {display: none}	
 <?php }?>
 
@@ -3543,7 +3611,7 @@ container background colour, image, repeat, corner radius and line correction  *
 
 div#container, body.activity-permalink div#container {
 	<?php if($cap->bg_container_color ){?> 
-		background-color: <?php if($cap->bg_container_color != 'transparent') {?>#<?php } ?><?php echo $cap->bg_container_color;?>;
+		background-color: <?php if($cap->bg_container_color != 'transparent' && $cap->bg_container_color != __('transparent','cc')) {?>#<?php } ?><?php echo $cap->bg_container_color;?>;
 	<?php } ?>
 	
 	<?php if($cap->bg_container_img){?>
@@ -3551,7 +3619,7 @@ div#container, body.activity-permalink div#container {
 		<?php 
 				switch ($cap->bg_container_img_repeat)
 		        {
-		        case 'no repeat':
+		        case __('no repeat','cc'):
 					?>background-repeat: no-repeat;<?php	
 		        	break;
 		        case 'x':
@@ -3566,7 +3634,7 @@ div#container, body.activity-permalink div#container {
 		        } ?>
 	<?php	} ?>	
 			 
-	<?php if($cap->container_corner_radius =='not rounded' ) {?>
+	<?php if($cap->container_corner_radius ==__('not rounded','cc') ) {?>
 		-moz-border-radius: 0px;
 		-webkit-border-radius: 0px;
 		border-radius: 0px;
@@ -3586,7 +3654,7 @@ adapting footer widgets to container background colour, image, repeat and corner
 
 	<?php if($cap->bg_container_color && !$cap->bg_footer_color){?> 
 		div#footer .cc-widget, div#header .cc-widget , #footer .cc-widget-right, #header .cc-widget-right {
-			background-color: <?php if($cap->bg_container_color != 'transparent') {?>#<?php } ?><?php echo $cap->bg_container_color;?>;
+			background-color: <?php if($cap->bg_container_color != __('transparent','cc') && $cap->bg_container_color != 'transparent') {?>#<?php echo $cap->bg_container_color; } else {?>transparent<?php }?>;
 		}
 	<?php } ?>
 	
@@ -3594,23 +3662,23 @@ adapting footer widgets to container background colour, image, repeat and corner
 		div#footer .cc-widget, div#header .cc-widget , #footer .cc-widget-right, #header .cc-widget-right {
 			background-image:url(<?php echo $cap->bg_container_img?>);
 				<?php switch ($cap->bg_container_img_repeat) {
-			        case 'no repeat':
-						?>background-repeat: no-repeat;<?php	
+			        case __('no repeat','cc'):
+						echo 'background-repeat: no-repeat;';
 			        	break;
 			        case 'x':
-						?>background-repeat: repeat-x;<?php	
+						echo 'background-repeat: repeat-x;';
 			        	break;
 			        case 'y':
-						?>background-repeat: repeat-y;<?php	
+						echo 'background-repeat: repeat-y;';
 			        	break;
 			        case 'x+y':
-						?>background-repeat: repeat;<?php	
+						echo 'background-repeat: repeat;';
 			        	break;
 		        } ?>		 
 		}
 	<?php } ?>
 
-	<?php if($cap->container_corner_radius == 'not rounded' ) {?>
+	<?php if($cap->container_corner_radius == __('not rounded','cc') ) {?>
 		#footer, div#footer .cc-widget, div#header .cc-widget , #footer .cc-widget-right, #header .cc-widget-right {
 			-moz-border-radius: 0px;
 			-webkit-border-radius: 0px;
@@ -3631,24 +3699,23 @@ footer WIDGETS and header WIDGETS - height, bg_color, image and repeat  **/
 
 #footer .cc-widget, #header .cc-widget{
 	<?php if($cap->bg_footer_color) {?>
-		background-color: <?php if($cap->bg_footer_color != 'transparent') {?>#<?php } echo $cap->bg_footer_color;?> !important;
+		background-color: <?php if($cap->bg_footer_color != __('transparent','cc') && $cap->bg_footer_color != 'transparent') {?>#<?php echo $cap->bg_footer_color; } else { echo 'transparent';}?> !important;
 	<?php } ?>
 	<?php if($cap->bg_footer_img) {?>
 		background-image:url(<?php echo $cap->bg_footer_img;?>);
 		<?php 
-		switch ($cap->bg_footer_img_repeat)
-        {
-        case 'no repeat':
-			?>background-repeat: no-repeat;<?php	
+		switch ($cap->bg_footer_img_repeat){
+        case __('no repeat','cc'):
+			echo 'background-repeat: no-repeat;';
         	break;
         case 'x':
-			?>background-repeat: repeat-x;<?php	
+			echo 'background-repeat: repeat-x;';
         	break;
         case 'y':
-			?>background-repeat: repeat-y;<?php	
+			echo 'background-repeat: repeat-y;';
         	break;
         case 'x+y':
-			?>background-repeat: repeat;<?php	
+			echo 'background-repeat: repeat;';
         	break;
         }
 		?>		
@@ -3665,14 +3732,14 @@ footer - height, color, image and repeat  **/
 
 #footer {
 	<?php if($cap->bg_footerall_color) {?>
-		background-color: <?php if($cap->bg_footerall_color != 'transparent') {?>#<?php } echo $cap->bg_footerall_color;?>;
+		background-color: <?php if($cap->bg_footerall_color != __('transparent','cc') && $cap->bg_footerall_color != 'transparent') {?>#<?php echo $cap->bg_footerall_color; } else { echo 'transparent';}?>;
 	<?php } ?>
 	<?php if($cap->bg_footerall_img) {?>
 		background-image:url(<?php echo $cap->bg_footerall_img;?>);
 		<?php 
 		switch ($cap->bg_footerall_img_repeat)
         {
-        case 'no repeat':
+        case __('no repeat','cc'):
 			?>background-repeat: no-repeat;<?php	
         	break;
         case 'x':
@@ -3698,15 +3765,15 @@ footer - height, color, image and repeat  **/
 Adapting buttons font color in the footer widgets. Either to footer background color or to container background colour  **/
 
 #footer .cc-widget a.button, #header .cc-widget a.button {
-<?php if($cap->bg_footer_color != '' &&  $cap->bg_footer_color != 'transparent') {?>
+<?php if($cap->bg_footer_color != '' &&  $cap->bg_footer_color != 'transparent' && $cap->bg_footer_color != __('transparent','cc')) {?>
 		color: #<?php echo $cap->bg_footer_color;?> !important;
-	<?php } elseif ($cap->bg_container_color && $cap->bg_container_color != 'transparent') {?>
+	<?php } elseif ($cap->bg_container_color && $cap->bg_container_color != 'transparent' && $cap->bg_container_color != __('transparent','cc')) {?>
 		color: #<?php echo $cap->bg_container_color;?> !important;
 	<?php } ?> 	
 }
 <?php endif;?>	
 
-<?php if($cap->bg_container_color && $cap->bg_container_color != 'transparent' ){?>
+<?php if($cap->bg_container_color && $cap->bg_container_color != 'transparent'  && $cap->bg_container_color != __('transparent','cc') ){?>
 /** ***   
 slideshow and other stuff that wants some BACKGROUND tweaking to container background colour  **/
 
@@ -3870,9 +3937,11 @@ h1, h2, h1 a, h2 a, h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus {
 <?php if($cap->title_size){?>
 	font-size: <?php echo $cap->title_size?>px;
 <?php };?>
-<?php if($cap->title_weight){?>
-	font-weight:<?php echo $cap->title_weight?>;
-<?php };?>
+<?php if($cap->title_weight == __('bold','cc')){?>
+	font-weight:bold;
+<?php } elseif( $cap->title_weight == __('normal','cc')){?>
+    font-weight:normal;
+<?php } ;?>
 }
 
 h1, h2, h1 a, h2 a {
@@ -3894,8 +3963,10 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 <?php if($cap->subtitle_color){?>
 	color:#<?php echo $cap->subtitle_color?>;
 <?php };?>
-<?php if($cap->subtitle_weight){?>
-	font-weight:<?php echo $cap->subtitle_weight?>;
+<?php if($cap->subtitle_weight == __('bold','cc') || $cap->subtitle_weight == 'bold'){?>
+	font-weight:bold;
+<?php } else {?>
+    font-weight:normal;
 <?php };?>
 }
 <?php endif;?>
@@ -3962,7 +4033,7 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 		color:#<?php echo $cap->link_color_hover ?>;
 	}
 
-	<?php if ( $cap->link_color_subnav_adapt == "link colour and hover colour" ) {?> 
+	<?php if ( $cap->link_color_subnav_adapt == __("link colour and hover colour",'cc') ) {?> 
 		#subnav a:hover, #subnav a:focus, div.item-list-tabs ul li a:hover, div.item-list-tabs ul li a:focus {
 			color:#<?php echo $cap->link_color_hover ?>;
 		} 	
@@ -3970,15 +4041,15 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 	
 <?php endif;?>
 
-<?php if($cap->link_underline != "never" && $cap->link_underline != "" ): ?>
+<?php if($cap->link_underline != __("never",'cc') && $cap->link_underline != "never" && $cap->link_underline != "" ): ?>
 
-	<?php if($cap->link_underline == "just for mouse over"){
+	<?php if($cap->link_underline == __("just for mouse over",'cc') || $cap->link_underline == "just for mouse over"){
 		$stylethis = 'a:hover, a:focus';
 	} else {
-		if($cap->link_underline == "always") {
-		$stylethis = 'a, a:hover, a:focus';
+		if($cap->link_underline == __("always",'cc') || $cap->link_underline == "always") {
+		  $stylethis = 'a, a:hover, a:focus';
 		} else {
-			$stylethis = 'a:hover, a:focus {text-decoration: none} a';
+		  $stylethis = 'a:hover, a:focus {text-decoration: none} a';
 		}
 	} ?>
 	
@@ -3996,7 +4067,7 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 	link BACKGROUND colour  **/
 	
 	a {
-		background-color: <?php if ( $cap->link_bg_color != 'transparent' ) {echo '#';} echo $cap->link_bg_color ?>;
+		background-color: <?php if ( $cap->link_bg_color != __('transparent','cc') && $cap->link_bg_color != 'transparent' ) {echo '#', $cap->link_bg_color; } else { echo 'transparent'; }?>;
 	} 
 <?php endif;?>
 
@@ -4005,11 +4076,11 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 	link BACKGROUND colour hover  **/
 	
 	a:hover, a:focus {
-		background-color: <?php if ( $cap->link_bg_color_hover != 'transparent' ) {echo '#';} echo $cap->link_bg_color_hover; ?>;
+		background-color: <?php if ( $cap->link_bg_color_hover != __('transparent','cc') && $cap->link_bg_color_hover != 'transparent' ) {echo '#', $cap->link_bg_color_hover; } else { echo 'transparent'; }?>;
 	} 
 <?php endif;?>
 
-<?php if($cap->link_styling_title_adapt != "just the hover effect"):?>
+<?php if($cap->link_styling_title_adapt != "just the hover effect" && $cap->link_styling_title_adapt != __("just the hover effect",'cc')):?>
 /** ***   
 	link styling titles adapt**/
 
@@ -4023,14 +4094,16 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 
 
 	<?php switch ($cap->link_styling_title_adapt) {
-		case 'link colour and hover colour': ?>
+		case __('link colour and hover colour','cc'):
+        case 'link colour and hover colour': ?>
         
         	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
         		color: #<?php echo $cap->link_color;?>;
         	}
 			
 		<?php break;
-		case 'no, only the link colour!': ?>
+		case 'no, only the link colour!':
+        case __('no, only the link colour!','cc'): ?>
         
         	<?php if ($cap->link_bg_color_hover || $cap->link_bg_color_hover) {?>
 				h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
@@ -4040,15 +4113,16 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 			<?php } ?>
 			
 		<?php break;
-		case 'link colour and hover colour': ?>
+		case 'link colour and hover colour': 
+        case __('link colour and hover colour','cc'):?>
         
-        	<?php if($cap->link_underline != "never"): ?>
+        	<?php if($cap->link_underline != "never" && $cap->link_underline != __("never",'cc')): ?>
 
-				<?php if($cap->link_underline == "just for mouse over"){
+				<?php if($cap->link_underline == "just for mouse over" || $cap->link_underline == __("just for mouse over",'cc')){
 					$stylethis = 'h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
-				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus';
+				    h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus';
 				} else {
-					if($cap->link_underline == "always") {
+					if($cap->link_underline == "always" || $cap->link_underline == __("always",'cc')) {
 						$stylethis = 	'h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
 										h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus';
 					} else {
@@ -4070,15 +4144,16 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 			<?php endif;?>
 			
 		<?php break;
-		case 'adapt all link styles': ?>
+		case 'adapt all link styles': 
+        case __('adapt all link styles','cc'):?>
         
-        	<?php if($cap->link_underline != "never"): ?>
+        	<?php if($cap->link_underline != "never" && $cap->link_underline != __("never",'cc')): ?>
 
-				<?php if($cap->link_underline == "just for mouse over"){
+				<?php if($cap->link_underline == "just for mouse over" || $cap->link_underline == __("just for mouse over",'cc')){
 					$stylethis = 'h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
 				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus';
 				} else {
-					if($cap->link_underline == "always") {
+					if($cap->link_underline == "always" && $cap->link_underline == __("always",'cc')) {
 						$stylethis = 	'h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
 										h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus';
 					} else {
@@ -4104,7 +4179,7 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 				title links BACKGROUND colour  **/
 				
 				h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-					background-color: <?php if ( $cap->link_bg_color != 'transparent' ) {echo '#';} echo $cap->link_bg_color ?>;
+					background-color: <?php if ( $cap->link_bg_color != 'transparent' && $cap->link_bg_color != __('transparent','cc') ) {echo '#', $cap->link_bg_color; } else { echo 'transparent';}?>;
 				} 
 			<?php endif;?>
 			
@@ -4114,20 +4189,21 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 				
 				h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
 				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus {
-					background-color: <?php if ( $cap->link_bg_color_hover != 'transparent' ) {echo '#';} echo $cap->link_bg_color_hover ?>;
+					background-color: <?php if ( $cap->link_bg_color_hover != 'transparent' && $cap->link_bg_color_hover != __('transparent','cc') ) {echo '#', $cap->link_bg_color_hover; } else { echo 'transparent';}?>;
 				} 
 			<?php endif;?>
 			
 			
 		<?php break;
-		case 'the background colours too': ?>
+		case 'the background colours too':
+        case __('the background colours too','cc'): ?>
         
 			<?php if($cap->link_bg_color != ""):?>
 				/** ***   
 				title links BACKGROUND colour  **/
 				
 				h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-					background-color: <?php if ( $cap->link_bg_color != 'transparent' ) {echo '#';} echo $cap->link_bg_color; ?>;
+					background-color: <?php if ( $cap->link_bg_color != 'transparent' && $cap->link_bg_color != __('transparent','cc')) {echo '#', $cap->link_bg_color; } else { echo 'transparent';}?>;
 				} 
 			<?php endif;?>
 			
@@ -4137,7 +4213,7 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 				
 				h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
 				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus {
-					background-color: <?php if ( $cap->link_bg_color_hover != 'transparent' ) {echo '#';} echo $cap->link_bg_color_hover ?>;
+					background-color: <?php if ( $cap->link_bg_color_hover != 'transparent' && $cap->link_bg_color_hover != __('transparent','cc') ) {echo '#', $cap->link_bg_color_hover; } else { echo 'transparent';} ?>;
 				} 
 			<?php endif;?>
 						
@@ -4151,7 +4227,7 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 	
 <?php endif;?>
 
-<?php if($cap->default_homepage_hide_avatar == "hide"){?>
+<?php if($cap->default_homepage_hide_avatar == "hide" || $cap->default_homepage_hide_avatar == __("hide",'cc') ){?>
 /** ***   
 standard wordpress home page: hide avatar**/
 
@@ -4166,7 +4242,7 @@ body.home.bubble div.post div.author-box {
 }
 <?php } ?>
 
-<?php if($cap->posts_lists_hide_avatar == "hide"){?>
+<?php if($cap->posts_lists_hide_avatar == "hide" || $cap->posts_lists_hide_avatar == __("hide",'cc') ){?>
 /** ***   
 standard wordpress archive pages: hide avatar**/
 
@@ -4181,16 +4257,19 @@ body.archive.bubble div.post div.author-box {
 }
 <?php } ?>
 
-<?php if($cap->default_homepage_style == "bubbles" || $cap->posts_lists_style == "bubbles"){?>
+<?php if($cap->default_homepage_style == "bubbles" || $cap->default_homepage_style == __("bubbles",'cc') || $cap->posts_lists_style == "bubbles" || $cap->posts_lists_style == __("bubbles",'cc') ){?>
 /** ***   
 standard wordpress home page: bubble style**/
 
-body.bubble div.post h2.posttitle {
+body.bubble div.post h2.posttitle, #blog-search div.post h2.posttitle {
     line-height: 120%;
     margin: 0 0 12px;
-} ?>
+}
 
-<?php if($cap->default_homepage_hide_avatar == "hide" || $cap->posts_lists_hide_avatar == "hide") {?>
+<?php if($cap->default_homepage_hide_avatar == "hide" || 
+         $cap->default_homepage_hide_avatar == __("hide",'cc') || 
+         $cap->posts_lists_hide_avatar == "hide" || 
+         $cap->posts_lists_hide_avatar == __("hide",'cc') ) {?>
 	div.post span.marker {display: none}
 <?php } else {?>
 	div.post span.marker {
@@ -4206,7 +4285,7 @@ body.bubble div.post h2.posttitle {
 	}
 <?php } ?>
 
-body.bubble div.post div.post-content {
+body.bubble div.post div.post-content, #blog-search div.post div.post-content{
 	border-radius: 11px;
 	-moz-border-radius: 11px;
 	-webkit-border-radius: 11px;
@@ -4215,20 +4294,20 @@ body.bubble div.post div.post-content {
     padding: 15px 5px 5px 15px;
     margin-bottom:8px;
 }
-body.bubble div.post p.date {
+body.bubble div.post p.date, #blog-search div.post p.date{
     border-top: 1px solid #<?php echo $container_bg_color;?>;
     border-bottom: 1px solid #<?php echo $container_bg_color;?>;
 }
-body.bubble div.post p.postmetadata {
+body.bubble div.post p.postmetadata, #blog-search div.post  p.postmetadata{
     border-top: 1px solid #<?php echo $container_bg_color;?>;
 }
-body.bubble div.post div.author-box {
+body.bubble div.post div.author-box, #blog-search div.post div.author-box{
     margin-top: 20px;
     display: block;
 }
 <?php } ?>
 
-<?php if($cap->default_homepage_hide_date == "hide"){?>
+<?php if($cap->default_homepage_hide_date == "hide" || $cap->default_homepage_hide_date == __("hide",'cc') ){?>
 /** ***   
 standard wordpress home page: hide date, category and author**/
 
@@ -4237,7 +4316,7 @@ body.home div.post p.date {
 }
 <?php } ?>
 
-<?php if($cap->posts_lists_hide_date == "hide"){?>
+<?php if($cap->posts_lists_hide_date == "hide" || $cap->posts_lists_hide_date == __("hide",'cc') ){?>
 /** ***   
 standard wordpress archive pages: hide date, category and author**/
 
@@ -4265,6 +4344,7 @@ header image, repeat  **/
 		switch ($cap->header_img_repeat)
         {
         case 'no repeat':
+        case __('no repeat','cc'):
 			?>background-repeat: no-repeat;<?php	
         	break;
         case 'x':
@@ -4281,12 +4361,12 @@ header image, repeat  **/
         	break;
        	}
 		?>
-	<?php if($cap->header_img_x == 'center' ){?>
+	<?php if($cap->header_img_x == 'center' || $cap->header_img_x == __('center','cc') ){?>
 		background-position: center <?php if($cap->header_img_y){echo $cap->header_img_y;} else {echo '0';}?>px;
-	<?php } elseif($cap->header_img_x == 'right' ){?>
+	<?php } elseif($cap->header_img_x == 'right' || $cap->header_img_x == __('right','cc') ){?>
 		background-position: right <?php if($cap->header_img_y){echo $cap->header_img_y;} else {echo '0';}?>px;
 	<?php }?>  
-	<?php if((!$cap->header_img_x || $cap->header_img_x == 'left') && $cap->header_img_y){?>
+	<?php if((!$cap->header_img_x || $cap->header_img_x == 'left' || $cap->header_img_x == __('left','cc')) && $cap->header_img_y){?>
 		background-position: left <?php echo $cap->header_img_y ?>px;
 	<?php } ?>
 }
@@ -4297,6 +4377,7 @@ header image, repeat  **/
 		switch ($cap->header_img_repeat)
         {
         case 'no repeat':
+        case __('no repeat','cc'):
 			?>background-repeat: no-repeat;<?php	
         	break;
         case 'x':
@@ -4313,18 +4394,77 @@ header image, repeat  **/
         	break;
        	}
 		?>
-	<?php if($cap->header_img_x == 'center' ){?>
+	<?php if($cap->header_img_x == 'center' || $cap->header_img_x == __('center','cc') ){?>
 		background-position: center <?php if($cap->header_img_y){echo $cap->header_img_y;} else {echo '0';}?>px;
-	<?php } elseif($cap->header_img_x == 'right' ){?>
+	<?php } elseif($cap->header_img_x == 'right' || $cap->header_img_x == __('right','cc') ){?>
 		background-position: right <?php if($cap->header_img_y){echo $cap->header_img_y;} else {echo '0';}?>px;
 	<?php }?>  
-	<?php if((!$cap->header_img_x || $cap->header_img_x == 'left') && $cap->header_img_y){?>
+	<?php if((!$cap->header_img_x || $cap->header_img_x == 'left' || $cap->header_img_x == __('left','cc') ) && $cap->header_img_y){?>
 		background-position: left <?php echo $cap->header_img_y ?>px;
 	<?php } ?>
 }
+
+
+<?php if(!is_admin()){ ?>
+    .appearance_page_custom-header #headimg {
+        background: #<?php echo get_background_color(); ?>;
+        border: none;
+        text-align: center;
+    }
+    #headimg h1,
+    #desc {
+        font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+    }
+    #headimg h1 {
+        margin: 0;
+    }
+    #headimg h1 a {
+        font-size: 36px;
+        letter-spacing: -0.03em;
+        line-height: 42px;
+        text-decoration: none;
+    }
+    #desc {
+        font-size: 18px;
+        line-height: 31px;
+        padding: 0 0 9px 0;
+    }
+    <?php
+        // If the user has set a custom color for the text use that
+        if ( get_header_textcolor() != HEADER_TEXTCOLOR ) :
+    ?>
+        #site-title a,
+        #site-description {
+            color: #<?php echo get_header_textcolor(); ?>;
+        }
+    <?php endif; ?>
+    #headimg img {
+        max-width: 990px;
+        width: 100%;
+    }
+<?php } else {
+    if ( HEADER_TEXTCOLOR != get_header_textcolor() ){
+        // If we get this far, we have custom styles. Let's do this.
+        // Has the text been hidden?
+        if ( 'blank' == get_header_textcolor() ) { ?>
+            #blog-description, #header div#logo h1 a, #header div#logo h4 a {
+                position: absolute;
+                left: -9000px;
+            }
+        <?php // If the user has set a custom color for the text use that
+        } else { ?>
+            #blog-description, #header div#logo h1 a, #header div#logo h4 a {
+                color: #555555;
+                color: #<?php echo get_header_textcolor(); ?> !important;
+            }
+            <?php } ?>
+    <?php } 
+
+}?>
+        
 <?php } ?>
 
-<?php if ( $cap->header_text == 'off' ) {?>
+<?php if ( $cap->header_text == 'off' || $cap->header_text == __('off','cc') ) {?>
 	#header div#logo h1, #header #desc, #header div#logo h4, div#blog-description {
 		display: none;
 	}
@@ -4346,7 +4486,7 @@ header image, repeat  **/
 		}
 	<?php } ?>
 	
-	<?php if($cap->searchbar_x == 'left'){?>
+	<?php if($cap->searchbar_x == 'left' || $cap->searchbar_x == __('left','cc') ){?>
 		#header #search-bar {
 			left:0;
 		}
@@ -4356,11 +4496,11 @@ header image, repeat  **/
 	<?php } ?>
 <?php endif;?>
  
-<?php if($cap->bg_menu_style != "tab style"): ?>
+<?php if($cap->bg_menu_style != "tab style" && $cap->bg_menu_style != __("tab style",'cc') ): ?>
 /** ***   
 menu style  **/ 
 
-<?php if($cap->bg_menu_style == 'closed style'){?>
+<?php if($cap->bg_menu_style == 'closed style' || $cap->bg_menu_style == __('closed style','cc')){?>
 	#access ul li.current_page_item > a, #access ul li.current-menu-ancestor > a, 
 	#access ul li.current-menu-item > a, #access li.selected > a, #access ul li.current-menu-parent > a, 
 	#access ul li.current_page_item > a:hover, #access ul li.current-menu-item > a:hover,
@@ -4378,7 +4518,7 @@ menu style  **/
 		margin-bottom: 0px;
 	}	
 <?php } ?>
-<?php if($cap->bg_menu_style == 'simple'){?>
+<?php if($cap->bg_menu_style == 'simple' || $cap->bg_menu_style == __('simple','cc') ){?>
 	div#access {
 		background-color: transparent;
 	}	
@@ -4398,7 +4538,7 @@ menu style  **/
 	}
 <?php } ?>
 
-<?php if($cap->bg_menu_style == 'bordered'){?>
+<?php if($cap->bg_menu_style == 'bordered' || $cap->bg_menu_style == __('bordered','cc') ){?>
 	div#access {
 		background-color: transparent;
 		border-top: 1px solid #<?php echo $container_bg_color ?>;
@@ -4416,7 +4556,7 @@ menu style  **/
 
 <?php endif;?>
 
-<?php if($cap->menu_x == 'right'){?>
+<?php if($cap->menu_x == 'right' || $cap->menu_x == __('right','cc') ){?>
 /** ***   
 menu x-position  **/
 
@@ -4457,6 +4597,7 @@ div#access div.menu ul li a:focus,
 	color: #<?php echo $cap->menue_link_color_current?>;
 } 
 
+
 /** ***   
 IE browser hack for menu font colour current and mouse over  **/ 
 
@@ -4475,7 +4616,7 @@ menu background colour, border-bottom, image and repeat  **/
 
 #access {
 <?php if($cap->bg_menue_link_color	){?>
-	background-color: <?php if ( $cap->bg_menue_link_color != 'transparent' ) {echo '#';} echo $cap->bg_menue_link_color;?>;
+	background-color: <?php if ( $cap->bg_menue_link_color != 'transparent' && $cap->bg_menue_link_color != __('transparent','cc')  ) {echo '#', $cap->bg_menue_link_color;} else {echo 'transparent';}?>;
 <?php } ?>
 <?php if($cap->menu_underline ){?>
 	border-bottom: 1px solid #<?php echo $cap->menu_underline?>;
@@ -4483,10 +4624,12 @@ menu background colour, border-bottom, image and repeat  **/
 <?php if($cap->bg_menu_img){?>
 	background-image:url(<?php echo $cap->bg_menu_img?>);
 <?php } ?>
+
 <?php 
 		switch ($cap->bg_menu_img_repeat)
         {
         case 'no repeat':
+        case __('no repeat','cc') :
 			?>background-repeat: no-repeat;<?php	
         	break;
         case 'x':
@@ -4507,7 +4650,7 @@ menu background colour, border-bottom, image and repeat  **/
 menu corner radius  **/ 
 
 #access {
-<?php if($cap->menu_corner_radius == 'just the bottom ones'){?>
+<?php if($cap->menu_corner_radius == 'just the bottom ones' || $cap->menu_corner_radius == __('just the bottom ones','cc') ){?>
 	-moz-border-radius-topleft:0px;
 	-moz-border-radius-topright:0px;
 	-webkit-border-top-left-radius:0px;
@@ -4515,7 +4658,7 @@ menu corner radius  **/
 	border-top-left-radius:0px;
 	border-top-right-radius:0px;
 <?php } ?> 
-<?php if($cap->menu_corner_radius == 'not rounded'){?>
+<?php if($cap->menu_corner_radius == 'not rounded' || $cap->menu_corner_radius == __('not rounded','cc') ){?>
 	-moz-border-radius:0px;
 	-webkit-border-radius:0px;
 	border-radius:0px;
@@ -4531,13 +4674,14 @@ menu background colour, image and repeat of current  **/
 #access ul li.current_page_item > a, #access ul li.current-menu-ancestor > a, 
 #access ul li.current-menu-item > a, #access li.selected > a, #access ul li.current-menu-parent > a, 
 #access ul li.current_page_item, #access ul li.current-menu-item, #access li.selected {
-	background-color: <?php if ( $cap->bg_menue_link_color_current != 'transparent' ) {echo '#';} echo $cap->bg_menue_link_color_current;?>;
+	background-color: <?php if ( $cap->bg_menue_link_color_current != 'transparent' &&  $cap->bg_menue_link_color_current != __('transparent','cc')  ) {echo '#', $cap->bg_menue_link_color_current;} else { echo 'transparent';}?>;
 	<?php if($cap->bg_menu_img_current){?>
 	background-image:url(<?php echo $cap->bg_menu_img_current?>);
 	<?php } ?>
 	<?php if($cap->bg_menu_img_current) {
 		switch ($cap->bg_menu_img_current_repeat) {
         case 'no repeat':
+        case __('no repeat','cc') :
 			?>background-repeat: no-repeat;<?php	
         break;
         case 'x':
@@ -4562,7 +4706,7 @@ menu background colour hover and drop down list  **/
 #access ul li.current-menu-item a:hover,  
 #access li:hover > a, #access ul ul:hover > a, 
 #access ul ul li, #access ul ul a {
-	background-color: <?php if ( $cap->bg_menue_link_color_hover != 'transparent' ) {echo '#';} echo $cap->bg_menue_link_color_hover;?> !important;
+	background-color: <?php if ( $cap->bg_menue_link_color_hover != 'transparent' && $cap->bg_menue_link_color_hover != __('transparent','cc') ) {echo '#', $cap->bg_menue_link_color_hover;} else { echo 'transparent';}?> !important;
 }
 <?php } ?> 
 
@@ -4609,6 +4753,7 @@ div#leftsidebar {
 		<?php switch ($cap->bg_leftsidebar_img_repeat)
 		        {
 		        case 'no repeat':
+                case __('no repeat','cc') :
 					?>background-repeat: no-repeat;<?php	
 		        	break;
 		        case 'x':
@@ -4660,6 +4805,7 @@ div#sidebar {
 		<?php switch ($cap->bg_rightsidebar_img_repeat)
 		        {
 		        case 'no repeat':
+                case __('no repeat','cc') :
 					?>background-repeat: no-repeat;<?php	
 		        	break;
 		        case 'x':
@@ -4685,9 +4831,11 @@ div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.wi
 <?php 
 		switch ($cap->bg_widgettitle_style) {
         case 'angled':
+        case __('angled','cc') :
 			?>-moz-border-radius:0 0 0 0;-webkit-border-radius:0;border-radius:0;margin: 0 0 12px -20px;padding: 5px 22px 5px 20px;<?php 	
         	break;
         case 'transparent':
+        case __('transparent','cc') :
 			?>background: transparent;<?php	
         	break;
         }
@@ -4702,6 +4850,7 @@ div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.wi
 		switch ($cap->bg_widgettitle_img_repeat)
         {
         case 'no repeat':
+        case __('no repeat','cc') :
 			?>background-repeat: no-repeat;<?php	
         	break;
         case 'x':
@@ -4721,9 +4870,11 @@ div#leftsidebar h3.widgettitle, div#leftsidebar h3.widgettitle a {
 <?php 
 		switch ($cap->bg_widgettitle_style) {
         case 'angled':
+        case __('angled','cc') :
 			?>-moz-border-radius:0 0 0 0;-webkit-border-radius:0;border-radius:0;margin:0 0 12px -20px;padding:5px 22px 5px 19px;<?php 	
         	break;
         case 'transparent':
+        case __('transparent','cc') :
 			?>background: transparent;<?php	
         	break;
         }
@@ -4743,7 +4894,7 @@ sidebars: widget title font style, size and color **/
 }
 <?php } ?>
 
-<?php if($cap->capitalize_widgets_li == 'yes'){?>
+<?php if($cap->capitalize_widgets_li == 'yes' || $cap->capitalize_widgets_li == __('yes','cc') ){?>
 /** ***   
 widgets: capitalize fonts in lists**/ 
 
@@ -4751,7 +4902,7 @@ div.widget-title ul.item-list li a, div.widget ul li a {text-transform: uppercas
 
 <?php } ?>
 
-<?php if($cap->capitalize_widgettitles == 'yes'){?>
+<?php if($cap->capitalize_widgettitles == 'yes' || $cap->capitalize_widgettitles == __('yes','cc') ){?>
 /** ***   
 widgets: capitalize widgettitles**/ 
 
@@ -4765,7 +4916,7 @@ h3.widgettitle, h3.widgettitle a {text-transform: uppercase}
 Show/Hide Avatar  **/ 
 
 div.post div.post-content {
-  margin-left: 8px;
+    margin-left: 8px;
 }
 <?php } ?>
 
@@ -4778,15 +4929,55 @@ div.pagination, div#subnav.item-list-tabs {
 	background-color: #<?php echo $cap->bg_content_nav_color?>;
 }
 div.item-list-tabs {
-border-bottom: 4px solid #<?php echo $cap->bg_content_nav_color?>;
+    border-bottom: 4px solid #<?php echo $cap->bg_content_nav_color?>;
 }
 
 <?php } ?>
 
+#innerrim .slidershadow{
+    margin: -12px 0 -30px;
+}
+.widget.gererator{
+    margin-bottom: 0; 
+    padding: 12px; 
+    border: 1px solid #dddddd;
+}
+.widget.gererator .widget_content{
+    font-size: 16px; 
+    line-height:170%;
+}
+.widget .footer-left-widget{
+    margin-left: 34% !important;
+}
+#innerrim .default-homepage-last-posts{
+    margin-top:-44px;
+}
+#innerrim .group-header-left{
+    margin-left:30% !important;
+}
+#innerrim .facebook_like{
+    border:none; 
+    overflow:hidden;
+    width:auto; 
+    height:60px
+}
+#innerrim #cc_slider_prev, #innerrim #featured_prev{
+    background: #ededed;
+}
+#innerrim .center{
+    margin-top:50px; 
+    margin-left: 20px;
+}
+.boxgrid .cover h3{
+    padding-left:8px;
+}
 /** ***   
 overwrite css area adding  **/ 
 
-<?php if($cap->overwrite_css){
+<?php 
+do_action('cc_pro_add_styles');
+
+if($cap->overwrite_css){
 	echo $cap->overwrite_css;
 }
 ?>
@@ -4798,12 +4989,11 @@ echo compress($inhalte);
 } 
 
 function compress($buffer) {
-	    /*Kommentar entfernen */
-	    $buffer = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $buffer);
-	    /* entfernen von abst�nden, Zeilen usw.*/
-	    $buffer = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $buffer);
-	    return $buffer;
+    /*Kommentar entfernen */
+    $buffer = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $buffer);
+    /* entfernen von abst�nden, Zeilen usw.*/
+    $buffer = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '   '), '', $buffer);
+    return $buffer;
 }
 
 add_action('wp_head', 'dynamic_css');
-?>

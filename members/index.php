@@ -39,7 +39,6 @@
 						<li id="members-personal"><a href="<?php echo bp_loggedin_user_domain() . bp_get_friends_slug() . '/my-friends/' ?>"><?php printf( __( 'My Friends <span>%s</span>', 'cc' ), bp_get_total_friend_count( bp_loggedin_user_id() ) ); ?></a></li>
 
 					<?php endif; ?>
-
 					<?php do_action( 'bp_members_directory_member_types' ); ?>
 
 				</ul>
@@ -49,7 +48,7 @@
 				<ul>
 
 					<?php do_action( 'bp_members_directory_member_sub_types' ); ?>
-
+					
 					<li id="members-order-select" class="last filter">
 
 						<label for="members-order-by"><?php _e( 'Order By:', 'cc' ); ?></label>
@@ -65,6 +64,15 @@
 
 							<?php do_action( 'bp_members_directory_order_options' ); ?>
 
+						</select>
+					</li>
+
+					<li id="members-displaymode-select" class="no-ajax displaymode">
+
+						<label for="members-displaymode"><?php _e( 'Display mode:', 'cc' ); ?></label>
+						<select id="members-displaymode">
+							<option value="list"><?php _e( 'List', 'cc' ); ?></option>
+							<option value="grid"><?php _e( 'Grid', 'cc' ); ?></option>
 						</select>
 					</li>
 				</ul>

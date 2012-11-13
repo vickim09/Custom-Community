@@ -5,11 +5,8 @@ you may modify it as you want, It is a copy from my theme
 
 do_action( 'bp_before_blog_search' );
 
-global $wp_query;
-$wp_query->is_search = true;
-
-$raw_search_string   = htmlspecialchars(strip_tags($_REQUEST['search-terms']));
-$raw_search_string_2 = htmlspecialchars(strip_tags($_REQUEST['s']));
+$raw_search_string   = isset($_REQUEST['search-terms']) ? htmlspecialchars(strip_tags($_REQUEST['search-terms'])) : '';
+$raw_search_string_2 = isset($_REQUEST['s']) ? htmlspecialchars(strip_tags($_REQUEST['s'])) : '';
 
 if(!empty($raw_search_string)){
 	$search_term = $raw_search_string;
@@ -18,10 +15,10 @@ if(!empty($raw_search_string)){
 }
 	
 if(!empty($search_term)){
-	$wp_query->query("s=".$search_term);
-
+    query_posts('post_status=publish&s=' . $search_term);
+   
 if ( have_posts() ) : ?>
-<?php while(have_posts()):the_post(); global $post;?>
+<?php while(have_posts()): the_post(); ?>
 <?php do_action( 'bp_before_blog_post' ) ?>
     <div class="post"> <!-- Post goes here... --> 
     	<div class="post-content"> 
@@ -33,7 +30,7 @@ if ( have_posts() ) : ?>
         </div>
         <div class="postmetadata"> 
         	<span><?php the_time('F j, Y') ?>  | <?php the_category(', ') ?> | <?php comments_popup_link( __( 'No Comments &#187;', 'cc' ), __( '1 Comment &#187;', 'cc' ), __( '% Comments &#187;', 'cc' ) ); ?></span>
-            <div class="readmore"><a href="<?php the_permalink();?>"><?php _e("Read more...","cc");?></a></div>
+            <div class="readmore"></div>
         </div>
 		
     </div><!-- Post ends here... -->

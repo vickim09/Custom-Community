@@ -45,15 +45,18 @@ class BPUnifiedsearch{
         global $bp;
         if(!defined('BP_SEARCH_SLUG'))
             define('BP_SEARCH_SLUG','search');//though we know it is set, just a safety bit
-        
-            $bp->search->slug=BP_SEARCH_SLUG;
-            $bp->search->has_directory=true;
-            $bp->search->id='search';
-            $bp->search->name=__('Search Page', 'cc');
-            $bp->search->root_slug=isset($bp->pages->search->slug)?$bp->pages->search->slug:$bp->search->slug;
+            
+            if(!property_exists($bp, 'search')){
+                $bp->search = new stdClass();
+            }
+            
+            $bp->search->slug = BP_SEARCH_SLUG;
+            $bp->search->has_directory = true;
+            $bp->search->id = 'search';
+            $bp->search->name = __('Search Page', 'cc');
+            $bp->search->root_slug = isset($bp->pages->search->slug) ? $bp->pages->search->slug : $bp->search->slug;
        }
      
-   
     function screen_handler(){
         global $bp;
         if(bp_is_current_component($bp->search->slug))//really? yup, we don't care about others vars set or not
@@ -62,8 +65,10 @@ class BPUnifiedsearch{
 
     //remove from nav
     function remove_from_nav($excluded){
-        global $bp;
-        if(isset($bp->pages->search->id)) $excluded[]=$bp->pages->search->id;
+        global $bp;//var_dump($bp);
+        if(property_exists($bp, 'pages') && property_exists($bp->pages, 'search') && property_exists($bp->pages->search, 'id')){
+            $excluded[] = $bp->pages->search->id;
+        }
         return $excluded;
     }
  //search page title

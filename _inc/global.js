@@ -163,6 +163,7 @@ jq(document).ready( function() {
 		return false;
 	});
 
+
 	/* Stream event delegation */
 	jq('div.activity').click( function(event) {
 		var target = jq(event.target);
@@ -522,7 +523,7 @@ jq(document).ready( function() {
 
 		var target = jq(event.target).parent();
 
-		if ( 'LI' == event.target.parentNode.nodeName && !target.hasClass('last') ) {
+		if ( 'LI' == event.target.parentNode.nodeName && !target.hasClass('last') && !target.hasClass('no-ajax')) {
 			var css_id = target.attr('id').split( '-' );
 			var object = css_id[0];
 
@@ -559,6 +560,34 @@ jq(document).ready( function() {
 			object = 'members';
 
 		bp_filter_request( object, filter, scope, 'div.' + object, search_terms, 1, jq.cookie('bp-' + object + '-extras') );
+
+		return false;
+	});
+
+	/* Displaymode (list or grid) */
+	jq('li.displaymode select').change( function() {
+		if ( jq('div.item-list-tabs li.selected').length )
+			var el = jq('div.item-list-tabs li.selected');
+		else
+			var el = jq(this);
+
+		var page_number = 1;
+		var css_id = el.attr('id').split('-');
+		var object = css_id[0];
+		var scope = css_id[1];
+		var displaymode = jq(this).val();
+		var search_terms = false;
+
+		if ( jq('div.dir-search input').length )
+			search_terms = jq('div.dir-search input').val();
+
+		if ( 'friends' == object )
+			object = 'members';
+
+		if ( jq('div.pagination span.current').length )
+				var page_number = Number( jq('div.pagination span.current').html() );
+
+		bp_displaymode_request( object, displaymode, scope, 'div.' + object, search_terms, page_number, jq.cookie('bp-' + object + '-extras') );
 
 		return false;
 	});
@@ -1054,6 +1083,68 @@ jq(document).ready( function() {
 			jq.cookie('bp-' + objects[i] + '-extras', null, {path: '/'} );
 		});
 	});
+    
+    
+    /* Scroll a lot of menu items in BuddyPress sub nav menu  ------start*/
+    
+    
+    
+     var selector_nav_wrap = '.item-list-tabs[role="navigation"]:not("#subnav"), .item-list-tabs#object-nav';
+    
+    jq(selector_nav_wrap).prepend('<button class="prev">&lt;</button><button class="next">&gt;</button>').find('ul').wrap('<div>');
+    
+	// Enable or leave the keys
+	jq(selector_nav_wrap).each(function(){
+		if(jq('li:last',this).width()+jq('li:last',this).offset().left-jq('li:first',this).offset().left>jq('div',this).width()){
+			// enable the buttons
+			jq('button',this).css('display','inline');
+			jq('button.prev',this).css('display','none');
+		}
+	});
+	
+	
+	jq(selector_nav_wrap).on('click', '.next', function(){
+		//Remove the exist selector
+		//Set the width to the widest of either
+		var $div =jq('div',this.parentNode)
+			,maxoffset = jq('li:last',$div).width()+jq('li:last',$div).offset().left - jq('li:first',$div).offset().left - $div.width()
+			,offset = Math.abs(parseInt( jq('ul',$div).css('marginLeft') ))
+			,diff = $div.width();
+
+		if( offset >= maxoffset )
+			return;
+		else if ( offset + diff >= maxoffset ){
+			diff = maxoffset - offset + 20;
+			// Hide this
+			jq(this).css('display','none');
+		}
+		// enable the other
+		jq('.prev', this.parentNode).css('display','block');		
+		
+		jq("ul", jq(this).parent() ).animate({
+			marginLeft: "-=" + diff
+		},400, 'swing');
+	});
+	
+	jq(selector_nav_wrap).on('click', '.prev', function(){
+
+		var offset = Math.abs(parseInt( jq('ul',this.parentNode).css('marginLeft') ));
+		var diff = jq('div',this.parentNode).width();
+		if( offset <= 0 )
+			return;
+		else if ( offset - diff <= 0 ){
+			jq(this).css('display','none');		
+			diff = offset;
+		}
+		jq('.next', this.parentNode).css('display','block');
+
+		jq("ul",jq(this).parent()).animate({
+			marginLeft: '+='+diff
+		},400, 'swing');
+	});
+    /* Scroll a lot of menu items in BuddyPress sub nav menu  ------end*/
+    
+    
 });
 
 /* Setup activity scope and filter based on the current cookie settings. */
@@ -1076,8 +1167,13 @@ function bp_init_activity() {
 /* Setup object scope and filter based on the current cookie settings for the object. */
 function bp_init_objects(objects) {
 	jq(objects).each( function(i) {
-		if ( null != jq.cookie('bp-' + objects[i] + '-filter') && jq('li#' + objects[i] + '-order-select select').length )
+		if ( null != jq.cookie('bp-' + objects[i] + '-filter') && jq('li#' + objects[i] + '-order-select select').length ){
 			jq('li#' + objects[i] + '-order-select select option[value="' + jq.cookie('bp-' + objects[i] + '-filter') + '"]').prop( 'selected', true );
+		}
+		//setup displaymode select position
+		if ( null != jq.cookie('bp-' + objects[i] + '-displaymode') && jq('li#' + objects[i] + '-displaymode-select select').length ){
+			jq('li#' + objects[i] + '-displaymode-select select option[value="' + jq.cookie('bp-' + objects[i] + '-displaymode') + '"]').prop( 'selected', true );
+		}
 
 		if ( null != jq.cookie('bp-' + objects[i] + '-scope') && jq('div.' + objects[i]).length ) {
 			jq('div.item-list-tabs li').each( function() {
@@ -1123,6 +1219,56 @@ function bp_filter_request( object, filter, scope, target, search_terms, page, e
 		'cookie': encodeURIComponent(document.cookie),
 		'object': object,
 		'filter': filter,
+		'search_terms': search_terms,
+		'scope': scope,
+		'page': page,
+		'extras': extras
+	},
+	function(response)
+	{
+		jq(target).fadeOut( 100, function() {
+			jq(this).html(response);
+			jq(this).fadeIn(100);
+	 	});
+		jq('div.item-list-tabs li.selected').removeClass('loading');
+	});
+}
+
+/* Displaymode the current content list or grid (groups/members/group members/member frends) */
+function bp_displaymode_request( object, displaymode, scope, target, search_terms, page, extras ) {
+	if ( 'activity' == object )
+		return false;
+
+	if ( jq.query.get('s') && !search_terms )
+		search_terms = jq.query.get('s');
+
+	if ( null == scope )
+		scope = 'all';
+
+	/* Save the settings we want to remain persistent to a cookie */
+	jq.cookie( 'bp-' + object + '-scope', scope, {path: '/'} );
+	jq.cookie( 'bp-' + object + '-displaymode', displaymode, {path: '/'} );
+	jq.cookie( 'bp-' + object + '-extras', extras, {path: '/'} );
+
+	/* Set the correct selected nav and displymode */
+	jq('div.item-list-tabs li').each( function() {
+		jq(this).removeClass('selected');
+	});
+	jq('div.item-list-tabs li#' + object + '-' + scope + ', div.item-list-tabs#object-nav li.current').addClass('selected');
+	jq('div.item-list-tabs li.selected').addClass('loading');
+	jq('div.item-list-tabs select option[value="' + displaymode + '"]').prop( 'selected', true );
+
+	if ( 'friends' == object )
+		object = 'members';
+
+	if ( bp_ajax_request )
+		bp_ajax_request.abort();
+
+	bp_ajax_request = jq.post( ajaxurl, {
+		action: object + '_displaymode',
+		'cookie': encodeURIComponent(document.cookie),
+		'object': object,
+		'displaymode': displaymode,
 		'search_terms': search_terms,
 		'scope': scope,
 		'page': page,

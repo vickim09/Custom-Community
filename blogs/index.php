@@ -3,8 +3,6 @@
 /**
  * BuddyPress - Blogs Directory
  *
- * @package BuddyPress
- * @subpackage bp-default
  */
 
 ?>

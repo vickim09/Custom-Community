@@ -34,8 +34,15 @@
 						<div class="post-content">
 							<h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cc' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 
-							<p class="date"><?php the_time() ?> <em><?php _e( 'in', 'cc' ) ?> <?php the_category(', ') ?> <?php if(defined('BP_VERSION')){ printf( __( 'by %s', 'cc' ), bp_core_get_userlink( $post->post_author ) ); } ?></em></p>
-
+                            <div class="search-date-info">
+                                <p class="date">
+                                    <span class="publish-date"><?php the_time() ?></span> 
+                                    <em>
+                                        <span class="author-link"><?php _e( 'in', 'cc' ) ?> <?php the_category(', ') ?> <?php if(defined('BP_VERSION')){ printf( __( 'by %s', 'cc' ), bp_core_get_userlink( $post->post_author ) ); } ?>
+                                        </span>
+                                    </em>
+                                </p>
+                            </div>
 							<div class="entry">
 								<?php do_action('blog_post_entry')?>
 							</div>

@@ -1,3 +1,4 @@
+<?php global $cap;?>
 <?php do_action( 'bp_before_group_header' ) ?>
 <?php if ( bp_has_groups() ) : while ( bp_groups() ) : bp_the_group(); ?>
 
@@ -39,7 +40,7 @@
 
 		<?php if ( bp_group_has_moderators() ) : ?>
 			<?php do_action( 'bp_before_group_menu_mods' ) ?>
-			<h3 style="" class="widgettitle">Group Moderators</h3>
+			<h3 style="" class="widgettitle"><?php _e('Group Moderators', 'cc'); ?></h3>
 			<?php bp_group_list_mods() ?>
 			<?php do_action( 'bp_after_group_menu_mods' ) ?>
 		<?php endif; ?>

@@ -14,7 +14,7 @@
 		<?php if ( bp_is_my_profile() ) bp_get_options_nav(); ?>
 
 		<?php if ( !bp_is_current_action( 'requests' ) ) : ?>
-
+			
 			<li id="members-order-select" class="last filter">
 
 				<label for="members-all"><?php _e( 'Order By:', 'cc' ) ?></label>
@@ -30,6 +30,14 @@
 
 		<?php endif; ?>
 
+			<li id="members-displaymode-select" class="no-ajax displaymode">
+
+				<label for="members-displaymode"><?php _e( 'Display mode:', 'cc' ); ?></label>
+				<select id="members-displaymode">
+					<option value="list"><?php _e( 'List', 'cc' ); ?></option>
+					<option value="grid"><?php _e( 'Grid', 'cc' ); ?></option>
+				</select>
+			</li>
 	</ul>
 </div>
 

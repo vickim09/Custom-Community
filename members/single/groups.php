@@ -30,6 +30,17 @@
 			</li>
 
 		<?php endif; ?>
+		<li id="groups-displaymode-select" class="no-ajax displaymode">
+
+			<label for="groups-displaymode"><?php _e( 'Display mode:', 'cc' ); ?></label>
+			<select id="groups-displaymode">
+				<option value="list"><?php _e( 'List', 'cc' ); ?></option>
+				<option value="grid"><?php _e( 'Grid', 'cc' ); ?></option>
+
+				<?php do_action( 'bp_groups_directory_displaymode_options' ); ?>
+
+			</select>
+		</li>
 
 	</ul>
 </div><!-- .item-list-tabs -->

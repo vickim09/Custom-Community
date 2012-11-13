@@ -1,6 +1,6 @@
 <?php
 
-define( 'CC_VERSION', '1.9' );
+define( 'CC_VERSION', '1.9.1' );
 
 /**
  * loads custom community files
@@ -17,4 +17,3 @@ function cc_init() {
 
 add_action( 'init', 'cc_init',1,1 );
 
-?>

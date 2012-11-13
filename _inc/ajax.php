@@ -39,7 +39,7 @@ function bp_dtheme_ajax_querystring( $query_string, $object ) {
 
 	if ( !empty( $_BP_COOKIE['bp-' . $object . '-scope'] ) ) {
 		if ( 'personal' == $_BP_COOKIE['bp-' . $object . '-scope'] ) {
-			$user_id = ( $bp->displayed_user->id ) ? $bp->displayed_user->id : $bp->loggedin_user->id;
+			$user_id = ( isset($bp->displayed_user->id) && $bp->displayed_user->id ) ? $bp->displayed_user->id : (isset($bp->loggedin_user->id))? $bp->loggedin_user->id : '';
 			$qs[] = 'user_id=' . $user_id;
 		}
 		if ( 'all' != $_BP_COOKIE['bp-' . $object . '-scope'] && empty( $bp->displayed_user->id ) && !$bp->is_single_item )
@@ -83,17 +83,36 @@ add_filter( 'bp_ajax_querystring', 'bp_dtheme_ajax_querystring', 10, 2 );
 
 /* This function will simply load the template loop for the current object. On an AJAX request */
 function bp_dtheme_object_template_loader() {
-	$object = esc_attr( $_POST['object'] );
-	locate_template( array( "$object/$object-loop.php" ), true );
+	$object = esc_attr( $_REQUEST['object'] );
+	//custom template loop for single group->members page
+	if($object=='members' && $_REQUEST['scope'] == 'groups'){
+		locate_template( array( "groups/single/members-loop.php" ), true );
+	}
+	else{//load standart loop
+		locate_template( array( "$object/$object-loop.php" ), true );
+	}
+	exit;
 }
 add_action( 'wp_ajax_members_filter', 'bp_dtheme_object_template_loader' );
 add_action( 'wp_ajax_groups_filter', 'bp_dtheme_object_template_loader' );
 add_action( 'wp_ajax_blogs_filter', 'bp_dtheme_object_template_loader' );
 add_action( 'wp_ajax_forums_filter', 'bp_dtheme_object_template_loader' );
+
 add_action( 'wp_ajax_nopriv_members_filter', 'bp_dtheme_object_template_loader' );
 add_action( 'wp_ajax_nopriv_groups_filter', 'bp_dtheme_object_template_loader' );
 add_action( 'wp_ajax_nopriv_blogs_filter', 'bp_dtheme_object_template_loader' );
 add_action( 'wp_ajax_nopriv_forums_filter', 'bp_dtheme_object_template_loader' );
+
+//actions for ajax change displaymode(grid or list)
+add_action( 'wp_ajax_members_displaymode', 'bp_dtheme_object_template_loader' );
+add_action( 'wp_ajax_groups_displaymode', 'bp_dtheme_object_template_loader' );
+add_action( 'wp_ajax_blogs_displaymode', 'bp_dtheme_object_template_loader' );
+add_action( 'wp_ajax_forums_displaymode', 'bp_dtheme_object_template_loader' );
+//noprivilegios actions for ajax change displaymode(grid or list)
+add_action( 'wp_ajax_nopriv_members_displaymode', 'bp_dtheme_object_template_loader' );
+add_action( 'wp_ajax_nopriv_groups_displaymode', 'bp_dtheme_object_template_loader' );
+add_action( 'wp_ajax_nopriv_blogs_displaymode', 'bp_dtheme_object_template_loader' );
+add_action( 'wp_ajax_nopriv_forums_displaymode', 'bp_dtheme_object_template_loader' );
 
 // This function will load the activity loop template when activity is requested via AJAX
 function bp_dtheme_activity_template_loader() {
@@ -134,9 +153,9 @@ function bp_dtheme_activity_template_loader() {
 }
 add_action( 'wp_ajax_activity_widget_filter', 'bp_dtheme_activity_template_loader' );
 add_action( 'wp_ajax_activity_get_older_updates', 'bp_dtheme_activity_template_loader' );
+
 add_action( 'wp_ajax_nopriv_activity_widget_filter', 'bp_dtheme_activity_template_loader' );
 add_action( 'wp_ajax_nopriv_activity_get_older_updates', 'bp_dtheme_activity_template_loader' );
-
 
 /* AJAX update posting */
 function bp_dtheme_post_update() {
@@ -357,7 +376,6 @@ function bp_dtheme_get_single_activity_content() {
 }
 add_action( 'wp_ajax_get_single_activity_content', 'bp_dtheme_get_single_activity_content' );
 add_action( 'wp_ajax_nopriv_get_single_activity_content', 'bp_dtheme_get_single_activity_content' );
-
 /* AJAX invite a friend to a group functionality */
 function bp_dtheme_ajax_invite_user() {
 	global $bp;
@@ -670,4 +688,3 @@ function bp_dtheme_ajax_messages_autocomplete_results() {
 }
 add_action( 'wp_ajax_messages_autocomplete_results', 'bp_dtheme_ajax_messages_autocomplete_results' );
 
-?>

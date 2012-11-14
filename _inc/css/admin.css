@@ -24,3 +24,9 @@ form .export-button{
     margin-left:20px;
 }   
 
+/* Rate for us notice */
+.dismiss-activation-message{
+    color: red;
+    float: right;
+    padding-right:10px;
+}

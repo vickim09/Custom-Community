@@ -282,6 +282,7 @@ function cc_slidertop(){
 	$slideshow_orderby   = 'DESC';
 	$slideshow_post_type = 'post';
 	$slideshow_show_page = '';
+    $is_allowed_direct_link = __('no', 'cc');
 	
 	if($cc_page_options["cc_page_slider_on"] == 1 ){
 				
@@ -309,8 +310,11 @@ function cc_slidertop(){
 		if( $cc_page_options["cc_page_slider_show_page"] != '' ){
 			$slideshow_show_page = $cc_page_options["cc_page_slider_show_page"];
 		}
+		if( $cc_page_options["cc_page_allow_direct_link"] != '' && $cc_page_options["cc_page_allow_direct_link"]=='yes'){
+			$is_allowed_direct_link= __('yes', 'cc');
+		}
 
-	}else{
+	} else {
 
 		if( $cap->slideshow_cat != '' ){
 			$slidercat = $cap->slideshow_cat;
@@ -348,45 +352,43 @@ function cc_slidertop(){
 		if( $cap->slideshow_show_page != '' ){
 			$slideshow_show_page = $cap->slideshow_show_page;
 		}
-		
+        if($cap->slideshow_direct_links == 'yes'){
+            $is_allowed_direct_link = __('yes', 'cc');
+        }
 	}
-	
+    $same_attrs = array(
+        'category_name'     => $slidercat,
+        'caption'           => $caption,
+        'id'                => 'slidertop',
+        'time_in_ms'        => $slideshow_time,
+        'orderby'           => $slideshow_orderby,
+        'page_id'           => $slideshow_show_page,
+        'post_type'         => $slideshow_post_type,
+        'allow_direct_link' => $is_allowed_direct_link    
+    );
 	if($slider_style == __('full width','cc') || $slider_style == 'full-width-image' ){
 		$atts = array(
-					'amount'        => $slideshow_amount,
-					'category_name' => $slidercat,
-					'slider_nav'    => 'off',
-					'caption'       => $caption,
-					'caption_width' => '1000',
-					'width'         => '1000',
-					'height'        => '250',
-					'id'            => 'slidertop',
-					'time_in_ms'    => $slideshow_time,
-					'orderby'       => $slideshow_orderby,
-					'page_id'       => $slideshow_show_page,
-					'post_type'     => $slideshow_post_type
+					'amount'            => $slideshow_amount,
+					'slider_nav'        => 'off',
+					'caption_width'     => '1000',
+					'width'             => '1000',
+					'height'            => '250',
+					     
 				);
 	} else {
 		$atts = array(
-					'amount'        => '4',
-					'category_name' => $slidercat,
-					'slider_nav'    => 'on',
-					'caption'       => $caption,
-					'id'            => 'slidertop',
-					'time_in_ms'    => $slideshow_time,
-					'orderby'       => $slideshow_orderby,
-					'page_id'       => $slideshow_show_page,
-					'post_type'     => $slideshow_post_type
- 				);					
+					'amount'            => '4',
+					'slider_nav'        => 'on',
+                    );					
 	}
-
+    $atts = array_merge($atts, $same_attrs);
 	$tmp = '<div id="cc_slider-top">';
 	$tmp .= slider($atts,$content = null);
 	$tmp .= '</div>';
 	if($cap->slideshow_shadow != "no shadow" && $cap->slideshow_shadow != __("no shadow",'cc')){
 		$tmp .= '<div class="slidershadow"><img src="'.get_template_directory_uri().'/images/slideshow/'.cc_slider_shadow().'"></img></div>';
 	}
-		
+	
 	return $tmp;
 
 }
@@ -422,7 +424,8 @@ function slider($atts,$content = null) {
         'slider_nav_hover_color'    => '',
         'slider_nav_selected_color' => '',
         'slider_nav_font_color'     => '',
-        'time_in_ms'                => '5000'
+        'time_in_ms'                => '5000',
+        'allow_direct_link'         => __('no', 'cc')
     ), $atts));
 
     if($category_name == 'all-categories'){
@@ -596,8 +599,13 @@ function slider($atts,$content = null) {
 					}
 				} else { 
 					$ftrdimgs = get_the_post_thumbnail( $post->ID, 'slider-thumbnail' );
-				} 
-            $tmp .='<li class="ui-tabs-nav-item ui-tabs-selected" id="nav-fragment-'.$id.'-'.$i.'"><a href="#fragment-'.$id.'-'.$i.'">'.$ftrdimgs.'<span>'.get_the_title().'</span></a></li>'. chr(13);
+				}
+            if($allow_direct_link == __('yes', 'cc')){
+                $ftrdimgs = '<a href="'.  get_permalink($post->ID).'" class="allow-dirrect-links" data-url="'.get_permalink($post->ID).'">'. $ftrdimgs . '<span>'.get_the_title().'</span></a>';
+            } else {
+                $ftrdimgs = '<a href="#fragment-'.$id.'-'.$i.'">'.$ftrdimgs.'<span>'.get_the_title().'</span></a>';
+            }
+            $tmp .='<li class="ui-tabs-nav-item ui-tabs-selected" id="nav-fragment-'.$id.'-'.$i.'">'.$ftrdimgs.'</li>'. chr(13);
             $i++;
         endwhile;
         $tmp .='</ul>'. chr(13);

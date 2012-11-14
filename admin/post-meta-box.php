@@ -72,6 +72,9 @@
  }
  
 function cc_post_meta_add($id){
+    if(!empty($_POST) && !empty($_POST) && $_POST['action'] == 'inline-save')
+    return;
+    
 	if (isset($_POST['cc_post_template_on']) && $_POST['cc_post_template_on'] == "1") {
 	 	update_post_meta($id,"_cc_post_template_on",1);
 	}else{

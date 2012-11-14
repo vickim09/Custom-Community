@@ -1144,7 +1144,9 @@ jq(document).ready( function() {
 	});
     /* Scroll a lot of menu items in BuddyPress sub nav menu  ------end*/
     
-    
+    jq('.allow-dirrect-links').click( function(){
+        window.location = jq(this).attr('data-url');
+    })
 });
 
 /* Setup activity scope and filter based on the current cookie settings. */

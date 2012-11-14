@@ -138,8 +138,8 @@ function cc_activation_function() {
             if(empty($option)){
                 cap_defaults_init();
             }
-            if(!defined('is_pro')){
-                add_action ('admin_notices', 'cc_add_rate_us_notice');
-            }
-     }
+    }
+    if(!defined('is_pro')){
+        add_action ('admin_notices', 'cc_add_rate_us_notice');
+    }
 }

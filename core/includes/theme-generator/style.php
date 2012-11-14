@@ -477,6 +477,7 @@ div#sidebar ul , div.widgetarea ul {
 .widget li.current-cat a, div.widget ul li.current_page_item a {
     color:#<?php echo $link_color;?>;
 }
+
 .cc-widget{
     width:30% !important;
     float:left;

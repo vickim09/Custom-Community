@@ -726,7 +726,7 @@ function cap_get_options() {
 			array(__('no repeat','cc'), 'x', 'y', 'x+y'),
 			__('no repeat','cc')),
 		)
-		),
+    ),
 	new Group (__("BuddyPress",'cc'), "buddypress",
 		array(
 		new DropdownOption(
@@ -934,8 +934,16 @@ function cap_get_options() {
 			"slideshow_shadow", 
 			array(__('sharper shadow','cc'), __('shadow','cc'), __('no shadow','cc')),
 			__('sharper shadow','cc')),
-		)
-		),
+        new DropdownOption(
+            __('Allow direct post access'),
+            __('When small thumbnails are displayed to the right of a slideshow currently. 
+                When clicking on them you will be redirected to page of the post of this thumbnail.'),
+            'slideshow_direct_links',
+            array(__('no', 'cc'), __('yes', 'cc')),
+            __('no', 'cc')
+        )
+	  )
+    ),
 	new Group (__("CSS",'cc'), "overwrite",
 		array(
 		new TextOption(

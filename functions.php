@@ -532,17 +532,33 @@ function cc_add_admin_styles(){
 add_action('admin_init', 'cc_add_admin_styles');
 
 /**
- * 
+ * Fix ...[]
  */
 function cc_replace_read_more($text){
     return ' <a class="read-more-link" href="'. get_permalink() . '"><br />' .  __("read more...","cc") . '</a>';
 }
 add_filter('excerpt_more', 'cc_replace_read_more');
-//add_action('init', 'cc_get_pro_version');
 
+/**
+ * Display the rate for us message
+ */
 function cc_add_rate_us_notice(){
-    // echo '<div id="message" class="updated fade"><p>'.cc_get_add_rate_us_message().'</p></div>';
+    $hide_message = get_option('cc_hide_activation_message', false);
+    if(!$hide_message){
+        echo '<div class="update-nag cc-rate-it">
+                '.cc_get_add_rate_us_message().'<a href="#" class="dismiss-activation-message">'.__('Dismiss', 'cc'). '</a>
+            </div>';
+    }
 }
+
 function cc_get_add_rate_us_message(){
-    // return 'Please rate for this theme on <a href="http://wordpress.org/extend/themes/custom-community">WordPress.org</a>';
+    return 'Please rate for <a class="go-to-wordpress-repo" href="http://wordpress.org/extend/themes/custom-community" target="_blank">Custom Community</a> theme on WordPress.org';
+}
+/**
+ * Ajax processor for show/hide Please rate for
+ */
+add_action('wp_ajax_dismiss_activation_message', 'cc_dismiss_activation_message');
+function cc_dismiss_activation_message(){
+    echo update_option('cc_hide_activation_message', $_POST['value']);
+    die();
 }

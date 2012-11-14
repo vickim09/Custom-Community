@@ -502,8 +502,7 @@ function top_level_settings() {
         <p class="additional_info"><?php _e('Custom Community is proudly brought to you by ','cc')?><a class="themekraft-link" href="http://themekraft.com/" target="_blank">Themekraft</a>.
 		<br><?php _e('For support, check out the ','ee')?><a href="http://themekraft.com/forums/" target="_blank">FORUM</a> and <a href="http://themekraft.com/faq/" target="_blank"><?php _e('FAQ','cc')?></a>. 
 		<?php if(!defined('is_pro')){ ?>
-			<?php _e('Looking for more? ','cc');?><a class="full-version-link" href="https://themekraft.com/theme/custom-community-pro/" target="_blank"><?php _e('Get the Full Version','cc')?></a> 
-            <br /><?php echo cc_get_add_rate_us_message(); ?>
+			<?php _e('Looking for more? ','cc');?><a class="full-version-link" href="https://themekraft.com/theme/custom-community-pro/" target="_blank"><?php _e('Get the Full Version','cc')?></a>
         </p>
         <?php } ?>
 		

@@ -15,8 +15,9 @@
 			$i++;
 		}
 	
-		$option_categories = $option;    
-    	
+		$option_categories = $option;
+        $allow_direct_links_options = array(__('no', 'cc'), __('yes', 'cc'));
+    	$is_allowed_direct_link = __('no', 'cc');
     	$cc_page_options=cc_get_page_meta();
 
 		if($cc_page_options['cc_page_slider_on'] == 1){
@@ -24,7 +25,7 @@
 		} else {
 			$checked_slider = "";
 		}
-		
+        
 		if($cc_page_options['cc_page_slider_caption'] == 1){
 			$checked_caption = "checked";
 		} else {
@@ -42,7 +43,9 @@
 		} else {
 			$checked_page_template = "";
 		}
-		
+        if(!empty($cc_page_options['cc_page_allow_direct_link']) && $cc_page_options['cc_page_allow_direct_link'] == __('yes', 'cc')){
+            $is_allowed_direct_link = __('yes', 'cc');
+        } 
 		$cc_page_template_amount = $cc_page_options['cc_page_template_amount'];
 			
 		$option_post_templates[0] = "img-mouse-over";
@@ -51,7 +54,7 @@
 		$option_post_templates[3] = "img-over-content";
 		$option_post_templates[4] = "img-under-content";
 		
-			
+        
 		$option_styles[0] = "default";
 		$option_styles[1] = "full-width-image";
 		?>
@@ -105,6 +108,13 @@
 			</select>
 				<?php _e('How many posts to display?', 'cc'); ?> <input type="text" name="cc_page_template_amount" id="cc_page_template_amount" value="<?php echo $cc_page_template_amount; ?>" />
 			</p>
+            <p><?php _e('Allow direct post access'); ?><br />
+                <select id="cc_allow_direct_link" name="cc_page_allow_direct_link">
+                    <?php foreach ($allow_direct_links_options as $allow_direct_link): ?>
+                        <option value="<?php echo $allow_direct_link?>" <?php selected($allow_direct_link, $is_allowed_direct_link)?>><?php echo $allow_direct_link; ?></option>
+                    <?php endforeach;?>
+                </select>
+            </p>
 		</p>
 		</div>	
 	</div>
@@ -112,7 +122,7 @@
  }
  
 function cc_page_meta_add($id){
-    if($_POST['action'] == 'inline-save')
+    if(!empty($_POST) && !empty($_POST) && $_POST['action'] == 'inline-save')
     return;
     
 	if (isset($_POST['cc_page_slider_on']) && $_POST['cc_page_slider_on'] == "1") {
@@ -163,6 +173,9 @@ function cc_page_meta_add($id){
 	if (isset($_POST['cc_page_slider_style']) === true) {
 	    update_post_meta($id,"_cc_page_slider_style",$_POST["cc_page_slider_style"]);
 	}
+	if (isset($_POST['cc_page_allow_direct_link']) === true) {
+	    update_post_meta($id,"_cc_page_allow_direct_link",$_POST["cc_page_allow_direct_link"]);
+	}
 }
  
 function cc_get_page_meta(){
@@ -183,6 +196,7 @@ function cc_get_page_meta(){
 
         $cc_page['cc_page_slider_style']     = get_post_meta($post->ID, "_cc_page_slider_style", true);
         $cc_page['cc_page_slider_caption']   = get_post_meta($post->ID, "_cc_page_slider_caption", true);
+        $cc_page['cc_page_allow_direct_link']   = get_post_meta($post->ID, "_cc_page_allow_direct_link", true);
     }
 	return $cc_page;
 } 

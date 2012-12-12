@@ -6,5 +6,5 @@
 	<?php endif;?>
   </div><!-- #padder -->	
 </div><!-- #sidebar -->
-<div class="v_line v_line_left"></div>
+<div class="v_line v_line_left visible-desktop"></div>
 <?php do_action( 'bp_after_sidebar' ) ?>

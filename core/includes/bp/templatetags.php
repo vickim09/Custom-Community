@@ -106,7 +106,10 @@ function admin_dtheme_enqueue_scripts() {
 	// Enqueue the global JS - Ajax will not work without it
 	wp_enqueue_script( 'dtheme-admin-js', get_template_directory_uri() . '/_inc/js/admin.js', array( 'jquery' ));
     wp_localize_script('dtheme-admin-js', 'admin_params', array(
-            'ajax_url' => site_url('/wp-admin/admin-ajax.php') 
+            'ajax_url' => site_url('/wp-admin/admin-ajax.php'),
+            'blog' => __('blog', 'cc'),
+            'flux_slider' => __('flux slider', 'cc'),
+            'default_slider' => __('default', 'cc')
         )
     );
 }

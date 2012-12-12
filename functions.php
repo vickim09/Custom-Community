@@ -1,6 +1,11 @@
 <?php
 
-    
+/**
+ * Define translate domain
+ */
+if(!defined('CC_TRANSLATE_DOMAIN')){
+    define('CC_TRANSLATE_DOMAIN', 'cc');
+}
 require_once( dirname(__FILE__) . '/admin/cheezcap.php');
 require_once( dirname(__FILE__) . '/core/loader.php');
 
@@ -201,7 +206,7 @@ function cc_widgets_init(){
         array(
             'name'          => 'footer full width',
             'id'            => 'footerfullwidth',
-            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'before_widget' => '<div id="%1$s" class="span12">',
             'after_widget'  => '</div><div class="clear"></div>',
             'before_title'  => '<h3 class="widgettitle">',
             'after_title'   => '</h3>'
@@ -400,7 +405,7 @@ if($cap->buddydev_search == true && defined('BP_VERSION') && function_exists('bp
             <h2 class="content-title"><?php _e("Members Results","cc");?></h2>
             <?php locate_template( array( 'members/members-loop.php' ), true ) ;  ?>
             <?php global $members_template;
-            if($members_template->total_member_count>1):?>
+            if($members_template->total_member_count > 1 && !empty($_REQUEST['search-terms'])):?>
                 <a href="<?php echo bp_get_root_domain().'/'.BP_MEMBERS_SLUG.'/?s='.$_REQUEST['search-terms']?>" ><?php echo sprintf(__("View all %d matched Members",'cc'),$members_template->total_member_count);?></a>
             <?php endif; ?>
         </div>
@@ -413,8 +418,9 @@ if($cap->buddydev_search == true && defined('BP_VERSION') && function_exists('bp
         <div class="groups-search-result search-result">
         <h2 class="content-title"><?php _e("Group Search","cc");?></h2>
         <?php locate_template( array('groups/groups-loop.php' ), true ) ;  ?>
-        
-        <a href="<?php echo bp_get_root_domain().'/'.BP_GROUPS_SLUG.'/?s='.$_REQUEST['search-terms']?>" ><?php _e("View All matched Groups","cc");?></a>
+        <?php if( !empty($_REQUEST['search-terms'])):?>
+            <a href="<?php echo bp_get_root_domain().'/'.BP_GROUPS_SLUG.'/?s='.$_REQUEST['search-terms']?>" ><?php _e("View All matched Groups","cc");?></a>
+        <?php endif;?>
     </div>
         <?php
      //endif;
@@ -435,7 +441,9 @@ if($cap->buddydev_search == true && defined('BP_VERSION') && function_exists('bp
       <h2 class="content-title"><?php _e("Blog Search","cc");?></h2>
        
        <?php locate_template( array( 'search-loop.php' ), true ) ;  ?>
-       <a href="<?php echo bp_get_root_domain().'/?s='.$_REQUEST['search-terms']?>" ><?php _e("View All matched Posts","cc");?></a>
+       <?php if( !empty($_REQUEST['search-terms'])):?>
+            <a href="<?php echo bp_get_root_domain().'/?s='.$_REQUEST['search-terms']?>" ><?php _e("View All matched Posts","cc");?></a>
+       <?php endif;?>
     </div>
        <?php
       }
@@ -449,7 +457,9 @@ if($cap->buddydev_search == true && defined('BP_VERSION') && function_exists('bp
      <div class="forums-search-result search-result">
        <h2 class="content-title"><?php _e("Forums Search","cc");?></h2>
       <?php locate_template( array( 'forums/forums-loop.php' ), true ) ;  ?>
-      <a href="<?php echo bp_get_root_domain().'/'.BP_FORUMS_SLUG.'/?s='.$_REQUEST['search-terms']?>" ><?php _e("View All matched forum posts","cc");?></a>
+      <?php if( !empty($_REQUEST['search-terms'])):?>
+            <a href="<?php echo bp_get_root_domain().'/'.BP_FORUMS_SLUG.'/?s='.$_REQUEST['search-terms']?>" ><?php _e("View All matched forum posts","cc");?></a>
+      <?php endif;?>
     </div>
       <?php
       }
@@ -470,7 +480,9 @@ if($cap->buddydev_search == true && defined('BP_VERSION') && function_exists('bp
       <div class="blogs-search-result search-result">
       <h2 class="content-title"><?php _e("Blogs Search","cc");?></h2>
       <?php locate_template( array( 'blogs/blogs-loop.php' ), true ) ;  ?>
-      <a href="<?php echo bp_get_root_domain().'/'.BP_BLOGS_SLUG.'/?s='.$_REQUEST['search-terms']?>" ><?php _e("View All matched Blogs","cc");?></a>
+      <?php if( !empty($_REQUEST['search-terms'])):?>
+            <a href="<?php echo bp_get_root_domain().'/'.BP_BLOGS_SLUG.'/?s='.$_REQUEST['search-terms']?>" ><?php _e("View All matched Blogs","cc");?></a>
+      <?php endif;?>
      </div>
       <?php
       }
@@ -523,13 +535,6 @@ function cc_get_pro_version(){
        require_once $pro_enabler;
    }
 }
-/**
- * Get Admin styles
- */
-function cc_add_admin_styles(){
-    wp_enqueue_style('cc_admin', get_template_directory_uri() . '/_inc/css/admin.css');
-}
-add_action('admin_init', 'cc_add_admin_styles');
 
 /**
  * Fix ...[]
@@ -562,3 +567,311 @@ function cc_dismiss_activation_message(){
     echo update_option('cc_hide_activation_message', $_POST['value']);
     die();
 }
+/**
+ * Ajax processor for show/hide Please info for
+ */
+add_action('wp_ajax_cc_dismiss_info_messages', 'cc_dismiss_info_messages');
+function cc_dismiss_info_messages(){
+    echo update_option($_POST['action'], $_POST['value']);
+    die();
+}
+/**
+ * Add css
+ */
+function cc_add_styles(){
+    global $cap;
+    if($cap->cc_responsive_enable){
+        wp_enqueue_style( 'bootstrap', get_template_directory_uri().'/_inc/css/bootstrap-responsive.css' );
+        wp_enqueue_style( 'custom', get_template_directory_uri().'/_inc/css/custom-responsive.css' );
+    }
+}
+
+add_action('wp_head', 'cc_add_styles', 10);
+
+/**
+ * Add class span%2 for menu items
+ * @param string $items
+ * @param array $args
+ * @return string items with new class
+ */
+function cc_add_spanclass($items, $args){
+
+    $items = explode('</li>',$items);
+    $newitems = array();
+      // loop through the menu items, and add the new link at the right position
+      foreach($items as $item) {
+        $newitems[] =  str_replace('class="', 'class="span2 ', $item);
+      }
+      // finally put all the menu items back together into a string using the ending <li> tag and return
+    $newitems = implode('</li>', $newitems);
+
+    return $newitems;    
+}    
+//add_filter('wp_list_pages', 'cc_add_spanclass', 10, 2);
+//add_filter('wp_nav_menu_items', 'cc_add_spanclass', 10, 2);
+
+/**
+ * Slider functions, used in slideshow parts
+ * @global object $post post object
+ * @global type $cc_js
+ * @global type $cap
+ * @global type $post
+ * @param type $atts
+ * @param type $content
+ * @return type
+ */
+function slider($atts,$content = null) {
+    global $post, $cc_js, $cap;
+    extract(shortcode_atts(array(
+        'amount'                    => '4',
+        'category_name'             => '0',
+        'page_id'                   => '',
+        'post_type'                 => 'post',
+        'orderby'                   => 'DESC',
+        'slider_nav'                => 'on',
+        'caption'                   => 'on',
+        'caption_height'            => '',
+        'caption_top'               => '',
+        'caption_width'             => '',
+        'reflect'                   => '',
+        'width'                     => '',
+        'height'                    => '',
+        'id'                        => '',
+        'background'                => '',
+        'slider_nav_color'          => '',
+        'slider_nav_hover_color'    => '',
+        'slider_nav_selected_color' => '',
+        'slider_nav_font_color'     => '',
+        'time_in_ms'                => '5000',
+        'allow_direct_link'         => __('no', 'cc')
+    ), $atts));
+
+    if($category_name == 'all-categories'){
+        $category_name = '0';
+    }
+    
+    if($page_id != '' && $post_type == 'post'){
+         $post_type = 'page';
+    }
+
+    if($page_id != ''){
+        $page_id = explode(',',$page_id);
+    }
+        
+    $tmp = chr(13);
+    
+    $tmp .= '<style type="text/css">'. chr(13);
+    $tmp .= 'div.post img {'. chr(13);
+    $tmp .= 'margin: 0 0 1px 0;'. chr(13);
+    $tmp .= '}'. chr(13);
+    
+    if($slider_nav == 'off'){
+        $tmp .= '#featured'.$id.' ul.ui-tabs-nav {
+                    visibility: hidden;
+                }
+                #featured'.$id.' { 
+                    background: none;
+                    padding:0
+                }';
+    }
+    
+    if($width != ""){
+        $tmp .= '#featured'.$id.' ul.ui-tabs-nav {'. chr(13);
+        $tmp .= 'left:'.$width.'px;'. chr(13);
+        $tmp .= '}'. chr(13);
+    }
+    
+    if($caption_height != ""){
+        $tmp .= '#featured'.$id.' .ui-tabs-panel .info{'. chr(13);
+        $tmp .= 'height:'.$caption_height.'px;'. chr(13);
+        $tmp .= '}'. chr(13);
+    }
+    
+    if($caption_width != ""){
+        $tmp .= '#featured'.$id.' .ui-tabs-panel .info{'. chr(13);
+        $tmp .= 'width:'.$caption_width.'px;'. chr(13);
+        $tmp .= '}'. chr(13);
+    }
+    
+    if($caption_top != ""){
+        $tmp .= '#featured'.$id.' .ui-tabs-panel .info{'. chr(13);
+        $tmp .= 'top:'.$caption_top.'px;'. chr(13);
+        $tmp .= '}'. chr(13);
+    }
+    
+    if($background != ''){
+        $tmp .= '#featured'.$id.'{'. chr(13);
+        $tmp .= 'background: #'.$background.';'. chr(13);
+        $tmp .= '}'. chr(13);
+    }
+    
+    if($width != '' || $height != '' || $slider_nav == 'off'){
+        $tmp .= '#featured'.$id.'{'. chr(13);
+        $tmp .= 'width:'.$width.'px;'. chr(13);
+        $tmp .= 'height:'.$height.'px;'. chr(13);
+        $tmp .= '}'. chr(13);    
+        $tmp .= '#featured'.$id.' .ui-tabs-panel{'. chr(13);
+        $tmp .= 'width:'.$width.'px; height:'.$height.'px;'. chr(13);
+        $tmp .= 'background:none; position:relative;'. chr(13);
+        $tmp .= '}'. chr(13);
+    }
+    
+    if($slider_nav_color != '') {
+        $tmp .= '#featured'.$id.' li.ui-tabs-nav-item a{'. chr(13);
+        $tmp .= '    background: none repeat scroll 0 0 #'.$slider_nav_color.';'. chr(13);
+        $tmp .= '}'. chr(13);
+    }
+    if($slider_nav_hover_color != '') {
+        $tmp .= '#featured'.$id.' li.ui-tabs-nav-item a:hover{'. chr(13);
+        $tmp .= '    background: none repeat scroll 0 0 #'.$slider_nav_hover_color.';'. chr(13);
+        $tmp .= '}'. chr(13);
+    }
+
+    if($slider_nav_selected_color != '') {
+        $tmp .= '#featured'.$id.' .ui-tabs-selected {'. chr(13);
+        $tmp .= 'padding-left:0;'. chr(13);
+        $tmp .= '}'. chr(13);
+        $tmp .= '#featured'.$id.' .ui-tabs-selected a{'. chr(13);
+        $tmp .= '    background: none repeat scroll 0 0 #'.$slider_nav_selected_color.' !important;'. chr(13);
+        $tmp .= 'padding-left:0;'. chr(13);
+        $tmp .= '}'. chr(13);
+    }
+    
+    if($slider_nav_font_color != ''){
+        $tmp .= '#featured'.$id.' ul.ui-tabs-nav li span{'. chr(13);
+        $tmp .= 'color:#'.$slider_nav_font_color. chr(13);
+        $tmp .= '}'. chr(13);
+    }
+    $tmp .= '</style>'. chr(13);
+    
+    $args = array(
+        'orderby'        => $orderby,
+        'post_type'      => $post_type,
+        'post__in'       => $page_id,
+        'category_name'  => $category_name,
+        'posts_per_page' => $amount
+    );
+    
+    remove_all_filters('posts_orderby');
+    query_posts($args);
+    if (have_posts()){
+        $shortcodeclass = '';
+        if ( $id == "top" )
+            $shortcodeclass = "cc_slider_shortcode"; 
+        
+        $tmp .='<div id="cc_slider'.$id.'" class="cc_slider hidden-phone span12'.$shortcodeclass.'">'. chr(13);
+        $tmp .='<div id="featured'.$id.'" class="featured">'. chr(13);
+        
+        $i = 1; 
+        while (have_posts()) : the_post();
+            global $post;
+            $url = get_permalink();
+            $theme_fields = get_post_custom_values('my_url');
+            if(isset($theme_fields[0])){
+                 $url = $theme_fields[0];
+            }
+               
+            $tmp .='<div id="fragment-'.$id.'-'.$i.'" class="ui-tabs-panel span8">'. chr(13);
+            
+            if($width != '' || $height != ''){
+                $ftrdimg = get_the_post_thumbnail( $post->ID, array($width + 10,$height),"class={$reflect}" ); 
+                if (empty($ftrdimg)) {
+					if($cap->slideshow_img){ 
+						$ftrdimg = '<img src="' . $cap->slideshow_img .'" />'; 
+					} else {
+	                    $ftrdimg = '<img src="'.get_template_directory_uri().'/images/slideshow/noftrdimg-1006x250.jpg" />'; 
+					}
+                }
+            } else {
+                $ftrdimg = get_the_post_thumbnail( $post->ID, array(756,250),"" );
+                if (empty($ftrdimg)) {
+                    if($cap->slideshow_img){
+						$ftrdimg = '<img src="' . $cap->slideshow_img .'" width="756" height="250"/>'; 
+					} else {
+						$ftrdimg = '<img src="'.get_template_directory_uri().'/images/slideshow/noftrdimg.jpg" />'; 
+					}
+                }
+            }
+            
+            $tmp .='    <a class="reflect" href="'.$url.'">'.$ftrdimg.'</a>'. chr(13);
+
+            if($caption == 'on'){
+                $tmp .=' <div class="info span8" >'. chr(13);
+                $tmp .='    <h2><a href="'.$url.'" >'.get_the_title().'</a></h2>'. chr(13);
+                $tmp .='    <p>'.get_the_excerpt().'</p>'. chr(13);
+                $tmp .=' </div>'. chr(13);
+            }
+            $tmp .='</div>'. chr(13);
+            $i++;
+        endwhile;
+        
+        $tmp .='<ul class="ui-tabs-nav span4 offset1">'. chr(13);
+        $i = 1; 
+        while (have_posts()) : the_post();
+            if (get_the_post_thumbnail( $post->ID, 'slider-thumbnail' ) == '') {
+					if(!empty($cap->slideshow_small_img) || $cap->slideshow_small_img != ''){
+						$ftrdimgs = '<img src="'.$cap->slideshow_small_img.'" width="80" height="50"/>'; 
+					} else {
+						$ftrdimgs = '<img src="'.get_template_directory_uri().'/images/slideshow/noftrdimg-80x50.jpg" />'; 
+					}
+				} else { 
+					$ftrdimgs = get_the_post_thumbnail( $post->ID, 'slider-thumbnail' );
+				}
+            if($allow_direct_link == __('yes', 'cc')){ 
+                $ftrdimgs = '<a href="#fragment-'.$id.'-'.$i.'" class="allow-dirrect-links" data-url="'.get_permalink($post->ID).'">'. $ftrdimgs . '<span>'.get_the_title().'</span></a>';
+            } else {
+                $ftrdimgs = '<a href="#fragment-'.$id.'-'.$i.'">'.$ftrdimgs.'<span>'.get_the_title().'</span></a>';
+            }
+            $tmp .='<li class="ui-tabs-nav-item ui-tabs-selected" id="nav-fragment-'.$id.'-'.$i.'">'.$ftrdimgs.'</li>'. chr(13);
+            $i++;
+        endwhile;
+        $tmp .='</ul>'. chr(13);
+        
+        $tmp .= '</div></div>'. chr(13);
+    }else{
+        $tmp .='<div id="cc_slider_prev" class="cc_slider">'. chr(13);
+        $tmp .='<div id="featured_prev" class="featured">'. chr(13);
+        $tmp .='<h2 class="center">'.__( 'Empty Slideshow', 'cc' ).'</h2>'. chr(13);
+        $tmp .='<p class="center">'.__( 'You have no posts selected for your slideshow! <br>Check your theme settings for the global slideshow or the page settings for page slideshows... <br>and write a post! Check the <a href="http://themekraft.com/faq/slideshow/" target="_blank">FAQ</a> for more.', 'cc' ).'</p>'. chr(13);
+        $tmp .='</div></div>'. chr(13);
+    }
+    wp_reset_query();
+    
+    // js vars
+    $cc_js['slideshow'][] = array(
+                                'id'         => $id,
+                                'time_in_ms' => $time_in_ms
+                            );
+    
+    return $tmp . chr(13);
+}
+/**
+ * Get class by sidebar position settings in Themes Options
+ */
+function cc_get_class_by_sidebar_position(){
+       global $cap;
+       $class = '';
+       switch ($cap->sidebar_position){
+           case "left and right": $class = 'left-right-sidebar'; break;
+           case 'full-width' : $class = 'full-width'; break;
+           
+        };
+       
+       return $class;
+}
+/**
+ * Add info before tabs in Theme Options
+ */
+
+function cc_add_settins_info($tab_id){
+    if('cap_slideshow' == $tab_id){
+        $show = get_option('cc_dismiss_info_messages', FALSE);
+        if(empty($show)){
+            _e('<p class="slideshow_info">
+                    <button type="button" class="close" data-dismiss="alert">x</button>
+                    Slideshow settings of the single pages are stronger and will overwrite the global slideshow settings
+                </p>', CC_TRANSLATE_DOMAIN);
+        }
+    }
+}
+add_action('cc_before_settings_tab', 'cc_add_settins_info');

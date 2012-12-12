@@ -1,6 +1,5 @@
 <?php 
 	function cc_page_metabox(){ 	
-		global $post;
 		$args = array('echo' => '0','hide_empty' => '0');
 		$categories = get_categories($args);
 		$option = Array();
@@ -16,9 +15,11 @@
 		}
 	
 		$option_categories = $option;
-        $allow_direct_links_options = array(__('no', 'cc'), __('yes', 'cc'));
-    	$is_allowed_direct_link = __('no', 'cc');
-    	$cc_page_options=cc_get_page_meta();
+        $yes_no_options = array(__('no', 'cc'), __('yes', 'cc'));
+        
+    	$is_allowed_direct_link = $is_title_centered = $is_title_hidden = __('no', 'cc');
+        
+    	$cc_page_options = cc_get_page_meta();
 
 		if($cc_page_options['cc_page_slider_on'] == 1){
 			$checked_slider = 'checked="checked"';
@@ -31,7 +32,7 @@
 		} else {
 			$checked_caption = "";
 		}
-		
+        
 		$cc_page_slider_time      = $cc_page_options['cc_page_slider_time'];
 		$cc_page_slider_orderby   = $cc_page_options['cc_page_slider_orderby'];	
 		$cc_page_slider_amount    = $cc_page_options['cc_page_slider_amount'];	
@@ -45,7 +46,13 @@
 		}
         if(!empty($cc_page_options['cc_page_allow_direct_link']) && $cc_page_options['cc_page_allow_direct_link'] == __('yes', 'cc')){
             $is_allowed_direct_link = __('yes', 'cc');
-        } 
+        }
+        if(!empty($cc_page_options['cc_hide_title']) && $cc_page_options['cc_hide_title'] == __('yes', 'cc')){
+            $is_title_hidden = __('yes', 'cc');
+        }
+        if(!empty($cc_page_options['cc_center_title']) && $cc_page_options['cc_center_title'] == __('yes', 'cc')){
+            $is_title_centered = __('yes', 'cc');
+        }
 		$cc_page_template_amount = $cc_page_options['cc_page_template_amount'];
 			
 		$option_post_templates[0] = "img-mouse-over";
@@ -110,10 +117,27 @@
 			</p>
             <p><?php _e('Allow direct post access'); ?><br />
                 <select id="cc_allow_direct_link" name="cc_page_allow_direct_link">
-                    <?php foreach ($allow_direct_links_options as $allow_direct_link): ?>
+                    <?php foreach ($yes_no_options as $allow_direct_link): ?>
                         <option value="<?php echo $allow_direct_link?>" <?php selected($allow_direct_link, $is_allowed_direct_link)?>><?php echo $allow_direct_link; ?></option>
                     <?php endforeach;?>
                 </select>
+            </p>
+            <p>
+                <b><?php _e('Additional Settings','cc')?></b><br />
+                <p><?php _e('Hide the title?', 'cc');?><br />
+                    <select id="cc_hide_title" name="cc_hide_title">
+                        <?php foreach ($yes_no_options as $option): ?>
+                            <option value="<?php echo $option?>" <?php selected($option, $is_title_hidden)?>><?php echo $option; ?></option>
+                        <?php endforeach;?>
+                    </select>
+                </p>
+                <p><?php _e('Center the title?', 'cc');?><br />
+                    <select id="cc_center_title" name="cc_center_title">
+                        <?php foreach ($yes_no_options as $option): ?>
+                            <option value="<?php echo $option?>" <?php selected($option, $is_title_centered)?>><?php echo $option; ?></option>
+                        <?php endforeach;?>
+                    </select>
+                </p>
             </p>
 		</p>
 		</div>	
@@ -176,6 +200,12 @@ function cc_page_meta_add($id){
 	if (isset($_POST['cc_page_allow_direct_link']) === true) {
 	    update_post_meta($id,"_cc_page_allow_direct_link",$_POST["cc_page_allow_direct_link"]);
 	}
+	if (isset($_POST['cc_hide_title']) === true) {
+	    update_post_meta($id,"_cc_hide_title",$_POST["cc_hide_title"]);
+	}
+	if (isset($_POST['cc_center_title']) === true) {
+	    update_post_meta($id,"_cc_center_title",$_POST["cc_center_title"]);
+	}
 }
  
 function cc_get_page_meta(){
@@ -196,7 +226,9 @@ function cc_get_page_meta(){
 
         $cc_page['cc_page_slider_style']     = get_post_meta($post->ID, "_cc_page_slider_style", true);
         $cc_page['cc_page_slider_caption']   = get_post_meta($post->ID, "_cc_page_slider_caption", true);
-        $cc_page['cc_page_allow_direct_link']   = get_post_meta($post->ID, "_cc_page_allow_direct_link", true);
+        $cc_page['cc_page_allow_direct_link']= get_post_meta($post->ID, "_cc_page_allow_direct_link", true);
+        $cc_page['cc_hide_title']            = get_post_meta($post->ID, "_cc_hide_title", true);
+        $cc_page['cc_center_title']          = get_post_meta($post->ID, "_cc_center_title", true);
     }
 	return $cc_page;
 } 

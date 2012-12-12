@@ -9,8 +9,20 @@
 //
 
 $themename = 'Theme'; // used on the title of the custom admin page
-$req_cap_to_edit = 'edit_theme_options'; // the user capability that is required to access the CheezCap settings page
-
+$req_cap_to_edit = 'read'; // the user capability that is required to access the CheezCap settings page
+function cc_get_user_roles(){
+    global $wp_roles;
+    $return_roles = array();
+    if(!empty($wp_roles)){
+        $roles = $wp_roles->roles;
+        foreach ($roles as $role){
+            $max_cap = array_shift(array_keys($role['capabilities']));
+            $return_roles[$max_cap] = $role['name'];
+        }
+    }
+    return $return_roles;
+    
+}
 function cap_get_options() {
 	$pages     = get_pages();
 	$option    = Array();
@@ -37,7 +49,13 @@ function cap_get_options() {
 	}
 
 	$option_categories = $option;
-    
+    $magazine_styles = array(
+                            __('img-mouse-over', 'cc'), 
+                            __('img-left-content-right', 'cc'), 
+                            __('img-right-content-left', 'cc'), 
+                            __('img-over-content', 'cc'), 
+                            __('img-under-content', 'cc')
+                        );
 	return array(
 	new Group (__("General",'cc'), "general",
 		array(
@@ -51,7 +69,7 @@ function cap_get_options() {
 			__("Just type in the number, either in px or %. Default is 1000. <br>
 			Tip: If you use the full-width slider, don't make your site bigger than 1006px, or use the normal slider with preview.",'cc'), 
 			"website_width", 
-			"",
+			"1000",
 			"",
 			"start",
 			__("Website width",'cc')), 
@@ -108,6 +126,12 @@ function cap_get_options() {
 			'',
 			'end',
 			''),
+        
+        new BooleanOption(
+                __('Responsive', CC_TRANSLATE_DOMAIN),
+                __('Enable/disable responsive mode', CC_TRANSLATE_DOMAIN),
+                'cc_responsive_enable'
+        ),
 		new ColorOption(
 			__("Container colour",'cc'), 
 			__("Change the background colour of the content part,<br> 
@@ -299,58 +323,118 @@ function cap_get_options() {
 			"favicon"),
 		// Default homepage
 		new DropdownOption(
-			__("Show / hide avatars",'cc'), 
-			__("Show or hide the avatars in the post listing. <br> 
+			'<span class="blog-item-home">' . __("Show / hide avatars",'cc') . '</span>', 
+			'<span class="blog-item-home">' . __("Show or hide the avatars in the post listing. <br> 
 			This option is for the standard WordPress Homepage showing your latest articles. <br>
-			To select a page as your homepage, go to Settings -> Reading.",'cc'), 
+			To select a page as your homepage, go to Settings -> Reading.",'cc'). '</span>', 
 			"default_homepage_hide_avatar", 
 			array(__('show','cc'), __('hide','cc')),
 			__("show",'cc'),
 			"start",
 			__("Default homepage",'cc')),
+        new DropdownOption(
+			__("Posts lists on home page",'cc'), 
+			__("Display style for home page list page.",'cc'), 
+			"posts_lists_style_home", 
+			array(__('blog','cc'), __('magazine','cc')),
+			__("blog",'cc'),
+			""),
+        new DropdownOption(
+            'List Post Template (for magazine style) home page list page.', 
+			__("Choose a layout for the magazine style.",'cc'), 
+			"magazine_style_home", 
+			$magazine_styles,
+			'',
+			""
+            ),
 		new DropdownOption(
-			__("Last 3 Posts on home",'cc'), 
-			__("Display last 3 posts. <br> ",'cc'),
+			'<span class="blog-item-home">' .__("Last 3 Posts on home",'cc') . '</span>', 
+			'<span class="blog-item-home">' . __("Display last 3 posts. <br> ",'cc') . '</span>',
 			"default_homepage_last_posts", 
 			array(__('show','cc'), __('hide','cc')),
 			__("show",'cc'), 
 			false),	
 		new DropdownOption(
-			__("Post listing style",'cc'), 
-			__("Select a style how to display the latest posts. <br> 
-			You can also list your posts in magazine style, showing the featured images, check out our our <a href='http://themekraft.com/faq/list-your-latest-posts/'>FAQ here</a>.",'cc'), 
+			'<span class="blog-item-home">' .__("Post listing style",'cc'). '</span>', 
+			'<span class="blog-item-home">' .__("Select a style how to display the latest posts. <br> 
+			You can also list your posts in magazine style, showing the featured images, check out our our <a href='http://themekraft.com/faq/list-your-latest-posts/'>FAQ here</a>.",'cc'). '</span>', 
 			"default_homepage_style", 
 			array(__('bubbles','cc'), __('default','cc')),
 			__("bubbles",'cc'), 
 			false),	
 		new DropdownOption(
-			__("Show / hide date, category and author",'cc'), 
-			__("Show or hide the date, category and author in the post listing.",'cc'), 
+			'<span class="blog-item-home">' .__("Show / hide date, category and author",'cc'). '</span>', 
+			'<span class="blog-item-home">' .__("Show or hide the date, category and author in the post listing.",'cc'). '</span>', 
 			"default_homepage_hide_date", 
 			array(__('show','cc'), __('hide','cc')),
 			__("show",'cc'),
 			'end'),
-		// Posts lists (categories, tags, archives)
+		// Posts lists (categories, tags)
 		new DropdownOption(
-			__("Show / hide avatars",'cc'), 
-			__("Show or hide the avatars in the post listing. <br> 
+			__("Posts lists on archive pages",'cc'), 
+			__("Display style for categories, tags and other possible taxonomy types.",'cc'), 
+			"posts_lists_style_taxonomy", 
+			array(__('blog','cc'), __('magazine','cc')),
+			__("blog",'cc'),
+			"start"),	
+		new DropdownOption(
+			'', 
+			__("List Post Template (for magazine style) for categories, tags and other possible taxonomy types.",'cc'), 
+			"magazine_style_taxonomy", 
+			$magazine_styles,
+			'',
+			""),	
+		// Posts lists (dates)
+		new DropdownOption(
+			'', 
+			__("Display style for dates archives (by year, month, date).",'cc'), 
+			"posts_lists_style_dates", 
+			array(__('blog','cc'), __('magazine','cc')),
+			__("blog",'cc'),
+			""),	
+		new DropdownOption(
+			'', 
+			__("List Post Template (for magazine style) for dates archives (by year, month, date).",'cc'), 
+			"magazine_style_dates", 
+			$magazine_styles,
+			'',
+			""),	
+		// Posts lists (author archives)
+		new DropdownOption(
+			'', 
+			__("Display style for author archives.",'cc'), 
+			"posts_lists_style_author", 
+			array(__('blog','cc'), __('magazine','cc')),
+			__("blog",'cc'),
+			""),	
+		new DropdownOption(
+			'', 
+			__("List Post Template (for magazine style) for author archives.",'cc'), 
+			"magazine_style_author", 
+			$magazine_styles,
+			'',
+			""),	
+		// Posts lists (extra options)
+		new DropdownOption(
+			'<span class="blog-items">' . __("Show / hide avatars in blog display",'cc') . '</span>', 
+			'<span class="blog-items">'.  __("Show or hide the avatars in the post listing. <br> 
 			This option is for categories, tags and archives pages, showing your articles.",'cc'), 
-			"posts_lists_hide_avatar", 
+			"posts_lists_hide_avatar" . '</span>', 
 			array(__('show','cc'), __('hide','cc')),
 			__("show",'cc'),
-			"start",
+			"",
 			__("Posts archive pages (categories, tags, dates)",'cc')),	
 		new DropdownOption(
-			__("Post listing style",'cc'), 
-			__("Select a style how to display the latest posts. <br> 
+			'<span class="blog-items">' .__("Post listing style in blog display",'cc'). '</span>', 
+			'<span class="blog-items">' .__("Select a style how to display the latest posts. <br> 
 			You can also list your posts in magazine style, showing the featured images, check out our our <a href='http://themekraft.com/faq/list-your-latest-posts/'>FAQ here</a>.",'cc'), 
-			"posts_lists_style", 
+			"posts_lists_style". '</span>', 
 			array(__('bubbles','cc'), __('default','cc')),
 			__("bubbles",'cc'), 
 			false),	
 		new DropdownOption(
-			__("Show / hide date, category and author",'cc'), 
-			__("Show or hide the date, category and author in the post listing.",'cc'), 
+			'<span class="blog-items">' .__("Show / hide date, category and author in blog display",'cc'). '</span>', 
+			'<span class="blog-items">' .__("Show or hide the date, category and author in the post listing.",'cc'). '</span>', 
 			"posts_lists_hide_date", 
 			array(__('show','cc'), __('hide','cc')),
 			__("show",'cc'),
@@ -382,7 +466,6 @@ function cap_get_options() {
 			"bg_loginpage_backtoblog_fade_1", 
 			"",
 			false),
-		
 		new ColorOption(
 			__("Login page backtoblog fade colour 2",'cc'), 
 			__("Change login page backtoblog colour fade 2",'cc'), 
@@ -420,7 +503,7 @@ function cap_get_options() {
 			This is not your header image height, you can specify your header image separately in the fields below. <br>
 			Try 25px or 63px less than your header-image-height to fit perfectly...",'cc'), 
 			"header_height", 
-			""),
+			"200"),
 		new DropdownOption(
 			__("Header width",'cc'), 
 			__("Do you like the header in full width or as wide as your site?",'cc'), 
@@ -581,6 +664,13 @@ function cap_get_options() {
 			"bg_leftsidebar_img_repeat", 
 			array(__('no repeat','cc'), 'x', 'y', 'x+y'), 
 			__("no repeat",'cc'),
+			false),
+		new DropdownOption(
+			__("Left sidebar default navigation menu",'cc'), 
+			__("Display default navigation menu",'cc'), 
+			"bg_leftsidebar_default_nav", 
+			array(__('yes','cc'), __('no','cc')), 
+			__("yes",'cc'),
 			'end'),
 		new TextOption(
 			__("Right sidebar width",'cc'), 
@@ -964,6 +1054,79 @@ function cap_get_options() {
 			false),
 		)
 		),
-		
-		);
-}?>
+	new Group(
+            __('Roles', CC_TRANSLATE_DOMAIN),
+            'roles_and_capabilities',
+            array(
+                new DropdownOption(
+                    __('Min role for General settings',CC_TRANSLATE_DOMAIN ),
+                    __('This option set min role for General settings', CC_TRANSLATE_DOMAIN),
+                    'general_min_role',
+                    cc_get_user_roles()
+                ),
+                new DropdownOption(
+                    __('Min role for Header settings',CC_TRANSLATE_DOMAIN ),
+                    __('This option set min role for Header settings', CC_TRANSLATE_DOMAIN),
+                    'header_min_role',
+                    cc_get_user_roles()
+                ),
+                new DropdownOption(
+                    __('Min role for Menu settings',CC_TRANSLATE_DOMAIN ),
+                    __('This option set min role for Menu settings', CC_TRANSLATE_DOMAIN),
+                    'menu_min_role',
+                    cc_get_user_roles()
+                ),
+                new DropdownOption(
+                    __('Min role for Sidebar settings',CC_TRANSLATE_DOMAIN ),
+                    __('This option set min role for Sidebar settings', CC_TRANSLATE_DOMAIN),
+                    'sidebars_min_role',
+                    cc_get_user_roles()
+                ),
+                new DropdownOption(
+                    __('Min role for Footer settings',CC_TRANSLATE_DOMAIN ),
+                    __('This option set min role for Footer settings', CC_TRANSLATE_DOMAIN),
+                    'footer_min_role',
+                    cc_get_user_roles()
+                ),
+                new DropdownOption(
+                    __('Min role for BuddyPress settings',CC_TRANSLATE_DOMAIN ),
+                    __('This option set min role for BuddyPress settings', CC_TRANSLATE_DOMAIN),
+                    'buddypress_min_role',
+                    cc_get_user_roles()
+                ),
+                new DropdownOption(
+                    __('Min role for Profile settings',CC_TRANSLATE_DOMAIN ),
+                    __('This option set min role for Profile settings', CC_TRANSLATE_DOMAIN),
+                    'profile_min_role',
+                    cc_get_user_roles()
+                ),
+                new DropdownOption(
+                    __('Min role for Group settings',CC_TRANSLATE_DOMAIN ),
+                    __('This option set min role for Group settings', CC_TRANSLATE_DOMAIN),
+                    'groups_min_role',
+                    cc_get_user_roles()
+                ),
+                new DropdownOption(
+                    __('Min role for Slideshow settings',CC_TRANSLATE_DOMAIN ),
+                    __('This option set min role for Slideshow settings', CC_TRANSLATE_DOMAIN),
+                    'slideshow_min_role',
+                    cc_get_user_roles()
+                ),
+                new DropdownOption(
+                    __('Min role for CSS settings', CC_TRANSLATE_DOMAIN ),
+                    __('This option set min role for CSS Overwrite settings', CC_TRANSLATE_DOMAIN),
+                    'overwrite_min_role',
+                    cc_get_user_roles()
+                ),
+                new DropdownOption(
+                    __('Min role for Roles and Capabilities settings',CC_TRANSLATE_DOMAIN ),
+                    __('This option set min role for Roles and Capabilities settings', CC_TRANSLATE_DOMAIN),
+                    'roles_and_capabilities_min_role',
+                    cc_get_user_roles()
+                ),
+                
+            )
+        ),
+    );
+}
+?>

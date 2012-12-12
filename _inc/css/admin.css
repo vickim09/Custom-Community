@@ -30,3 +30,48 @@ form .export-button{
     float: right;
     padding-right:10px;
 }
+
+#cap_slideshow .slideshow_info{
+    color: #468847;
+    background-color: #DFF0D8;
+    border-color: #D6E9C6;
+    margin: 0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.close {
+    position: relative;
+    top: -10px;
+    right: -5px;
+    line-height: 20px;
+}
+button.close {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    color: black;
+    text-shadow: 0 1px 0 white;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
+fieldset.import-export{
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding-left: 15px;
+}
+.import-export .alignright{
+    margin-right: 20px;
+}
+.CodeMirror-lines{
+    border: 1px solid #cecece;
+}
+.ui-accordion .ui-accordion-header a{
+    padding-left: 2.2em;
+}

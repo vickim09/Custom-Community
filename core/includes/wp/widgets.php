@@ -28,7 +28,11 @@ if(defined('BP_VERSION')){
  * @package Custom Community
  * @since 1.8.3
  */	
-function widget_community_nav() { ?>
+function widget_community_nav( $sidebar_id = false ) { ?>
+		<?php
+		global $cap;
+		if( $sidebar_id == 'leftsidebar' && $cap->bg_leftsidebar_default_nav && $cap->bg_leftsidebar_default_nav == 'no' ) return;
+		?>
   		<div id="community-nav" class="widget widget-title" >
   		<ul class="item-list">
          	<h3 class="widgettitle"><?php _e( 'Community', 'cc' ) ?></h3>

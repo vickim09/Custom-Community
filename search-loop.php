@@ -21,7 +21,7 @@ if ( have_posts() ) : ?>
 <?php while(have_posts()): the_post(); ?>
 <?php do_action( 'bp_before_blog_post' ) ?>
     <div class="post"> <!-- Post goes here... --> 
-    	<div class="post-content"> 
+    	<div class="post-content span11"> 
         	<h3 class="post-title"><?php the_title();?></h3>
             <div> 
             	<?php the_excerpt();?>                           
@@ -46,7 +46,7 @@ if ( have_posts() ) : ?>
 	<?php endif;?>
 	<?php else : ?>
 	<div class="post">
-		<div class="post-content 404">
+		<div class="post-content span11 404">
 		<?php echo sprintf(__("We are sorry, but we could not find anything for the search term '%s'","cc"),$search_term);?>
 
 	<?php locate_template( array( 'searchform.php' ), true ) ?>

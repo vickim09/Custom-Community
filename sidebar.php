@@ -1,6 +1,6 @@
 <?php do_action( 'bp_before_sidebar' ) ?>
-<div class="v_line v_line_right"></div>
-<div id="sidebar" class="widgetarea">
+<div class="v_line v_line_right visible-desktop"></div>
+<div id="sidebar" class="span4">
 	<div class="right-sidebar-padder">
 
 	<?php do_action( 'bp_before_after_sidebar' ) ?>

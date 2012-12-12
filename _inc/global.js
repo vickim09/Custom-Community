@@ -726,6 +726,28 @@ jq(document).ready( function() {
 		return false;
 	});
 
+	/** Profile Visibility Settings *********************************/
+	jq('.field-visibility-settings').hide();
+	jq('.visibility-toggle-link').on( 'click', function() {
+		var toggle_div = jq(this).parent();
+		
+		jq(toggle_div).fadeOut( 600, function(){
+			jq(toggle_div).siblings('.field-visibility-settings').slideDown(400);
+		});
+		
+		return false;
+	} );
+
+	jq('.field-visibility-settings-close').on( 'click', function() {
+		var settings_div = jq(this).parent();
+		
+		jq(settings_div).slideUp( 400, function(){
+			jq(settings_div).siblings('.field-visibility-settings-toggle').fadeIn(800);
+		});
+		
+		return false;
+	} );
+
 	/** Friendship Requests **************************************/
 
 	/* Accept and Reject friendship request buttons */
@@ -1088,8 +1110,8 @@ jq(document).ready( function() {
     /* Scroll a lot of menu items in BuddyPress sub nav menu  ------start*/
     
     
-    
-     var selector_nav_wrap = '.item-list-tabs[role="navigation"]:not("#subnav"), .item-list-tabs#object-nav';
+    if(screen.width > 1024){
+    var selector_nav_wrap = '.item-list-tabs[role="navigation"]:not("#subnav"), .item-list-tabs#object-nav';
     
     jq(selector_nav_wrap).prepend('<button class="prev">&lt;</button><button class="next">&gt;</button>').find('ul').wrap('<div>');
     
@@ -1142,6 +1164,7 @@ jq(document).ready( function() {
 			marginLeft: '+='+diff
 		},400, 'swing');
 	});
+    }
     /* Scroll a lot of menu items in BuddyPress sub nav menu  ------end*/
     
     jq('.allow-dirrect-links').click( function(){

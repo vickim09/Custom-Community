@@ -12,6 +12,7 @@ require_once( dirname(__FILE__) . '/get-pro.php' );
 require_once( dirname(__FILE__) . '/post-metabox.php' );
 require_once( dirname(__FILE__) . '/library.php' );
 require_once( dirname(__FILE__) . '/config.php' );
+require_once( dirname(__FILE__) . '/bp-avatar.php' );
 
 
 add_action( 'admin_init', 'custom_community_theme_options_init' );
@@ -62,7 +63,7 @@ function cap_add_admin() {
         $done = false;
         $data = new ImportData();
         switch ( $action ) {
-            case 'Reset':            
+            case 'Reset All Settings':            
                 delete_option('custom_community_theme_options');     
                 cap_defaults_init();                  
                 $method = false;
@@ -94,10 +95,24 @@ function cap_add_admin() {
     $pgName = "$themename Settings";
     $hook = add_theme_page( $pgName, $pgName, isset( $req_cap_to_edit ) ? $req_cap_to_edit : 'edit_theme_options', 'theme_settings', 'top_level_settings' );
     add_action( "admin_print_scripts-$hook", 'cap_admin_js_libs' );
+    add_action( "admin_print_scripts-$hook", 'cc_css_hilight_lib_js' );
     add_action( "admin_footer-$hook", 'cap_admin_js_footer' );
     add_action( "admin_print_styles-$hook", 'cap_admin_css' );    
+    add_action( "admin_print_styles-$hook", 'css_hilight_lib_css' );    
 }
-
+/**
+ * Add css highlight scripts in Theme Options->CSS 
+ */
+function cc_css_hilight_lib_js(){
+    wp_enqueue_script('cc_admin_js_highlight', get_template_directory_uri() . '/_inc/js/codemirror.js');
+    wp_enqueue_script('cc_admin_js_highlight_css_mode', get_template_directory_uri() . '/_inc/js/css.js');
+}
+/**
+ * Add css highlight styles in Theme Options->CSS 
+ */
+function css_hilight_lib_css(){
+    wp_enqueue_style('cc_admin_css_highlight', get_template_directory_uri() . '/_inc/css/codemirror.css');
+}
 /**
  * Create default options for the theme and save into the wp_options table
  */
@@ -113,7 +128,7 @@ function cap_defaults_init(){
         foreach ($cap_option_arr['options'] AS $option){
             switch(get_class($option)){
                 case 'DropdownOption':
-                    $cap_options_default[$option->id] = $option->options[0];
+                    $cap_options_default[$option->id] = array_shift($option->options);
                 break;
                 case 'BooleanOption':
                 default:

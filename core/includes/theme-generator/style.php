@@ -555,7 +555,7 @@ div#content {
     -moz-border-radius:6px;
     -webkit-border-radius:6px;
     border-radius:6px;
-    margin: 0 -10px 0 10px;
+    margin: 10px -10px 0 10px;
     float:left;
 }
 
@@ -2896,9 +2896,6 @@ div.menu-top ul li.current-menu-item > a:hover {
 -------------------------------------------------------------- */
 
 #access {
-/*    -moz-border-radius:6px;
-    -webkit-border-radius:6px;
-    border-radius:6px;*/
     background:#<?php echo $container_bg_color;?>;
     display:block;
     float:left;
@@ -2907,8 +2904,8 @@ div.menu-top ul li.current-menu-item > a:hover {
     position: absolute;
     bottom: 0;
     margin: 0 0 -40px 0;
-    border-top: 1px solid #<?php echo $font_color; ?>;
-    border-bottom: 1px solid #<?php echo $font_color; ?>;
+    border-top: 1px solid #<?php echo $container_alt_bg_color; ?>;
+    border-bottom: 1px solid #<?php echo $container_alt_bg_color; ?>;
 }
 #access .menu-header,
 div.menu {
@@ -3060,6 +3057,11 @@ div.cc_slider .featured .ui-tabs-panel a{
 }
 div.cc_slider .featured .ui-tabs-panel a img{
     width: 100%;
+    <?php if ( $cap->slideshow_style == "default" ) { ?>
+    	border-radius: 6px 0 0 6px;
+    <?php } else { ?>
+    	border-radius: 6px;
+    <?php } ?>	
 }
 div.cc_slider ul.ui-tabs-nav {
     list-style: none outside none;
@@ -3134,6 +3136,7 @@ div.cc_slider .featured .ui-tabs-panel .info{
     background: url(<?php echo get_template_directory_uri() ?>/images/slideshow/transparent-bg.png);
     margin-left: 0;
     width:100%;
+    border-radius: 0 0 6px 0;
 }
 div.cc_slider .featured .info h2 > a{
     font-size:18px;

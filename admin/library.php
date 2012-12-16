@@ -58,7 +58,7 @@ class Option {
 	function Import( $data ) {
 		if ( array_key_exists( $this->id, $data->dict ) )
 				$cap = get_option('custom_community_theme_options');
-				$cap[$this->id] = $data->dict[$this->id];
+				$cap[$this->id] = isset($data->dict[$this->id]) ? $data->dict[$this->id] : '';
 				update_option( 'custom_community_theme_options', $cap );
 	}
 	
@@ -69,7 +69,7 @@ class Option {
 
 	function get() {
 		$value = get_option('custom_community_theme_options');
-		return $value[$this->id];
+		return isset($value[$this->id]) ? $value[$this->id] : '';
 	}
 }
 
@@ -107,7 +107,7 @@ class TextOption extends Option {
 			if ( $this->useTextArea ) :
 				$commentWidth = 1;
 				?>
-				<textarea onfocus="/*jQuery('textarea').elastic();*/" class="text_option_teaxarea" name="custom_community_theme_options[<?php echo $this->id; ?>]" id="<?php echo $this->id; ?>"><?php echo esc_attr( $stdText ); ?></textarea>
+				<textarea class="text_option_teaxarea" name="custom_community_theme_options[<?php echo $this->id; ?>]" id="<?php echo $this->id; ?>"><?php echo esc_attr( $stdText ); ?></textarea>
 				<?php
 			else :
 				?>
@@ -123,7 +123,7 @@ class TextOption extends Option {
 
 	function get() {
 		$value = get_option('custom_community_theme_options');
-		if(isset($value[$this->id])) $value = $value[$this->id]; else $value='';
+		$value = isset($value[$this->id]) ? $value[$this->id] : '';
 
 		if ( empty( $value ) )
 			return $this->std;
@@ -182,11 +182,9 @@ class DropdownOption extends Option {
 	}
 
 	function get() {
-		$value_raw = get_option('custom_community_theme_options');
-        $value = '';
-		if(isset($value_raw[$this->id])){
-            $value = $value_raw[$this->id];
-        }
+		$value = get_option('custom_community_theme_options');
+        $value = isset($value[$this->id]) ? $value[$this->id] : '';
+        
         if ( strtolower( $value ) == 'disabled' ){
             return false;
         }
@@ -249,7 +247,7 @@ class DropdownCatOption extends Option {
 
 	function get() {
 		$value = get_option('custom_community_theme_options');
-		$value = $value[$this->id];
+		$value = isset($value[$this->id]) ? $value[$this->id] : '';
 		//echo $value;
 	     	if ( strtolower( $value ) == 'disabled' )
 			return false;
@@ -270,7 +268,7 @@ class BooleanOption extends DropdownOption {
 
 	function get() {
 		$value = get_option('custom_community_theme_options');
-		if(isset($value[$this->id])) $value = $value[$this->id]; else $value='';
+		$value = isset($value[$this->id]) ? $value[$this->id] : '';
 		if ( is_bool( $value ) )
 			return $value;
 		switch ( strtolower( $value ) ) {
@@ -299,7 +297,7 @@ class ColorOption extends Option
 	
 		$stdText = $this->std;
 		$value = get_option('custom_community_theme_options');
-    	if ( $value[$this->id] != "" )
+    	if ( !empty($value[$this->id]) )
             $stdText =  $value[$this->id];
 
 			if($this->accordion == 'on' || $this->accordion == 'start'){ ?>	
@@ -339,10 +337,9 @@ class ColorOption extends Option
 	<?php 
 	}
 
-    function get()
-    {
+    function get() {
 		$value = get_option('custom_community_theme_options');
-    	$value = $value[$this->id];
+    	$value = isset($value[$this->id]) ? $value[$this->id] : '';
         if (!$value)
             return $this->std;
         return $value;
@@ -398,14 +395,13 @@ class FileOption extends Option
 		<?php 
 	}
 
-    function get()
-    {
+    function get() {
 		$value = get_option('custom_community_theme_options');
-		$value = $value[$this->id];
-    if (!$value)
-            return $this->std;
-        return $value;
-    }
+		$value = isset($value[$this->id]) ? $value[$this->id] : '';
+        if (!$value)
+                return $this->std;
+            return $value;
+        }
 }
 
 // This class is the handy short cut for accessing config options

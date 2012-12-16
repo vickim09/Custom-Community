@@ -875,3 +875,11 @@ function cc_add_settins_info($tab_id){
     }
 }
 add_action('cc_before_settings_tab', 'cc_add_settins_info');
+
+/**
+ * Add rotate function to jquery iu 1.9 
+ */
+function cc_add_rotate_tabs(){
+    wp_enqueue_script('cc_rotate', get_template_directory_uri() . '/_inc/js/jquery-ui-tabs-rotate.js', array('jquery', 'jquery-ui-tabs'));
+}
+add_action('wp_enqueue_scripts', 'cc_add_rotate_tabs');

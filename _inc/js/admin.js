@@ -55,4 +55,8 @@ jQuery(document).ready(function(){
     if(typeof CodeMirror != 'undefined'){
         var editor = CodeMirror.fromTextArea(document.getElementById("cap_overwrite_css"), {});
     }
+    
+    jQuery('#cap_overwrite_css').focus(function(){
+        jQuery('#cap_overwrite_css').elastic();
+    });
 });

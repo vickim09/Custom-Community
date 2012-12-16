@@ -104,7 +104,7 @@ if ( !function_exists( 'admin_dtheme_enqueue_scripts' ) ) :
 function admin_dtheme_enqueue_scripts() {
 
 	// Enqueue the global JS - Ajax will not work without it
-	wp_enqueue_script( 'dtheme-admin-js', get_template_directory_uri() . '/_inc/js/admin.js', array( 'jquery' ));
+	wp_enqueue_script( 'dtheme-admin-js', get_template_directory_uri() . '/_inc/js/admin.js', array( 'jquery', 'autogrow-textarea' ));
     wp_localize_script('dtheme-admin-js', 'admin_params', array(
             'ajax_url' => site_url('/wp-admin/admin-ajax.php'),
             'blog' => __('blog', 'cc'),
@@ -113,7 +113,7 @@ function admin_dtheme_enqueue_scripts() {
         )
     );
 }
-add_action( 'admin_enqueue_scripts', 'admin_dtheme_enqueue_scripts' );
+add_action( 'admin_enqueue_scripts', 'admin_dtheme_enqueue_scripts');
 endif;
 
 if ( !function_exists( 'bp_dtheme_blog_comments' ) ) :

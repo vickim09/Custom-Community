@@ -2932,6 +2932,7 @@ div.menu li {
     border-top-left-radius:6px;
     border-top-right-radius:6px;
     float: left;
+    position: relative;
 }
 div.menu .span2{
     width: auto;

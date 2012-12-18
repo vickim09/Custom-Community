@@ -3111,10 +3111,10 @@ div.cc_slider a, div.cc_slider a:hover, div.cc_slider a:focus {
 div.cc_slider li.ui-tabs-nav-item a:hover{
     background:#<?php echo $details_hover_bg_color;?>;
 }
-div.cc_slider ul.ui-tabs-nav li.ui-tabs-selected{
+div.cc_slider ul.ui-tabs-nav li.ui-tabs-active{
     background:url(<?php echo get_template_directory_uri() ?>/images/<?php cc_color_scheme();?>/selected-item.png) top left no-repeat transparent;
 }
-div.cc_slider ul.ui-tabs-nav li.ui-tabs-selected a{
+div.cc_slider ul.ui-tabs-nav li.ui-tabs-active a{
     background:#<?php echo $container_alt_bg_color;?>;
 }
 div.cc_slider .featured .ui-tabs-panel{

@@ -3137,7 +3137,7 @@ div.cc_slider .featured .ui-tabs-panel .info{
     background: url(<?php echo get_template_directory_uri() ?>/images/slideshow/transparent-bg.png);
     margin-left: 0;
     width:100%;
-    border-radius: 0 0 6px 0;
+    border-radius: 0 0 0 6px;
 }
 div.cc_slider .featured .info h2 > a{
     font-size:18px;

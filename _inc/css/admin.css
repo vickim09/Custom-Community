@@ -75,3 +75,6 @@ fieldset.import-export{
 .ui-accordion .ui-accordion-header a{
     padding-left: 2.2em;
 }
+.slideshow_info button.close{
+    font-size: 1em;
+}

@@ -22,7 +22,7 @@ if ( have_posts() ) : ?>
 <?php do_action( 'bp_before_blog_post' ) ?>
     <div class="post"> <!-- Post goes here... --> 
     	<div class="post-content span11"> 
-        	<h3 class="post-title"><?php the_title();?></h3>
+            <h3 class="post-title"><a href="<?php the_permalink()?>" title="<?php the_title();?>"><?php the_title();?></a></h3>
             <div> 
             	<?php the_excerpt();?>                           
             </div>                       

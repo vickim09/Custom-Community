@@ -115,7 +115,7 @@
 			</select>
 				<?php _e('How many posts to display?', 'cc'); ?> <input type="text" name="cc_page_template_amount" id="cc_page_template_amount" value="<?php echo $cc_page_template_amount; ?>" />
 			</p>
-            <p><?php _e('Allow direct post access'); ?><br />
+            <p><?php _e('Allow direct post access', 'cc'); ?><br />
                 <select id="cc_allow_direct_link" name="cc_page_allow_direct_link">
                     <?php foreach ($yes_no_options as $allow_direct_link): ?>
                         <option value="<?php echo $allow_direct_link?>" <?php selected($allow_direct_link, $is_allowed_direct_link)?>><?php echo $allow_direct_link; ?></option>
@@ -146,7 +146,7 @@
  }
  
 function cc_page_meta_add($id){
-    if(!empty($_POST) && !empty($_POST) && $_POST['action'] == 'inline-save')
+    if(!empty($_POST) && !empty($_POST['action']) && $_POST['action'] == 'inline-save')
     return;
     
 	if (isset($_POST['cc_page_slider_on']) && $_POST['cc_page_slider_on'] == "1") {

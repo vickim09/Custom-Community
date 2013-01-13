@@ -499,11 +499,11 @@ function cc_get_magazine_style($magazine_style = FALSE){
     if($magazine_style){
         $args = '';
         switch ($magazine_style){
-            case __('img-right-content-right', 'cc'):
-                $args = 'left';                            
-            break;
             case __('img-right-content-left', 'cc'):
                 $args = 'right';                            
+            break;
+            case __('img-left-content-right', 'cc'):
+                $args = 'left';                            
             break;
             case __('img-over-content', 'cc'):
                 $args = 'over';                            

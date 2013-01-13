@@ -883,3 +883,29 @@ function cc_add_rotate_tabs(){
     wp_enqueue_script('cc_rotate', get_template_directory_uri() . '/_inc/js/jquery-ui-tabs-rotate.js', array('jquery', 'jquery-ui-tabs'));
 }
 add_action('wp_enqueue_scripts', 'cc_add_rotate_tabs');
+
+/**
+ * Enqueue theme javascript safely for admin console
+ *
+ * @see http://codex.wordpress.org/Function_Reference/wp_enqueue_script
+ * @since 1.9.1
+ */
+function admin_dtheme_enqueue_scripts() {
+    $cap = new autoconfig();
+    //add for imadiatly view settings after save options
+    $responsive = !empty($_POST) && !empty($_POST['custom_community_theme_options']) ? 
+                    $_POST['custom_community_theme_options']['cap_cc_responsive_enable'] == __('Enabled', 'cc') ? 1 : 0 : $cap->cc_responsive_enable;
+    
+    // Enqueue the global JS - Ajax will not work without it
+    wp_enqueue_script( 'dtheme-admin-js', get_template_directory_uri() . '/_inc/js/admin.js', array( 'jquery', 'autogrow-textarea' ));
+    wp_localize_script('dtheme-admin-js', 'admin_params', array(
+            'ajax_url'       => site_url('/wp-admin/admin-ajax.php'),
+            'blog'           => __('blog', 'cc'),
+            'flux_slider'    => __('flux slider', 'cc'),
+            'default_slider' => __('default', 'cc'),
+            'responsive'     => $responsive
+        )
+    );
+    unset($cap);
+}
+add_action( 'admin_enqueue_scripts', 'admin_dtheme_enqueue_scripts');

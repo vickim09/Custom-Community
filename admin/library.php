@@ -107,11 +107,11 @@ class TextOption extends Option {
 			if ( $this->useTextArea ) :
 				$commentWidth = 1;
 				?>
-				<textarea class="text_option_teaxarea" name="custom_community_theme_options[<?php echo $this->id; ?>]" id="<?php echo $this->id; ?>"><?php echo esc_attr( $stdText ); ?></textarea>
+                <textarea class="text_option_teaxarea" name="custom_community_theme_options[<?php echo $this->id; ?>]" id="<?php echo $this->id; ?>"><?php echo esc_attr( stripcslashes($stdText) ); ?></textarea>
 				<?php
 			else :
 				?>
-				<input name="custom_community_theme_options[<?php echo $this->id; ?>]" id="<?php echo $this->id; ?>" type="text" value="<?php echo esc_attr( $stdText ); ?>" size="40" />
+				<input name="custom_community_theme_options[<?php echo $this->id; ?>]" id="<?php echo $this->id; ?>" type="text" value="<?php echo esc_attr( stripcslashes($stdText) ); ?>" size="40" />
 				<?php
 			endif; 
 			
@@ -313,7 +313,7 @@ class ColorOption extends Option
 				<p><b><?php echo $this->name; ?></b></p>
 			<?php } ?>
 			<?php echo $this->desc.'<br />'; ?>
-        	<input name="custom_community_theme_options[<?php echo $this->id; ?>]" id="<?php echo $this->id ?>" type="text" value="<?php echo htmlspecialchars($stdText) ?>" size="40" />
+                <input name="custom_community_theme_options[<?php echo $this->id; ?>]" id="<?php echo $this->id ?>" type="text" value="<?php echo htmlspecialchars(stripslashes($stdText)) ?>" size="40" />
 			<?php 
         	if($this->accordion == 'on' || $this->accordion == 'end'){ ?>
 				</div>
@@ -382,7 +382,7 @@ class FileOption extends Option
 			<div class="option-inputs">
 
 				<label for="image1">
-				<input id="#upload_image<?php echo $this->id ?>" type="text" size="36" name="custom_community_theme_options[<?php echo $this->id; ?>]" value="<?php echo htmlspecialchars($stdText) ?>" />
+				<input id="#upload_image<?php echo $this->id ?>" type="text" size="36" name="custom_community_theme_options[<?php echo $this->id; ?>]" value="<?php echo htmlspecialchars(stripslashes($stdText)) ?>" />
 				<input class="upload_image_button" type="button" value="<?php _e('Browse..','cc')?>" /><br></br>
 				<img class="cc_image_preview" id="image_<?php echo $this->id ?>" src="<?php echo htmlspecialchars($stdText);  ?>" />
 				
@@ -486,7 +486,7 @@ function cap_admin_js_footer() {
 
 function top_level_settings() {
 	global $themename, $cap;
-
+    $cap = new autoconfig();
     if ( ! isset( $_REQUEST['updated'] ) )
 		$_REQUEST['updated'] = false;
 
@@ -497,6 +497,7 @@ function top_level_settings() {
 		$cap = new autoconfig();
 		do_action('cc_after_theme_settings_saved');
 	}
+    
 	if ( isset( $_REQUEST['saved'] ) )
 		echo "<div id='message' class='updated fade'><p><strong>$themename settings saved.</strong></p></div>";
 	if ( isset( $_REQUEST['reset'] ) )

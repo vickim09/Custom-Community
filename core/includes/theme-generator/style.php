@@ -5,15 +5,6 @@ require_once 'style-helper-functions.php';
 
 global $cap;
 
-$uploads = wp_upload_dir();
-if(cc_mkdir($uploads['basedir'] . DIRECTORY_SEPARATOR .'custom-community')){
-    define ( 'CC_MAIN_CSS_FILE_PATH',   $uploads['basedir'] . DIRECTORY_SEPARATOR .'custom-community'. DIRECTORY_SEPARATOR .'main.css' );
-    define ( 'CC_CUSTOM_CSS_FILE_PATH', $uploads['basedir'] . DIRECTORY_SEPARATOR .'custom-community'. DIRECTORY_SEPARATOR .'custom.css' );
-    define ( 'CC_BACKUP_CSS_FILE_PATH', $uploads['basedir'] . DIRECTORY_SEPARATOR .'custom-community'. DIRECTORY_SEPARATOR .'backup.css' );
-
-    define ( 'CC_MAIN_CSS_FILE_URL',   $uploads['baseurl'] . '/custom-community/main.css' );
-    define ( 'CC_CUSTOM_CSS_FILE_URL', $uploads['baseurl'] . '/custom-community/custom.css' );
-}
 
 /**
 * This function creates front-end styles
@@ -72,8 +63,8 @@ body.activity-permalink {
 #innerrim {
     <?php if($cap->cc_responsive_enable): ?>
         width: 1200px;
-	<?php /*elseif($cap->website_width): ?>
-        width: <?php echo $cap->website_width . $cap->website_width_unit; */?>;
+	<?php elseif($cap->website_width): ?>
+        width: <?php echo $cap->website_width . $cap->website_width_unit; ?>;
     <?php else : ?>
         width: 1000px;
     <?php endif;?>
@@ -102,7 +93,7 @@ h2 {color:#<?php echo $font_color;?>; margin-top: -8px;margin-bottom: 25px;line-
 h3 {color:#<?php echo $font_color;?>}
 h1, h1 a, h1 a:hover, h1 a:focus {font-size: 28px}
 h2, h2 a, h2 a:hover, h2 a:focus {font-size: 24px}
-h3, h3 a, h3 a:hover, h3 a:focus {font-size: 1.5em}
+h3, h3 a, h3 a:hover, h3 a:focus {font-size: 1.5em; margin-top: 3px;}
 h4, h4 a, h4 a:hover, h4 a:focus {font-size: 16px;margin-bottom: 15px}
 h5, h5 a, h5 a:hover, h5 a:focus {font-size: 14px;margin-bottom: 0}
 h6, h6 a, h6 a:hover, h6 a:focus {font-size: 12px;margin-bottom: 0}
@@ -2348,6 +2339,9 @@ div.post div.post-content {
     width: 90%;
     float:left;
 }
+.search-result div.post div.post-content{
+    width: 100%; 
+}
 #activate-page.page, #register-page.page{
     margin-left: 20px;
 }
@@ -3071,7 +3065,7 @@ div.cc_slider ul.ui-tabs-nav {
     position: absolute;
     right: 0;
     top: 0;
-    width: 25%;
+    width: 26%;
 }
 div.cc_slider ul.ui-tabs-nav li{
     padding:1px 2px 1px 13px;
@@ -3341,7 +3335,7 @@ div.posts-img-right-content-left a{
 div.posts-img-over-content {
     float:left;
     padding:20px 0 0;
-    width:242px;
+    width:33%;
 }
 
 div.posts-img-over-content img.wp-post-image {
@@ -3368,7 +3362,7 @@ div.posts-img-over-content a{
 
 div.posts-img-over-content p{
     padding-right:20px;
-    width:222px;
+    text-align: justify;
 }
 
 
@@ -4375,8 +4369,7 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 <?php endif;?>
 
 <?php if($cap->default_homepage_hide_avatar == "hide" || $cap->default_homepage_hide_avatar == __("hide",'cc') ){?>
-/** ***
-standard wordpress home page: hide avatar**/
+/** ***standard wordpress home page: hide avatar**/
 
 body.home div.post div.post-content, div.comment-content,
 body.home.bubble div.post div.post-content, body.bubble div.comment-content {
@@ -4802,6 +4795,11 @@ menu background colour, border-bottom, image and repeat  **/
 menu corner radius  **/
 
 #access {
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -o-border-radius: 10px;
+    -ms-border-radius: 10px;
+    border-radius: 10px;
 <?php if($cap->menu_corner_radius == 'just the bottom ones' || $cap->menu_corner_radius == __('just the bottom ones','cc') ){?>
     -moz-border-radius-topleft:0px;
     -moz-border-radius-topright:0px;
@@ -5213,66 +5211,19 @@ div{
 }
 
 /**
-* This function generates static css files
-*/
-function cc_create_static_css_files(){
-	global $cap;
-
-	if( isset($_REQUEST['page']) == 'theme_settings' && isset($_REQUEST['action']) == 'update' ){
-		ob_start();
-		get_css();
-		$dynamic_styles = ob_get_contents();
-		ob_end_clean();
-		
-		
-		$custom_styles = '';
-		if($cap->overwrite_css){
-			$custom_styles = $cap->overwrite_css;
-		}
-		
-		//create backup css file
-		if( file_exists(CC_MAIN_CSS_FILE_PATH) ){
-			if($old_main_css = file_get_contents(CC_MAIN_CSS_FILE_PATH)){
-				create_static_css_file($old_main_css, CC_BACKUP_CSS_FILE_PATH);
-				if(file_exists(CC_CUSTOM_CSS_FILE_PATH)){
-					if($old_custom_css = file_get_contents(CC_CUSTOM_CSS_FILE_PATH)){
-						create_static_css_file("\r\n".'/*custom styles*/'."\r\n".$old_custom_css, CC_BACKUP_CSS_FILE_PATH, 'a+');
-					}
-				}
-			}
-		}
-		
-		//create static css files
-		if(create_static_css_file($dynamic_styles, CC_MAIN_CSS_FILE_PATH)){
-			if(!empty($custom_styles)){
-				create_static_css_file($custom_styles, CC_CUSTOM_CSS_FILE_PATH);
-			}
-		}
-		else{
-			return false;
-		}
-	}
-	
-	if( is_admin() && isset($_REQUEST['page']) == 'theme_settings' && file_exists(CC_CUSTOM_CSS_FILE_PATH) ){
-		$custom_css = file_get_contents(CC_CUSTOM_CSS_FILE_PATH);
-		cc_overwrite_option($custom_css, 'custom_community_theme_options', 'cap_overwrite_css');
-	}
-}
-
-/**
 * This function ...
 */
 function cc_style_switcher(){
 	global $cap;
 
-	if( $cap->static_css == 'no' || !defined('is_pro') ){
+	if( $cap->static_css == 'no' || !defined('is_pro') && defined('CC_MAIN_CSS_FILE_PATH') && defined('CC_CUSTOM_CSS_FILE_PATH')){
 		$names_arr = array(
 			CC_MAIN_CSS_FILE_PATH,
 			CC_CUSTOM_CSS_FILE_PATH
 		);
 		cc_remove_static_css_files($names_arr);
 	}
-	elseif( $cap->static_css == 'yes' && defined('is_pro') ){
+	elseif( $cap->static_css == 'yes' && defined('is_pro') && function_exists('cc_create_static_css_files')){
 		cc_create_static_css_files();
 	}
 }
@@ -5282,14 +5233,15 @@ add_action('cc_after_theme_settings_saved', 'cc_style_switcher');
 * This function ...
 */
 function cc_print_styles(){
-	if( file_exists(CC_MAIN_CSS_FILE_PATH) && defined('is_pro') ){
+	if( defined('is_pro') && defined('CC_MAIN_CSS_FILE_PATH') && file_exists(CC_MAIN_CSS_FILE_PATH)){
 		echo '<link type="text/css" rel="stylesheet" href="'.CC_MAIN_CSS_FILE_URL.'" />';
 	    if(file_exists(CC_CUSTOM_CSS_FILE_PATH)){
 			echo '<link type="text/css" rel="stylesheet" href="'.CC_CUSTOM_CSS_FILE_URL.'" />';
 	    }
 	}
-	elseif( !file_exists(CC_MAIN_CSS_FILE_PATH) || !defined('is_pro') ){
+	elseif( (defined('CC_MAIN_CSS_FILE_PATH') && !file_exists(CC_MAIN_CSS_FILE_PATH)) || !defined('is_pro') ){
 		cc_dysplay_dynamic_css();
 	}
 }
 add_action('wp_head', 'cc_print_styles', 100);
+?>

@@ -1020,7 +1020,7 @@ function cap_get_options() {
 				array(__('sharper shadow','cc'), __('shadow','cc'), __('no shadow','cc')),
 				__('sharper shadow','cc')),
 	        new DropdownOption(
-	            __('Allow direct post access'),
+	            __('Allow direct post access', 'cc'),
 	            __('When small thumbnails are displayed to the right of a slideshow currently.
 	                When clicking on them you will be redirected to page of the post of this thumbnail.'),
 	            'slideshow_direct_links',

@@ -585,7 +585,7 @@ jq(document).ready( function() {
 			object = 'members';
 
 		if ( jq('div.pagination span.current').length )
-				var page_number = Number( jq('div.pagination span.current').html() );
+				page_number = new Number( jq('div.pagination span.current').html() );
 
 		bp_displaymode_request( object, displaymode, scope, 'div.' + object, search_terms, page_number, jq.cookie('bp-' + object + '-extras') );
 

@@ -19,7 +19,7 @@ class Group {
 		$this->options = apply_filters('cc_cap_get_options', $_options, $_id);
 	}
 	
-	function WriteHtml() {
+    function WriteHtml() {
 
 					 
 			echo '<div class="accordion">';
@@ -129,6 +129,52 @@ class TextOption extends Option {
 			return $this->std;
 		return $value;
 	}
+}
+
+class CheckboxGroupOptions extends Option{
+    public $options;
+    
+    function CheckboxGroupOptions($_name, $_desc, $_id, $_options, $_stdIndex = 0, $_accordion = 'on', $_accordion_name = "off"){
+        $this->Option( $_name, $_desc, $_id, $_stdIndex );
+		$this->options = $_options;
+		$this->accordion = $_accordion;
+		$this->accordion_name = $_accordion_name;
+    }
+    function WriteHtml() {
+        if($this->accordion == 'on' || $this->accordion == 'start'){ ?>	
+				<?php if($this->accordion_name != 'off') { ?>
+					<h3><a href="#"><?php echo $this->accordion_name; ?></a></h3>
+					<div>
+					<p><b><?php echo $this->name; ?></b></p>
+				<?php } else {?>
+					<h3><a href="#"><?php echo $this->name; ?></a></h3>
+					<div>
+				<?php }?>
+			<?php } else { ?>
+				<p><b><?php echo $this->name; ?></b></p>
+			<?php } ?>
+				<?php echo $this->desc; ?></br>
+				<?php
+				
+                $value = get_option('custom_community_theme_options');
+                $value = (isset($value[$this->id])) ? unserialize($value[$this->id]) : array();
+				foreach( $this->options as $option ) :
+                    // If standard value is given?>
+                    <label>
+                        <input type="checkbox" class="checkbox-group" name="custom_community_theme_options[<?php echo $this->id; ?>][]" <?php echo in_array($option['id'], $value) ? 'checked="checked"' : '';?> value="<?php echo $option['id'];?>"/><?php echo $option['name'];?><br />
+                    </label>
+                <?php
+				endforeach;
+				?>
+			<?php if( $this->accordion == 'on' || $this->accordion == 'end'){ ?>
+				</div>
+			<?php } 
+    }
+    
+    function get(){
+        $value = get_option('custom_community_theme_options');
+        return isset($value[$this->id]) ? unserialize($value[$this->id]) : array();
+    }
 }
 
 class DropdownOption extends Option {
@@ -493,6 +539,7 @@ function top_level_settings() {
 	if(!empty($_POST) && !empty($_POST['custom_community_theme_options'])){
 		$options = get_option('custom_community_theme_options');
 		$options = array_merge((array)$options, $_POST['custom_community_theme_options']);
+        $options['cap_slideshow_cat'] = !empty($_POST['custom_community_theme_options']['cap_slideshow_cat']) ? serialize($options['cap_slideshow_cat']) : serialize(array());
 		update_option('custom_community_theme_options', $options);
 		$cap = new autoconfig();
 		do_action('cc_after_theme_settings_saved');

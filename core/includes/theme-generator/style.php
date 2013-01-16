@@ -317,8 +317,8 @@ ul#nav a:focus {outline: none}
 -------------------------------------------------------------- */
 
 div#container {
-    -moz-border-radius:6px 6px 6px 6px;
     border-radius:6px;
+    -moz-border-radius:6px;
     -webkit-border-radius:6px;
     background-color: #<?php echo $container_bg_color;?>;
     background-image:none;
@@ -553,12 +553,14 @@ div#content {
 div#content .padder {
 /*    margin-left: <?php echo $cap->leftsidebar_width ?>px;
     margin-right: <?php echo $cap->rightsidebar_width ?>px;*/
-    -moz-border-radius: 0px !important;
+    border-radius: 0px; 
     border-left: none;
     border-right: none;
     min-height: 300px;
     padding-top: 30px;
     overflow: hidden;
+    <?php if( $cap->container_padding != '') { 
+    	echo 'padding: '.$cap->container_padding.';'; } ?> 
 }
 
 div#content .left-menu {
@@ -3022,7 +3024,6 @@ div#cc_slider-top {
     background-repeat:repeat-y;
     border:medium none;
     overflow:hidden;
-    padding:10px 0 0 0;
     width: 100%;
 }
 div.cc_slider {
@@ -5135,7 +5136,15 @@ div.item-list-tabs {
 .row-fluid .span8, .span8 {
     width: 75%;
 } 
-
+.home #container .row-fluid .span8 {
+    width: 80%;
+} 
+.row-fluid.left-right-template .span8,.row-fluid.archive-width .span8{
+    width: 53%;
+}
+.row-fluid.full-search-width .span8{
+    width: 98%;
+}
 .row-fluid.left-right-sidebar .span8, 
 .row-fluid .span8.left-right-template{
     width: 50%;
@@ -5179,6 +5188,8 @@ html {
     background-repeat: no-repeat !important;
     padding-left: 20px !important;
 }
+
+div#content.span8.full-with { width: 100%; }
 
 /** ***   
 overwrite css area adding  **/

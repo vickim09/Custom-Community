@@ -357,7 +357,7 @@ function cc_slidertop(){
         }
 	}
     $same_attrs = array(
-        'category_name'     => $slidercat,
+        'category__in'      => $slidercat,
         'caption'           => $caption,
         'id'                => 'slidertop',
         'time_in_ms'        => $slideshow_time,
@@ -403,7 +403,7 @@ function cc_list_posts_on_page(){
     if(isset($cc_page_options) && $cc_page_options['cc_page_template_on'] == 1){
     $atts = array(
                 'amount'        => $cc_page_options['cc_page_template_amount'],
-                'category_name' => $cc_page_options['cc_page_template_cat']
+                'category__in' => $cc_page_options['cc_page_template_cat']
             );
     
     switch ($cc_page_options['cc_posts_on_page_type']){

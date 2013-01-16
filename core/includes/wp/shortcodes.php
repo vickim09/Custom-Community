@@ -314,6 +314,7 @@ function cc_list_posts($atts,$content = null) {
     
     extract(shortcode_atts(array(
         'amount'        => '12',
+        'category__in'  => array(),
         'category_name' => '0',
         'img_position'  => 'mouse_over',
         'height'        => 'auto',
@@ -343,10 +344,16 @@ function cc_list_posts($atts,$content = null) {
             break;
         }
         
-    if($category_name == 'all-categories'){
-        $category_name = '0';
+   if (empty($category__in)) {
+        $category__in = array();
+        $categories = get_categories();
+        foreach ($categories as $category) {
+            $category__in[] = $category->term_id;
+        }
+    } else if (!is_array($category__in)) {
+        $category__in = explode(',', $category__in);
     }
-        
+
     if($page_id != ''){
         $page_id = explode(',',$page_id);
     }
@@ -358,11 +365,12 @@ function cc_list_posts($atts,$content = null) {
         'post__in'       => $page_id,
         'year'           => $year,
         'monthnum'       => $monthnum,
-        'category_name'  => $category_name,
+        'category__in'   => $category__in,
+        'category_name'   => $category_name,
         'posts_per_page' => $amount,
         'paged'          => $paged
     );
-    
+
     remove_all_filters('posts_orderby');
     query_posts($args);
 

@@ -16,7 +16,7 @@ if(!empty($raw_search_string)){
 	
 if(!empty($search_term)){
     query_posts('post_status=publish&s=' . $search_term);
-   
+ 
 if ( have_posts() ) : ?>
 <?php while(have_posts()): the_post(); ?>
 <?php do_action( 'bp_before_blog_post' ) ?>
@@ -34,7 +34,7 @@ if ( have_posts() ) : ?>
         </div>
 		
     </div><!-- Post ends here... -->
-	<?php do_action( 'bp_after_blog_post' ) ?>
+	<?php do_action( 'bp_after_blog_post' ) ; ?>
     <?php endwhile;?>
 	<?php if(!cc_is_advance_search()):?>
 	<div class="navigation">
@@ -43,7 +43,7 @@ if ( have_posts() ) : ?>
 		<div class="alignright"><?php previous_posts_link( __( 'Next Entries &rarr;', 'cc' ) ) ?></div>
 	<?php }?>
 	</div>
-	<?php endif;?>
+	<?php endif; ?>
 	<?php else : ?>
 	<div class="post">
 		<div class="post-content span11 404">

@@ -37,14 +37,10 @@ function cap_get_options() {
 	$args       = array('echo' => '0','hide_empty' => '0');
 	$categories = get_categories($args);
 	$option     = Array();
-	$option[0]  = Array (
-		            'name' => __('All categories','cc'),
-		            'slug' => 'all-categories'
-		        );
-	$i = 1;
+	$i = 0;
 	foreach($categories as $category) {
 		$option[$i]['name'] = $category->name;
-		$option[$i]['slug'] = $category->slug;
+		$option[$i]['id'] = $category->term_id;
 		$i++;
 	}
 
@@ -138,6 +134,13 @@ function cap_get_options() {
 				"",
 				"start",
 				__("Container",'cc')),
+				new TextOption(
+					__("Content Padding",'cc'),
+					__("The spacing at the borders inside the container, write e.g. '10px', '2%' or '0.5em'. default is 0",'cc'),
+					"container_padding",
+					"",
+					"",
+					false),
 				new DropdownOption(
 					__("Show / hide the vertical lines",'cc'),
 					__("The vertical lines that divide your container are default, <br>
@@ -375,6 +378,13 @@ function cap_get_options() {
 				array(__('blog','cc'), __('magazine','cc')),
 				__("blog",'cc'),
 				"start"),
+            new DropdownOption(
+                __('Archives page template'),
+                __('Select Archives page template'),
+                'archive_template',
+                array(__('right', 'cc'), __('left','cc'), __('left and right','cc')),
+                '',
+                ''),
 			new DropdownOption(
 				'',
 				__("List Post Template (for magazine style) for categories, tags and other possible taxonomy types.",'cc'),
@@ -959,7 +969,7 @@ function cap_get_options() {
 				"slideshow_small_img",
 				"",
 				"end", FALSE),
-			new DropdownCatOption(
+			new CheckboxGroupOptions(
 				__("Slideshow post categories",'cc'),
 				__("The slideshow takes images, titles and text-excerpts of the last 4 posts.<br>
 				You can select the category the posts should be taken from. <br>

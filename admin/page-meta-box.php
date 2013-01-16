@@ -3,14 +3,10 @@
 		$args = array('echo' => '0','hide_empty' => '0');
 		$categories = get_categories($args);
 		$option = Array();
-		$option[0] = Array (
-	            'name' => __('All categories','cc'),
-	            'slug' => 'all-categories'
-	        );
-		$i = 1;
+		$i = 0;
 		foreach($categories as $category) {
 			$option[$i]['name'] = $category->name;
-			$option[$i]['slug'] = $category->slug;
+			$option[$i]['id'] = $category->term_id;
 			$i++;
 		}
 	
@@ -76,11 +72,15 @@
 			<b><?php _e('Slideshow','cc')?></b><br />
 			<label for="cc_page_slider"><?php _e('Slideshow on','cc')?>:</label>
 			<input name="cc_page_slider_on" id="cc_page_slider_on" type="checkbox" <?php echo $checked_slider ?> value="1" />
-			<?php _e('Select a category to display in slideshow:', 'cc'); ?> <select id="cc_page_slider_cat" name="cc_page_slider_cat">
-					<?php foreach($option_categories as $option){?>
-						<option <?php if ( trim($cc_page_options['cc_page_slider_cat']) == $option['slug'] ) { echo ' selected="selected"'; } ?> value="<?php echo $option['slug'] ?>"><?php echo $option['name']; ?></option>
-					<?php }?>
-			</select><br />
+			<?php _e('Select a category to display in slideshow:', 'cc'); ?>
+            <?php foreach($option_categories as $option){ ?>
+            <label>
+                <input type="checkbox" name="cc_page_slider_cat[]" 
+                    <?php echo is_array($cc_page_options['cc_page_slider_cat']) && in_array($option['id'], $cc_page_options['cc_page_slider_cat']) ? 'checked' : ''?> 
+                    value="<?php echo $option['id']; ?>" /><?php echo $option['name']?>
+            </label>
+            <?php }?>
+			<br />
 			<label for="cc_page_slider_post_type"><?php _e('Use Post Type: for Pages write "page"','cc')?>:</label>
 			<input type="text" name="cc_page_slider_post_type" id="cc_page_slider_post_type" value="<?php echo $cc_page_slider_post_type; ?>" />
 			<label for="cc_page_slider_show_page"><?php _e('post/page ids comma separated','cc')?>:</label>
@@ -108,12 +108,15 @@
 						<option <?php if($cc_page_options['cc_posts_on_page_type'] == $option_template){?>selected="selected"<?php }?>><?php echo $option_template; ?></option>
 					<?php }?>
 			</select>
-			<?php _e('Select a category to display', 'cc'); ?>: <select id="cc_page_template_cat" name="cc_page_template_cat">
+			<?php _e('Select a category to display', 'cc'); ?>:
 					<?php foreach($option_categories as $option){?>
-						<option <?php if ( trim($cc_page_options['cc_page_template_cat']) == $option['slug'] ) { echo ' selected="selected"'; } ?> value="<?php echo $option['slug'] ?>"><?php echo $option['name']; ?></option>
+                         <label>
+                            <input type="checkbox" name="cc_page_template_cat[]" 
+                                <?php echo is_array($cc_page_options['cc_page_template_cat']) && in_array($option['id'], $cc_page_options['cc_page_template_cat']) ? 'checked' : ''?> 
+                                value="<?php echo $option['id']; ?>" /><?php echo $option['name']?>
+                        </label>
 					<?php }?>
-			</select>
-				<?php _e('How many posts to display?', 'cc'); ?> <input type="text" name="cc_page_template_amount" id="cc_page_template_amount" value="<?php echo $cc_page_template_amount; ?>" />
+            <?php _e('How many posts to display?', 'cc'); ?> <input type="text" name="cc_page_template_amount" id="cc_page_template_amount" value="<?php echo $cc_page_template_amount; ?>" />
 			</p>
             <p><?php _e('Allow direct post access', 'cc'); ?><br />
                 <select id="cc_allow_direct_link" name="cc_page_allow_direct_link">
@@ -156,15 +159,19 @@ function cc_page_meta_add($id){
 	}
 	if (isset($_POST['cc_page_slider_cat']) === true) {
 	    update_post_meta($id,"_cc_page_slider_cat",$_POST["cc_page_slider_cat"]);
-	}
+	} else {
+        update_post_meta($id,"_cc_page_slider_cat",array());
+    }
 	if (isset($_POST['cc_page_template_on']) && $_POST['cc_page_template_on'] == "1") {
 	 	update_post_meta($id,"_cc_page_template_on",1);
 	} else {
 	 	update_post_meta($id,"_cc_page_template_on",0);
 	}
 	if (isset($_POST['cc_page_template_cat']) === true) {
-	    update_post_meta($id,"_cc_page_template_cat",$_POST["cc_page_template_cat"]);
-	}
+	    update_post_meta($id,"_cc_page_template_cat", $_POST["cc_page_template_cat"]);
+	} else {
+        update_post_meta($id,"_cc_page_template_cat", array());
+    }
 	if (isset($_POST['cc_page_template_amount']) === true) {
 	    update_post_meta($id,"_cc_page_template_amount",$_POST["cc_page_template_amount"]);
 	}

@@ -372,8 +372,8 @@ function cap_get_options() {
 				__("blog",'cc'),
 				"start"),
             new DropdownOption(
-                __('Archives page template'),
-                __('Select Archives page template'),
+                __('Archives page template', 'cc'),
+                __('Select Archives page template', 'cc'),
                 'archive_template',
                 array(__('right', 'cc'), __('left','cc'), __('left and right','cc')),
                 '',

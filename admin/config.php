@@ -134,13 +134,6 @@ function cap_get_options() {
 				"",
 				"start",
 				__("Container",'cc')),
-				new TextOption(
-					__("Content Padding",'cc'),
-					__("The spacing at the borders inside the container, write e.g. '10px', '2%' or '0.5em'. default is 0",'cc'),
-					"container_padding",
-					"",
-					"",
-					false),
 				new DropdownOption(
 					__("Show / hide the vertical lines",'cc'),
 					__("The vertical lines that divide your container are default, <br>
@@ -334,7 +327,7 @@ function cap_get_options() {
 				"start",
 				__("Default homepage",'cc')),
 	        new DropdownOption(
-				__("Posts lists on home page",'cc'),
+				__("Posts listing style on home page",'cc'),
 				__("Display style for home page list page.",'cc'),
 				"posts_lists_style_home",
 				array(__('blog','cc'), __('magazine','cc')),
@@ -358,7 +351,7 @@ function cap_get_options() {
 			new DropdownOption(
 				'<span class="blog-item-home">' .__("Post listing style",'cc'). '</span>',
 				'<span class="blog-item-home">' .__("Select a style how to display the latest posts. <br>
-				You can also list your posts in magazine style, showing the featured images, check out our our <a href='http://themekraft.com/faq/list-your-latest-posts/'>FAQ here</a>.",'cc'). '</span>',
+				You can also list your posts in magazine style, showing the featured images, check out the option 'Posts listing style on home page' above here.",'cc'). '</span>',
 				"default_homepage_style",
 				array(__('bubbles','cc'), __('default','cc')),
 				__("bubbles",'cc'),
@@ -433,9 +426,9 @@ function cap_get_options() {
 				"",
 				__("Posts archive pages (categories, tags, dates)",'cc')),
 			new DropdownOption(
-				'<span class="blog-items">' .__("Post listing style in blog display",'cc'). '</span>',
-				'<span class="blog-items">' .__("Select a style how to display the latest posts. <br>
-				You can also list your posts in magazine style, showing the featured images, check out our our <a href='http://themekraft.com/faq/list-your-latest-posts/'>FAQ here</a>.",'cc'),
+				'<span class="blog-items">' .__("Post listings layout for blog style",'cc'). '</span>',
+				'<span class="blog-items">' .__("Select a layout how to display the latest posts. <br>
+				You can also list your posts in magazine style, showing the featured images, check out the option 'Display style for author archives' above here..",'cc'),
 				"posts_lists_style". '</span>',
 				array(__('bubbles','cc'), __('default','cc')),
 				__("bubbles",'cc'),
@@ -973,7 +966,7 @@ function cap_get_options() {
 				__("Slideshow post categories",'cc'),
 				__("The slideshow takes images, titles and text-excerpts of the last 4 posts.<br>
 				You can select the category the posts should be taken from. <br>
-				For more info check out the <a href='http://themekraft.com/faq/' target='_blank'>FAQ</a>, especially <a href='http://themekraft.com/faq/slideshow/' target='_blank'>slideshow</a> and <a href='http://themekraft.com/faq/featured-image/' target='_blank'>featured image</a>.",'cc'),
+				For more info check out the Knowledge Base topic about the <a href='http://support.themekraft.com/entries/21647926-slideshow' target='_blank'>Slideshow</a> and <a href='http://support.themekraft.com/entries/21621621-featured-image' target='_blank'>featured image</a>.",'cc'),
 				"slideshow_cat",
 				$option_categories),
 			new TextOption(

@@ -559,8 +559,6 @@ div#content .padder {
     min-height: 300px;
     padding-top: 30px;
     overflow: hidden;
-    <?php if( $cap->container_padding != '') { 
-    	echo 'padding: '.$cap->container_padding.';'; } ?> 
 }
 
 div#content .left-menu {

@@ -838,7 +838,7 @@ function slider($atts, $content = null) {
         $tmp .='<div id="cc_slider_prev" class="cc_slider">' . chr(13);
         $tmp .='<div id="featured_prev" class="featured">' . chr(13);
         $tmp .='<h2 class="center">' . __('Empty Slideshow', 'cc') . '</h2>' . chr(13);
-        $tmp .='<p class="center">' . __('You have no posts selected for your slideshow! <br>Check your theme settings for the global slideshow or the page settings for page slideshows... <br>and write a post! Check the <a href="http://themekraft.com/faq/slideshow/" target="_blank">FAQ</a> for more.', 'cc') . '</p>' . chr(13);
+        $tmp .='<p class="center">' . __('Something went wrong here. Some help: <br>Check your theme settings and write a post with an featured image! <br> Have a look how to setup your <a href="http://support.themekraft.com/entries/21647926-slideshow" target="_blank">Slideshow</a> or check out our <a href="http://themekraft/support" target="_blank">Support</a> if you still get stuck.', 'cc') . '</p>' . chr(13);
         $tmp .='</div></div>' . chr(13);
     }
     wp_reset_query();
